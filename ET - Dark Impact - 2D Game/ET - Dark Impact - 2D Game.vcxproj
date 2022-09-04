@@ -98,7 +98,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\Admin\source\dev\SDL2_image-2.0.1\lib\x86;C:\Users\Admin\source\dev\SDL2-2.24.0\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SLD2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -150,7 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="HeroObject.cpp" />
+    <ClCompile Include="SnakeObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapBackground.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -158,7 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
-    <ClInclude Include="HeroObject.h" />
+    <ClInclude Include="SnakeObject.h" />
     <ClInclude Include="MapBackground.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TokenObject.h" />

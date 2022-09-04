@@ -1,10 +1,10 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "HeroObject.h"
+//#include "HeroObject.h"
 #include "TokenObject.h"
 #include "MapBackground.h"
 
-HeroObject* hero;
+//HeroObject* hero;
 MapBackground* map;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
