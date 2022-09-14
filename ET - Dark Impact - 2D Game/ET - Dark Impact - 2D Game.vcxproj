@@ -149,16 +149,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="SnakeObject.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MapBackground.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="TokenObject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="SnakeObject.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="HeroObject.h" />
     <ClInclude Include="MapBackground.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="TokenObject.h" />
