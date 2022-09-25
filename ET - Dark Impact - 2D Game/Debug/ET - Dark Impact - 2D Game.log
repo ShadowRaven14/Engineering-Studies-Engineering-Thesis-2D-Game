@@ -1,1 +1,6 @@
-﻿  ET - Dark Impact - 2D Game.vcxproj -> C:\Users\zuzsl\Documents\GitHub\ET-2D-Game\Debug\ET - Dark Impact - 2D Game.exe
+﻿  Game.cpp
+  HeroObject.cpp
+  Main.cpp
+  Generating Code...
+  LINK : C:\Users\zuzsl\Documents\GitHub\ET-2D-Game\Debug\ET - Dark Impact - 2D Game.exe not found or not built by the last incremental link; performing full link
+  ET - Dark Impact - 2D Game.vcxproj -> C:\Users\zuzsl\Documents\GitHub\ET-2D-Game\Debug\ET - Dark Impact - 2D Game.exe
