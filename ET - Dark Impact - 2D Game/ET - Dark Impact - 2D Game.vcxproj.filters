@@ -27,9 +27,6 @@
     <ClCompile Include="HeroObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="TokenObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files\GameRun</Filter>
     </ClCompile>
@@ -39,10 +36,7 @@
     <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files\GameRun</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>Source Files\GameObjects</Filter>
-    </ClCompile>
-    <ClCompile Include="EnemyObject.cpp">
+    <ClCompile Include="AppleObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,19 +47,13 @@
     <ClInclude Include="HeroObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TokenObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MapBackground.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="EnemyObject.h">
+    <ClInclude Include="AppleObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

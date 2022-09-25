@@ -1,10 +1,10 @@
 #include "Game.h"
 #include "TextureManager.h"
-//#include "HeroObject.h"
-#include "TokenObject.h"
+#include "HeroObject.h"
+#include "AppleObject.h"
 #include "MapBackground.h"
 
-//HeroObject* hero;
+HeroObject* hero;
 MapBackground* map;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
@@ -43,15 +43,13 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	//hero = new HeroObject("Assets/head_down.png", 640, 448);
+	hero = new HeroObject("Assets/head_down.png", 640, 448);
 	map = new MapBackground();
 }
 
 //Obs³uga wydarzeñ
 void Game::handleEvents()
 {
-	//SDL_Event event;
-
 	SDL_PollEvent(&event);
 
 	switch (event.type)
@@ -67,7 +65,7 @@ void Game::handleEvents()
 //Aktualizowanie
 void Game::update()
 {
-	//hero->Update();
+	hero->Update();
 }
 
 //Renderowanie
@@ -75,7 +73,7 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-	//hero->Render();
+	hero->Render();
 	SDL_RenderPresent(renderer);
 }
 

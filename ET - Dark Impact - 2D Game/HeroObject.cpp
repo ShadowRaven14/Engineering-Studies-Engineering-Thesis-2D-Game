@@ -62,7 +62,6 @@ void HeroObject::DrawMap(int arr[29][41])
 		for (int column = 0; column < 41; column++)
 		{
 			type = arr[row][column];
-			//type = map[row][column];
 
 			dest.x = column * 32;
 			dest.y = row * 32;
@@ -356,7 +355,7 @@ void HeroObject::MoveWithHero()
 		{
 			rozmiar++;
 			punkty = punkty + 100;
-			//cout << "Zdobyto jab³ko, aktualny wynik: " << punkty << endl;
+			std::cout << "Zdobyto jab³ko, aktualny wynik: " << punkty << std::endl;
 			apple_count--;
 		}
 
@@ -365,7 +364,7 @@ void HeroObject::MoveWithHero()
 		{
 			rozmiar = rozmiar + 3;
 			punkty = punkty + 501;
-			//cout << "Zdobyto z³ote jab³ko, aktualny wynik: " << punkty << endl;
+			std::cout << "Zdobyto z³ote jab³ko, aktualny wynik: " << punkty << std::endl;
 			golden_apple_count--;
 		}
 
@@ -373,7 +372,7 @@ void HeroObject::MoveWithHero()
 		if (Level[snakeY[i]][snakeX[i]] == 4)
 		{
 			punkty = punkty - 300;
-			//cout << "Wpadniêto na Kruka, aktualny wynik: " << punkty << endl;
+			std::cout << "Wpadniêto na Kruka, aktualny wynik: " << punkty << std::endl;
 			crow_count--;
 		}
 
@@ -382,7 +381,7 @@ void HeroObject::MoveWithHero()
 		HandleHeroGraphics();
 
 
-		//cout << " Pozycja Snake  " << " snakeY =" << snakeY[i] << " snakeX =" << snakeX[i] << " gdzie i = " << i << endl;
+		std::cout << " Pozycja Snake  " << " snakeY =" << snakeY[i] << " snakeX =" << snakeX[i] << " gdzie i = " << i << std::endl;
 	}
 }
 
@@ -568,28 +567,28 @@ void HeroObject::HandleKeyboard()
 		if (Game::event.key.keysym.sym == SDLK_s)
 		{
 			//if(ypos % 32 == 0 && ypos % 32 == 0)
-			//cout << " Przycisk S" << endl;
+			std::cout << " Przycisk S" << std::endl;
 			//objTexture = TextureManager::LoadTexture("Assets/head_down.png");
 			previnput = input; input = 's';
 		}
 		// WHILE MOVING UP
 		else if (Game::event.key.keysym.sym == SDLK_w)
 		{
-			//cout << " Przycisk W" << endl;
+			std::cout << " Przycisk W" << std::endl;
 			//objTexture = TextureManager::LoadTexture("Assets/head_up.png");
 			previnput = input; input = 'w';
 		}
 		// WHILE MOVING RIGHT
 		else if (Game::event.key.keysym.sym == SDLK_d)
 		{
-			//cout << " Przycisk D" << endl;
+			std::cout << " Przycisk D" << std::endl;
 			//objTexture = TextureManager::LoadTexture("Assets/head_right.png");
 			previnput = input; input = 'd';
 		}
 		// WHILE MOVING LEFT
 		else if (Game::event.key.keysym.sym == SDLK_a)
 		{
-			//cout << " Przycisk A" << endl;
+			std::cout << " Przycisk A" << std::endl;
 			//objTexture = TextureManager::LoadTexture("Assets/head_left.png");
 			previnput = input; input = 'a';
 		}
@@ -603,7 +602,7 @@ void HeroObject::FeedingHero()
 
 	AppleTree(Level);
 
-	/*
+	
 	// SprawdŸ pozycje
 	for (int i = 0; i < item_count; i++)
 	{
@@ -621,7 +620,7 @@ void HeroObject::FeedingHero()
 			snakeY[rozmiar - 1] = tailY;
 		}
 	}
-	*/
+	
 }
 
 //Sadzenie Jab³ek
@@ -644,7 +643,7 @@ void HeroObject::AppleTree(int arr[29][41])
 		{
 			if (Level[ry][rx] == 0)
 			{
-				//cout << "+New Apple" << endl;
+				std::cout << "+New Apple" << std::endl;
 				Level[ry][rx] = 2;
 				DrawMap(Level);
 				interval1 = 0;
@@ -690,7 +689,7 @@ void HeroObject::AppleTree(int arr[29][41])
 		{
 			if (Level[ry][rx] == 0)
 			{
-				//cout << "+New Raven" << endl;
+				std::cout << "+New Raven" << std::endl;
 				Level[ry][rx] = 4;
 				DrawMap(Level);
 				interval3 = 0;

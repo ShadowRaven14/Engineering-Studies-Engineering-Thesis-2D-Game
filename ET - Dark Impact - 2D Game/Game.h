@@ -9,6 +9,7 @@
 #include <ctime>			// Funkcje czasowe									 
 #include <fstream>			// Funkcje z plikami zewnêtrznymi
 //#include "stdafx.h"			// "Powinno" usprawniaæ stabilizacjê i dzia³anie programu
+using namespace std;
 
 class Game
 {

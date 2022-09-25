@@ -55,7 +55,7 @@ private:
 
 	int item_count;
 	int apple_count, golden_apple_count, crow_count;
-	//vector<int> itemX, itemY;
+	std::vector<int> itemX, itemY;
 	int tailX, tailY;
 	int punkty;
 
