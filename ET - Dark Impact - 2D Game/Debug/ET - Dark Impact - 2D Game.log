@@ -1,12 +1,10 @@
-﻿  Game.cpp
-  SnakeObject.cpp
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.h(58,8): error C2143: syntax error: missing ';' before '<'
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.h(58,8): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.h(58,26): error C2238: unexpected token(s) preceding ';'
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(609,21): error C2065: 'itemX': undeclared identifier
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(609,51): error C2065: 'itemY': undeclared identifier
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(614,4): error C2065: 'itemY': undeclared identifier
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(614,16): error C2065: 'itemY': undeclared identifier
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(615,4): error C2065: 'itemX': undeclared identifier
-C:\Users\Admin\source\projects\ET - Dark Impact - 2D Game\ET - Dark Impact - 2D Game\SnakeObject.cpp(615,16): error C2065: 'itemX': undeclared identifier
+﻿  EnemyObject.cpp
+  Game.cpp
+  Object.cpp
+  HeroObject.cpp
+  Main.cpp
+  MapBackground.cpp
+  TextureManager.cpp
+  TokenObject.cpp
   Generating Code...
+  ET - Dark Impact - 2D Game.vcxproj -> C:\Users\zuzsl\Documents\GitHub\ET-2D-Game\Debug\ET - Dark Impact - 2D Game.exe

@@ -603,6 +603,7 @@ void HeroObject::FeedingHero()
 
 	AppleTree(Level);
 
+	/*
 	// Sprawdü pozycje
 	for (int i = 0; i < item_count; i++)
 	{
@@ -620,6 +621,7 @@ void HeroObject::FeedingHero()
 			snakeY[rozmiar - 1] = tailY;
 		}
 	}
+	*/
 }
 
 //Sadzenie Jab≥ek
