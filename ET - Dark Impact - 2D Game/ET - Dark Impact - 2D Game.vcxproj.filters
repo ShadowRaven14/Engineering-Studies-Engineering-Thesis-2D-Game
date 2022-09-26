@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\GameObjects">
+    <Filter Include="Header Files\GameObjectsH">
+      <UniqueIdentifier>{15e97e47-0747-48f2-b34c-c3810c21fd17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameRunH">
+      <UniqueIdentifier>{66431d25-2d3f-41aa-a8e2-af43a9ede778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjectsCpp">
       <UniqueIdentifier>{f08e72a0-466c-4172-bff6-62e1b5469982}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameRun">
+    <Filter Include="Source Files\GameRunCpp">
       <UniqueIdentifier>{05bfe058-2971-4d51-ab89-79f1d6b3b1f3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -25,42 +31,42 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HeroObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
+      <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files\GameRun</Filter>
+      <Filter>Source Files\GameRunCpp</Filter>
     </ClCompile>
     <ClCompile Include="MapBackground.cpp">
-      <Filter>Source Files\GameRun</Filter>
+      <Filter>Source Files\GameRunCpp</Filter>
     </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\GameRun</Filter>
+      <Filter>Source Files\GameRunCpp</Filter>
     </ClCompile>
     <ClCompile Include="AppleObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
+      <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="SnakeObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
+      <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="AppleObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="HeroObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MapBackground.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AppleObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="SnakeObject.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\GameRunH</Filter>
+    </ClInclude>
+    <ClInclude Include="MapBackground.h">
+      <Filter>Header Files\GameRunH</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files\GameRunH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

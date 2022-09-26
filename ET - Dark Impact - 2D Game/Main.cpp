@@ -1,6 +1,5 @@
 #include "Game.h"
 Game* game = nullptr;
-Game* menu = nullptr;
 
 
 int main(int argc, char* argv[])

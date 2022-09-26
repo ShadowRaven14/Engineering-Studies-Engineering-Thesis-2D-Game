@@ -14,7 +14,7 @@ AppleObject::AppleObject(const char* texturesheet, int x, int y)
 
 AppleObject::~AppleObject()
 {
-	//pusto
+	//TO-DO
 }
 
 void AppleObject::Update()

@@ -22,4 +22,3 @@ private:
 	SDL_Rect srcRect, destRect;
 
 };
-

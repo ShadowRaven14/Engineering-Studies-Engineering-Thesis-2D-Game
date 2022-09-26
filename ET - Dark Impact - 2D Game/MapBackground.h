@@ -20,4 +20,3 @@ private:
 
 	int map[29][45];
 };
-

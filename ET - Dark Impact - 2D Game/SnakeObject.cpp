@@ -62,7 +62,6 @@ void SnakeObject::DrawMap(int arr[29][41])
 		for (int column = 0; column < 41; column++)
 		{
 			type = arr[row][column];
-			//type = map[row][column];
 
 			dest.x = column * 32;
 			dest.y = row * 32;
@@ -204,7 +203,7 @@ SnakeObject::SnakeObject(const char* texturesheet, int x, int y)
 	width = 41, height = 31;
 	input = 's', previnput = 's';
 	speed = 4; delay = 120;
-	rozmiar = 3; punkty = 0;
+	size = 3; points = 0;
 	item_count = 0;
 	apple_count = 0; golden_apple_count = 0; crow_count = 0;
 
@@ -230,8 +229,6 @@ void SnakeObject::Update()
 	interval2 = interval2 + 5;
 	interval3 = interval3 + 5;
 	MoveWithSnake();
-
-	//AppleTree(Level);
 }
 
 //RENDER
@@ -259,7 +256,7 @@ void SnakeObject::InitializeSnake()
 	}
 
 	// Umieszczenie Wê¿a na planszy
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 		Level[snakeY[i]][snakeX[i]] = 1;
 }
 
@@ -271,8 +268,8 @@ void SnakeObject::MoveWithSnake()
 	SetSnakeSpeed();
 
 	// Dodawanie œladów ogona
-	tailY = snakeY[rozmiar - 1];
-	tailX = snakeX[rozmiar - 1];
+	tailY = snakeY[size - 1];
+	tailX = snakeX[size - 1];
 
 	// Usuwanie œladów po ogonie
 	Level[tailY][tailX] = '0';
@@ -281,7 +278,7 @@ void SnakeObject::MoveWithSnake()
 	FeedingSnake();
 
 	// Kopiowanie Wê¿a do tablicy temp
-	for (int i = 0; i < rozmiar - 1; i++)
+	for (int i = 0; i < size - 1; i++)
 	{
 		tempX[i + 1] = snakeX[i];	// Kopiowanie wartoœci y
 		tempY[i + 1] = snakeY[i];	// Kopiowanie wartoœci x
@@ -292,7 +289,7 @@ void SnakeObject::MoveWithSnake()
 	tempY[0] = snakeY[0];
 
 	// Kopiowanie z tablicy temp
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		snakeX[i] = tempX[i];						// Kopiowanie wartoœci Y
 		snakeY[i] = tempY[i];						// Kopiowanie wartoœci X
@@ -341,48 +338,42 @@ void SnakeObject::MoveWithSnake()
 
 
 	// Rysowanie i zmiana pozycji Wê¿a		
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		// Jeœli wyjdzie poza mapê
 		if (snakeY[i] < 0 || snakeY[i] > 28 || snakeX[i] < 0 || snakeX[i]>40)
 		{
 			snakeY[i] = 15;
 			snakeX[i] = 20;
-			//return;
 		}
 
 		// Zbieranie jab³ek
 		if (Level[snakeY[i]][snakeX[i]] == 2)
 		{
-			rozmiar++;
-			punkty = punkty + 100;
-			cout << "Zdobyto jab³ko, aktualny wynik: " << punkty << endl;
+			size++;
+			points = points + 100;
+			std::cout << "Zdobyto jab³ko, aktualny wynik: " << points << std::endl;
 			apple_count--;
 		}
 
 		// Zbieranie jab³ek
 		if (Level[snakeY[i]][snakeX[i]] == 3)
 		{
-			rozmiar = rozmiar + 3;
-			punkty = punkty + 501;
-			cout << "Zdobyto z³ote jab³ko, aktualny wynik: " << punkty << endl;
+			size = size + 3;
+			points = points + 501;
+			std::cout << "Zdobyto z³ote jab³ko, aktualny wynik: " << points << std::endl;
 			golden_apple_count--;
 		}
 
 		// Zbieranie jab³ek
 		if (Level[snakeY[i]][snakeX[i]] == 4)
 		{
-			punkty = punkty - 300;
-			cout << "Wpadniêto na Kruka, aktualny wynik: " << punkty << endl;
+			points = points - 300;
+			std::cout << "Wpadniêto na Kruka, aktualny wynik: " << points << std::endl;
 			crow_count--;
 		}
 
-
-
 		HandleSnakeGraphics();
-
-
-		//cout << " Pozycja Snake  " << " snakeY =" << snakeY[i] << " snakeX =" << snakeX[i] << " gdzie i = " << i << endl;
 	}
 }
 
@@ -395,13 +386,13 @@ void SnakeObject::SetSnakeSpeed()
 //USTAW PRÊDKOŒÆ WÊ¯A
 void SnakeObject::IsGameOver()
 {
-
+	//TO-DO
 }
 
 void SnakeObject::HandleSnakeGraphics()
 {
 	//Rysowanie wê¿a
-	for (int i = 0; i < rozmiar; i++)
+	for (int i = 0; i < size; i++)
 	{
 		//G£OWA
 		if (i == 0)
@@ -413,10 +404,10 @@ void SnakeObject::HandleSnakeGraphics()
 		}
 
 		//OGON
-		if (i == (rozmiar - 1))
+		if (i == (size - 1))
 		{
 
-			if (Level[snakeY[rozmiar - 2]][snakeX[rozmiar - 2]] == 41)
+			if (Level[snakeY[size - 2]][snakeX[size - 2]] == 41)
 			{
 				if (Level[snakeY[0]][snakeX[0]] == 11)
 				{
@@ -441,7 +432,7 @@ void SnakeObject::HandleSnakeGraphics()
 
 			}
 
-			if (Level[snakeY[rozmiar - 2]][snakeX[rozmiar - 2]] == 42)
+			if (Level[snakeY[size - 2]][snakeX[size - 2]] == 42)
 			{
 				if (Level[snakeY[0]][snakeX[0]] == 13)
 				{
@@ -517,43 +508,6 @@ void SnakeObject::HandleSnakeGraphics()
 			}
 
 
-			/*
-			//SKRÊTY
-			if (
-				Level[snakeY[i - 1]][snakeX[i - 1]] == 41 //pionowo
-				&& Level[snakeY[i + 1]][snakeX[i + 1]] == 42 // poziomo
-				&& Level[snakeY[0]][snakeX[0]] == 13 //g³owa w prawo
-				)
-			{
-				Level[snakeY[i]][snakeX[i]] = 31;
-			}
-
-			if (Level[snakeY[i - 1]][snakeX[i - 1]] == 41 //pionowo
-				&& Level[snakeY[i + 1]][snakeX[i + 1]] == 42 // poziomo
-				&& Level[snakeY[0]][snakeX[0]] == 14 //g³owa w lewo
-				)
-			{
-				Level[snakeY[i]][snakeX[i]] = 32;
-			}
-
-			if (Level[snakeY[i - 1]][snakeX[i - 1]] == 42 // poziomo
-				&& Level[snakeY[i + 1]][snakeX[i + 1]] == 41 //pionowo
-				&& Level[snakeY[0]][snakeX[0]] == 12 //g³owa w górê
-				)
-			{
-				Level[snakeY[i]][snakeX[i]] = 31;
-			}
-
-			if (Level[snakeY[i - 1]][snakeX[i - 1]] == 42 // poziomo
-				&& Level[snakeY[i + 1]][snakeX[i + 1]] == 41 //pionowo
-				&& Level[snakeY[0]][snakeX[0]] == 12 //g³owa w górê
-				)
-			{
-				Level[snakeY[i]][snakeX[i]] = 32;
-			}
-			*/
-
-
 		}
 	}
 }
@@ -567,30 +521,25 @@ void SnakeObject::HandleKeyboard()
 		// WHILE MOVING DOWN
 		if (Game::event.key.keysym.sym == SDLK_s)
 		{
-			//if(ypos % 32 == 0 && ypos % 32 == 0)
-			cout << " Przycisk S" << endl;
-			//objTexture = TextureManager::LoadTexture("Assets/head_down.png");
+			std::cout << " Przycisk S" << std::endl;
 			previnput = input; input = 's';
 		}
 		// WHILE MOVING UP
 		else if (Game::event.key.keysym.sym == SDLK_w)
 		{
-			cout << " Przycisk W" << endl;
-			//objTexture = TextureManager::LoadTexture("Assets/head_up.png");
+			std::cout << " Przycisk W" << std::endl;
 			previnput = input; input = 'w';
 		}
 		// WHILE MOVING RIGHT
 		else if (Game::event.key.keysym.sym == SDLK_d)
 		{
-			cout << " Przycisk D" << endl;
-			//objTexture = TextureManager::LoadTexture("Assets/head_right.png");
+			std::cout << " Przycisk D" << std::endl;
 			previnput = input; input = 'd';
 		}
 		// WHILE MOVING LEFT
 		else if (Game::event.key.keysym.sym == SDLK_a)
 		{
-			cout << " Przycisk A" << endl;
-			//objTexture = TextureManager::LoadTexture("Assets/head_left.png");
+			std::cout << " Przycisk A" << std::endl;
 			previnput = input; input = 'a';
 		}
 	}
@@ -615,9 +564,9 @@ void SnakeObject::FeedingSnake()
 			itemX.erase(itemX.begin() + 1);
 
 			// W¹¿ roœnie
-			rozmiar++;
-			snakeX[rozmiar - 1] = tailX;
-			snakeY[rozmiar - 1] = tailY;
+			size++;
+			snakeX[size - 1] = tailX;
+			snakeY[size - 1] = tailY;
 		}
 	}
 }
@@ -642,7 +591,7 @@ void SnakeObject::AppleTree(int arr[29][41])
 		{
 			if (Level[ry][rx] == 0)
 			{
-				cout << "+New Apple" << endl;
+				std::cout << "+New Apple" << std::endl;
 				Level[ry][rx] = 2;
 				DrawMap(Level);
 				interval1 = 0;
@@ -663,7 +612,7 @@ void SnakeObject::AppleTree(int arr[29][41])
 		{
 			if (Level[ry][rx] == 0)
 			{
-				cout << "+New GOLDEN Apple" << endl;
+				std::cout << "+New GOLDEN Apple" << std::endl;
 				Level[ry][rx] = 3;
 				DrawMap(Level);
 				interval2 = 0;
@@ -688,7 +637,7 @@ void SnakeObject::AppleTree(int arr[29][41])
 		{
 			if (Level[ry][rx] == 0)
 			{
-				cout << "+New Raven" << endl;
+				std::cout << "+New Raven" << std::endl;
 				Level[ry][rx] = 4;
 				DrawMap(Level);
 				interval3 = 0;

@@ -15,7 +15,6 @@ public:
 
 
 	// ZARZ¥DZANIE WÊ¯EM
-	void CreateSnake();		// Utwórz Wê¿a	
 	void InitializeTextures(); //Inicjalizuj grafiki
 	void InitializeSnake();	// Inicjalizuj Wê¿a
 	void MoveWithSnake();	// Zarz¹dzaj Wê¿em
@@ -50,14 +49,14 @@ private:
 	int width, height;
 	char input, previnput; //poruszanie
 	int speed, delay; //szybkoœæ
-	int rozmiar; //rozmiar
+	int size; //rozmiar
 	int snakeX[100], snakeY[100], tempX[100], tempY[100];
 
 	int item_count;
 	int apple_count, golden_apple_count, crow_count;
 	std::vector<int> itemX, itemY;
 	int tailX, tailY;
-	int punkty;
+	int points;
 
 
 
@@ -91,8 +90,5 @@ private:
 
 	SDL_Texture* snake_body_vert;
 	SDL_Texture* snake_body_horizon;
-
-
-
 
 };
