@@ -1,8 +1,9 @@
 #pragma once
-#include "Game.h"
+#include "Object.h"
 
 
 class SnakeObject
+	: public Object
 {
 
 public:
@@ -32,16 +33,6 @@ public:
 	void DrawMap(int arr[29][41]);
 	void AppleTree(int arr[29][41]);
 	// TABLICA
-
-
-private:
-	//Podstawowe
-	int xpos;
-	int ypos;
-	bool qx;
-	bool qy;
-	SDL_Texture* objTexture;
-	SDL_Rect srcRect, destRect;
 
 
 

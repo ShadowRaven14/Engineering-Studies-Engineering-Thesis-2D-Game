@@ -48,6 +48,9 @@
     <ClCompile Include="SnakeObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -67,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files\GameRunH</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

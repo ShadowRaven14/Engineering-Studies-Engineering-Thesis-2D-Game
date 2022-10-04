@@ -1,6 +1,12 @@
 #pragma once
+#include "Object.h"
 
 class HeroObject
+	: public Object
 {
-	//TO-DO
+public:
+	HeroObject(const char* texturesheet, int x, int y);
+	~HeroObject();
+	void Update();
+	void Render();
 };
