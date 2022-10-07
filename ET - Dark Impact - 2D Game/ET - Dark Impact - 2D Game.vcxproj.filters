@@ -25,6 +25,9 @@
     <Filter Include="Source Files\GameRunCpp">
       <UniqueIdentifier>{05bfe058-2971-4d51-ab89-79f1d6b3b1f3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\OtherH">
+      <UniqueIdentifier>{2dd051a9-1e25-48ae-9006-565748356e21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -73,6 +76,9 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleMathExamples.h">
+      <Filter>Header Files\OtherH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
