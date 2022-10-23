@@ -54,6 +54,9 @@
     <ClCompile Include="Object.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyObject.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -79,6 +82,9 @@
     </ClInclude>
     <ClInclude Include="SimpleMathExamples.h">
       <Filter>Header Files\OtherH</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

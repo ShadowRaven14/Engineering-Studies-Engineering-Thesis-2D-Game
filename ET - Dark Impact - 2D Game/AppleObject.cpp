@@ -1,5 +1,4 @@
 #include "AppleObject.h"
-#include "TextureManager.h"
 
 AppleObject::AppleObject(const char* texturesheet, int x, int y)
 {

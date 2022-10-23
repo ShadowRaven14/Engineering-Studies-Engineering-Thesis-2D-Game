@@ -9,4 +9,9 @@ public:
 	~HeroObject();
 	void Update();
 	void Render();
+
+	void MoveWithHero();
+	void HandleKeyboard();
+
+	char input, previnput; //poruszanie
 };

@@ -1,10 +1,14 @@
 #include "Game.h"
 #include "TextureManager.h"
 #include "SnakeObject.h"
+#include "HeroObject.h"
+#include "EnemyObject.h"
 #include "AppleObject.h"
 #include "MapBackground.h"
 
-SnakeObject* snake;
+//SnakeObject* snake;
+HeroObject* hero;
+EnemyObject* enemy1;
 MapBackground* map;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
@@ -43,7 +47,9 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	snake = new SnakeObject("Assets/head_down.png", 640, 448);
+	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
+	hero = new HeroObject("Assets/apple_golden2.png", 640, 448);
+	enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
 	map = new MapBackground();
 }
 
@@ -65,7 +71,9 @@ void Game::handleEvents()
 //Aktualizowanie
 void Game::update()
 {
-	snake->Update();
+	//snake->Update();
+	hero->Update();
+	enemy1->Update();
 }
 
 //Renderowanie
@@ -73,7 +81,9 @@ void Game::render()
 {
 	SDL_RenderClear(renderer);
 	map->DrawMap();
-	snake->Render();
+	//snake->Render();
+	hero->Render();
+	enemy1->Render();
 	SDL_RenderPresent(renderer);
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "TextureManager.h"
 
 class Object
 {
