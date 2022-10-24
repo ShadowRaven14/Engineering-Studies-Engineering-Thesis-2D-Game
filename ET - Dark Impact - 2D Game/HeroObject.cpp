@@ -8,9 +8,6 @@ HeroObject::HeroObject(const char* texturesheet, int x, int y)
 
 void HeroObject::Update()
 {
-	//xpos++;
-	//ypos++;
-
 	srcRect.h = 64;
 	srcRect.w = 64;
 	srcRect.x = 0;
@@ -36,7 +33,7 @@ void HeroObject::MoveWithHero()
 
 	// OBS£UGA PORUSZANIA
 	// WHILE MOVING DOWN
-	if (previnput == 's')
+	if (input == 's')
 	{
 		if (input == 'a')		// Idü w lewo
 			previnput = 'a';
@@ -46,7 +43,7 @@ void HeroObject::MoveWithHero()
 		ypos++;
 	}
 	// WHILE MOVING UP
-	else if (previnput == 'w')
+	else if (input == 'w')
 	{
 		if (input == 'a')		// Idü w lewo
 			previnput = 'a';
@@ -56,7 +53,7 @@ void HeroObject::MoveWithHero()
 		ypos--;
 	}
 	// WHILE MOVING RIGHT
-	else if (previnput == 'd')
+	else if (input == 'd')
 	{
 		if (input == 'w')		// Idü w gÛrÍ
 			previnput = 'w';
@@ -66,7 +63,7 @@ void HeroObject::MoveWithHero()
 		xpos++;
 	}
 	// WHILE MOVING LEFT
-	else if (previnput == 'a')
+	else if (input == 'a')
 	{
 		if (input == 'w')		// Idü w gÛre
 			previnput = 'w';

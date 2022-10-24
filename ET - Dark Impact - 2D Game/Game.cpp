@@ -9,7 +9,7 @@
 //SnakeObject* snake;
 HeroObject* hero;
 EnemyObject* enemy1;
-MapBackground* map;
+BackgroundMap* map;
 SDL_Renderer* Game::renderer = nullptr;
 SDL_Event Game::event;
 
@@ -50,7 +50,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
 	hero = new HeroObject("Assets/apple_golden2.png", 640, 448);
 	enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
-	map = new MapBackground();
+	map = new BackgroundMap();
 }
 
 //Obs³uga wydarzeñ

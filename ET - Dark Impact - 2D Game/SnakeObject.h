@@ -1,9 +1,9 @@
 #pragma once
-#include "Object.h"
+#include "_VirtualObject.h"
 
 
 class SnakeObject
-	: public Object
+	: public _VirtualObject
 {
 
 public:

@@ -154,21 +154,25 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="MapBackground.cpp" />
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="BackgroundMap.cpp" />
+    <ClCompile Include="_VirtualObject.cpp" />
     <ClCompile Include="SnakeObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="BasicFunctions.cpp" />
+    <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HeroObject.h" />
-    <ClInclude Include="MapBackground.h" />
-    <ClInclude Include="Object.h" />
+    <ClInclude Include="BackgroundMap.h" />
+    <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />
     <ClInclude Include="SnakeObject.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="BasicFunctions.h" />
+    <ClInclude Include="_VirtualMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "_VirtualObject.h"
 
 class HeroObject
-	: public Object
+	: public _VirtualObject
 {
 public:
 	HeroObject(const char* texturesheet, int x, int y);

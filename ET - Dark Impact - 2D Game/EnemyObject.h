@@ -1,8 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "_VirtualObject.h"
 
 class EnemyObject
-	: public Object
+	: public _VirtualObject
 {
 public:
 	EnemyObject(const char* texturesheet, int x, int y);

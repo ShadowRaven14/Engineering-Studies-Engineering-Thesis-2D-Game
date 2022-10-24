@@ -1,8 +1,8 @@
 #pragma once
-#include "Object.h"
+#include "_VirtualObject.h"
 
 class AppleObject 
-	: public Object
+	: public _VirtualObject
 {
 
 public:

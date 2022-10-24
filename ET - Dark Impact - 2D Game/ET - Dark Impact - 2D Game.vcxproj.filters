@@ -16,16 +16,19 @@
     <Filter Include="Header Files\GameObjectsH">
       <UniqueIdentifier>{15e97e47-0747-48f2-b34c-c3810c21fd17}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\GameRunH">
-      <UniqueIdentifier>{66431d25-2d3f-41aa-a8e2-af43a9ede778}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\GameObjectsCpp">
       <UniqueIdentifier>{f08e72a0-466c-4172-bff6-62e1b5469982}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GameRunCpp">
-      <UniqueIdentifier>{05bfe058-2971-4d51-ab89-79f1d6b3b1f3}</UniqueIdentifier>
+    <Filter Include="Source Files\MapCpp">
+      <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\OtherH">
+    <Filter Include="Header Files\MapH">
+      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\UtilsCpp">
+      <UniqueIdentifier>{5e489ddd-e1f9-4dcf-8598-7343b9ad1468}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\UtilsH">
       <UniqueIdentifier>{2dd051a9-1e25-48ae-9006-565748356e21}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -36,26 +39,32 @@
     <ClCompile Include="HeroObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files\GameRunCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="MapBackground.cpp">
-      <Filter>Source Files\GameRunCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\GameRunCpp</Filter>
-    </ClCompile>
     <ClCompile Include="AppleObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="SnakeObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="_VirtualObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="EnemyObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicFunctions.cpp">
+      <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="BackgroundMap.cpp">
+      <Filter>Source Files\MapCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="_VirtualMap.cpp">
+      <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,23 +77,29 @@
     <ClInclude Include="SnakeObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\GameRunH</Filter>
-    </ClInclude>
-    <ClInclude Include="MapBackground.h">
-      <Filter>Header Files\GameRunH</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files\GameRunH</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
+    <ClInclude Include="_VirtualObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="SimpleMathExamples.h">
-      <Filter>Header Files\OtherH</Filter>
+      <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
     <ClInclude Include="EnemyObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicFunctions.h">
+      <Filter>Header Files\UtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="BackgroundMap.h">
+      <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\UtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_VirtualMap.h">
+      <Filter>Header Files\MapH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
