@@ -1,4 +1,6 @@
 #pragma once
+#include "Game.h"
+
 class _VirtualMap
 {
 public:
@@ -7,5 +9,6 @@ public:
 
 private:
 	SDL_Rect src, dest;
+	int map[29][45];
 };
 

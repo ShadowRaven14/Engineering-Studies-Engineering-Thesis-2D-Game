@@ -4,7 +4,7 @@
 #include "HeroObject.h"
 #include "EnemyObject.h"
 #include "AppleObject.h"
-#include "MapBackground.h"
+#include "BackgroundMap.h"
 
 //SnakeObject* snake;
 HeroObject* hero;

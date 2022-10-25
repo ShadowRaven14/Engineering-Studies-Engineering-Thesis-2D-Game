@@ -1,6 +1,6 @@
-#include "Object.h"
+#include "_VirtualObject.h"
 
-void Object::Update()
+void _VirtualObject::Update()
 {
 	srcRect.h = 64;
 	srcRect.w = 64;
@@ -13,7 +13,7 @@ void Object::Update()
 	destRect.y = ypos;
 }
 
-void Object::Render()
+void _VirtualObject::Render()
 {
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }

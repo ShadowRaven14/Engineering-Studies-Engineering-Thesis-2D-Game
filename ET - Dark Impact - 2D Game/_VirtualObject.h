@@ -2,7 +2,7 @@
 #include "Game.h"
 #include "TextureManager.h"
 
-class Object
+class _VirtualObject
 {
 public:
 	void Update();

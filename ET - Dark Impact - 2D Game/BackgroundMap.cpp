@@ -1,4 +1,4 @@
-#include "MapBackground.h"
+#include "BackgroundMap.h"
 #include "TextureManager.h"
 
 int lvl1[29][41] =
