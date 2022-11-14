@@ -50,10 +50,10 @@ BackgroundMap::BackgroundMap()
 	lava = TextureManager::LoadTexture("Assets/pix_.png");
 
 	LoadMap(lvl1);
-	src.x = src.y = 0;
-	src.h = dest.h = 32;
-	src.w = dest.w = 32;
-	dest.x = dest.y = 0;
+	srcRect.x = srcRect.y = 0;
+	srcRect.h = destRect.h = 32;
+	srcRect.w = destRect.w = 32;
+	destRect.x = destRect.y = 0;
 }
 
 BackgroundMap::~BackgroundMap()
@@ -81,29 +81,29 @@ void BackgroundMap::DrawMap()
 		{
 			type = map[row][column];
 
-			dest.x = column * 32;
-			dest.y = row * 32;
+			destRect.x = column * 32;
+			destRect.y = row * 32;
 
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(nest, src, dest);
+				TextureManager::Draw(nest, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::Draw(dirt, src, dest);
+				TextureManager::Draw(dirt, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::Draw(dirt, src, dest);
+				TextureManager::Draw(dirt, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::Draw(dirt, src, dest);
+				TextureManager::Draw(dirt, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::Draw(dirt, src, dest);
+				TextureManager::Draw(dirt, srcRect, destRect);
 				break;
 
 			default:

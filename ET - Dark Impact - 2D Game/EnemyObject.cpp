@@ -1,11 +1,13 @@
 #include "EnemyObject.h"
 
+//Konstruktor wroga
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
 	objTexture = TextureManager::LoadTexture(texturesheet);
 	xpos = x; ypos = y;
 }
 
+//Aktualizacja wroga
 void EnemyObject::Update()
 {
 	xpos++;
@@ -22,6 +24,7 @@ void EnemyObject::Update()
 	destRect.y = ypos;
 }
 
+//Renderowanie wroga
 void EnemyObject::Render()
 {
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);

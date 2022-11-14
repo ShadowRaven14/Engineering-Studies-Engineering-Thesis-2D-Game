@@ -4,19 +4,25 @@
 class BackgroundMap
 {
 public:
+	//Podstawowe
 	BackgroundMap();
 	~BackgroundMap();
 
-	void LoadMap(int arr[29][41]);
-	void DrawMap();
+	//Zaawansowane
+	void LoadMap(int arr[29][41]); //pobierz mapê
+	void DrawMap(); //rysuj mapê
 
 private:
-	SDL_Rect src, dest;
+	int map[29][45]; //mapa
+
+	//Zmienne tekstur
 	SDL_Texture* nest;
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
 	SDL_Texture* water;
 	SDL_Texture* lava;
 
-	int map[29][45];
+	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
+
+	
 };

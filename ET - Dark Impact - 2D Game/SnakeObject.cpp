@@ -62,98 +62,98 @@ void SnakeObject::DrawMap(int arr[29][41])
 		{
 			type = arr[row][column];
 
-			dest.x = column * 32;
-			dest.y = row * 32;
+			destRect.x = column * 32;
+			destRect.y = row * 32;
 
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(blank, src, dest);
+				TextureManager::Draw(blank, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::Draw(pixelsnake, src, dest);
+				TextureManager::Draw(pixelsnake, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::Draw(pixelapple, src, dest);
+				TextureManager::Draw(pixelapple, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::Draw(pixelgoldenapple, src, dest);
+				TextureManager::Draw(pixelgoldenapple, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::Draw(pixelraven, src, dest);
+				TextureManager::Draw(pixelraven, srcRect, destRect);
 				break;
 
 
 				//g³owa
 			case 11:
-				TextureManager::Draw(snake_head_down, src, dest);
+				TextureManager::Draw(snake_head_down, srcRect, destRect);
 				break;
 
 			case 12:
-				TextureManager::Draw(snake_head_up, src, dest);
+				TextureManager::Draw(snake_head_up, srcRect, destRect);
 				break;
 
 			case 13:
-				TextureManager::Draw(snake_head_right, src, dest);
+				TextureManager::Draw(snake_head_right, srcRect, destRect);
 				break;
 
 			case 14:
-				TextureManager::Draw(snake_head_left, src, dest);
+				TextureManager::Draw(snake_head_left, srcRect, destRect);
 				break;
 
 
 				//ogon
 			case 21:
-				TextureManager::Draw(snake_tail_down, src, dest);
+				TextureManager::Draw(snake_tail_down, srcRect, destRect);
 				break;
 
 			case 22:
-				TextureManager::Draw(snake_tail_up, src, dest);
+				TextureManager::Draw(snake_tail_up, srcRect, destRect);
 				break;
 
 			case 23:
-				TextureManager::Draw(snake_tail_right, src, dest);
+				TextureManager::Draw(snake_tail_right, srcRect, destRect);
 				break;
 
 			case 24:
-				TextureManager::Draw(snake_tail_left, src, dest);
+				TextureManager::Draw(snake_tail_left, srcRect, destRect);
 				break;
 
 
 				//skrêty
 			case 31:
-				TextureManager::Draw(snake_turn_1, src, dest);
+				TextureManager::Draw(snake_turn_1, srcRect, destRect);
 				break;
 
 			case 32:
-				TextureManager::Draw(snake_turn_2, src, dest);
+				TextureManager::Draw(snake_turn_2, srcRect, destRect);
 				break;
 
 			case 33:
-				TextureManager::Draw(snake_turn_3, src, dest);
+				TextureManager::Draw(snake_turn_3, srcRect, destRect);
 				break;
 
 			case 34:
-				TextureManager::Draw(snake_turn_4, src, dest);
+				TextureManager::Draw(snake_turn_4, srcRect, destRect);
 				break;
 
 
 				//proste cia³o
 			case 41:
-				TextureManager::Draw(snake_body_vert, src, dest);
+				TextureManager::Draw(snake_body_vert, srcRect, destRect);
 				break;
 
 			case 42:
-				TextureManager::Draw(snake_body_horizon, src, dest);
+				TextureManager::Draw(snake_body_horizon, srcRect, destRect);
 				break;
 
 
 			default:
-				TextureManager::Draw(blank, src, dest);
+				TextureManager::Draw(blank, srcRect, destRect);
 				break;
 			}
 		}
@@ -211,9 +211,9 @@ SnakeObject::SnakeObject(const char* texturesheet, int x, int y)
 	InitializeTextures();
 	LoadMap(Level);
 	interval1 = 0; interval2 = 0; interval3 = 0;
-	src.h = 64; src.w = 64;
-	src.x = 0; src.y = 0;
-	dest.h = src.h / 2; dest.w = src.w / 2;
+	srcRect.h = 64; srcRect.w = 64;
+	srcRect.x = 0; srcRect.y = 0;
+	destRect.h = srcRect.h / 2; destRect.w = srcRect.w / 2;
 
 
 	//ZARZ¥DZNIE WÊ¯EM

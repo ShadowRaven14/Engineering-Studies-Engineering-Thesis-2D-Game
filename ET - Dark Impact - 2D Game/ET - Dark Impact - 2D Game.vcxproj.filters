@@ -31,6 +31,18 @@
     <Filter Include="Header Files\UtilsH">
       <UniqueIdentifier>{2dd051a9-1e25-48ae-9006-565748356e21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\HeroClassesCpp">
+      <UniqueIdentifier>{1e1bbb5a-d3f7-49eb-a7a1-c27770e31055}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HeroClassesH">
+      <UniqueIdentifier>{f0460b3b-a9e3-4f3d-8ee0-74807f8f192b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\HeroChoicesH">
+      <UniqueIdentifier>{ae8d5a84-4e81-4775-b8ab-ba67f0acc0ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\HeroChoicesCpp">
+      <UniqueIdentifier>{a9827ee7-79db-4e86-a82d-137766627adf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -66,6 +78,12 @@
     <ClCompile Include="_VirtualMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
+    <ClCompile Include="BasicClass.cpp">
+      <Filter>Source Files\HeroClassesCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroChoices.cpp">
+      <Filter>Source Files\HeroChoicesCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -100,6 +118,12 @@
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
       <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicClass.h">
+      <Filter>Header Files\HeroClassesH</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroChoices.h">
+      <Filter>Header Files\HeroChoicesH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

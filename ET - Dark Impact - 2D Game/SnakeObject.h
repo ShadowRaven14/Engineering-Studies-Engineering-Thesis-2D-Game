@@ -54,7 +54,7 @@ public:
 	//TABLICA
 	int map[29][45];
 	int interval1, interval2, interval3;
-	SDL_Rect src, dest;
+	SDL_Rect srcRect, destRect;
 	SDL_Texture* blank;
 	SDL_Texture* apple;
 	SDL_Texture* pixelsnake;

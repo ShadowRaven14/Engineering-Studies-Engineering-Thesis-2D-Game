@@ -150,8 +150,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AppleObject.cpp" />
+    <ClCompile Include="BasicClass.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
@@ -163,8 +165,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h" />
+    <ClInclude Include="BasicClass.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="HeroChoices.h" />
     <ClInclude Include="HeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
     <ClInclude Include="_VirtualObject.h" />
