@@ -47,7 +47,7 @@ BackgroundMap::BackgroundMap()
 	dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
 	grass = TextureManager::LoadTexture("Assets/pix_green.png");
 	water = TextureManager::LoadTexture("Assets/pix_blue.png");
-	lava = TextureManager::LoadTexture("Assets/pix_.png");
+	lava = TextureManager::LoadTexture("Assets/pix_red.png");
 
 	LoadMap(lvl1);
 	srcRect.x = srcRect.y = 0;

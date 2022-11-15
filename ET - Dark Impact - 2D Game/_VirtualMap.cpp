@@ -11,7 +11,12 @@ void _VirtualMap::LoadMap(int arr[29][41])
 	}
 }
 
-void _VirtualMap::DrawMap()
+void _VirtualMap::DrawMap(int arr[29][41])
+{
+
+}
+
+void _VirtualMap::InitializeTextures()
 {
 
 }

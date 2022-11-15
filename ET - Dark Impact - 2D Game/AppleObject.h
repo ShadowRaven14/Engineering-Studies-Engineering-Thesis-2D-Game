@@ -6,8 +6,12 @@ class AppleObject
 {
 
 public:
+	bool qx;
+	bool qy;
+
 	AppleObject(const char* texturesheet, int x, int y);
 	~AppleObject();
 	void Update();
 	void Render();
+
 };

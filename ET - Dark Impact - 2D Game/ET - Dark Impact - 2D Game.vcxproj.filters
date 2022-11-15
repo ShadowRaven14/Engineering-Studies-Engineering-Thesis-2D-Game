@@ -84,6 +84,15 @@
     <ClCompile Include="HeroChoices.cpp">
       <Filter>Source Files\HeroChoicesCpp</Filter>
     </ClCompile>
+    <ClCompile Include="BasicMap.cpp">
+      <Filter>Source Files\MapCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardManager.cpp">
+      <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PointInMap.cpp">
+      <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -124,6 +133,15 @@
     </ClInclude>
     <ClInclude Include="HeroChoices.h">
       <Filter>Header Files\HeroChoicesH</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicMap.h">
+      <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardManager.h">
+      <Filter>Header Files\UtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="PointInMap.h">
+      <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

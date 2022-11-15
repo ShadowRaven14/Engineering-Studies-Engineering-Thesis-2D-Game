@@ -6,8 +6,8 @@ AppleObject::AppleObject(const char* texturesheet, int x, int y)
 	objTexture = TextureManager::LoadTexture(texturesheet);
 
 	srand((unsigned)time(NULL));
-	xpos = (rand() % (25 - 2) + 1) * 32;
-	ypos = (rand() % (20 - 2) + 1) * 32;
+	point.xpos = (rand() % (25 - 2) + 1) * 32;
+	point.ypos = (rand() % (20 - 2) + 1) * 32;
 	qx = true, qy = true;
 }
 
@@ -25,8 +25,8 @@ void AppleObject::Update()
 
 	destRect.h = srcRect.h / 2;
 	destRect.w = srcRect.w / 2;
-	destRect.x = xpos;
-	destRect.y = ypos;
+	destRect.x = point.xpos;
+	destRect.y = point.ypos;
 }
 
 void AppleObject::Render()

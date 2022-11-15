@@ -48,7 +48,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	}
 
 	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
-	hero = new HeroObject("Assets/apple_golden2.png", 640, 448);
+	hero = new HeroObject("Assets/apple_hero.png", 640, 448);
 	enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
 	map = new BackgroundMap();
 }

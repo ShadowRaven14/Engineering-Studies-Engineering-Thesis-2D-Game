@@ -4,7 +4,7 @@
 HeroObject::HeroObject(const char* texturesheet, int x, int y)
 {
 	objTexture = TextureManager::LoadTexture(texturesheet);
-	xpos = x; ypos = y;
+	point.xpos = x; point.ypos = y;
 }
 
 //Aktualizacja bohatera
@@ -17,8 +17,8 @@ void HeroObject::Update()
 
 	destRect.h = srcRect.h / 2; //WysokoúÊ w grze
 	destRect.w = srcRect.w / 2; //SzerokoúÊ w grze
-	destRect.x = xpos;
-	destRect.y = ypos;
+	destRect.x = point.xpos;
+	destRect.y = point.ypos;
 
 	MoveWithHero();
 }
@@ -33,80 +33,47 @@ void HeroObject::Render()
 void HeroObject::MoveWithHero()
 {
 	// Obs≥uguj input z klawiatury
-	HandleKeyboard();
+	point = KeyboardManager::HandleKeyboard(point);
 
 	// OBS£UGA PORUSZANIA
 	// WHILE MOVING DOWN
-	if (input == 's')
+	if (point.input == 's')
 	{
-		if (input == 'a')		// Idü w lewo
-			previnput = 'a';
-		else if (input == 'd')	// Idü w prawo
-			previnput = 'd';
+		if (point.input == 'a')		// Idü w lewo
+			point.previnput = 'a';
+		else if (point.input == 'd')	// Idü w prawo
+			point.previnput = 'd';
 
-		ypos++;
+		//ypos++;
 	}
 	// WHILE MOVING UP
-	else if (input == 'w')
+	else if (point.input == 'w')
 	{
-		if (input == 'a')		// Idü w lewo
-			previnput = 'a';
-		else if (input == 'd')	// Idü w prawo
-			previnput = 'd';
+		if (point.input == 'a')		// Idü w lewo
+			point.previnput = 'a';
+		else if (point.input == 'd')	// Idü w prawo
+			point.previnput = 'd';
 
-		ypos--;
+		//ypos--;
 	}
 	// WHILE MOVING RIGHT
-	else if (input == 'd')
+	else if (point.input == 'd')
 	{
-		if (input == 'w')		// Idü w gÛrÍ
-			previnput = 'w';
-		else if (input == 's')	// Idü w dÛ≥
-			previnput = 's';
+		if (point.input == 'w')		// Idü w gÛrÍ
+			point.previnput = 'w';
+		else if (point.input == 's')	// Idü w dÛ≥
+			point.previnput = 's';
 
-		xpos++;
+		//xpos++;
 	}
 	// WHILE MOVING LEFT
-	else if (input == 'a')
+	else if (point.input == 'a')
 	{
-		if (input == 'w')		// Idü w gÛre
-			previnput = 'w';
-		else if (input == 's')	// Idü w dÛ≥
-			previnput = 's';
+		if (point.input == 'w')		// Idü w gÛre
+			point.previnput = 'w';
+		else if (point.input == 's')	// Idü w dÛ≥
+			point.previnput = 's';
 
-		xpos--;
-	}
-}
-
-//Obs≥uga klawiatury
-void HeroObject::HandleKeyboard()
-{
-	//WCZYTYWANIE KLAWIATURY
-	if (Game::event.type == SDL_KEYDOWN)
-	{
-		// WHILE MOVING DOWN
-		if (Game::event.key.keysym.sym == SDLK_s)
-		{
-			std::cout << " Przycisk S" << std::endl;
-			previnput = input; input = 's';
-		}
-		// WHILE MOVING UP
-		else if (Game::event.key.keysym.sym == SDLK_w)
-		{
-			std::cout << " Przycisk W" << std::endl;
-			previnput = input; input = 'w';
-		}
-		// WHILE MOVING RIGHT
-		else if (Game::event.key.keysym.sym == SDLK_d)
-		{
-			std::cout << " Przycisk D" << std::endl;
-			previnput = input; input = 'd';
-		}
-		// WHILE MOVING LEFT
-		else if (Game::event.key.keysym.sym == SDLK_a)
-		{
-			std::cout << " Przycisk A" << std::endl;
-			previnput = input; input = 'a';
-		}
+		//xpos--;
 	}
 }

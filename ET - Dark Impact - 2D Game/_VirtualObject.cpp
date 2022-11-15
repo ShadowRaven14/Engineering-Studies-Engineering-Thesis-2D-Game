@@ -10,8 +10,8 @@ void _VirtualObject::Update()
 
 	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
 	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
-	destRect.x = xpos;
-	destRect.y = ypos;
+	destRect.x = point.xpos;
+	destRect.y = point.ypos;
 }
 
 //Renderowanie obiektu

@@ -151,12 +151,15 @@
   <ItemGroup>
     <ClCompile Include="AppleObject.cpp" />
     <ClCompile Include="BasicClass.cpp" />
+    <ClCompile Include="BasicMap.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="HeroObject.cpp" />
+    <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
+    <ClCompile Include="PointInMap.cpp" />
     <ClCompile Include="_VirtualObject.cpp" />
     <ClCompile Include="SnakeObject.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -166,11 +169,14 @@
   <ItemGroup>
     <ClInclude Include="AppleObject.h" />
     <ClInclude Include="BasicClass.h" />
+    <ClInclude Include="BasicMap.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HeroChoices.h" />
     <ClInclude Include="HeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
+    <ClInclude Include="KeyboardManager.h" />
+    <ClInclude Include="PointInMap.h" />
     <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />
     <ClInclude Include="SnakeObject.h" />

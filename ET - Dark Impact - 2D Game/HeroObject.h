@@ -2,7 +2,7 @@
 #include "_VirtualObject.h"
 
 class HeroObject
-	: public _VirtualObject
+	: public virtual _VirtualObject
 {
 public:
 	//Podstawowe
@@ -12,8 +12,6 @@ public:
 	void Render(); //Renderowanie bohatera
 
 	//Zaawansowane
+	int map[29][45];
 	void MoveWithHero(); //Poruszanie siê bohaterem
-	void HandleKeyboard(); //Obs³uga klawiatury
-
-	char input, previnput; //poruszanie
 };

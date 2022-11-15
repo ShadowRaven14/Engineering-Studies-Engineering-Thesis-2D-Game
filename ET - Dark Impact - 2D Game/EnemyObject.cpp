@@ -4,14 +4,14 @@
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
 	objTexture = TextureManager::LoadTexture(texturesheet);
-	xpos = x; ypos = y;
+	point.xpos = x; point.ypos = y;
 }
 
 //Aktualizacja wroga
 void EnemyObject::Update()
 {
-	xpos++;
-	ypos++;
+	point.xpos++;
+	point.ypos++;
 
 	srcRect.h = 64;
 	srcRect.w = 64;
@@ -20,8 +20,8 @@ void EnemyObject::Update()
 
 	destRect.h = srcRect.h / 2;
 	destRect.w = srcRect.w / 2;
-	destRect.x = xpos;
-	destRect.y = ypos;
+	destRect.x = point.xpos;
+	destRect.y = point.ypos;
 }
 
 //Renderowanie wroga
