@@ -10,7 +10,7 @@ public:
 	void DrawMap(int arr[29][41]); //rysuj mapê
 	void InitializeTextures(); //inicjalizuj tekstury
 
-private:
+protected:
 	int map[29][45]; //mapa
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 };

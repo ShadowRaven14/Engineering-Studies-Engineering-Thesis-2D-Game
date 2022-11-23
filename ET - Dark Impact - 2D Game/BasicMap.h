@@ -11,8 +11,6 @@ public:
 	void InitializeTextures(); //inicjalizuj tekstury
 
 private:
-	int map[29][45]; //mapa
-	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 
 	//Grafika
 	SDL_Texture* blank;

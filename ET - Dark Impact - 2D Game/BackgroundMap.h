@@ -1,7 +1,9 @@
 #pragma once
 #include "Game.h"
+#include "_VirtualMap.h"
 
-class BackgroundMap
+class BackgroundMap :
+	public _VirtualMap
 {
 public:
 	//Podstawowe
@@ -10,10 +12,11 @@ public:
 
 	//Zaawansowane
 	void LoadMap(int arr[29][41]); //pobierz mapê
+	void LoadMapFromTxt(); //pobierz mapê
+	void ExportMapToTxt(); //zapisz mapê w pliku txt
 	void DrawMap(); //rysuj mapê
 
 private:
-	int map[29][45]; //mapa
 
 	//Zmienne tekstur
 	SDL_Texture* nest;
@@ -21,8 +24,4 @@ private:
 	SDL_Texture* grass;
 	SDL_Texture* water;
 	SDL_Texture* lava;
-
-	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
-
-	
 };

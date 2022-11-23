@@ -1,5 +1,6 @@
 #include "BackgroundMap.h"
 #include "TextureManager.h"
+#include <fstream>
 
 int lvl1[29][41] =
 {
@@ -50,6 +51,8 @@ BackgroundMap::BackgroundMap()
 	lava = TextureManager::LoadTexture("Assets/pix_red.png");
 
 	LoadMap(lvl1);
+	//LoadMapFromTxt();
+	//ExportMapToTxt();
 	srcRect.x = srcRect.y = 0;
 	srcRect.h = destRect.h = 32;
 	srcRect.w = destRect.w = 32;
@@ -61,15 +64,40 @@ BackgroundMap::~BackgroundMap()
 	std::cout << "Mapa zniszczona" << std::endl;
 }
 
-void BackgroundMap::LoadMap(int arr[29][41])
+void BackgroundMap::LoadMapFromTxt()
 {
+	int x, y; int pixel;
+	std::ifstream read("Maps/StartingMap.txt");
+	read >> x >> y;
+	std::cout << x << " " << y << std::endl;
+
+	for (int row = 0; row < x; row++)
+	{
+		for (int column = 0; column < y; column++)
+		{
+			read >> pixel;
+			map[row][column] = pixel;
+			std::cout << pixel << " ";
+		}
+		std::cout << std::endl;
+	}
+	read.close();
+}
+
+void BackgroundMap::ExportMapToTxt()
+{
+	std::ofstream write("Maps/Exported.txt");
+
+	
 	for (int row = 0; row < 29; row++)
 	{
 		for (int column = 0; column < 41; column++)
 		{
-			map[row][column] = arr[row][column];
+			write << map[row][column] << " ";
 		}
+		write << std::endl;
 	}
+	write.close();
 }
 
 void BackgroundMap::DrawMap()
@@ -103,7 +131,7 @@ void BackgroundMap::DrawMap()
 				break;
 
 			case 4:
-				TextureManager::Draw(dirt, srcRect, destRect);
+				TextureManager::Draw(lava, srcRect, destRect);
 				break;
 
 			default:
