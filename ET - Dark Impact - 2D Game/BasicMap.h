@@ -2,16 +2,14 @@
 #include "_VirtualMap.h"
 
 class BasicMap :
-    public _VirtualMap
+    public virtual _VirtualMap
 {
 public:
 	//Zaawansowane
-	void LoadMap(int arr[29][41]); //pobierz mapê
-	void DrawMap(int arr[29][41]); //rysuj mapê
+	void DrawMap(); //rysuj mapê
 	void InitializeTextures(); //inicjalizuj tekstury
 
-private:
-
+protected:
 	//Grafika
 	SDL_Texture* blank;
 	SDL_Texture* apple;

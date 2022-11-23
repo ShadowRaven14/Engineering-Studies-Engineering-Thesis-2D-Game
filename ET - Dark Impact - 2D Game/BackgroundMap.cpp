@@ -2,57 +2,13 @@
 #include "TextureManager.h"
 #include <fstream>
 
-int lvl1[29][41] =
-{
-	{1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 4,4,4,4,4, 0,0,0,4,0, 4, 0,4,0,0,0, 4,4,4,4,4, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 4, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
-	{1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1, 1,1,1,1,1,}
-};
-
 BackgroundMap::BackgroundMap()
 {
 	std::cout << "Mapa utworzona" << std::endl;
-	nest = TextureManager::LoadTexture("Assets/pix_light_yellow.png");
-	dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
-	grass = TextureManager::LoadTexture("Assets/pix_green.png");
-	water = TextureManager::LoadTexture("Assets/pix_blue.png");
-	lava = TextureManager::LoadTexture("Assets/pix_red.png");
-
-	LoadMap(lvl1);
-	//LoadMapFromTxt();
-	//ExportMapToTxt();
+	InitializeTextures();
+	//LoadMapFromVariable(lvl1);
+	LoadStartingMapFromTxt();
+	//ExportMapToTxt("Maps/Exported.txt");
 	srcRect.x = srcRect.y = 0;
 	srcRect.h = destRect.h = 32;
 	srcRect.w = destRect.w = 32;
@@ -64,40 +20,14 @@ BackgroundMap::~BackgroundMap()
 	std::cout << "Mapa zniszczona" << std::endl;
 }
 
-void BackgroundMap::LoadMapFromTxt()
+
+void BackgroundMap::InitializeTextures()
 {
-	int x, y; int pixel;
-	std::ifstream read("Maps/StartingMap.txt");
-	read >> x >> y;
-	std::cout << x << " " << y << std::endl;
-
-	for (int row = 0; row < x; row++)
-	{
-		for (int column = 0; column < y; column++)
-		{
-			read >> pixel;
-			map[row][column] = pixel;
-			std::cout << pixel << " ";
-		}
-		std::cout << std::endl;
-	}
-	read.close();
-}
-
-void BackgroundMap::ExportMapToTxt()
-{
-	std::ofstream write("Maps/Exported.txt");
-
-	
-	for (int row = 0; row < 29; row++)
-	{
-		for (int column = 0; column < 41; column++)
-		{
-			write << map[row][column] << " ";
-		}
-		write << std::endl;
-	}
-	write.close();
+	nest = TextureManager::LoadTexture("Assets/pix_light_yellow.png");
+	dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
+	grass = TextureManager::LoadTexture("Assets/pix_green.png");
+	water = TextureManager::LoadTexture("Assets/pix_blue.png");
+	lava = TextureManager::LoadTexture("Assets/pix_red.png");
 }
 
 void BackgroundMap::DrawMap()
@@ -123,11 +53,11 @@ void BackgroundMap::DrawMap()
 				break;
 
 			case 2:
-				TextureManager::Draw(dirt, srcRect, destRect);
+				TextureManager::Draw(grass, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::Draw(dirt, srcRect, destRect);
+				TextureManager::Draw(water, srcRect, destRect);
 				break;
 
 			case 4:

@@ -1,24 +1,13 @@
 #include "BasicMap.h"
 
-void BasicMap::LoadMap(int arr[29][41])
-{
-	for (int row = 0; row < 29; row++)
-	{
-		for (int column = 0; column < 41; column++)
-		{
-			map[row][column] = arr[row][column];
-		}
-	}
-}
-
-void BasicMap::DrawMap(int arr[29][41])
+void BasicMap::DrawMap()
 {
 	int type = 0;
 	for (int row = 0; row < 29; row++)
 	{
 		for (int column = 0; column < 41; column++)
 		{
-			type = arr[row][column];
+			type = map[row][column];
 
 			destRect.x = column * 32;
 			destRect.y = row * 32;

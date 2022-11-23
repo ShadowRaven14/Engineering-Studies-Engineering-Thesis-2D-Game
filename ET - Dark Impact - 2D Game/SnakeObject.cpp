@@ -42,7 +42,7 @@ int Level[29][41] =
 
 
 //TABLICA WʯA
-void SnakeObject::LoadMap(int arr[29][41])
+void SnakeObject::LoadMapFromVariable(int arr[29][41])
 {
 	for (int row = 0; row < 29; row++)
 	{
@@ -209,7 +209,7 @@ SnakeObject::SnakeObject(const char* texturesheet, int x, int y)
 	//TABLICA
 	std::cout << "Tablica dla Snake utworzona" << std::endl;
 	InitializeTextures();
-	LoadMap(Level);
+	LoadMapFromVariable(Level);
 	interval1 = 0; interval2 = 0; interval3 = 0;
 	srcRect.h = 64; srcRect.w = 64;
 	srcRect.x = 0; srcRect.y = 0;

@@ -18,18 +18,10 @@ AppleObject::~AppleObject()
 
 void AppleObject::Update()
 {
-	srcRect.h = 64;
-	srcRect.w = 64;
-	srcRect.x = 0;
-	srcRect.y = 0;
-
-	destRect.h = srcRect.h / 2;
-	destRect.w = srcRect.w / 2;
-	destRect.x = point.xpos;
-	destRect.y = point.ypos;
+	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
 }
 
 void AppleObject::Render()
 {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+	RenderInit(); //Podstawowa funkcja z klasy interfejsu
 }

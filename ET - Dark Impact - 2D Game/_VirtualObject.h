@@ -6,8 +6,8 @@
 class _VirtualObject
 {
 public:
-	void Update(); //Aktualizowanie obiektu
-	void Render(); //Renderowanie obiektu
+	void UpdateInit(); //Aktualizowanie obiektu
+	void RenderInit(); //Renderowanie obiektu
 
 protected:
 	SDL_Texture* objTexture; //Tekstura obiektu

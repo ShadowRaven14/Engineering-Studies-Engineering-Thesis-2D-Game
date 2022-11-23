@@ -2,7 +2,7 @@
 #include "_VirtualObject.h"
 
 class EnemyObject
-	: public _VirtualObject
+	: public virtual _VirtualObject
 {
 public:
 	//Podstawowe

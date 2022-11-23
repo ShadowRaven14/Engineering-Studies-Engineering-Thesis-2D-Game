@@ -1,7 +1,7 @@
 #include "_VirtualObject.h"
 
 //Aktualizowanie obiektu
-void _VirtualObject::Update() 
+void _VirtualObject::UpdateInit()
 {
 	srcRect.h = 64; //Wysokoœæ w pikselach
 	srcRect.w = 64; //Szerokoœæ w pikselach
@@ -15,7 +15,7 @@ void _VirtualObject::Update()
 }
 
 //Renderowanie obiektu
-void _VirtualObject::Render() 
+void _VirtualObject::RenderInit()
 {
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }

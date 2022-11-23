@@ -3,17 +3,14 @@
 
 
 class SnakeObject
-	: public _VirtualObject
+	: public virtual _VirtualObject
 {
 
 public:
 	SnakeObject(const char* texturesheet, int x, int y);
 	~SnakeObject();
-
 	void Update();
 	void Render();
-
-
 
 	// ZARZ¥DZANIE WÊ¯EM
 	void InitializeTextures(); //Inicjalizuj grafiki
@@ -29,7 +26,7 @@ public:
 
 
 	// TABLICA
-	void LoadMap(int arr[29][41]);
+	void LoadMapFromVariable(int arr[29][41]);
 	void DrawMap(int arr[29][41]);
 	void AppleTree(int arr[29][41]);
 	// TABLICA

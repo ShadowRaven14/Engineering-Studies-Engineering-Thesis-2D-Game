@@ -10,23 +10,14 @@ HeroObject::HeroObject(const char* texturesheet, int x, int y)
 //Aktualizacja bohatera
 void HeroObject::Update()
 {
-	srcRect.h = 64; //Wysokoœæ w pikselach
-	srcRect.w = 64; //Szerokoœæ w pikselach
-	srcRect.x = 0;
-	srcRect.y = 0;
-
-	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
-	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
-	destRect.x = point.xpos;
-	destRect.y = point.ypos;
-
+	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
 	MoveWithHero();
 }
 
 //Renderowanie bohatera
 void HeroObject::Render()
 {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+	RenderInit(); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Poruszanie siê bohaterem
