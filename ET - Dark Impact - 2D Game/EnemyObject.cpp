@@ -3,8 +3,7 @@
 //Konstruktor wroga
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
-	objTexture = TextureManager::LoadTexture(texturesheet);
-	point.xpos = x; point.ypos = y;
+	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Aktualizacja wroga

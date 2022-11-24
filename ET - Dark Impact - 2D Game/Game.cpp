@@ -3,14 +3,16 @@
 #include "SnakeObject.h"
 #include "HeroObject.h"
 #include "EnemyObject.h"
+#include "ChestObject.h"
 #include "AppleObject.h"
 #include "BackgroundMap.h"
 
 //SnakeObject* snake;
-HeroObject* hero;
-EnemyObject* enemy1;
-BackgroundMap* map;
-SDL_Renderer* Game::renderer = nullptr;
+HeroObject *hero;
+EnemyObject *enemy1;
+ChestObject *chest1, *chest2, *chest3;
+BackgroundMap *map;
+SDL_Renderer *Game::renderer = nullptr;
 SDL_Event Game::event;
 
 //Kontruktor
@@ -50,6 +52,9 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
 	hero = new HeroObject("Assets/crow1.png", 640, 448);
 	enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
+	chest1 = new ChestObject("Assets/chest1.png");
+	chest2 = new ChestObject("Assets/chest1.png");
+	chest3 = new ChestObject("Assets/chest1.png");
 	map = new BackgroundMap();
 }
 
@@ -74,6 +79,9 @@ void Game::update()
 	//snake->Update();
 	hero->Update();
 	enemy1->Update();
+	chest1->Update();
+	chest2->Update();
+	chest3->Update();
 }
 
 //Renderowanie
@@ -84,6 +92,9 @@ void Game::render()
 	//snake->Render();
 	hero->Render();
 	enemy1->Render();
+	chest1->Render();
+	chest2->Render();
+	chest3->Render();
 	SDL_RenderPresent(renderer);
 }
 

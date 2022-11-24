@@ -1,5 +1,12 @@
 #include "_VirtualObject.h"
 
+//Tworzenie obiektu
+void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
+{
+	objTexture = TextureManager::LoadTexture(texturesheet);
+	point.xpos = x; point.ypos = y;
+}
+
 //Aktualizowanie obiektu
 void _VirtualObject::UpdateInit()
 {

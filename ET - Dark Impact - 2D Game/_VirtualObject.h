@@ -6,6 +6,7 @@
 class _VirtualObject
 {
 public:
+	void ObjectInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
 	void UpdateInit(); //Aktualizowanie obiektu
 	void RenderInit(); //Renderowanie obiektu
 

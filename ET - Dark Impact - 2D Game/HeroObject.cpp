@@ -5,8 +5,7 @@
 HeroObject::HeroObject(const char* texturesheet, int x, int y)
 {
 	InitializeHeroMap();
-	objTexture = TextureManager::LoadTexture(texturesheet);
-	point.xpos = x; point.ypos = y;
+	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Aktualizacja bohatera
