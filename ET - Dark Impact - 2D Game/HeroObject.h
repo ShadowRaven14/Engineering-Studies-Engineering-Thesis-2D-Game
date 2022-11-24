@@ -1,8 +1,9 @@
 #pragma once
 #include "_VirtualObject.h"
+#include "HeroLayerMap.h"
 
 class HeroObject
-	: public virtual _VirtualObject
+	: public virtual _VirtualObject, public HeroLayerMap
 {
 public:
 	//Podstawowe
@@ -12,6 +13,6 @@ public:
 	void Render(); //Renderowanie bohatera
 
 	//Zaawansowane
-	int map[29][45];
+	void InitializeHeroMap();
 	void MoveWithHero(); //Poruszanie siê bohaterem
 };

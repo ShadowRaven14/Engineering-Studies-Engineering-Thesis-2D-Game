@@ -84,7 +84,7 @@
     <ClCompile Include="HeroChoices.cpp">
       <Filter>Source Files\HeroChoicesCpp</Filter>
     </ClCompile>
-    <ClCompile Include="BasicMap.cpp">
+    <ClCompile Include="HeroLayerMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
     <ClCompile Include="KeyboardManager.cpp">
@@ -92,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="PointInMap.cpp">
       <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjective.cpp">
+      <Filter>Source Files\HeroChoicesCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +137,7 @@
     <ClInclude Include="HeroChoices.h">
       <Filter>Header Files\HeroChoicesH</Filter>
     </ClInclude>
-    <ClInclude Include="BasicMap.h">
+    <ClInclude Include="HeroLayerMap.h">
       <Filter>Header Files\MapH</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardManager.h">
@@ -142,6 +145,9 @@
     </ClInclude>
     <ClInclude Include="PointInMap.h">
       <Filter>Header Files\UtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjective.h">
+      <Filter>Header Files\HeroChoicesH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

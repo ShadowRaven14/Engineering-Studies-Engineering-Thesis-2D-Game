@@ -151,7 +151,8 @@
   <ItemGroup>
     <ClCompile Include="AppleObject.cpp" />
     <ClCompile Include="BasicClass.cpp" />
-    <ClCompile Include="BasicMap.cpp" />
+    <ClCompile Include="GameObjective.cpp" />
+    <ClCompile Include="HeroLayerMap.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HeroChoices.cpp" />
@@ -169,7 +170,8 @@
   <ItemGroup>
     <ClInclude Include="AppleObject.h" />
     <ClInclude Include="BasicClass.h" />
-    <ClInclude Include="BasicMap.h" />
+    <ClInclude Include="GameObjective.h" />
+    <ClInclude Include="HeroLayerMap.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HeroChoices.h" />

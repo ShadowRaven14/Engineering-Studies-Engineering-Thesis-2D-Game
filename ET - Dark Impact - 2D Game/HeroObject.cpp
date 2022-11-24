@@ -1,8 +1,10 @@
 #include "HeroObject.h"
 
+//PODSTAWOWE
 //Konstruktor bohatera
 HeroObject::HeroObject(const char* texturesheet, int x, int y)
 {
+	InitializeHeroMap();
 	objTexture = TextureManager::LoadTexture(texturesheet);
 	point.xpos = x; point.ypos = y;
 }
@@ -18,6 +20,22 @@ void HeroObject::Update()
 void HeroObject::Render()
 {
 	RenderInit(); //Podstawowa funkcja z klasy interfejsu
+	DrawMap();
+}
+//PODSTAWOWE
+
+
+
+//Inicjalizacja mapy bohatera
+void HeroObject::InitializeHeroMap()
+{
+	for (int row = 0; row < 29; row++)
+	{
+		for (int column = 0; column < 41; column++)
+		{
+			map[row][column] = 0;
+		}
+	}
 }
 
 //Poruszanie siê bohaterem

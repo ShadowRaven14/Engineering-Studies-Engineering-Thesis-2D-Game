@@ -23,6 +23,7 @@ BackgroundMap::~BackgroundMap()
 
 void BackgroundMap::InitializeTextures()
 {
+	blank = TextureManager::LoadTexture("Assets/blank.png");
 	nest = TextureManager::LoadTexture("Assets/pix_light_yellow.png");
 	dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
 	grass = TextureManager::LoadTexture("Assets/pix_green.png");

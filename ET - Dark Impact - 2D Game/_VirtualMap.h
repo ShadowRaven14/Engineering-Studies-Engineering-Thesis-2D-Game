@@ -15,6 +15,7 @@ protected:
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 
 	//Zmienne tekstur
+	SDL_Texture* blank;
 	SDL_Texture* nest;
 	SDL_Texture* dirt;
 	SDL_Texture* grass;
