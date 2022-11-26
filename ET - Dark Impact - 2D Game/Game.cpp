@@ -6,12 +6,14 @@
 #include "ChestObject.h"
 #include "AppleObject.h"
 #include "BackgroundMap.h"
+#include "BasicGameLevel.h"
 
 //SnakeObject* snake;
-HeroObject *hero;
-EnemyObject *enemy1;
-ChestObject *chest1, *chest2, *chest3;
-BackgroundMap *map;
+BasicGameLevel* basicLevel;
+//HeroObject *hero;
+//EnemyObject *enemy1;
+//ChestObject *chest1, *chest2, *chest3;
+//BackgroundMap* map, *map2;
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Event Game::event;
 
@@ -50,12 +52,18 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	}
 
 	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
-	hero = new HeroObject("Assets/crow1.png", 640, 448);
-	enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
-	chest1 = new ChestObject("Assets/chest1.png");
-	chest2 = new ChestObject("Assets/chest1.png");
-	chest3 = new ChestObject("Assets/chest1.png");
-	map = new BackgroundMap();
+	basicLevel = new BasicGameLevel(
+		"Maps/StartingMap.txt", 
+		"Assets/crow1.png", 
+		"Assets/apple_golden1.png", 
+		"Assets/chest1.png");
+	//hero = new HeroObject("Assets/crow1.png", 640, 448);
+	//map = new BackgroundMap("Maps/StartingMap.txt");
+	//enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
+	//chest1 = new ChestObject("Assets/chest1.png");
+	//chest2 = new ChestObject("Assets/chest1.png");
+	//chest3 = new ChestObject("Assets/chest1.png");
+	
 }
 
 //Obs³uga wydarzeñ
@@ -77,24 +85,20 @@ void Game::handleEvents()
 void Game::update()
 {
 	//snake->Update();
-	hero->Update();
-	enemy1->Update();
-	chest1->Update();
-	chest2->Update();
-	chest3->Update();
+	basicLevel->basicHero->Update();
+	basicLevel->basicEnemy->Update();
+	basicLevel->basicChest->Update();
 }
 
 //Renderowanie
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	map->DrawMap();
+	basicLevel->basicMap->DrawMap();
 	//snake->Render();
-	hero->Render();
-	enemy1->Render();
-	chest1->Render();
-	chest2->Render();
-	chest3->Render();
+	basicLevel->basicHero->Render();
+	basicLevel->basicEnemy->Render();
+	basicLevel->basicChest->Render();
 	SDL_RenderPresent(renderer);
 }
 

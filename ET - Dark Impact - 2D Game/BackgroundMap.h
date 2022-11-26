@@ -7,7 +7,7 @@ class BackgroundMap :
 {
 public:
 	//Podstawowe
-	BackgroundMap();
+	BackgroundMap(std::string mapname);
 	~BackgroundMap();
 
 	//Zaawansowane

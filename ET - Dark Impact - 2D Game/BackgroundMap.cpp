@@ -1,13 +1,14 @@
 #include "BackgroundMap.h"
 #include "TextureManager.h"
 #include <fstream>
+#include <string>
 
-BackgroundMap::BackgroundMap()
+BackgroundMap::BackgroundMap(std::string mapname)
 {
 	std::cout << "Mapa utworzona" << std::endl;
 	InitializeTextures();
 	//LoadMapFromVariable(lvl1);
-	LoadStartingMapFromTxt();
+	LoadStartingMapFromTxt(mapname);
 	//ExportMapToTxt("Maps/Exported.txt");
 	srcRect.x = srcRect.y = 0;
 	srcRect.h = destRect.h = 32;

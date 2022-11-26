@@ -11,10 +11,10 @@ void _VirtualMap::LoadMapFromVariable(int arr[29][41])
 	}
 }
 
-void _VirtualMap::LoadStartingMapFromTxt()
+void _VirtualMap::LoadStartingMapFromTxt(std::string mapname)
 {
 	int x, y; int pixel;
-	std::ifstream read("Maps/StartingMap.txt");
+	std::ifstream read(mapname);
 	read >> x >> y;
 	std::cout << x << " " << y << std::endl;
 

@@ -7,7 +7,7 @@ class _VirtualMap
 public:
 	//Zaawansowane
 	void LoadMapFromVariable(int arr[29][41]); //pobierz mapê
-	void LoadStartingMapFromTxt(); //pobierz z pliku txt
+	void LoadStartingMapFromTxt(std::string mapname); //pobierz z pliku txt
 	void ExportMapToTxt(std::string name); //zapisz mapê w pliku txt
 
 protected:

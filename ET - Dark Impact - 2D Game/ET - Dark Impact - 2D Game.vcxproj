@@ -159,6 +159,7 @@
     <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
+    <ClCompile Include="BasicGameLevel.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
     <ClCompile Include="PointInMap.cpp" />
@@ -180,6 +181,7 @@
     <ClInclude Include="HeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
     <ClInclude Include="KeyboardManager.h" />
+    <ClInclude Include="BasicGameLevel.h" />
     <ClInclude Include="PointInMap.h" />
     <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />

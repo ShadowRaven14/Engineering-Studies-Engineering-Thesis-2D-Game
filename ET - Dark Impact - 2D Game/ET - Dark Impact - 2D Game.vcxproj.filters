@@ -93,6 +93,9 @@
     <ClCompile Include="ChestObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="BasicGameLevel.cpp">
+      <Filter>Source Files\MapCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="ChestObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicGameLevel.h">
+      <Filter>Header Files\MapH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
