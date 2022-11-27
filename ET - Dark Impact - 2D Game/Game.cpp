@@ -8,12 +8,7 @@
 #include "BackgroundMap.h"
 #include "BasicGameLevel.h"
 
-//SnakeObject* snake;
-BasicGameLevel* basicLevel;
-//HeroObject *hero;
-//EnemyObject *enemy1;
-//ChestObject *chest1, *chest2, *chest3;
-//BackgroundMap* map, *map2;
+BasicGameLevel *basicLevel, *secondLevel;
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Event Game::event;
 
@@ -51,19 +46,11 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	//snake = new SnakeObject("Assets/head_down.png", 640, 448);
 	basicLevel = new BasicGameLevel(
 		"Maps/StartingMap.txt", 
 		"Assets/crow1.png", 
 		"Assets/apple_golden1.png", 
 		"Assets/chest1.png");
-	//hero = new HeroObject("Assets/crow1.png", 640, 448);
-	//map = new BackgroundMap("Maps/StartingMap.txt");
-	//enemy1 = new EnemyObject("Assets/apple_golden1.png", 40, 48);
-	//chest1 = new ChestObject("Assets/chest1.png");
-	//chest2 = new ChestObject("Assets/chest1.png");
-	//chest3 = new ChestObject("Assets/chest1.png");
-	
 }
 
 //Obs³uga wydarzeñ
@@ -84,21 +71,21 @@ void Game::handleEvents()
 //Aktualizowanie
 void Game::update()
 {
-	//snake->Update();
-	basicLevel->basicHero->Update();
-	basicLevel->basicEnemy->Update();
-	basicLevel->basicChest->Update();
+	//basicLevel->basicHero->Update();
+	//basicLevel->basicEnemy->Update();
+	//basicLevel->basicChest->Update();
+	basicLevel->Update();
 }
 
 //Renderowanie
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	basicLevel->basicMap->DrawMap();
-	//snake->Render();
-	basicLevel->basicHero->Render();
-	basicLevel->basicEnemy->Render();
-	basicLevel->basicChest->Render();
+	//basicLevel->basicMap->DrawMap();
+	//basicLevel->basicHero->Render();
+	//basicLevel->basicEnemy->Render();
+	//basicLevel->basicChest->Render();
+	basicLevel->Render();
 	SDL_RenderPresent(renderer);
 }
 

@@ -26,3 +26,14 @@ void _VirtualObject::RenderInit()
 {
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
+
+SDL_Rect _VirtualObject::GetDestRect()
+{
+	return destRect;
+}
+
+void _VirtualObject::SetDestRect(SDL_Rect newdestRect)
+{
+	destRect = newdestRect;
+}
+
