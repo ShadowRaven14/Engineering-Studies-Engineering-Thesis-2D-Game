@@ -1,3 +1,5 @@
+/*Pojedynczy punkt na osi xy.*/
+
 #pragma once
 class Point
 {

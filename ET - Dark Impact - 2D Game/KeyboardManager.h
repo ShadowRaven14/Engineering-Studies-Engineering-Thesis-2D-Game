@@ -1,3 +1,6 @@
+/*Klasa zajmuj¹ca siê pobieraniem znaków z klawiatury.
+Przechowuje obecny i wczeœniej naciœniêty klawisz.*/
+
 #pragma once
 #include "Game.h"
 #include "PointInMap.h"

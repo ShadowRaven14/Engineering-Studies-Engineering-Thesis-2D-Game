@@ -1,3 +1,5 @@
+/*Klasa reprezentuje pojedynczy poziom gry.*/
+
 #pragma once
 #include "BackgroundMap.h"
 #include "EnemyObject.h"

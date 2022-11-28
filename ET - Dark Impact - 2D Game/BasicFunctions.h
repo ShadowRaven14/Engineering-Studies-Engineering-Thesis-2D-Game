@@ -1,3 +1,5 @@
+/*Podstawowe funkcje i algorytmy programistyczne.*/
+
 #pragma once
 class BasicFunctions
 {

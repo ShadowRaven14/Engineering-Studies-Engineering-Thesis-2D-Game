@@ -1,3 +1,5 @@
+/*Klasa reprezentuj¹ca mapê w tle.*/
+
 #pragma once
 #include "Game.h"
 #include "_VirtualMap.h"

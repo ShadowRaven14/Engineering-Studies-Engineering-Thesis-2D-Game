@@ -1,3 +1,5 @@
+/*Klasa reprezentuj¹c¹ obiekt gry typu bohater.*/
+
 #pragma once
 #include "_VirtualObject.h"
 #include "HeroLayerMap.h"

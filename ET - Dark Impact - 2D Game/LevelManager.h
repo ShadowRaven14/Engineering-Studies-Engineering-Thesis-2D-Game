@@ -1,3 +1,6 @@
+/*Klasa skupia wszystkie dostêpne poziomy i nimi zarz¹dza. 
+Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
+
 #pragma once
 #include "BasicGameLevel.h"
 

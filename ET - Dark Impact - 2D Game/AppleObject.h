@@ -1,3 +1,5 @@
+/*Do wyrzucenia.*/
+
 #pragma once
 #include "_VirtualObject.h"
 

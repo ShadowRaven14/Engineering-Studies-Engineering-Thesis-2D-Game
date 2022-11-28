@@ -1,3 +1,5 @@
+/*Klasa reprezentuj¹c¹ obiekt gry typu skrzynia.*/
+
 #pragma once
 #include "_VirtualObject.h"
 

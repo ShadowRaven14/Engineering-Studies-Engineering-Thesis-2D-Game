@@ -1,3 +1,5 @@
+/*Klasa reprezentuj¹c¹ klasê postaci.*/
+
 #pragma once
 #include <string>
 class BasicClass

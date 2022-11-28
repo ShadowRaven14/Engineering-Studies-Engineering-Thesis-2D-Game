@@ -1,3 +1,5 @@
+/*Abstrakcyjna klasa. Interfejs rodziny klas Map.*/
+
 #pragma once
 #include "Game.h"
 #include "TextureManager.h"

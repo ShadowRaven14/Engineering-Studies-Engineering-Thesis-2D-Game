@@ -1,3 +1,5 @@
+/*Klasa testowa.*/
+
 #pragma once
 namespace SimpleMathExamples
 {

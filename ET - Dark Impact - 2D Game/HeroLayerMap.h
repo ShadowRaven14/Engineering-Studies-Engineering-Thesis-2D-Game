@@ -1,3 +1,6 @@
+/*Klasa reprezentuj¹ca tablica po której porusza siê g³ówna postaæ, 
+wraz z najwa¿niejszymi obiektami.*/
+
 #pragma once
 #include "_VirtualMap.h"
 

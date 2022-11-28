@@ -1,3 +1,5 @@
+/*Klasa zarz¹dzaj¹ca ³adowaniem tekstur poszczególnych obiektów.*/
+
 #pragma once
 #include "Game.h"
 
