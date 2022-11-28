@@ -51,6 +51,12 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		"Assets/crow1.png", 
 		"Assets/apple_golden1.png", 
 		"Assets/chest1.png");
+
+	secondLevel = new BasicGameLevel(
+		"Maps/Test.txt",
+		"Assets/crow1.png",
+		"Assets/apple_golden2.png",
+		"Assets/chest1.png");
 }
 
 //Obs³uga wydarzeñ
@@ -86,6 +92,7 @@ void Game::render()
 	//basicLevel->basicEnemy->Render();
 	//basicLevel->basicChest->Render();
 	basicLevel->Render();
+	secondLevel->Render();
 	SDL_RenderPresent(renderer);
 }
 

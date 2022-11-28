@@ -96,6 +96,12 @@
     <ClCompile Include="BasicGameLevel.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files\MapCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -154,6 +160,12 @@
     </ClInclude>
     <ClInclude Include="BasicGameLevel.h">
       <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

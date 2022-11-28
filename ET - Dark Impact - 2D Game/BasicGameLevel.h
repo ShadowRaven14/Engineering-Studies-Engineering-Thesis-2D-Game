@@ -11,7 +11,6 @@ public:
 	~BasicGameLevel();
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
-	void TeleportToNewMap(); //Zmiana bie¿¹cej mapy
 
 	BackgroundMap* basicMap;
 	HeroObject* basicHero;

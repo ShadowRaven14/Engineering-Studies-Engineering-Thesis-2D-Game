@@ -22,13 +22,3 @@ void BasicGameLevel::Render()
 	basicEnemy->Render();
 	basicChest->Render();
 }
-
-void BasicGameLevel::TeleportToNewMap()
-{
-	//SDL_Rect rect = basicHero->GetDestRect;
-	//if(destRect.x == 100)
-
-	//basicHero->
-	//basicHero->destRect.x = 100;
-	//basicHero->destRect.y = 100;
-}
