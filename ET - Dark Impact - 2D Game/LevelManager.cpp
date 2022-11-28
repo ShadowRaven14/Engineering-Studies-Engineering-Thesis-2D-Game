@@ -1,5 +1,28 @@
 #include "LevelManager.h"
 
+LevelManager::LevelManager()
+{
+	basicLevel = new BasicGameLevel(
+		"Maps/StartingMap.txt",
+		"Assets/crow1.png",
+		"Assets/apple_golden1.png",
+		"Assets/chest1.png");
+
+	secondLevel = new BasicGameLevel(
+		"Maps/Test.txt",
+		"Assets/crow1.png",
+		"Assets/apple_golden2.png",
+		"Assets/chest1.png");
+
+	thirdLevel = new BasicGameLevel(
+		"Maps/Test.txt",
+		"Assets/crow1.png",
+		"Assets/apple_golden2.png",
+		"Assets/chest1.png");
+
+	currentLevel = basicLevel;
+}
+
 void LevelManager::Update()
 {
 	TeleportToNewMap(TranslatePoint(currentLevel->basicHero->GetDestRect()));
@@ -14,7 +37,7 @@ void LevelManager::Render()
 
 void LevelManager::TeleportToNewMap(Point currentPoint)
 {
-	if (currentPoint.x == teleportPoint.x && currentPoint.y == teleportPoint.y)
+	if (currentPoint.x == currentLevel->teleportPoint.x && currentPoint.y == currentLevel->teleportPoint.y)
 	{
 		short s = 0;
 
@@ -39,6 +62,8 @@ void LevelManager::TeleportToNewMap(Point currentPoint)
 			basicLevel->Update();
 			break;
 		}
+
+		//currentLevel->Update();
 	}
 }
 
@@ -50,4 +75,9 @@ Point LevelManager::TranslatePoint(SDL_Rect currentPoint)
 	newcurrentPoint.y = currentPoint.y;
 
 	return newcurrentPoint;
+}
+
+void LevelManager::ChangeLevel(BasicGameLevel *newLevel)
+{
+	currentLevel = newLevel;
 }

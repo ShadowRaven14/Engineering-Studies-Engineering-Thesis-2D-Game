@@ -6,6 +6,16 @@ BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char
 	basicHero = new HeroObject(bnHero, 640, 448);
 	basicEnemy = new EnemyObject(bnEnemy, 40, 48);
 	basicChest = new ChestObject(bnChest);
+	teleportPoint = new Point(50, 50);
+}
+
+BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
+{
+	basicMap = tempLevel.basicMap;
+	basicHero = tempLevel.basicHero;
+	basicEnemy = tempLevel.basicEnemy;
+	basicChest = tempLevel.basicChest;
+	teleportPoint = tempLevel.teleportPoint;
 }
 
 void BasicGameLevel::Update()

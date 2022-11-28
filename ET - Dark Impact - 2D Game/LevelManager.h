@@ -1,6 +1,5 @@
 #pragma once
 #include "BasicGameLevel.h"
-#include "Point.h"
 
 class LevelManager
 {
@@ -13,9 +12,9 @@ public:
 	void TeleportToNewMap(Point currentPoint); //Zmiana bie¿¹cej mapy
 	void ChangeTeleportPoint(Point newPoint); //Zmiana obecnego punktu
 	Point TranslatePoint(SDL_Rect currentPoint);
+	void ChangeLevel(BasicGameLevel *newLevel); //Zmiana obecnego punktu
 
 private:
-	Point teleportPoint;
 	BasicGameLevel *basicLevel, *secondLevel, *thirdLevel;
 	BasicGameLevel* currentLevel;
 };

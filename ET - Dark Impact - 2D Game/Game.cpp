@@ -1,14 +1,8 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "SnakeObject.h"
-#include "HeroObject.h"
-#include "EnemyObject.h"
-#include "ChestObject.h"
-#include "AppleObject.h"
-#include "BackgroundMap.h"
-#include "BasicGameLevel.h"
+#include "LevelManager.h"
 
-BasicGameLevel *basicLevel, *secondLevel;
+LevelManager *levelManager;
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Event Game::event;
 
@@ -46,17 +40,8 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
-	basicLevel = new BasicGameLevel(
-		"Maps/StartingMap.txt", 
-		"Assets/crow1.png", 
-		"Assets/apple_golden1.png", 
-		"Assets/chest1.png");
-
-	secondLevel = new BasicGameLevel(
-		"Maps/Test.txt",
-		"Assets/crow1.png",
-		"Assets/apple_golden2.png",
-		"Assets/chest1.png");
+	//Inicjalizacja obiektu zarz¹dzaj¹cego poziomami gry
+	levelManager = new LevelManager();
 }
 
 //Obs³uga wydarzeñ
@@ -77,22 +62,14 @@ void Game::handleEvents()
 //Aktualizowanie
 void Game::update()
 {
-	//basicLevel->basicHero->Update();
-	//basicLevel->basicEnemy->Update();
-	//basicLevel->basicChest->Update();
-	basicLevel->Update();
+	levelManager->Update();
 }
 
 //Renderowanie
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	//basicLevel->basicMap->DrawMap();
-	//basicLevel->basicHero->Render();
-	//basicLevel->basicEnemy->Render();
-	//basicLevel->basicChest->Render();
-	basicLevel->Render();
-	secondLevel->Render();
+	levelManager->Render();
 	SDL_RenderPresent(renderer);
 }
 
