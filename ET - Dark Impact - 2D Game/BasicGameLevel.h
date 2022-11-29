@@ -10,7 +10,7 @@
 class BasicGameLevel
 {
 public:
-	BasicGameLevel(std::string bnMap, const char* bnHero, const char* bnEnemy, const char* bnChest);
+	BasicGameLevel(std::string bnMap, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport);
 	BasicGameLevel(const BasicGameLevel &tempLevel);
 	~BasicGameLevel();
 	void Update(); //Aktualizacja

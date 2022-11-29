@@ -6,19 +6,22 @@ LevelManager::LevelManager()
 		"Maps/StartingMap.txt",
 		"Assets/crow1.png",
 		"Assets/apple_golden1.png",
-		"Assets/chest1.png");
+		"Assets/chest1.png",
+		new Point(672, 480));
 
 	secondLevel = new BasicGameLevel(
 		"Maps/Test.txt",
 		"Assets/crow1.png",
 		"Assets/apple_golden2.png",
-		"Assets/chest1.png");
+		"Assets/chest1.png",
+		new Point(672, 480));
 
 	thirdLevel = new BasicGameLevel(
 		"Maps/Test.txt",
 		"Assets/crow1.png",
 		"Assets/apple_golden2.png",
-		"Assets/chest1.png");
+		"Assets/chest1.png",
+		new Point(672, 480));
 
 	currentLevel = basicLevel;
 }
@@ -30,41 +33,42 @@ void LevelManager::Update()
 
 void LevelManager::Render()
 {
+	thirdLevel->Render();
+	secondLevel->Render();
 	basicLevel->Render();
-	//secondLevel->Render();
-	//thirdLevel->Render();
 }
 
 void LevelManager::TeleportToNewMap(Point currentPoint)
 {
+	//currentPoint jest to pozycja bohatera
+
 	if (currentPoint.x == currentLevel->teleportPoint->x && currentPoint.y == currentLevel->teleportPoint->y)
 	{
-		short s = 0;
-
-		SDL_Rect newRect = basicLevel->basicHero->GetDestRect();
-		if (newRect.x == 50) s = 1;
+		short s = 1;
+		//SDL_Rect newRect = basicLevel->basicHero->GetDestRect();
+		std::cout << currentPoint.x << " " << currentPoint.y << std::endl;
+		//if (newRect.x == 672) s = 1;
 
 		switch (s)
 		{
 		case 0:
-			basicLevel->Update();
+			currentLevel = basicLevel;
 			break;
 
 		case 1:
-			//secondLevel->Update();
+			currentLevel = secondLevel;
 			break;
 
 		case 2:
-			//thirdLevel->Update();
+			currentLevel = thirdLevel;
 			break;
 
 		default:
-			basicLevel->Update();
+			currentLevel = basicLevel;
 			break;
 		}
-
-		//currentLevel->Update();
 	}
+	currentLevel->Update();
 }
 
 Point LevelManager::TranslatePoint(SDL_Rect currentPoint)

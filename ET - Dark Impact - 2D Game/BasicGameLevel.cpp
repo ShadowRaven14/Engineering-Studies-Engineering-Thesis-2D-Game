@@ -1,12 +1,12 @@
 #include "BasicGameLevel.h"
 
-BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char* bnEnemy, const char* bnChest)
+BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
 {
 	basicMap = new BackgroundMap(bnMap);
 	basicHero = new HeroObject(bnHero, 640, 448);
 	basicEnemy = new EnemyObject(bnEnemy, 40, 48);
 	basicChest = new ChestObject(bnChest);
-	teleportPoint = new Point(50, 50);
+	teleportPoint = bnTeleport;
 }
 
 BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
