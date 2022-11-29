@@ -41,46 +41,46 @@ void HeroObject::InitializeHeroMap()
 void HeroObject::MoveWithHero()
 {
 	// Obs≥uguj input z klawiatury
-	point = KeyboardManager::HandleKeyboard(point);
+	cordsOfHero = KeyboardManager::HandleKeyboard(cordsOfHero);
 
 	// OBS£UGA PORUSZANIA
 	// WHILE MOVING DOWN
-	if (point.input == 's')
+	if (cordsOfHero.input == 's')
 	{
-		if (point.input == 'a')		// Idü w lewo
-			point.previnput = 'a';
-		else if (point.input == 'd')	// Idü w prawo
-			point.previnput = 'd';
+		if (cordsOfHero.input == 'a')		// Idü w lewo
+			cordsOfHero.previnput = 'a';
+		else if (cordsOfHero.input == 'd')	// Idü w prawo
+			cordsOfHero.previnput = 'd';
 
 		//ypos++;
 	}
 	// WHILE MOVING UP
-	else if (point.input == 'w')
+	else if (cordsOfHero.input == 'w')
 	{
-		if (point.input == 'a')		// Idü w lewo
-			point.previnput = 'a';
-		else if (point.input == 'd')	// Idü w prawo
-			point.previnput = 'd';
+		if (cordsOfHero.input == 'a')		// Idü w lewo
+			cordsOfHero.previnput = 'a';
+		else if (cordsOfHero.input == 'd')	// Idü w prawo
+			cordsOfHero.previnput = 'd';
 
 		//ypos--;
 	}
 	// WHILE MOVING RIGHT
-	else if (point.input == 'd')
+	else if (cordsOfHero.input == 'd')
 	{
-		if (point.input == 'w')		// Idü w gÛrÍ
-			point.previnput = 'w';
-		else if (point.input == 's')	// Idü w dÛ≥
-			point.previnput = 's';
+		if (cordsOfHero.input == 'w')		// Idü w gÛrÍ
+			cordsOfHero.previnput = 'w';
+		else if (cordsOfHero.input == 's')	// Idü w dÛ≥
+			cordsOfHero.previnput = 's';
 
 		//xpos++;
 	}
 	// WHILE MOVING LEFT
-	else if (point.input == 'a')
+	else if (cordsOfHero.input == 'a')
 	{
-		if (point.input == 'w')		// Idü w gÛre
-			point.previnput = 'w';
-		else if (point.input == 's')	// Idü w dÛ≥
-			point.previnput = 's';
+		if (cordsOfHero.input == 'w')		// Idü w gÛre
+			cordsOfHero.previnput = 'w';
+		else if (cordsOfHero.input == 's')	// Idü w dÛ≥
+			cordsOfHero.previnput = 's';
 
 		//xpos--;
 	}

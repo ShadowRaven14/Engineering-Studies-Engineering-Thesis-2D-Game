@@ -11,10 +11,10 @@ void EnemyObject::Update()
 {
 	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
 
-	if(point.xpos<928) point.xpos++;
-	else point.xpos--;
-	if(point.ypos<1312) point.ypos++;
-	else point.ypos--;
+	if(cordsOfHero.point.x<928) cordsOfHero.point.x++;
+	else cordsOfHero.point.x--;
+	if(cordsOfHero.point.y<1312) cordsOfHero.point.y++;
+	else cordsOfHero.point.y--;
 }
 
 //Renderowanie wroga

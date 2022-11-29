@@ -31,13 +31,13 @@ void LevelManager::Update()
 void LevelManager::Render()
 {
 	basicLevel->Render();
-	secondLevel->Render();
-	thirdLevel->Render();
+	//secondLevel->Render();
+	//thirdLevel->Render();
 }
 
 void LevelManager::TeleportToNewMap(Point currentPoint)
 {
-	if (currentPoint.x == currentLevel->teleportPoint.x && currentPoint.y == currentLevel->teleportPoint.y)
+	if (currentPoint.x == currentLevel->teleportPoint->x && currentPoint.y == currentLevel->teleportPoint->y)
 	{
 		short s = 0;
 
@@ -51,11 +51,11 @@ void LevelManager::TeleportToNewMap(Point currentPoint)
 			break;
 
 		case 1:
-			secondLevel->Update();
+			//secondLevel->Update();
 			break;
 
 		case 2:
-			thirdLevel->Update();
+			//thirdLevel->Update();
 			break;
 
 		default:

@@ -37,6 +37,12 @@
     <Filter Include="Source Files\HeroUtilsCpp">
       <UniqueIdentifier>{a9827ee7-79db-4e86-a82d-137766627adf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\LevelCpp">
+      <UniqueIdentifier>{c50d01b5-2b3b-4dc3-8211-cb865b764ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LevelH">
+      <UniqueIdentifier>{ddbeac22-8152-4df3-b753-0f7538b0ebdb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -63,29 +69,14 @@
     <ClCompile Include="BackgroundMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\UtilsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_VirtualMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
-    <ClCompile Include="HeroChoices.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="HeroLayerMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="KeyboardManager.cpp">
-      <Filter>Source Files\UtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="PointInMap.cpp">
-      <Filter>Source Files\UtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="GameObjective.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BasicClass.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
@@ -93,14 +84,29 @@
     <ClCompile Include="ChestObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="BasicGameLevel.cpp">
-      <Filter>Source Files\MapCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
-      <Filter>Source Files\MapCpp</Filter>
-    </ClCompile>
     <ClCompile Include="Point.cpp">
       <Filter>Source Files\UtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Source Files\LevelCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicGameLevel.cpp">
+      <Filter>Source Files\LevelCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjective.cpp">
+      <Filter>Source Files\LevelCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroChoices.cpp">
+      <Filter>Source Files\LevelCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardManager.cpp">
+      <Filter>Source Files\HeroUtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinatesOfHero.cpp">
+      <Filter>Source Files\HeroUtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureManager.cpp">
+      <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,29 +134,14 @@
     <ClInclude Include="BackgroundMap.h">
       <Filter>Header Files\MapH</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\UtilsH</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
       <Filter>Header Files\MapH</Filter>
     </ClInclude>
-    <ClInclude Include="HeroChoices.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
     <ClInclude Include="HeroLayerMap.h">
       <Filter>Header Files\MapH</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyboardManager.h">
-      <Filter>Header Files\UtilsH</Filter>
-    </ClInclude>
-    <ClInclude Include="PointInMap.h">
-      <Filter>Header Files\UtilsH</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjective.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="BasicClass.h">
       <Filter>Header Files\HeroUtlisH</Filter>
@@ -158,14 +149,29 @@
     <ClInclude Include="ChestObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="BasicGameLevel.h">
-      <Filter>Header Files\MapH</Filter>
-    </ClInclude>
-    <ClInclude Include="LevelManager.h">
-      <Filter>Header Files\MapH</Filter>
-    </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files\UtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Header Files\LevelH</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicGameLevel.h">
+      <Filter>Header Files\LevelH</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroChoices.h">
+      <Filter>Header Files\LevelH</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjective.h">
+      <Filter>Header Files\LevelH</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardManager.h">
+      <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\MapH</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinatesOfHero.h">
+      <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

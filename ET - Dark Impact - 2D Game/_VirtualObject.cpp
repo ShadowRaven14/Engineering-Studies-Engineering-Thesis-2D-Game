@@ -4,7 +4,7 @@
 void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
 {
 	objTexture = TextureManager::LoadTexture(texturesheet);
-	point.xpos = x; point.ypos = y;
+	cordsOfHero.point.x = x; cordsOfHero.point.y = y;
 }
 
 //Aktualizowanie obiektu
@@ -17,8 +17,8 @@ void _VirtualObject::UpdateInit()
 
 	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
 	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
-	destRect.x = point.xpos;
-	destRect.y = point.ypos;
+	destRect.x = cordsOfHero.point.x;
+	destRect.y = cordsOfHero.point.y;
 }
 
 //Renderowanie obiektu
