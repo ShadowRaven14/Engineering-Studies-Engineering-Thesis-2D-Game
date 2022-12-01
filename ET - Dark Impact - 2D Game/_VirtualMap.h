@@ -18,10 +18,13 @@ protected:
 
 	//Zmienne tekstur
 	SDL_Texture* blank;
-	SDL_Texture* nest;
-	SDL_Texture* dirt;
+	SDL_Texture* sand;
+	//SDL_Texture* dirt;
+	SDL_Texture* stone;
+	SDL_Texture* snow;
+	SDL_Texture* wood;
 	SDL_Texture* grass;
-	SDL_Texture* water;
-	SDL_Texture* lava;
+	//SDL_Texture* water;
+	//SDL_Texture* lava;
 };
 

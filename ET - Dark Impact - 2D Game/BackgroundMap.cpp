@@ -10,10 +10,16 @@ BackgroundMap::BackgroundMap(std::string mapname)
 	//LoadMapFromVariable(lvl1);
 	LoadStartingMapFromTxt(mapname);
 	//ExportMapToTxt("Maps/Exported.txt");
-	srcRect.x = srcRect.y = 0;
-	srcRect.h = destRect.h = 32;
-	srcRect.w = destRect.w = 32;
-	destRect.x = destRect.y = 0;
+
+	srcRect.h = 1200; //Wysokoœæ w pikselach
+	srcRect.w = 1200; //Szerokoœæ w pikselach
+	srcRect.x = 0;
+	srcRect.y = 0;
+
+	destRect.h = srcRect.h / 37.5; //Wysokoœæ w grze
+	destRect.w = srcRect.w / 37.5; //Szerokoœæ w grze
+	destRect.x = 0;
+	destRect.y = 0;
 }
 
 BackgroundMap::~BackgroundMap()
@@ -25,11 +31,15 @@ BackgroundMap::~BackgroundMap()
 void BackgroundMap::InitializeTextures()
 {
 	blank = TextureManager::LoadTexture("Assets/blank.png");
-	nest = TextureManager::LoadTexture("Assets/pix_light_yellow.png");
-	dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
-	grass = TextureManager::LoadTexture("Assets/pix_green.png");
-	water = TextureManager::LoadTexture("Assets/pix_blue.png");
-	lava = TextureManager::LoadTexture("Assets/pix_red.png");
+	sand = TextureManager::LoadTexture("Assets/pix_sand.png");
+	stone = TextureManager::LoadTexture("Assets/pix_stone.png");
+	snow = TextureManager::LoadTexture("Assets/pix_snow.png");
+	wood = TextureManager::LoadTexture("Assets/pix_wood2.png");
+	grass = TextureManager::LoadTexture("Assets/pix_grass.png");
+	//dirt = TextureManager::LoadTexture("Assets/pix_brown.png");
+	//water = TextureManager::LoadTexture("Assets/pix_blue.png");
+	//lava = TextureManager::LoadTexture("Assets/pix_red.png");
+
 }
 
 void BackgroundMap::DrawMap()
@@ -47,11 +57,11 @@ void BackgroundMap::DrawMap()
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(nest, srcRect, destRect);
+				TextureManager::Draw(sand, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::Draw(dirt, srcRect, destRect);
+				TextureManager::Draw(wood, srcRect, destRect);
 				break;
 
 			case 2:
@@ -59,11 +69,11 @@ void BackgroundMap::DrawMap()
 				break;
 
 			case 3:
-				TextureManager::Draw(water, srcRect, destRect);
+				TextureManager::Draw(stone, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::Draw(lava, srcRect, destRect);
+				TextureManager::Draw(snow, srcRect, destRect);
 				break;
 
 			default:
