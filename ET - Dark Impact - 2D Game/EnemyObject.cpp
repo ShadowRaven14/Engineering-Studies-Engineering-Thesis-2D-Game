@@ -23,19 +23,17 @@ void EnemyObject::Render()
 //Poruszanie siê wroga
 void EnemyObject::MoveWithEnemyV1()
 {
-	std::cout << cordsOfObject.point.x << " " << cordsOfObject.point.y << " " << sx << " " << sy << std::endl;
-
 	if (cordsOfObject.point.x >= 1248) sx = false;
 	else if (cordsOfObject.point.x <= 64) sx = true;
 
 	switch (sx)
 	{
 	case true:
-		cordsOfObject.point.x = cordsOfObject.point.x + 8;
+		cordsOfObject.point.x = cordsOfObject.point.x + 4;
 		break;
 
 	case false:
-		cordsOfObject.point.x = cordsOfObject.point.x - 8;
+		cordsOfObject.point.x = cordsOfObject.point.x - 4;
 		break;
 	}
 	
@@ -46,13 +44,11 @@ void EnemyObject::MoveWithEnemyV1()
 	switch (sy)
 	{
 	case true:
-		cordsOfObject.point.y = cordsOfObject.point.y + 8;
+		cordsOfObject.point.y = cordsOfObject.point.y + 4;
 		break;
 
 	case false:
-		cordsOfObject.point.y = cordsOfObject.point.y - 8;
+		cordsOfObject.point.y = cordsOfObject.point.y - 4;
 		break;
 	}
-
-
 }

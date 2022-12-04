@@ -20,7 +20,8 @@ public:
 	HeroObject *basicHero;
 	EnemyObject *basicEnemy;
 	ChestObject *basicChest;
-
 	Point *teleportPoint;
+
+	void HeroCollideWithEnemy();
 };
 

@@ -23,6 +23,7 @@ void BasicGameLevel::Update()
 	basicHero->Update();
 	basicEnemy->Update();
 	basicChest->Update();
+	HeroCollideWithEnemy();
 }
 
 void BasicGameLevel::Render()
@@ -31,4 +32,16 @@ void BasicGameLevel::Render()
 	basicHero->Render();
 	basicEnemy->Render();
 	basicChest->Render();
+}
+
+void BasicGameLevel::HeroCollideWithEnemy()
+{
+	if (abs(basicHero->GetDestRect().x - basicEnemy->GetDestRect().x) < 30)
+	{
+		if (abs(basicHero->GetDestRect().y - basicEnemy->GetDestRect().y) < 30)
+		{
+			std::cout << "WALKA!" << std::endl;
+			SDL_Delay(1000);
+		}
+	}
 }
