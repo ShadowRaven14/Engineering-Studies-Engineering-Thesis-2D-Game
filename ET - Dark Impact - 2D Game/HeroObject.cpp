@@ -41,46 +41,46 @@ void HeroObject::InitializeHeroMap()
 void HeroObject::MoveWithHero()
 {
 	// Obs≥uguj input z klawiatury
-	cordsOfHero = KeyboardManager::HandleKeyboard(cordsOfHero);
+	cordsOfObject = KeyboardManager::HandleKeyboard(cordsOfObject);
 
 	// OBS£UGA PORUSZANIA
 	// WHILE MOVING DOWN
-	if (cordsOfHero.input == 's')
+	if (cordsOfObject.input == 's')
 	{
-		if (cordsOfHero.input == 'a')		// Idü w lewo
-			cordsOfHero.previnput = 'a';
-		else if (cordsOfHero.input == 'd')	// Idü w prawo
-			cordsOfHero.previnput = 'd';
+		if (cordsOfObject.input == 'a')		// Idü w lewo
+			cordsOfObject.previnput = 'a';
+		else if (cordsOfObject.input == 'd')	// Idü w prawo
+			cordsOfObject.previnput = 'd';
 
 		//ypos++;
 	}
 	// WHILE MOVING UP
-	else if (cordsOfHero.input == 'w')
+	else if (cordsOfObject.input == 'w')
 	{
-		if (cordsOfHero.input == 'a')		// Idü w lewo
-			cordsOfHero.previnput = 'a';
-		else if (cordsOfHero.input == 'd')	// Idü w prawo
-			cordsOfHero.previnput = 'd';
+		if (cordsOfObject.input == 'a')		// Idü w lewo
+			cordsOfObject.previnput = 'a';
+		else if (cordsOfObject.input == 'd')	// Idü w prawo
+			cordsOfObject.previnput = 'd';
 
 		//ypos--;
 	}
 	// WHILE MOVING RIGHT
-	else if (cordsOfHero.input == 'd')
+	else if (cordsOfObject.input == 'd')
 	{
-		if (cordsOfHero.input == 'w')		// Idü w gÛrÍ
-			cordsOfHero.previnput = 'w';
-		else if (cordsOfHero.input == 's')	// Idü w dÛ≥
-			cordsOfHero.previnput = 's';
+		if (cordsOfObject.input == 'w')		// Idü w gÛrÍ
+			cordsOfObject.previnput = 'w';
+		else if (cordsOfObject.input == 's')	// Idü w dÛ≥
+			cordsOfObject.previnput = 's';
 
 		//xpos++;
 	}
 	// WHILE MOVING LEFT
-	else if (cordsOfHero.input == 'a')
+	else if (cordsOfObject.input == 'a')
 	{
-		if (cordsOfHero.input == 'w')		// Idü w gÛre
-			cordsOfHero.previnput = 'w';
-		else if (cordsOfHero.input == 's')	// Idü w dÛ≥
-			cordsOfHero.previnput = 's';
+		if (cordsOfObject.input == 'w')		// Idü w gÛre
+			cordsOfObject.previnput = 'w';
+		else if (cordsOfObject.input == 's')	// Idü w dÛ≥
+			cordsOfObject.previnput = 's';
 
 		//xpos--;
 	}

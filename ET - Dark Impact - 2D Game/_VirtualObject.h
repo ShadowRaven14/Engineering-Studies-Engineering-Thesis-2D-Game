@@ -17,6 +17,6 @@ public:
 protected:
 	SDL_Texture* objTexture; //Tekstura obiektu
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
-	CoordinatesOfHero cordsOfHero; //Punkt na mapie
+	CoordinatesOfHero cordsOfObject; //Punkt na mapie
 };
 

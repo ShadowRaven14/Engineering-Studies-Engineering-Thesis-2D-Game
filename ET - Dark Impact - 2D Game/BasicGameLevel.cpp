@@ -4,7 +4,7 @@ BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char
 {
 	basicMap = new BackgroundMap(bnMap);
 	basicHero = new HeroObject(bnHero, 640, 448);
-	basicEnemy = new EnemyObject(bnEnemy, 40, 48);
+	basicEnemy = new EnemyObject(bnEnemy, 32, 64);
 	basicChest = new ChestObject(bnChest);
 	teleportPoint = bnTeleport;
 }

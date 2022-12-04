@@ -6,8 +6,8 @@ AppleObject::AppleObject(const char* texturesheet, int x, int y)
 	objTexture = TextureManager::LoadTexture(texturesheet);
 
 	srand((unsigned)time(NULL));
-	cordsOfHero.point.x = (rand() % (25 - 2) + 1) * 32;
-	cordsOfHero.point.y = (rand() % (20 - 2) + 1) * 32;
+	cordsOfObject.point.x = (rand() % (25 - 2) + 1) * 32;
+	cordsOfObject.point.y = (rand() % (20 - 2) + 1) * 32;
 	qx = true, qy = true;
 }
 

@@ -1,7 +1,7 @@
 #include "KeyboardManager.h"
 
 //Obs³uga klawiatury
-CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfHero)
+CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObject)
 {
 	//WCZYTYWANIE KLAWIATURY
 	if (Game::event.type == SDL_KEYDOWN)
@@ -10,35 +10,35 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfHero)
 		if (Game::event.key.keysym.sym == SDLK_s)
 		{
 			std::cout << " Przycisk S" << std::endl;
-			cordsOfHero.previnput = cordsOfHero.input; cordsOfHero.input = 's';
+			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 's';
 
-			cordsOfHero.point.y = cordsOfHero.point.y + 32;
+			cordsOfObject.point.y = cordsOfObject.point.y + 32;
 		}
 		// WHILE MOVING UP
 		else if (Game::event.key.keysym.sym == SDLK_w)
 		{
 			std::cout << " Przycisk W" << std::endl;
-			cordsOfHero.previnput = cordsOfHero.input; cordsOfHero.input = 'w';
+			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'w';
 
-			cordsOfHero.point.y = cordsOfHero.point.y - 32;
+			cordsOfObject.point.y = cordsOfObject.point.y - 32;
 		}
 		// WHILE MOVING RIGHT
 		else if (Game::event.key.keysym.sym == SDLK_d)
 		{
 			std::cout << " Przycisk D" << std::endl;
-			cordsOfHero.previnput = cordsOfHero.input; cordsOfHero.input = 'd';
+			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'd';
 
-			cordsOfHero.point.x = cordsOfHero.point.x + 32;
+			cordsOfObject.point.x = cordsOfObject.point.x + 32;
 		}
 		// WHILE MOVING LEFT
 		else if (Game::event.key.keysym.sym == SDLK_a)
 		{
 			std::cout << " Przycisk A" << std::endl;
-			cordsOfHero.previnput = cordsOfHero.input; cordsOfHero.input = 'a';
+			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'a';
 
-			cordsOfHero.point.x = cordsOfHero.point.x - 32;
+			cordsOfObject.point.x = cordsOfObject.point.x - 32;
 		}
-		return cordsOfHero;
+		return cordsOfObject;
 	}
-	else return cordsOfHero;
+	else return cordsOfObject;
 }

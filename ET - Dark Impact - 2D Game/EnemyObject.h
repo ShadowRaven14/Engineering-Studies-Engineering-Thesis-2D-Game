@@ -12,4 +12,7 @@ public:
 	~EnemyObject(); //Destruktor wroga
 	void Update(); //Aktualizacja wroga
 	void Render(); //Renderowanie wroga
+
+	bool sx, sy;
+	void MoveWithEnemyV1(); //Poruszanie siê wroga
 };
