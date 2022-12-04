@@ -401,3 +401,7 @@ FodyWeavers.xsd
 *.db
 *.ipch
 *.suo
+
+# Don't ignore files!
+!.lib
+!.dll
