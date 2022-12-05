@@ -4,23 +4,23 @@ LevelManager::LevelManager()
 {
 	basicLevel = new BasicGameLevel(
 		"Maps/StartingMap.txt",
-		"Assets/ElvenTracker.png",
-		"Assets/HumanMage.png",
-		"Assets/WoodenChest.png",
+		"Textures/ElvenTracker.png",
+		"Textures/HumanMage.png",
+		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
 	secondLevel = new BasicGameLevel(
 		"Maps/Test.txt",
-		"Assets/ElvenTracker.png",
-		"Assets/HumanMage.png",
-		"Assets/WoodenChest.png",
+		"Textures/ElvenTracker.png",
+		"Textures/HumanMage.png",
+		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
 	thirdLevel = new BasicGameLevel(
 		"Maps/Test.txt",
-		"Assets/ElvenTracker.png",
-		"Assets/HumanMage.png",
-		"Assets/WoodenChest.png",
+		"Textures/ElvenTracker.png",
+		"Textures/HumanMage.png",
+		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
 	currentLevel = basicLevel;

@@ -2,12 +2,12 @@
 
 void HeroLayerMap::InitializeTextures()
 {
-	blank = TextureManager::LoadTexture("Assets/blank.png");
-	apple = TextureManager::LoadTexture("Assets/apple.png");
-	pixelapple = TextureManager::LoadTexture("Assets/apple.png");
-	pixelgoldenapple = TextureManager::LoadTexture("Assets/apple_golden1.png");
-	pixelraven = TextureManager::LoadTexture("Assets/crow1.png");
-	pixelsnake = TextureManager::LoadTexture("Assets/pix_green.png");
+	blank = TextureManager::LoadTexture("Textures/blank.png");
+	apple = TextureManager::LoadTexture("Textures/apple.png");
+	pixelapple = TextureManager::LoadTexture("Textures/apple.png");
+	pixelgoldenapple = TextureManager::LoadTexture("Textures/apple_golden1.png");
+	pixelraven = TextureManager::LoadTexture("Textures/crow1.png");
+	pixelsnake = TextureManager::LoadTexture("Textures/pix_green.png");
 }
 
 void HeroLayerMap::DrawMap()
