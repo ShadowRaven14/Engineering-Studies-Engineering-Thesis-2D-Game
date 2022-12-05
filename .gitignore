@@ -21,8 +21,8 @@ mono_crash.*
 [Dd]ebugPublic/
 [Rr]elease/
 [Rr]eleases/
-#x64/
-#x86/
+x64/
+x86/
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
@@ -401,7 +401,3 @@ FodyWeavers.xsd
 *.db
 *.ipch
 *.suo
-
-# Don't ignore files!
-!.lib
-!.dll
