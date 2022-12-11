@@ -19,9 +19,7 @@ public:
 
 	BackgroundMap *basicMap;
 	HeroObject *basicHero;
-	EnemyObject *basicEnemy;
 	std::vector <EnemyObject*> basicEnemies;
-	ChestObject *basicChest;
 	std::vector <ChestObject*> basicChests;
 	Point *teleportPoint;
 
