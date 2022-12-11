@@ -4,9 +4,21 @@ BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char
 {
 	basicMap = new BackgroundMap(bnMap);
 	basicHero = new HeroObject(bnHero, 640, 448);
-	basicEnemy = new EnemyObject(bnEnemy, 32, 64);
-	basicChest = new ChestObject(bnChest);
 	teleportPoint = bnTeleport;
+
+	basicEnemy = new EnemyObject(bnEnemy, 64, 640);
+	basicEnemies.push_back(basicEnemy);
+	basicEnemy = new EnemyObject(bnEnemy, 160, 160);
+	basicEnemies.push_back(basicEnemy);
+	basicEnemy = new EnemyObject(bnEnemy, 640, 64);
+	basicEnemies.push_back(basicEnemy);
+
+	basicChest = new ChestObject(bnChest, 160, 160);
+	basicChests.push_back(basicChest);
+	basicChest = new ChestObject(bnChest, 1152, 768);
+	basicChests.push_back(basicChest);
+	basicChest = new ChestObject(bnChest);
+	basicChests.push_back(basicChest);
 }
 
 BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
@@ -14,15 +26,19 @@ BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
 	basicEnemy = tempLevel.basicEnemy;
+	for (size_t i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	basicChest = tempLevel.basicChest;
+	for (size_t i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
 	teleportPoint = tempLevel.teleportPoint;
 }
 
 void BasicGameLevel::Update()
 {
 	basicHero->Update();
-	basicEnemy->Update();
-	basicChest->Update();
+	//basicEnemy->Update();
+	for (size_t i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
+	//basicChest->Update();
+	for (size_t i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	HeroCollideWithEnemy();
 }
 
@@ -30,8 +46,10 @@ void BasicGameLevel::Render()
 {
 	basicMap->DrawMap();
 	basicHero->Render();
-	basicEnemy->Render();
-	basicChest->Render();
+	//basicEnemy->Render();
+	for (size_t i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
+	//basicChest->Render();
+	for (size_t i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 }
 
 void BasicGameLevel::HeroCollideWithEnemy()
@@ -41,7 +59,7 @@ void BasicGameLevel::HeroCollideWithEnemy()
 		if (abs(basicHero->GetDestRect().y - basicEnemy->GetDestRect().y) < 30)
 		{
 			std::cout << "WALKA!" << std::endl;
-			SDL_Delay(1000);
+			SDL_Delay(10);
 		}
 	}
 }

@@ -6,6 +6,7 @@
 #include "HeroObject.h"
 #include "ChestObject.h"
 #include "Point.h"
+#include <vector>
 
 class BasicGameLevel
 {
@@ -19,7 +20,9 @@ public:
 	BackgroundMap *basicMap;
 	HeroObject *basicHero;
 	EnemyObject *basicEnemy;
+	std::vector <EnemyObject*> basicEnemies;
 	ChestObject *basicChest;
+	std::vector <ChestObject*> basicChests;
 	Point *teleportPoint;
 
 	void HeroCollideWithEnemy();
