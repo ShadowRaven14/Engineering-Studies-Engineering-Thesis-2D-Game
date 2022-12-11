@@ -3,6 +3,10 @@
 #pragma once
 class GameObjective
 {
-	int ScorePoints = 0;
+public:
+	GameObjective();
+
+	int ScorePoints;
+	int CollectedChests;
 };
 

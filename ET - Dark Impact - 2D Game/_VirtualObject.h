@@ -13,9 +13,10 @@ public:
 	void RenderInit(); //Renderowanie obiektu
 	SDL_Rect GetDestRect();
 	void SetDestRect(SDL_Rect newdestRect);
+	SDL_Texture* objTexture; //Tekstura obiektu
 
 protected:
-	SDL_Texture* objTexture; //Tekstura obiektu
+
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 	CoordinatesOfHero cordsOfObject; //Punkt na mapie
 };
