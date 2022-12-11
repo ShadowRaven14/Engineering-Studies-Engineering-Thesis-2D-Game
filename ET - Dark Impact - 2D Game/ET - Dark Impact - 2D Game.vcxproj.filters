@@ -43,6 +43,12 @@
     <Filter Include="Header Files\LevelH">
       <UniqueIdentifier>{ddbeac22-8152-4df3-b753-0f7538b0ebdb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SDL2_ManagersCpp">
+      <UniqueIdentifier>{e217a5c2-6ee6-4cfb-ad71-fed32b9cd914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\SDL2_ManagersH">
+      <UniqueIdentifier>{0538c411-418a-4234-9904-494152220968}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -105,8 +111,11 @@
     <ClCompile Include="CoordinatesOfHero.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="AssetsManager.cpp">
+      <Filter>Source Files\SDL2_ManagersCpp</Filter>
+    </ClCompile>
     <ClCompile Include="TextureManager.cpp">
-      <Filter>Source Files\MapCpp</Filter>
+      <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,11 +176,14 @@
     <ClInclude Include="KeyboardManager.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
-      <Filter>Header Files\MapH</Filter>
-    </ClInclude>
     <ClInclude Include="CoordinatesOfHero.h">
       <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetsManager.h">
+      <Filter>Header Files\SDL2_ManagersH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureManager.h">
+      <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
