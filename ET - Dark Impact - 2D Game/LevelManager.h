@@ -20,5 +20,6 @@ public:
 private:
 	BasicGameLevel *basicLevel, *secondLevel, *thirdLevel;
 	BasicGameLevel* currentLevel;
+	short currentLevelID;
 };
 

@@ -1,9 +1,10 @@
 #include "BasicGameLevel.h"
 
-BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
+BasicGameLevel::BasicGameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
 {
 	basicMap = new BackgroundMap(bnMap);
-	basicHero = new HeroObject(bnHero, 640, 448);
+	startingPoint = bnStart;
+	basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
 	EnemyObject* basicEnemy1 = new EnemyObject(bnEnemy, 64, 640);
@@ -28,8 +29,10 @@ BasicGameLevel::BasicGameLevel(std::string bnMap, const char* bnHero, const char
 
 BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
 {
+	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
+	//basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
 	teleportPoint = tempLevel.teleportPoint;

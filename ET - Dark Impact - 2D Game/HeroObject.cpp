@@ -8,6 +8,13 @@ HeroObject::HeroObject(const char* texturesheet, int x, int y)
 	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
+//Konstruktor bohatera
+HeroObject::HeroObject(const char* texturesheet, Point* point)
+{
+	InitializeHeroMap();
+	ObjectInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
+}
+
 //Aktualizacja bohatera
 void HeroObject::Update()
 {
@@ -84,4 +91,10 @@ void HeroObject::MoveWithHero()
 
 		//xpos--;
 	}
+}
+
+void HeroObject::MoveHeroToPoint(Point* point)
+{
+	cordsOfObject.point.x = point->x;
+	cordsOfObject.point.y = point->y;
 }

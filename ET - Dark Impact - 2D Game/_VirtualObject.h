@@ -8,6 +8,7 @@
 class _VirtualObject
 {
 public:
+	//_VirtualObject(const _VirtualObject& tempHero);
 	void ObjectInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
 	void UpdateInit(); //Aktualizowanie obiektu
 	void RenderInit(); //Renderowanie obiektu
@@ -16,7 +17,6 @@ public:
 	SDL_Texture* objTexture; //Tekstura obiektu
 
 protected:
-
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 	CoordinatesOfHero cordsOfObject; //Punkt na mapie
 };

@@ -1,5 +1,16 @@
 #include "_VirtualObject.h"
 
+/*
+_VirtualObject::_VirtualObject(const _VirtualObject& tempObject)
+{
+
+	objTexture = tempObject.objTexture;
+	srcRect = tempObject.srcRect;
+	destRect = tempObject.destRect;
+	cordsOfObject = tempObject.cordsOfObject;
+}
+*/
+
 //Tworzenie obiektu
 void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
 {
@@ -17,8 +28,8 @@ void _VirtualObject::UpdateInit()
 
 	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
 	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
-	destRect.x = cordsOfObject.point.x;
-	destRect.y = cordsOfObject.point.y;
+	destRect.x = cordsOfObject.point.x; //Punkt na mapie wzglêdem X
+	destRect.y = cordsOfObject.point.y; //Punkt na mapie wzglêdem Y
 }
 
 //Renderowanie obiektu
