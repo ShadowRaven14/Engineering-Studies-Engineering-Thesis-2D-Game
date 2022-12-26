@@ -32,10 +32,25 @@ BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
-	//basicHero->MoveHeroToPoint(startingPoint);
+	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
+	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
 	teleportPoint = tempLevel.teleportPoint;
+}
+
+BasicGameLevel BasicGameLevel::operator = (const BasicGameLevel& tempLevel)
+{
+	startingPoint = tempLevel.startingPoint;
+	basicMap = tempLevel.basicMap;
+	basicHero = tempLevel.basicHero;
+	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
+	basicHero->MoveHeroToPoint(startingPoint);
+	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
+	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
+	teleportPoint = tempLevel.teleportPoint;
+
+	return *this;
 }
 
 void BasicGameLevel::Update()

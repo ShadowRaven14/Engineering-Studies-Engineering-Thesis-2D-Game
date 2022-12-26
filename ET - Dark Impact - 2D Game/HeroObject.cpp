@@ -15,6 +15,15 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 	ObjectInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
 }
 
+HeroObject::HeroObject(const HeroObject& tempObject)
+{
+
+	objTexture = tempObject.objTexture;
+	//srcRect = tempObject.srcRect;
+	//destRect = tempObject.destRect;
+	cordsOfObject = tempObject.cordsOfObject;
+}
+
 //Aktualizacja bohatera
 void HeroObject::Update()
 {

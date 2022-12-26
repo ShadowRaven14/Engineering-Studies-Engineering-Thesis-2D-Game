@@ -26,7 +26,8 @@ LevelManager::LevelManager()
 		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
-	currentLevel = basicLevel;
+	//currentLevel = basicLevel;
+	ChangeLevel(basicLevel);
 	currentLevelID = 0;
 }
 
@@ -51,27 +52,32 @@ void LevelManager::TeleportToNewMap(Point currentPoint)
 		//SDL_Rect newRect = basicLevel->basicHero->GetDestRect();
 		std::cout << currentPoint.x << " " << currentPoint.y << std::endl;
 		//if (newRect.x == 672) s = 1;
-
+		std::cout << "KOPIOWANIE" << std::endl;
 		switch (currentLevelID)
 		{
 		case 0:
-			currentLevel = basicLevel;
+			ChangeLevel(basicLevel);
+			//currentLevel = basicLevel;
 			//basicLevel->Render();
 			break;
 
 		case 1:
-			currentLevel = secondLevel;
+			ChangeLevel(secondLevel);
+			//currentLevel = secondLevel;
 			//secondLevel->Render();
 			break;
 
 		case 2:
-			currentLevel = thirdLevel;
+			ChangeLevel(thirdLevel);
+			//currentLevel = thirdLevel;
 			//thirdLevel->Render();
 			break;
 
 		default:
-			currentLevel = basicLevel;
+			ChangeLevel(basicLevel);
+			//currentLevel = basicLevel;
 			currentLevelID = 0;
+			
 			//basicLevel->Render();
 			//currentLevelID = 0;
 			break;
@@ -92,4 +98,10 @@ Point LevelManager::TranslatePoint(SDL_Rect currentPoint)
 void LevelManager::ChangeLevel(BasicGameLevel *newLevel)
 {
 	currentLevel = newLevel;
+	currentLevel->basicHero->MoveHeroToPoint(
+		new Point(
+			currentLevel->startingPoint->x,
+			currentLevel->startingPoint->y
+		)
+	);
 }

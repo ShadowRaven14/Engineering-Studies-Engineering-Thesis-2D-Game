@@ -12,6 +12,7 @@ public:
 	//Podstawowe
 	HeroObject(const char* texturesheet, int x, int y); //Konstruktor bohatera
 	HeroObject(const char* texturesheet, Point* point); //Konstruktor bohatera
+	HeroObject(const HeroObject& tempObject);
 	~HeroObject(); //Destruktor bohatera
 	void Update(); //Aktualizacja bohatera
 	void Render(); //Renderowanie bohatera

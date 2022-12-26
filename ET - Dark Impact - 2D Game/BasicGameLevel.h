@@ -14,7 +14,9 @@ class BasicGameLevel
 public:
 	BasicGameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport);
 	BasicGameLevel(const BasicGameLevel &tempLevel);
+	BasicGameLevel operator=(const BasicGameLevel &tempLevel);
 	~BasicGameLevel();
+	//bool operator =(const _typ_&);
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
