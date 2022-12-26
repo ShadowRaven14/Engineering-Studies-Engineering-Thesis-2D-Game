@@ -93,10 +93,10 @@
     <ClCompile Include="Point.cpp">
       <Filter>Source Files\UtilsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="LevelManager.cpp">
+    <ClCompile Include="GameLevelManager.cpp">
       <Filter>Source Files\LevelCpp</Filter>
     </ClCompile>
-    <ClCompile Include="BasicGameLevel.cpp">
+    <ClCompile Include="GameLevel.cpp">
       <Filter>Source Files\LevelCpp</Filter>
     </ClCompile>
     <ClCompile Include="GameObjective.cpp">
@@ -161,10 +161,10 @@
     <ClInclude Include="Point.h">
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
-    <ClInclude Include="LevelManager.h">
+    <ClInclude Include="GameLevelManager.h">
       <Filter>Header Files\LevelH</Filter>
     </ClInclude>
-    <ClInclude Include="BasicGameLevel.h">
+    <ClInclude Include="GameLevel.h">
       <Filter>Header Files\LevelH</Filter>
     </ClInclude>
     <ClInclude Include="HeroChoices.h">

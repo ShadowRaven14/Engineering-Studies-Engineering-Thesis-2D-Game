@@ -1,6 +1,6 @@
-#include "BasicGameLevel.h"
+#include "GameLevel.h"
 
-BasicGameLevel::BasicGameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
+GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
 {
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
@@ -27,7 +27,7 @@ BasicGameLevel::BasicGameLevel(std::string bnMap, Point* bnStart, const char* bn
 	teleportPoint = bnTeleport;
 }
 
-BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
+GameLevel::GameLevel(const GameLevel& tempLevel)
 {
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
@@ -39,7 +39,7 @@ BasicGameLevel::BasicGameLevel(const BasicGameLevel& tempLevel)
 	teleportPoint = tempLevel.teleportPoint;
 }
 
-BasicGameLevel BasicGameLevel::operator = (const BasicGameLevel& tempLevel)
+GameLevel GameLevel::operator = (const GameLevel& tempLevel)
 {
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
@@ -53,7 +53,7 @@ BasicGameLevel BasicGameLevel::operator = (const BasicGameLevel& tempLevel)
 	return *this;
 }
 
-void BasicGameLevel::Update()
+void GameLevel::Update()
 {
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
@@ -63,7 +63,7 @@ void BasicGameLevel::Update()
 	HeroCollideWithChest();
 }
 
-void BasicGameLevel::Render()
+void GameLevel::Render()
 {
 	basicMap->DrawMap();
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
@@ -71,7 +71,7 @@ void BasicGameLevel::Render()
 	basicHero->Render();
 }
 
-void BasicGameLevel::HeroCollideWithEnemy()
+void GameLevel::HeroCollideWithEnemy()
 {
 	for (unsigned int i = 0; i < basicEnemies.size(); i++)
 	{
@@ -88,7 +88,7 @@ void BasicGameLevel::HeroCollideWithEnemy()
 	}
 }
 
-void BasicGameLevel::HeroCollideWithChest()
+void GameLevel::HeroCollideWithChest()
 {
 	for (unsigned int i = 0; i < basicChests.size(); i++)
 	{

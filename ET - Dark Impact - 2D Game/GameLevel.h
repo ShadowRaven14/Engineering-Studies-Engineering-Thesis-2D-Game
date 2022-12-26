@@ -9,13 +9,13 @@
 #include "GameObjective.h"
 #include <vector>
 
-class BasicGameLevel
+class GameLevel
 {
 public:
-	BasicGameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport);
-	BasicGameLevel(const BasicGameLevel &tempLevel);
-	BasicGameLevel operator=(const BasicGameLevel &tempLevel);
-	~BasicGameLevel();
+	GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport);
+	GameLevel(const GameLevel &tempLevel);
+	GameLevel operator=(const GameLevel &tempLevel);
+	~GameLevel();
 	//bool operator =(const _typ_&);
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie

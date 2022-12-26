@@ -1,8 +1,8 @@
-#include "LevelManager.h"
+#include "GameLevelManager.h"
 
-LevelManager::LevelManager()
+GameLevelManager::GameLevelManager()
 {
-	basicLevel = new BasicGameLevel(
+	basicLevel = new GameLevel(
 		"Maps/StartingMap.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -10,7 +10,7 @@ LevelManager::LevelManager()
 		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
-	secondLevel = new BasicGameLevel(
+	secondLevel = new GameLevel(
 		"Maps/Test.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -18,7 +18,7 @@ LevelManager::LevelManager()
 		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
-	thirdLevel = new BasicGameLevel(
+	thirdLevel = new GameLevel(
 		"Maps/Exported.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -26,68 +26,53 @@ LevelManager::LevelManager()
 		"Textures/WoodenChest.png",
 		new Point(672, 480));
 
-	//currentLevel = basicLevel;
 	ChangeLevel(basicLevel);
 	currentLevelID = 0;
 }
 
-void LevelManager::Update()
+void GameLevelManager::Update()
 {
 	TeleportToNewMap(TranslatePoint(currentLevel->basicHero->GetDestRect()));
 	currentLevel->Update();
 }
 
-void LevelManager::Render()
+void GameLevelManager::Render()
 {
 	currentLevel->Render();
 }
 
-void LevelManager::TeleportToNewMap(Point currentPoint)
+void GameLevelManager::TeleportToNewMap(Point currentPoint)
 {
 	//currentPoint jest to pozycja bohatera
 	if (currentPoint.x == currentLevel->teleportPoint->x && currentPoint.y == currentLevel->teleportPoint->y)
 	{
 		currentLevelID++;
-
-		//SDL_Rect newRect = basicLevel->basicHero->GetDestRect();
 		std::cout << currentPoint.x << " " << currentPoint.y << std::endl;
-		//if (newRect.x == 672) s = 1;
-		std::cout << "KOPIOWANIE" << std::endl;
+		std::cout << "ZMIANA MAPY" << std::endl;
 		switch (currentLevelID)
 		{
 		case 0:
 			ChangeLevel(basicLevel);
-			//currentLevel = basicLevel;
-			//basicLevel->Render();
 			break;
 
 		case 1:
 			ChangeLevel(secondLevel);
-			//currentLevel = secondLevel;
-			//secondLevel->Render();
 			break;
 
 		case 2:
 			ChangeLevel(thirdLevel);
-			//currentLevel = thirdLevel;
-			//thirdLevel->Render();
 			break;
 
 		default:
 			ChangeLevel(basicLevel);
-			//currentLevel = basicLevel;
 			currentLevelID = 0;
-			
-			//basicLevel->Render();
-			//currentLevelID = 0;
 			break;
 		}
 	}
 }
 
-Point LevelManager::TranslatePoint(SDL_Rect currentPoint)
+Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 {
-	//SDL_Rect currentPoint = currentLevel->basicHero->GetDestRect();
 	Point newcurrentPoint;
 	newcurrentPoint.x = currentPoint.x;
 	newcurrentPoint.y = currentPoint.y;
@@ -95,7 +80,7 @@ Point LevelManager::TranslatePoint(SDL_Rect currentPoint)
 	return newcurrentPoint;
 }
 
-void LevelManager::ChangeLevel(BasicGameLevel *newLevel)
+void GameLevelManager::ChangeLevel(GameLevel *newLevel)
 {
 	currentLevel = newLevel;
 	currentLevel->basicHero->MoveHeroToPoint(

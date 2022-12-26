@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "TextureManager.h"
-#include "LevelManager.h"
+#include "GameLevelManager.h"
 
-LevelManager *levelManager;
+GameLevelManager *gameLevelManager;
 SDL_Renderer *Game::renderer = nullptr;
 SDL_Event Game::event;
 
@@ -41,7 +41,7 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 	}
 
 	//Inicjalizacja obiektu zarz¹dzaj¹cego poziomami gry
-	levelManager = new LevelManager();
+	gameLevelManager = new GameLevelManager();
 }
 
 //Obs³uga wydarzeñ
@@ -62,14 +62,14 @@ void Game::handleEvents()
 //Aktualizowanie
 void Game::update()
 {
-	levelManager->Update();
+	gameLevelManager->Update();
 }
 
 //Renderowanie
 void Game::render()
 {
 	SDL_RenderClear(renderer);
-	levelManager->Render();
+	gameLevelManager->Render();
 	SDL_RenderPresent(renderer);
 }
 

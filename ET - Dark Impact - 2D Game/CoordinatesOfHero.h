@@ -9,8 +9,6 @@ class CoordinatesOfHero
 public:
 	CoordinatesOfHero();
 	Point point; //pozycja na mapie wzglêdem osi xy
-	//int xpos; //pozycja na mapie wzglêdem osi x
-	//int ypos; //pozycja na mapie wzglêdem osi y
 	char input; //obecny klawisz
 	char previnput;	//wczeœniejszy klawisz
 };

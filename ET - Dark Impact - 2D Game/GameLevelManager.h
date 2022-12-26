@@ -2,24 +2,24 @@
 Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 
 #pragma once
-#include "BasicGameLevel.h"
+#include "GameLevel.h"
 
-class LevelManager
+class GameLevelManager
 {
 public:
-	LevelManager();
-	~LevelManager();
+	GameLevelManager();
+	~GameLevelManager();
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
 	void TeleportToNewMap(Point currentPoint); //Zmiana bie¿¹cej mapy
 	void ChangeTeleportPoint(Point newPoint); //Zmiana obecnego punktu
 	Point TranslatePoint(SDL_Rect currentPoint);
-	void ChangeLevel(BasicGameLevel *newLevel); //Zmiana obecnego punktu
+	void ChangeLevel(GameLevel *newLevel); //Zmiana obecnego punktu
 
 private:
-	BasicGameLevel *basicLevel, *secondLevel, *thirdLevel;
-	BasicGameLevel* currentLevel;
+	GameLevel *basicLevel, *secondLevel, *thirdLevel;
+	GameLevel* currentLevel;
 	short currentLevelID;
 };
 

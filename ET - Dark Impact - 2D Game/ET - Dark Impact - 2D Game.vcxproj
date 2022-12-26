@@ -160,8 +160,8 @@
     <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
-    <ClCompile Include="BasicGameLevel.cpp" />
-    <ClCompile Include="LevelManager.cpp" />
+    <ClCompile Include="GameLevel.cpp" />
+    <ClCompile Include="GameLevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
     <ClCompile Include="Point.cpp" />
@@ -185,8 +185,8 @@
     <ClInclude Include="HeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
     <ClInclude Include="KeyboardManager.h" />
-    <ClInclude Include="BasicGameLevel.h" />
-    <ClInclude Include="LevelManager.h" />
+    <ClInclude Include="GameLevel.h" />
+    <ClInclude Include="GameLevelManager.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="CoordinatesOfHero.h" />
     <ClInclude Include="_VirtualObject.h" />
