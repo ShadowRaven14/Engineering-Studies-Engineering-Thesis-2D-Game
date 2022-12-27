@@ -1,6 +1,7 @@
 #include "GameLevel.h"
 
-GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnEnemy, const char* bnChest, Point* bnTeleport)
+GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, 
+	const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport)
 {
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
@@ -24,6 +25,16 @@ GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, cons
 	basicChests.push_back(basicChest3);
 	basicChests.push_back(basicChest4);
 
+	//Dodanie elementów do wektora basicCoins
+	CoinObject* basicCoin1 = new CoinObject(bnCoin, 180, 160);
+	CoinObject* basicCoin2 = new CoinObject(bnCoin, 1172, 768);
+	CoinObject* basicCoin3 = new CoinObject(bnCoin, 660, 400);
+	CoinObject* basicCoin4 = new CoinObject(bnCoin);
+	basicCoins.push_back(basicCoin1);
+	basicCoins.push_back(basicCoin2);
+	basicCoins.push_back(basicCoin3);
+	basicCoins.push_back(basicCoin4);
+
 	teleportPoint = bnTeleport;
 }
 
@@ -35,7 +46,8 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
+	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
 	teleportPoint = tempLevel.teleportPoint;
 }
 
@@ -47,7 +59,8 @@ GameLevel GameLevel::operator = (const GameLevel& tempLevel)
 	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicChests[i] = tempLevel.basicChests[i];
+	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
 	teleportPoint = tempLevel.teleportPoint;
 
 	return *this;
@@ -57,10 +70,12 @@ void GameLevel::Update()
 {
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
 	basicHero->Update();
 
 	HeroCollideWithEnemy();
 	HeroCollideWithChest();
+	HeroCollideWithCoin();
 }
 
 void GameLevel::Render()
@@ -68,6 +83,7 @@ void GameLevel::Render()
 	basicMap->DrawMap();
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
 	basicHero->Render();
 }
 
@@ -107,6 +123,27 @@ void GameLevel::HeroCollideWithChest()
 					gameObjective.CollectedChests++;
 					std::cout << "ScorePoints: " << gameObjective.CollectedChests << std::endl;
 				//}
+			}
+		}
+	}
+}
+
+void GameLevel::HeroCollideWithCoin()
+{
+	for (unsigned int i = 0; i < basicCoins.size(); i++)
+	{
+		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 30)
+		{
+			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 30)
+			{
+				std::cout << "Moneta zebrana!" << std::endl;
+				SDL_Delay(10);
+				gameObjective.ScorePoints = gameObjective.ScorePoints + 10;
+				std::cout << "ScorePoints: " << gameObjective.ScorePoints << std::endl;
+				gameObjective.CollectedChests++;
+				std::cout << "ScorePoints: " << gameObjective.CollectedChests << std::endl;
+
+				basicCoins.erase(basicCoins.begin() + i); i--;
 			}
 		}
 	}

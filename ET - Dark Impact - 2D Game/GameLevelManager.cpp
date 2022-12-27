@@ -8,6 +8,7 @@ GameLevelManager::GameLevelManager()
 		"Textures/ElvenTracker.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
+		"Textures/Coin.png",
 		new Point(672, 480));
 
 	secondLevel = new GameLevel(
@@ -16,6 +17,7 @@ GameLevelManager::GameLevelManager()
 		"Textures/ElvenTracker.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
+		"Textures/Coin.png",
 		new Point(672, 480));
 
 	thirdLevel = new GameLevel(
@@ -24,6 +26,7 @@ GameLevelManager::GameLevelManager()
 		"Textures/ElvenTracker.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
+		"Textures/Coin.png",
 		new Point(672, 480));
 
 	ChangeLevel(basicLevel);
@@ -48,7 +51,6 @@ void GameLevelManager::TeleportToNewMap(Point currentPoint)
 	{
 		currentLevelID++;
 		std::cout << currentPoint.x << " " << currentPoint.y << std::endl;
-		std::cout << "ZMIANA MAPY" << std::endl;
 		switch (currentLevelID)
 		{
 		case 0:
@@ -82,6 +84,7 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 
 void GameLevelManager::ChangeLevel(GameLevel *newLevel)
 {
+	std::cout << "ZMIANA MAPY" << std::endl;
 	currentLevel = newLevel;
 	currentLevel->basicHero->MoveHeroToPoint(
 		new Point(
