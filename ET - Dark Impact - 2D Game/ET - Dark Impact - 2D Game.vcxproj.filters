@@ -120,6 +120,9 @@
     <ClCompile Include="CoinObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="TeleportObject.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -189,6 +192,9 @@
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
     <ClInclude Include="CoinObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="TeleportObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,6 +4,7 @@
 #include "Point.h"
 #include "BackgroundMap.h"
 #include "HeroObject.h"
+#include "TeleportObject.h"
 #include "EnemyObject.h"
 #include "ChestObject.h"
 #include "CoinObject.h"
@@ -14,7 +15,7 @@
 class GameLevel
 {
 public:
-	GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, 
+	GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
 		const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport);
 	GameLevel(const GameLevel &tempLevel);
 	~GameLevel();
@@ -27,6 +28,7 @@ public:
 	Point* startingPoint;
 	BackgroundMap *basicMap;
 	HeroObject *basicHero;
+	std::vector <TeleportObject*> basicTeleports;
 	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
 	std::vector <CoinObject*> basicCoins;

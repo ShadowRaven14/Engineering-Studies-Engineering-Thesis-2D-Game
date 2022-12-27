@@ -14,8 +14,11 @@ public:
 
 	void TeleportToNewMap(Point currentPoint); //Zmiana bie¿¹cej mapy
 	void ChangeTeleportPoint(Point newPoint); //Zmiana obecnego punktu
+	void HeroCollideWithTeleport();
 	Point TranslatePoint(SDL_Rect currentPoint);
 	void ChangeLevel(GameLevel *newLevel); //Zmiana obecnego punktu
+
+	
 
 private:
 	GameLevel *basicLevel, *secondLevel, *thirdLevel;
