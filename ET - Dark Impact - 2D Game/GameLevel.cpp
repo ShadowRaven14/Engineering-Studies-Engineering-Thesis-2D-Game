@@ -107,10 +107,10 @@ void GameLevel::HeroCollideWithEnemy()
 		{
 			if (abs(basicHero->GetDestRect().y - basicEnemies[i]->GetDestRect().y) < 30)
 			{
-				std::cout << "WALKA!" << std::endl;
+				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
-				gameObjective.ScorePoints = gameObjective.ScorePoints - 20;
-				std::cout << "ScorePoints: " << gameObjective.ScorePoints << std::endl;
+				gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
+				gameObjective.CurrentScorePoints();
 			}
 		}
 	}
@@ -127,13 +127,12 @@ void GameLevel::HeroCollideWithChest()
 				//SDL_Texture* isTexture = TextureManager::LoadTexture("Textures/WoodenChest.png");
 				//if (basicChests[i]->objTexture == isTexture)
 				//{
-					std::cout << "Skrzynia zebrana!" << std::endl;
+					std::cout << "Chest has been collected!" << std::endl;
 					basicChests[i]->objTexture = TextureManager::LoadTexture("Textures/WoodenChest_Open.png");
 					SDL_Delay(10);
 					gameObjective.ScorePoints = gameObjective.ScorePoints + 100;
-					std::cout << "ScorePoints: " << gameObjective.ScorePoints << std::endl;
 					gameObjective.CollectedChests++;
-					std::cout << "ScorePoints: " << gameObjective.CollectedChests << std::endl;
+					gameObjective.CurrentScorePoints();
 				//}
 			}
 		}
@@ -148,12 +147,11 @@ void GameLevel::HeroCollideWithCoin()
 		{
 			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 30)
 			{
-				std::cout << "Moneta zebrana!" << std::endl;
+				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);
 				gameObjective.ScorePoints = gameObjective.ScorePoints + 10;
-				std::cout << "ScorePoints: " << gameObjective.ScorePoints << std::endl;
-				gameObjective.CollectedChests++;
-				std::cout << "ScorePoints: " << gameObjective.CollectedChests << std::endl;
+				gameObjective.CollectedCoins++;
+				gameObjective.CurrentScorePoints();
 
 				basicCoins.erase(basicCoins.begin() + i); i--;
 			}

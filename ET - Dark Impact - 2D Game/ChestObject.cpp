@@ -31,6 +31,6 @@ void ChestObject::LocateChest(const char* texturesheet)
 {
 	srand(time(NULL));
 	int x = rand() % 1312, y = rand() % 928;
-	std::cout << x << " " << y << std::endl;
+	//std::cout << x << " " << y << std::endl;
 	ObjectInit(texturesheet, x, y);
 }

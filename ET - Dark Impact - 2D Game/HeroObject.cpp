@@ -17,7 +17,6 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 
 HeroObject::HeroObject(const HeroObject& tempObject)
 {
-
 	objTexture = tempObject.objTexture;
 	//srcRect = tempObject.srcRect;
 	//destRect = tempObject.destRect;
@@ -67,8 +66,6 @@ void HeroObject::MoveWithHero()
 			cordsOfObject.previnput = 'a';
 		else if (cordsOfObject.input == 'd')	// Idü w prawo
 			cordsOfObject.previnput = 'd';
-
-		//ypos++;
 	}
 	// WHILE MOVING UP
 	else if (cordsOfObject.input == 'w')
@@ -77,8 +74,6 @@ void HeroObject::MoveWithHero()
 			cordsOfObject.previnput = 'a';
 		else if (cordsOfObject.input == 'd')	// Idü w prawo
 			cordsOfObject.previnput = 'd';
-
-		//ypos--;
 	}
 	// WHILE MOVING RIGHT
 	else if (cordsOfObject.input == 'd')
@@ -87,8 +82,6 @@ void HeroObject::MoveWithHero()
 			cordsOfObject.previnput = 'w';
 		else if (cordsOfObject.input == 's')	// Idü w dÛ≥
 			cordsOfObject.previnput = 's';
-
-		//xpos++;
 	}
 	// WHILE MOVING LEFT
 	else if (cordsOfObject.input == 'a')
@@ -97,8 +90,6 @@ void HeroObject::MoveWithHero()
 			cordsOfObject.previnput = 'w';
 		else if (cordsOfObject.input == 's')	// Idü w dÛ≥
 			cordsOfObject.previnput = 's';
-
-		//xpos--;
 	}
 }
 

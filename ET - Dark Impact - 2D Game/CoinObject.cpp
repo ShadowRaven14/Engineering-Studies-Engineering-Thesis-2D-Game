@@ -2,13 +2,11 @@
 
 CoinObject::CoinObject(const char* texturesheet, int x, int y)
 {
-	std::cout << "COIN CONSTRUKTOR" << std::endl;
 	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
 CoinObject::CoinObject(const char* texturesheet)
 {
-	std::cout << "COIN CONSTRUKTOR" << std::endl;
 	srand((unsigned)time(NULL));
 	int x = (rand() % (25 - 2) + 1) * 32;
 	int y = (rand() % (20 - 2) + 1) * 32;

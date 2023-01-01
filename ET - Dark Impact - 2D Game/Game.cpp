@@ -9,13 +9,13 @@ SDL_Event Game::event;
 //Kontruktor
 Game::Game()
 {
-	std::cout << "Gra utworzona" << std::endl;
+	std::cout << "THE GAME HAS STARTED." << std::endl;
 }
 
 //Destruktor
 Game::~Game()
 {
-	std::cout << "Gra zakoñczona" << std::endl;
+	std::cout << "THE GAME HAS ENDED." << std::endl;
 }
 
 //Inicjalizacja

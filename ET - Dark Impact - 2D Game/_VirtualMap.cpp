@@ -16,7 +16,7 @@ void _VirtualMap::LoadStartingMapFromTxt(std::string mapname)
 	int x, y; int pixel;
 	std::ifstream read(mapname);
 	read >> x >> y;
-	std::cout << x << " " << y << std::endl;
+	//std::cout << x << " " << y << std::endl;
 
 	for (int row = 0; row < x; row++)
 	{
@@ -24,9 +24,9 @@ void _VirtualMap::LoadStartingMapFromTxt(std::string mapname)
 		{
 			read >> pixel;
 			map[row][column] = pixel;
-			std::cout << pixel << " ";
+			//std::cout << pixel << " ";
 		}
-		std::cout << std::endl;
+		//std::cout << std::endl;
 	}
 	read.close();
 }

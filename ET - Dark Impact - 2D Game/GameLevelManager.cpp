@@ -38,7 +38,7 @@ GameLevelManager::GameLevelManager()
 
 void GameLevelManager::Update()
 {
-	TeleportToNewMap(TranslatePoint(currentLevel->basicHero->GetDestRect()));
+	//TeleportToNewMap(TranslatePoint(currentLevel->basicHero->GetDestRect()));
 	HeroCollideWithTeleport();
 	currentLevel->Update();
 }
@@ -65,7 +65,7 @@ void GameLevelManager::TeleportToNewMap(Point currentPoint)
 	if (currentPoint.x == currentLevel->teleportPoint->x && currentPoint.y == currentLevel->teleportPoint->y)
 	{
 		currentLevelID++;
-		std::cout << currentPoint.x << " " << currentPoint.y << std::endl;
+		std::cout << "Przenieœ siê do innej lokacji" << currentPoint.x << " " << currentPoint.y << std::endl;
 		switch (currentLevelID)
 		{
 		case 0:
@@ -90,7 +90,7 @@ void GameLevelManager::TeleportToNewMap(Point currentPoint)
 
 void GameLevelManager::ChangeLevel(GameLevel *newLevel)
 {
-	std::cout << "ZMIANA MAPY" << std::endl;
+	std::cout << "Change level." << std::endl;
 	currentLevel = newLevel;
 	currentLevel->basicHero->MoveHeroToPoint(
 		new Point(
@@ -108,8 +108,9 @@ void GameLevelManager::HeroCollideWithTeleport()
 		{
 			if (abs(currentLevel->basicHero->GetDestRect().y - currentLevel->basicTeleports[i]->GetDestRect().y) < 30)
 			{
-				std::cout << "TELEPORTACJA!" << std::endl;
+				std::cout << "Collision with Teleport!" << std::endl;
 				SDL_Delay(10);
+				currentLevelID++;
 				if (currentLevel->basicTeleports[i]->isStartingPoint == true) currentLevelID = currentLevel->basicTeleports[i]->endingDestination;
 				else currentLevelID = currentLevel->basicTeleports[i]->startingDestination;
 				

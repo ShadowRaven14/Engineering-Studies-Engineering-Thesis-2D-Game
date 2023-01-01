@@ -5,7 +5,7 @@
 
 BackgroundMap::BackgroundMap(std::string mapname)
 {
-	std::cout << "Mapa utworzona" << std::endl;
+	std::cout << "THE MAP HAS BEEN CREATED." << std::endl;
 	InitializeTextures();
 	//LoadMapFromVariable(lvl1);
 	LoadStartingMapFromTxt(mapname);
@@ -24,7 +24,7 @@ BackgroundMap::BackgroundMap(std::string mapname)
 
 BackgroundMap::~BackgroundMap()
 {
-	std::cout << "Mapa zniszczona" << std::endl;
+	std::cout << "THE MAP HAS BEEN DESTROYED." << std::endl;
 }
 
 
