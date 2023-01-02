@@ -7,6 +7,12 @@ EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 	sx = sy = true;
 }
 
+EnemyObject::EnemyObject(const char* texturesheet)
+{
+	RandomizeCoordinates(texturesheet); //Podstawowa funkcja z klasy interfejsu
+	sx = sy = true;
+}
+
 //Aktualizacja wroga
 void EnemyObject::Update()
 {

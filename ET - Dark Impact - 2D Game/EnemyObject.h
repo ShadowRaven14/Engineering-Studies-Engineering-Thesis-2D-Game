@@ -9,10 +9,12 @@ class EnemyObject
 public:
 	//Podstawowe
 	EnemyObject(const char* texturesheet, int x, int y); //Konstruktor wroga
+	EnemyObject(const char* texturesheet); //Konstruktor wroga
 	~EnemyObject(); //Destruktor wroga
 	void Update(); //Aktualizacja wroga
 	void Render(); //Renderowanie wroga
 
-	bool sx, sy;
+	//Zaawansowane
+	bool sx, sy; //Pomoc przy kierowaniu wrogiem
 	void MoveWithEnemyV1(); //Poruszanie siê wroga
 };

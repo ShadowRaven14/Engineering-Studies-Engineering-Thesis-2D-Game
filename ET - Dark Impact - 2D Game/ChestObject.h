@@ -13,8 +13,5 @@ public:
 	~ChestObject(); //Destruktor skrzynki
 	void Update(); //Aktualizacja skrzynki
 	void Render(); //Renderowanie skrzynki
-
-	//Zaawansowane
-	void LocateChest(const char* texturesheet); //Generowanie losowej pozycji skrzynki
 };
 

@@ -27,6 +27,14 @@ void _VirtualObject::RenderInit()
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
 
+//Generowanie losowej pozycji
+void _VirtualObject::RandomizeCoordinates(const char* texturesheet)
+{
+	int x = rand() % 1312, y = rand() % 928;
+	//std::cout << x << " " << y << std::endl;
+	ObjectInit(texturesheet, x, y);
+}
+
 SDL_Rect _VirtualObject::GetSrcRect()
 {
 	return srcRect;

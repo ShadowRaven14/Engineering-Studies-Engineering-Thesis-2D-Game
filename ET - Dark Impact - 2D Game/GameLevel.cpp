@@ -18,32 +18,25 @@ GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, cons
 	basicTeleports.push_back(basicTeleport3);
 
 	//Dodanie elementów do wektora basicEnemies
-	EnemyObject* basicEnemy1 = new EnemyObject(bnEnemy, 64, 640);
-	EnemyObject* basicEnemy2 = new EnemyObject(bnEnemy, 160, 160);
-	EnemyObject* basicEnemy3 = new EnemyObject(bnEnemy, 640, 64);
-	basicEnemies.push_back(basicEnemy1);
-	basicEnemies.push_back(basicEnemy2);
-	basicEnemies.push_back(basicEnemy3);
+	for (int i = 0; i < 3; i++)
+	{
+		EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
+		basicEnemies.push_back(basicEnemy);
+	}
 
 	//Dodanie elementów do wektora basicChests
-	ChestObject* basicChest1 = new ChestObject(bnChest, 160, 160);
-	ChestObject* basicChest2 = new ChestObject(bnChest, 1152, 768);
-	ChestObject* basicChest3 = new ChestObject(bnChest, 640, 400);
-	ChestObject* basicChest4 = new ChestObject(bnChest);
-	basicChests.push_back(basicChest1);
-	basicChests.push_back(basicChest2);
-	basicChests.push_back(basicChest3);
-	basicChests.push_back(basicChest4);
+	for (int i = 0; i < 5; i++)
+	{
+		ChestObject* basicChest = new ChestObject(bnChest);
+		basicChests.push_back(basicChest);
+	}
 
 	//Dodanie elementów do wektora basicCoins
-	CoinObject* basicCoin1 = new CoinObject(bnCoin, 180, 160);
-	CoinObject* basicCoin2 = new CoinObject(bnCoin, 1172, 768);
-	CoinObject* basicCoin3 = new CoinObject(bnCoin, 660, 400);
-	CoinObject* basicCoin4 = new CoinObject(bnCoin);
-	basicCoins.push_back(basicCoin1);
-	basicCoins.push_back(basicCoin2);
-	basicCoins.push_back(basicCoin3);
-	basicCoins.push_back(basicCoin4);
+	for (int i = 0; i < 20; i++)
+	{
+		CoinObject* basicCoin = new CoinObject(bnCoin);
+		basicCoins.push_back(basicCoin);
+	}
 
 	teleportPoint = bnTeleport;
 }
@@ -111,8 +104,17 @@ void GameLevel::HeroCollideWithEnemy()
 			{
 				//std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
-				gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
-				gameObjective.CurrentScorePoints();
+				if (basicHero->Strength > 10)
+				{
+					gameObjective.ScorePoints = gameObjective.ScorePoints + 1000;
+					basicEnemies.erase(basicEnemies.begin() + i); i--;
+				}
+				else
+				{
+					gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
+					gameObjective.CurrentScorePoints();
+				}
+
 			}
 		}
 	}
@@ -127,15 +129,39 @@ void GameLevel::HeroCollideWithChest()
 			if (abs(basicHero->GetDestRect().y - basicChests[i]->GetDestRect().y) < 32)
 			{
 				//SDL_Texture* isTexture = TextureManager::LoadTexture("Textures/WoodenChest.png");
-				//if (basicChests[i]->objTexture == isTexture)
-				//{
+				//&& basicChests[i]->objTexture == isTexture
+				if (basicHero->cordsOfObject.input == 'f')
+				{
 					//std::cout << "Chest has been collected!" << std::endl;
 					basicChests[i]->objTexture = TextureManager::LoadTexture("Textures/WoodenChest_Open.png");
 					SDL_Delay(10);
+
 					gameObjective.ScorePoints = gameObjective.ScorePoints + 100;
 					gameObjective.CollectedChests++;
 					gameObjective.CurrentScorePoints();
-				//}
+
+					int r = rand() % 3;
+					switch (r)
+					{
+					case 0:
+						basicHero->Agility++;
+						break;
+
+					case 1:
+						basicHero->Strength++;
+						break;
+
+					case 2:
+						basicHero->Intelligence++;
+						break;
+
+					default:
+						break;
+					}
+					
+					basicHero->CurrentStatistics();
+					basicHero->cordsOfObject.input = NULL;
+				}
 			}
 		}
 	}
@@ -145,9 +171,9 @@ void GameLevel::HeroCollideWithCoin()
 {
 	for (unsigned int i = 0; i < basicCoins.size(); i++)
 	{
-		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 32)
+		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 20)
 		{
-			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 32)
+			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 20)
 			{
 				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);

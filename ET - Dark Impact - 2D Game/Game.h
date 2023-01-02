@@ -1,14 +1,17 @@
 #pragma once
 
+#include <iostream>
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_ttf.h"
-#include <iostream>
 #include <vector>
-#include <conio.h>			// Funkcje getch()
-#include <windows.h>		// Funkcje Windows
+#include <cstdlib>
 #include <ctime>			// Funkcje czasowe									 
 #include <fstream>			// Funkcje z plikami zewnêtrznymi
+#include <conio.h>			// Funkcje getch()
+#include <dos.h>			// Funkcje delay()
+#include <windows.h>		// Funkcje Windows
+
 
 class Game
 {

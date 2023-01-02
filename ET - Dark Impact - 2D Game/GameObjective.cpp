@@ -17,5 +17,5 @@ void GameObjective::CurrentScorePoints()
 	//std::cout << "CollectedChests: " << CollectedChests << std::endl;
 	//std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
 	//std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
-	//std::cout << "- - - - - - -" << std::endl;
+	//std::cout << "- - - - - - - - - - -" << std::endl;
 }

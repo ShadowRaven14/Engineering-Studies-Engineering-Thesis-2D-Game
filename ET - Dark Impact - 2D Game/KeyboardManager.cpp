@@ -11,7 +11,6 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObjec
 		{
 			//std::cout << " Przycisk S" << std::endl;
 			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 's';
-
 			cordsOfObject.point.y = cordsOfObject.point.y + 16;
 		}
 		// WHILE MOVING UP
@@ -19,7 +18,6 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObjec
 		{
 			//std::cout << " Przycisk W" << std::endl;
 			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'w';
-
 			cordsOfObject.point.y = cordsOfObject.point.y - 16;
 		}
 		// WHILE MOVING RIGHT
@@ -27,7 +25,6 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObjec
 		{
 			//std::cout << " Przycisk D" << std::endl;
 			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'd';
-
 			cordsOfObject.point.x = cordsOfObject.point.x + 16;
 		}
 		// WHILE MOVING LEFT
@@ -35,8 +32,13 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObjec
 		{
 			//std::cout << " Przycisk A" << std::endl;
 			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'a';
-
 			cordsOfObject.point.x = cordsOfObject.point.x - 16;
+		}
+		// WHILE MOVING LEFT
+		else if (Game::event.key.keysym.sym == SDLK_f)
+		{
+			//std::cout << " Przycisk F" << std::endl;
+			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'f';
 		}
 		return cordsOfObject;
 	}

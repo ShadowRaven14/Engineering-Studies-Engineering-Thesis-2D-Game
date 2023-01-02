@@ -40,6 +40,9 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 		isRunning = true;
 	}
 
+	//Symulator losowania
+	srand((unsigned)time(NULL));
+
 	//Inicjalizacja obiektu zarz¹dzaj¹cego poziomami gry
 	gameLevelManager = new GameLevelManager();
 }

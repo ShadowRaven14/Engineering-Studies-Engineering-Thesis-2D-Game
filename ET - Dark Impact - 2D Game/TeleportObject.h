@@ -1,5 +1,6 @@
 #pragma once
 #include "_VirtualObject.h"
+
 class TeleportObject :
     public virtual _VirtualObject
 {
@@ -12,7 +13,7 @@ public:
 	void Update(); //Aktualizacja bohatera
 	void Render(); //Renderowanie bohatera
 
+	//Zaawansowane
 	Point coordinatesOfTeleport;
 	int destination;
 };
-
