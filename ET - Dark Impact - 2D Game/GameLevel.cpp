@@ -10,9 +10,9 @@ GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, cons
 	basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
-	TeleportObject* basicTeleport1 = new TeleportObject("Textures/apple.png", 64, 640, 0);
-	TeleportObject* basicTeleport2 = new TeleportObject("Textures/apple_golden1.png", 160, 160, 1);
-	TeleportObject* basicTeleport3 = new TeleportObject("Textures/apple_golden2.png", 640, 64, 2);
+	TeleportObject* basicTeleport1 = new TeleportObject("Textures/apple.png", 656, 620, 0);
+	TeleportObject* basicTeleport2 = new TeleportObject("Textures/apple_golden1.png", 262, 310, 1);
+	TeleportObject* basicTeleport3 = new TeleportObject("Textures/apple_golden2.png", 1050, 310, 2);
 	basicTeleports.push_back(basicTeleport1);
 	basicTeleports.push_back(basicTeleport2);
 	basicTeleports.push_back(basicTeleport3);

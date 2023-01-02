@@ -82,31 +82,26 @@ void GameLevelManager::HeroCollideWithTeleport()
 			if (abs(currentLevel->basicHero->GetDestRect().y - currentLevel->basicTeleports[i]->GetDestRect().y) < 32)
 			{
 				std::cout << "Collision with Teleport!" << std::endl;
-				currentLevelID++;
 				currentLevelID = currentLevel->basicTeleports[i]->destination;
-				std::cout << i << " " << currentLevelID << std::endl;
-				SDL_Delay(1000);
+				//std::cout << i << " " << currentLevelID << std::endl;
+				SDL_Delay(100);
 
 				switch (currentLevelID)
 				{
 				case 0:
 					ChangeLevel(basicLevel);
-					std::cout << "Change basicLevel. " << i << " " << currentLevelID << std::endl;
 					break;
 
 				case 1:
 					ChangeLevel(secondLevel);
-					std::cout << "Change secondLevel. " << i << " " << currentLevelID << std::endl;
 					break;
 
 				case 2:
 					ChangeLevel(thirdLevel);
-					std::cout << "Change thirdLevel. " << i << " " << currentLevelID << std::endl;
 					break;
 
 				default:
 					ChangeLevel(basicLevel);
-					std::cout << "Change basicLevel. " << i << " " << currentLevelID << std::endl;
 					currentLevelID = 0;
 					break;
 				}

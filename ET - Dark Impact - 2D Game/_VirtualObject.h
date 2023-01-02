@@ -8,12 +8,14 @@
 class _VirtualObject
 {
 public:
-	//_VirtualObject(const _VirtualObject& tempHero);
 	void ObjectInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
 	void UpdateInit(); //Aktualizowanie obiektu
 	void RenderInit(); //Renderowanie obiektu
+	SDL_Rect GetSrcRect();
+	void SetSrcRect(SDL_Rect newsrcRect);
 	SDL_Rect GetDestRect();
 	void SetDestRect(SDL_Rect newdestRect);
+
 	SDL_Texture* objTexture; //Tekstura obiektu
 
 protected:

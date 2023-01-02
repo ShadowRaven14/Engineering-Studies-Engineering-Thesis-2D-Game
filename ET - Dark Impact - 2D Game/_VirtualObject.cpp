@@ -1,16 +1,5 @@
 #include "_VirtualObject.h"
 
-/*
-_VirtualObject::_VirtualObject(const _VirtualObject& tempObject)
-{
-
-	objTexture = tempObject.objTexture;
-	srcRect = tempObject.srcRect;
-	destRect = tempObject.destRect;
-	cordsOfObject = tempObject.cordsOfObject;
-}
-*/
-
 //Tworzenie obiektu
 void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
 {
@@ -38,6 +27,16 @@ void _VirtualObject::RenderInit()
 	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
 }
 
+SDL_Rect _VirtualObject::GetSrcRect()
+{
+	return srcRect;
+}
+
+void _VirtualObject::SetSrcRect(SDL_Rect newsrcRect)
+{
+	srcRect = newsrcRect;
+}
+
 SDL_Rect _VirtualObject::GetDestRect()
 {
 	return destRect;
@@ -47,4 +46,3 @@ void _VirtualObject::SetDestRect(SDL_Rect newdestRect)
 {
 	destRect = newdestRect;
 }
-

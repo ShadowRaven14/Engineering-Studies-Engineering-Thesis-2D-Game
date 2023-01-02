@@ -2,11 +2,10 @@
 
 #pragma once
 #include "_VirtualObject.h"
-#include "HeroLayerMap.h"
 #include "BasicClass.h"
 
 class HeroObject
-	: public virtual _VirtualObject, public HeroLayerMap, public BasicClass
+	: public virtual _VirtualObject, public BasicClass
 {
 public:
 	//Podstawowe

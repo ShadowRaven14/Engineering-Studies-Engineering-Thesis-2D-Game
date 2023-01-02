@@ -18,8 +18,6 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 HeroObject::HeroObject(const HeroObject& tempObject)
 {
 	objTexture = tempObject.objTexture;
-	//srcRect = tempObject.srcRect;
-	//destRect = tempObject.destRect;
 	cordsOfObject = tempObject.cordsOfObject;
 }
 
@@ -34,7 +32,7 @@ void HeroObject::Update()
 void HeroObject::Render()
 {
 	RenderInit(); //Podstawowa funkcja z klasy interfejsu
-	DrawMap();
+	//DrawMap();
 }
 //PODSTAWOWE
 
@@ -43,6 +41,7 @@ void HeroObject::Render()
 //Inicjalizacja mapy bohatera
 void HeroObject::InitializeHeroMap()
 {
+	/*
 	for (int row = 0; row < 29; row++)
 	{
 		for (int column = 0; column < 41; column++)
@@ -50,6 +49,7 @@ void HeroObject::InitializeHeroMap()
 			map[row][column] = 0;
 		}
 	}
+	*/
 }
 
 //Poruszanie siê bohaterem

@@ -81,9 +81,6 @@
     <ClCompile Include="_VirtualMap.cpp">
       <Filter>Source Files\MapCpp</Filter>
     </ClCompile>
-    <ClCompile Include="HeroLayerMap.cpp">
-      <Filter>Source Files\MapCpp</Filter>
-    </ClCompile>
     <ClCompile Include="BasicClass.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
@@ -153,9 +150,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
-      <Filter>Header Files\MapH</Filter>
-    </ClInclude>
-    <ClInclude Include="HeroLayerMap.h">
       <Filter>Header Files\MapH</Filter>
     </ClInclude>
     <ClInclude Include="BasicClass.h">

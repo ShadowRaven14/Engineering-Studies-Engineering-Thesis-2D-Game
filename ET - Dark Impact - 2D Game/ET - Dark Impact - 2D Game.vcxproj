@@ -155,7 +155,6 @@
     <ClCompile Include="ChestObject.cpp" />
     <ClCompile Include="CoinObject.cpp" />
     <ClCompile Include="GameObjective.cpp" />
-    <ClCompile Include="HeroLayerMap.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HeroChoices.cpp" />
@@ -181,7 +180,6 @@
     <ClInclude Include="ChestObject.h" />
     <ClInclude Include="CoinObject.h" />
     <ClInclude Include="GameObjective.h" />
-    <ClInclude Include="HeroLayerMap.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HeroChoices.h" />
