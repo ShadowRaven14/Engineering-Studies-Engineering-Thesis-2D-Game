@@ -11,11 +11,11 @@ GameObjective::GameObjective()
 
 void GameObjective::CurrentScorePoints()
 {
-	std::cout << "- - - Objectives - - -" << std::endl;
-	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
-	std::cout << "ScorePoints: " << ScorePoints << std::endl;
-	std::cout << "CollectedChests: " << CollectedChests << std::endl;
-	std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
-	std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
-	std::cout << "- - - - - - -" << std::endl;
+	//std::cout << "- - - Objectives - - -" << std::endl;
+	//std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
+	//std::cout << "ScorePoints: " << ScorePoints << std::endl;
+	//std::cout << "CollectedChests: " << CollectedChests << std::endl;
+	//std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
+	//std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
+	//std::cout << "- - - - - - -" << std::endl;
 }

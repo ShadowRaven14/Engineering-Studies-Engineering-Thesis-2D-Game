@@ -3,14 +3,16 @@
 GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
 	const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport)
 {
+	std::cout << "THE GAME_LEVEL LOADED." << std::endl;
+
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
 	basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
-	TeleportObject* basicTeleport1 = new TeleportObject(bnTel, 64, 640, true, 0, 0);
-	TeleportObject* basicTeleport2 = new TeleportObject(bnTel, 160, 160, true, 1, 1);
-	TeleportObject* basicTeleport3 = new TeleportObject(bnTel, 640, 64, true, 2, 2);
+	TeleportObject* basicTeleport1 = new TeleportObject("Textures/apple.png", 64, 640, 0);
+	TeleportObject* basicTeleport2 = new TeleportObject("Textures/apple_golden1.png", 160, 160, 1);
+	TeleportObject* basicTeleport3 = new TeleportObject("Textures/apple_golden2.png", 640, 64, 2);
 	basicTeleports.push_back(basicTeleport1);
 	basicTeleports.push_back(basicTeleport2);
 	basicTeleports.push_back(basicTeleport3);
@@ -103,11 +105,11 @@ void GameLevel::HeroCollideWithEnemy()
 {
 	for (unsigned int i = 0; i < basicEnemies.size(); i++)
 	{
-		if (abs(basicHero->GetDestRect().x - basicEnemies[i]->GetDestRect().x) < 30)
+		if (abs(basicHero->GetDestRect().x - basicEnemies[i]->GetDestRect().x) < 32)
 		{
-			if (abs(basicHero->GetDestRect().y - basicEnemies[i]->GetDestRect().y) < 30)
+			if (abs(basicHero->GetDestRect().y - basicEnemies[i]->GetDestRect().y) < 32)
 			{
-				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
+				//std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
 				gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
 				gameObjective.CurrentScorePoints();
@@ -120,14 +122,14 @@ void GameLevel::HeroCollideWithChest()
 {
 	for (unsigned int i = 0; i < basicChests.size(); i++)
 	{
-		if (abs(basicHero->GetDestRect().x - basicChests[i]->GetDestRect().x) < 30)
+		if (abs(basicHero->GetDestRect().x - basicChests[i]->GetDestRect().x) < 32)
 		{
-			if (abs(basicHero->GetDestRect().y - basicChests[i]->GetDestRect().y) < 30)
+			if (abs(basicHero->GetDestRect().y - basicChests[i]->GetDestRect().y) < 32)
 			{
 				//SDL_Texture* isTexture = TextureManager::LoadTexture("Textures/WoodenChest.png");
 				//if (basicChests[i]->objTexture == isTexture)
 				//{
-					std::cout << "Chest has been collected!" << std::endl;
+					//std::cout << "Chest has been collected!" << std::endl;
 					basicChests[i]->objTexture = TextureManager::LoadTexture("Textures/WoodenChest_Open.png");
 					SDL_Delay(10);
 					gameObjective.ScorePoints = gameObjective.ScorePoints + 100;
@@ -143,9 +145,9 @@ void GameLevel::HeroCollideWithCoin()
 {
 	for (unsigned int i = 0; i < basicCoins.size(); i++)
 	{
-		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 30)
+		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 32)
 		{
-			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 30)
+			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 32)
 			{
 				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);

@@ -2,29 +2,21 @@
 
 //PODSTAWOWE
 //Konstruktor bohatera
-TeleportObject::TeleportObject(const char* texturesheet, int x, int y, bool b, int start, int end)
+TeleportObject::TeleportObject(const char* texturesheet, int x, int y, int des)
 {
 	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
-	//InitTeleportObject(x, y);
-
 	coordinatesOfTeleport.x = x;
 	coordinatesOfTeleport.y = y;
-	isStartingPoint = b;
-	startingDestination = start;
-	endingDestination = end;
+	destination = des;
 }
 
 //Konstruktor bohatera
-TeleportObject::TeleportObject(const char* texturesheet, Point* point, bool b, int start, int end)
+TeleportObject::TeleportObject(const char* texturesheet, Point* point, int des)
 {
 	ObjectInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
-	//InitTeleportObject(point->x, point->y);
-
 	coordinatesOfTeleport.x = point->x;
 	coordinatesOfTeleport.y = point->y;
-	isStartingPoint = b;
-	startingDestination = start;
-	endingDestination = end;
+	destination = des;
 }
 
 TeleportObject::TeleportObject(const TeleportObject& tempObject)
