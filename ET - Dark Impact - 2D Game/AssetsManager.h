@@ -8,6 +8,7 @@
 
 class AssetsManager
 {
+	/*
 public:
 	AssetsManager();
 	~AssetsManager();
@@ -20,5 +21,6 @@ public:
 private:
 	std::map<std::string, SDL_Texture*> textures;
 	std::map<std::string, TTF_Font*> fonts;
+	*/
 };
 

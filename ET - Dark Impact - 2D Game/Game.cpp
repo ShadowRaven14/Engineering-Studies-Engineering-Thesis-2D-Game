@@ -3,8 +3,10 @@
 #include "GameLevelManager.h"
 
 GameLevelManager *gameLevelManager;
-SDL_Renderer *Game::renderer = nullptr;
-SDL_Event Game::event;
+SDL_Renderer *Game::mainGameRender = nullptr;
+SDL_Event Game::mainGameEvent;
+//TTF_Font *Game::mainGameFont;
+
 
 //Kontruktor
 Game::Game()
@@ -19,7 +21,7 @@ Game::~Game()
 }
 
 //Inicjalizacja
-void Game::init(const char* title, int width, int height, bool fullscreen)
+void Game::Init(const char* title, int width, int height, bool fullscreen)
 {
 	int flags = 0;
 
@@ -30,14 +32,14 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
-		renderer = SDL_CreateRenderer(window, -1, 0);
-		if (renderer)
-		{
-			SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-		}
+		//mainGameFont = TTF_OpenFont("Fonts/arial.ttf", 25);
+		mainGameWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+		mainGameRender = SDL_CreateRenderer(mainGameWindow, -1, 0);
 
-		isRunning = true;
+		if (mainGameRender) 
+			SDL_SetRenderDrawColor(mainGameRender, 255, 255, 255, 255);
+
+		isGameRunning = true;
 	}
 
 	//Symulator losowania
@@ -48,14 +50,14 @@ void Game::init(const char* title, int width, int height, bool fullscreen)
 }
 
 //Obs³uga wydarzeñ
-void Game::handleEvents()
+void Game::HandleEvents()
 {
-	SDL_PollEvent(&event);
+	SDL_PollEvent(&mainGameEvent);
 
-	switch (event.type)
+	switch (mainGameEvent.type)
 	{
 	case SDL_QUIT:
-		isRunning = false;
+		isGameRunning = false;
 		break;
 	default:
 		break;
@@ -63,23 +65,23 @@ void Game::handleEvents()
 }
 
 //Aktualizowanie
-void Game::update()
+void Game::Update()
 {
 	gameLevelManager->Update();
 }
 
 //Renderowanie
-void Game::render()
+void Game::Render()
 {
-	SDL_RenderClear(renderer);
+	SDL_RenderClear(mainGameRender);
 	gameLevelManager->Render();
-	SDL_RenderPresent(renderer);
+	SDL_RenderPresent(mainGameRender);
 }
 
 //Czyszczenie
-void Game::clean()
+void Game::Clean()
 {
-	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(mainGameWindow);
+	SDL_DestroyRenderer(mainGameRender);
 	SDL_Quit();
 }

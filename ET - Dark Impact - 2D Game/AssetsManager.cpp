@@ -2,6 +2,7 @@
 
 //gdzieœ tutaj jest problem
 
+/*
 AssetsManager::AssetsManager()
 {
 
@@ -33,3 +34,4 @@ void AssetsManager::LoadFont(std::string id, std::string path, int fontSize)
 {
 	//fonts.emplace(id, TTF_OpenFont(path.c_str(), fontSize));
 }
+*/

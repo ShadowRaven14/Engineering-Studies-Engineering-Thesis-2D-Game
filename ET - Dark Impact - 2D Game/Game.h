@@ -15,25 +15,23 @@
 
 class Game
 {
-
 public:
 	Game();
 	~Game();
+	void Init(const char* title, int width, int height, bool fullscreen);
+	void Update();
+	void Render();
+	void Clean();
 
-	void init(const char* title, int width, int height, bool fullscreen);
+	bool Running() { return isGameRunning; }
+	void HandleEvents();
 
-	void handleEvents();
-	void update();
-	bool running() { return isRunning; }
-	void render();
-	void clean();
-
-	static SDL_Renderer* renderer;
-	static SDL_Event event;
+	static SDL_Renderer* mainGameRender;
+	static SDL_Event mainGameEvent;
+	//static TTF_Font* mainGameFont;
 
 private:
-	bool isRunning = false;
-	int cnt = 0;
-	SDL_Window* window;
-
+	bool isGameRunning = false;
+	SDL_Window* mainGameWindow;
+	//int cnt = 0;
 };

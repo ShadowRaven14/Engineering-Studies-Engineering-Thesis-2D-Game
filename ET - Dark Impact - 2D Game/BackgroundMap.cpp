@@ -57,23 +57,23 @@ void BackgroundMap::DrawMap()
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(sand, srcRect, destRect);
+				TextureManager::DrawTexture(sand, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::Draw(wood, srcRect, destRect);
+				TextureManager::DrawTexture(wood, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::Draw(grass, srcRect, destRect);
+				TextureManager::DrawTexture(grass, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::Draw(stone, srcRect, destRect);
+				TextureManager::DrawTexture(stone, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::Draw(snow, srcRect, destRect);
+				TextureManager::DrawTexture(snow, srcRect, destRect);
 				break;
 
 			default:

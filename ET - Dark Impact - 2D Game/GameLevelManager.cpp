@@ -65,6 +65,7 @@ void GameLevelManager::ChangeLevel(GameLevel* newLevel)
 {
 	std::cout << "Change level." << std::endl;
 	currentLevel = newLevel;
+
 	currentLevel->basicHero->MoveHeroToPoint(
 		new Point(
 			currentLevel->startingPoint->x,
@@ -84,7 +85,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 				std::cout << "Collision with Teleport!" << std::endl;
 				currentLevelID = currentLevel->basicTeleports[i]->destination;
 				//std::cout << i << " " << currentLevelID << std::endl;
-				SDL_Delay(100);
+				SDL_Delay(300);
 
 				switch (currentLevelID)
 				{

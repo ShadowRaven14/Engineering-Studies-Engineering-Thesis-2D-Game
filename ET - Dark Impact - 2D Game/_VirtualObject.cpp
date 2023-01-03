@@ -24,7 +24,7 @@ void _VirtualObject::UpdateInit()
 //Renderowanie obiektu
 void _VirtualObject::RenderInit()
 {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::mainGameRender, objTexture, &srcRect, &destRect);
 }
 
 //Generowanie losowej pozycji

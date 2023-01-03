@@ -1,5 +1,5 @@
 #include "Game.h"
-Game* game = nullptr;
+Game* mainGame = nullptr;
 
 
 int main(int argc, char* argv[])
@@ -10,16 +10,16 @@ int main(int argc, char* argv[])
     Uint32 frameStart;
     int frameTime;
 
-    game = new Game();
-    game->init("GameWindow", 1312, 928, false);
+    mainGame = new Game();
+    mainGame->Init("MainGameWindow", 1312, 928, false);
 
-    while (game->running())
+    while (mainGame->Running())
     {
         frameStart = SDL_GetTicks();
 
-        game->handleEvents();
-        game->update();
-        game->render();
+        mainGame->HandleEvents();
+        mainGame->Update();
+        mainGame->Render();
 
         frameTime = SDL_GetTicks() - frameStart;
 
@@ -29,7 +29,6 @@ int main(int argc, char* argv[])
         }
     }
 
-    game->clean();
+    mainGame->Clean();
     return 0;
-
 }

@@ -68,92 +68,92 @@ void SnakeObject::DrawMap(int arr[29][41])
 			switch (type)
 			{
 			case 0:
-				TextureManager::Draw(blank, srcRect, destRect);
+				TextureManager::DrawTexture(blank, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::Draw(pixelsnake, srcRect, destRect);
+				TextureManager::DrawTexture(pixelsnake, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::Draw(pixelapple, srcRect, destRect);
+				TextureManager::DrawTexture(pixelapple, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::Draw(pixelgoldenapple, srcRect, destRect);
+				TextureManager::DrawTexture(pixelgoldenapple, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::Draw(pixelraven, srcRect, destRect);
+				TextureManager::DrawTexture(pixelraven, srcRect, destRect);
 				break;
 
 
 				//g³owa
 			case 11:
-				TextureManager::Draw(snake_head_down, srcRect, destRect);
+				TextureManager::DrawTexture(snake_head_down, srcRect, destRect);
 				break;
 
 			case 12:
-				TextureManager::Draw(snake_head_up, srcRect, destRect);
+				TextureManager::DrawTexture(snake_head_up, srcRect, destRect);
 				break;
 
 			case 13:
-				TextureManager::Draw(snake_head_right, srcRect, destRect);
+				TextureManager::DrawTexture(snake_head_right, srcRect, destRect);
 				break;
 
 			case 14:
-				TextureManager::Draw(snake_head_left, srcRect, destRect);
+				TextureManager::DrawTexture(snake_head_left, srcRect, destRect);
 				break;
 
 
 				//ogon
 			case 21:
-				TextureManager::Draw(snake_tail_down, srcRect, destRect);
+				TextureManager::DrawTexture(snake_tail_down, srcRect, destRect);
 				break;
 
 			case 22:
-				TextureManager::Draw(snake_tail_up, srcRect, destRect);
+				TextureManager::DrawTexture(snake_tail_up, srcRect, destRect);
 				break;
 
 			case 23:
-				TextureManager::Draw(snake_tail_right, srcRect, destRect);
+				TextureManager::DrawTexture(snake_tail_right, srcRect, destRect);
 				break;
 
 			case 24:
-				TextureManager::Draw(snake_tail_left, srcRect, destRect);
+				TextureManager::DrawTexture(snake_tail_left, srcRect, destRect);
 				break;
 
 
 				//skrêty
 			case 31:
-				TextureManager::Draw(snake_turn_1, srcRect, destRect);
+				TextureManager::DrawTexture(snake_turn_1, srcRect, destRect);
 				break;
 
 			case 32:
-				TextureManager::Draw(snake_turn_2, srcRect, destRect);
+				TextureManager::DrawTexture(snake_turn_2, srcRect, destRect);
 				break;
 
 			case 33:
-				TextureManager::Draw(snake_turn_3, srcRect, destRect);
+				TextureManager::DrawTexture(snake_turn_3, srcRect, destRect);
 				break;
 
 			case 34:
-				TextureManager::Draw(snake_turn_4, srcRect, destRect);
+				TextureManager::DrawTexture(snake_turn_4, srcRect, destRect);
 				break;
 
 
 				//proste cia³o
 			case 41:
-				TextureManager::Draw(snake_body_vert, srcRect, destRect);
+				TextureManager::DrawTexture(snake_body_vert, srcRect, destRect);
 				break;
 
 			case 42:
-				TextureManager::Draw(snake_body_horizon, srcRect, destRect);
+				TextureManager::DrawTexture(snake_body_horizon, srcRect, destRect);
 				break;
 
 
 			default:
-				TextureManager::Draw(blank, srcRect, destRect);
+				TextureManager::DrawTexture(blank, srcRect, destRect);
 				break;
 			}
 		}
@@ -233,7 +233,7 @@ void SnakeObject::Update()
 //RENDER
 void SnakeObject::Render()
 {
-	SDL_RenderCopy(Game::renderer, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::mainGameRender, objTexture, &srcRect, &destRect);
 	DrawMap(Level);
 }
 
@@ -515,28 +515,28 @@ void SnakeObject::HandleSnakeGraphics()
 void SnakeObject::HandleKeyboard()
 {
 	//WCZYTYWANIE KLAWIATURY
-	if (Game::event.type == SDL_KEYDOWN)
+	if (Game::mainGameEvent.type == SDL_KEYDOWN)
 	{
 		// WHILE MOVING DOWN
-		if (Game::event.key.keysym.sym == SDLK_s)
+		if (Game::mainGameEvent.key.keysym.sym == SDLK_s)
 		{
 			std::cout << " Przycisk S" << std::endl;
 			previnput = input; input = 's';
 		}
 		// WHILE MOVING UP
-		else if (Game::event.key.keysym.sym == SDLK_w)
+		else if (Game::mainGameEvent.key.keysym.sym == SDLK_w)
 		{
 			std::cout << " Przycisk W" << std::endl;
 			previnput = input; input = 'w';
 		}
 		// WHILE MOVING RIGHT
-		else if (Game::event.key.keysym.sym == SDLK_d)
+		else if (Game::mainGameEvent.key.keysym.sym == SDLK_d)
 		{
 			std::cout << " Przycisk D" << std::endl;
 			previnput = input; input = 'd';
 		}
 		// WHILE MOVING LEFT
-		else if (Game::event.key.keysym.sym == SDLK_a)
+		else if (Game::mainGameEvent.key.keysym.sym == SDLK_a)
 		{
 			std::cout << " Przycisk A" << std::endl;
 			previnput = input; input = 'a';

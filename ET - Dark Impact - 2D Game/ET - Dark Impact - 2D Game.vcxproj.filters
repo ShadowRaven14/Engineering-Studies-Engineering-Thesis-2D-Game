@@ -120,6 +120,9 @@
     <ClCompile Include="TeleportObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="TextDisplayManager.cpp">
+      <Filter>Source Files\SDL2_ManagersCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppleObject.h">
@@ -190,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="TeleportObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDisplayManager.h">
+      <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
