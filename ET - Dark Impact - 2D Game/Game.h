@@ -28,10 +28,9 @@ public:
 
 	static SDL_Renderer* mainGameRender;
 	static SDL_Event mainGameEvent;
-	//static TTF_Font* mainGameFont;
+	static TTF_Font* mainGameFont;
 
 private:
 	bool isGameRunning = false;
 	SDL_Window* mainGameWindow;
-	//int cnt = 0;
 };

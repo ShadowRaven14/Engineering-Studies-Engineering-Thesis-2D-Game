@@ -5,7 +5,7 @@
 GameLevelManager *gameLevelManager;
 SDL_Renderer *Game::mainGameRender = nullptr;
 SDL_Event Game::mainGameEvent;
-//TTF_Font *Game::mainGameFont;
+TTF_Font *Game::mainGameFont;
 
 
 //Kontruktor
@@ -32,7 +32,13 @@ void Game::Init(const char* title, int width, int height, bool fullscreen)
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		//mainGameFont = TTF_OpenFont("Fonts/arial.ttf", 25);
+		mainGameFont = TTF_OpenFont("Fonts/arial.ttf", 25);
+		SDL_Color color = { 255, 255, 255 };
+		SDL_Surface* surface = TTF_RenderText_Solid(mainGameFont,
+			"Welcome to Gigi Labs", color);
+		SDL_Texture* texture = SDL_CreateTextureFromSurface(mainGameRender, surface);
+
+
 		mainGameWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 		mainGameRender = SDL_CreateRenderer(mainGameWindow, -1, 0);
 
@@ -81,6 +87,8 @@ void Game::Render()
 //Czyszczenie
 void Game::Clean()
 {
+	TTF_CloseFont(mainGameFont);
+	TTF_Quit();
 	SDL_DestroyWindow(mainGameWindow);
 	SDL_DestroyRenderer(mainGameRender);
 	SDL_Quit();
