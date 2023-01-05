@@ -4,7 +4,7 @@
 class TextDisplayManager
 {
 public:
-	static SDL_Texture* LoadFont(const char* fileName);
-	static void DisplayText(std::string* text);
+	static TTF_Font* LoadFont(const char* fileName, int size);
+	static void DisplayText(TTF_Font* font, const char* text);
 };
 

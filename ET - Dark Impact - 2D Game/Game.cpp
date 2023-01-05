@@ -6,7 +6,9 @@ GameLevelManager *gameLevelManager;
 SDL_Renderer *Game::mainGameRender = nullptr;
 SDL_Event Game::mainGameEvent;
 TTF_Font *Game::mainGameFont;
-
+SDL_Surface* Game::surface;
+SDL_Texture* Game::texture;
+SDL_Rect Game::dstrect;
 
 //Kontruktor
 Game::Game()
@@ -32,13 +34,6 @@ void Game::Init(const char* title, int width, int height, bool fullscreen)
 
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		mainGameFont = TTF_OpenFont("Fonts/arial.ttf", 25);
-		SDL_Color color = { 255, 255, 255 };
-		SDL_Surface* surface = TTF_RenderText_Solid(mainGameFont,
-			"Welcome to Gigi Labs", color);
-		SDL_Texture* texture = SDL_CreateTextureFromSurface(mainGameRender, surface);
-
-
 		mainGameWindow = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
 		mainGameRender = SDL_CreateRenderer(mainGameWindow, -1, 0);
 
@@ -47,6 +42,21 @@ void Game::Init(const char* title, int width, int height, bool fullscreen)
 
 		isGameRunning = true;
 	}
+
+	//TTF inicjalizacja
+	/*TTF_Font* yourNewFont = TTF_OpenFont("Fonts/arial.ttf", 25);
+	SDL_Color fontColor = { 255, 255, 255 };
+	SDL_Surface* fontSurface = TTF_RenderText_Solid(yourNewFont,
+		"Welcome to Gigi Labs", fontColor);
+	SDL_Texture* fontTexture = SDL_CreateTextureFromSurface(Game::mainGameRender, fontSurface);*/
+	const char* text = "Hello there!";
+	mainGameFont = TTF_OpenFont("Fonts/pixel.fon", 25);
+	SDL_Color color = { 255, 255, 255 };
+	surface = TTF_RenderText_Solid(mainGameFont, text, color);
+	texture = SDL_CreateTextureFromSurface(Game::mainGameRender, surface);
+	int texW = 20;  int texH = 20;
+	SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+	dstrect = { 0, 0, texW, texH };
 
 	//Symulator losowania
 	srand((unsigned)time(NULL));
@@ -74,6 +84,8 @@ void Game::HandleEvents()
 void Game::Update()
 {
 	gameLevelManager->Update();
+	SDL_RenderCopy(Game::mainGameRender, texture, NULL, &dstrect);
+	SDL_RenderPresent(Game::mainGameRender);
 }
 
 //Renderowanie
@@ -87,6 +99,8 @@ void Game::Render()
 //Czyszczenie
 void Game::Clean()
 {
+	//SDL_DestroyTexture(fontTexture);
+	//SDL_FreeSurface(fontSurface);
 	TTF_CloseFont(mainGameFont);
 	TTF_Quit();
 	SDL_DestroyWindow(mainGameWindow);
