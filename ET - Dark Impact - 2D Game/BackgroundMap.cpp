@@ -1,5 +1,5 @@
 #include "BackgroundMap.h"
-#include "TextureManager.h"
+#include "ImageTextureManager.h"
 #include <fstream>
 #include <string>
 
@@ -30,15 +30,15 @@ BackgroundMap::~BackgroundMap()
 
 void BackgroundMap::InitializeTextures()
 {
-	blank = TextureManager::LoadTexture("Textures/blank.png");
-	sand = TextureManager::LoadTexture("Textures/pix_sand.png");
-	stone = TextureManager::LoadTexture("Textures/pix_stone.png");
-	snow = TextureManager::LoadTexture("Textures/pix_snow.png");
-	wood = TextureManager::LoadTexture("Textures/pix_wood2.png");
-	grass = TextureManager::LoadTexture("Textures/pix_grass.png");
-	//dirt = TextureManager::LoadTexture("Textures/pix_brown.png");
-	//water = TextureManager::LoadTexture("Textures/pix_blue.png");
-	//lava = TextureManager::LoadTexture("Textures/pix_red.png");
+	blank = ImageTextureManager::LoadTexture("Textures/blank.png");
+	sand = ImageTextureManager::LoadTexture("Textures/pix_sand.png");
+	stone = ImageTextureManager::LoadTexture("Textures/pix_stone.png");
+	snow = ImageTextureManager::LoadTexture("Textures/pix_snow.png");
+	wood = ImageTextureManager::LoadTexture("Textures/pix_wood2.png");
+	grass = ImageTextureManager::LoadTexture("Textures/pix_grass.png");
+	//dirt = ImageTextureManager::LoadTexture("Textures/pix_brown.png");
+	//water = ImageTextureManager::LoadTexture("Textures/pix_blue.png");
+	//lava = ImageTextureManager::LoadTexture("Textures/pix_red.png");
 
 }
 
@@ -57,23 +57,23 @@ void BackgroundMap::DrawMap()
 			switch (type)
 			{
 			case 0:
-				TextureManager::DrawTexture(sand, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(sand, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::DrawTexture(wood, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(wood, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::DrawTexture(grass, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(grass, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::DrawTexture(stone, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(stone, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::DrawTexture(snow, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snow, srcRect, destRect);
 				break;
 
 			default:

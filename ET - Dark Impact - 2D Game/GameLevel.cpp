@@ -128,12 +128,12 @@ void GameLevel::HeroCollideWithChest()
 		{
 			if (abs(basicHero->GetDestRect().y - basicChests[i]->GetDestRect().y) < 32)
 			{
-				//SDL_Texture* isTexture = TextureManager::LoadTexture("Textures/WoodenChest.png");
+				//SDL_Texture* isTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest.png");
 				//&& basicChests[i]->objTexture == isTexture
 				if (basicHero->cordsOfObject.input == 'f')
 				{
 					//std::cout << "Chest has been collected!" << std::endl;
-					basicChests[i]->objTexture = TextureManager::LoadTexture("Textures/WoodenChest_Open.png");
+					basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
 					SDL_Delay(10);
 
 					gameObjective.ScorePoints = gameObjective.ScorePoints + 100;

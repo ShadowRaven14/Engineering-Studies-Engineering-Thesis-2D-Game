@@ -68,92 +68,92 @@ void SnakeObject::DrawMap(int arr[29][41])
 			switch (type)
 			{
 			case 0:
-				TextureManager::DrawTexture(blank, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(blank, srcRect, destRect);
 				break;
 
 			case 1:
-				TextureManager::DrawTexture(pixelsnake, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(pixelsnake, srcRect, destRect);
 				break;
 
 			case 2:
-				TextureManager::DrawTexture(pixelapple, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(pixelapple, srcRect, destRect);
 				break;
 
 			case 3:
-				TextureManager::DrawTexture(pixelgoldenapple, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(pixelgoldenapple, srcRect, destRect);
 				break;
 
 			case 4:
-				TextureManager::DrawTexture(pixelraven, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(pixelraven, srcRect, destRect);
 				break;
 
 
 				//g³owa
 			case 11:
-				TextureManager::DrawTexture(snake_head_down, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_head_down, srcRect, destRect);
 				break;
 
 			case 12:
-				TextureManager::DrawTexture(snake_head_up, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_head_up, srcRect, destRect);
 				break;
 
 			case 13:
-				TextureManager::DrawTexture(snake_head_right, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_head_right, srcRect, destRect);
 				break;
 
 			case 14:
-				TextureManager::DrawTexture(snake_head_left, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_head_left, srcRect, destRect);
 				break;
 
 
 				//ogon
 			case 21:
-				TextureManager::DrawTexture(snake_tail_down, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_tail_down, srcRect, destRect);
 				break;
 
 			case 22:
-				TextureManager::DrawTexture(snake_tail_up, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_tail_up, srcRect, destRect);
 				break;
 
 			case 23:
-				TextureManager::DrawTexture(snake_tail_right, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_tail_right, srcRect, destRect);
 				break;
 
 			case 24:
-				TextureManager::DrawTexture(snake_tail_left, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_tail_left, srcRect, destRect);
 				break;
 
 
 				//skrêty
 			case 31:
-				TextureManager::DrawTexture(snake_turn_1, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_turn_1, srcRect, destRect);
 				break;
 
 			case 32:
-				TextureManager::DrawTexture(snake_turn_2, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_turn_2, srcRect, destRect);
 				break;
 
 			case 33:
-				TextureManager::DrawTexture(snake_turn_3, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_turn_3, srcRect, destRect);
 				break;
 
 			case 34:
-				TextureManager::DrawTexture(snake_turn_4, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_turn_4, srcRect, destRect);
 				break;
 
 
 				//proste cia³o
 			case 41:
-				TextureManager::DrawTexture(snake_body_vert, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_body_vert, srcRect, destRect);
 				break;
 
 			case 42:
-				TextureManager::DrawTexture(snake_body_horizon, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(snake_body_horizon, srcRect, destRect);
 				break;
 
 
 			default:
-				TextureManager::DrawTexture(blank, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(blank, srcRect, destRect);
 				break;
 			}
 		}
@@ -162,33 +162,33 @@ void SnakeObject::DrawMap(int arr[29][41])
 
 void SnakeObject::InitializeTextures()
 {
-	blank = TextureManager::LoadTexture("Assets/blank.png");
-	apple = TextureManager::LoadTexture("Assets/apple.png");
+	blank = ImageTextureManager::LoadTexture("Assets/blank.png");
+	apple = ImageTextureManager::LoadTexture("Assets/apple.png");
 
 	//pliki dodatków
-	pixelapple = TextureManager::LoadTexture("Assets/apple.png");
-	pixelgoldenapple = TextureManager::LoadTexture("Assets/apple_golden1.png");
-	pixelraven = TextureManager::LoadTexture("Assets/crow1.png");
-	pixelsnake = TextureManager::LoadTexture("Assets/pix_green.png");
+	pixelapple = ImageTextureManager::LoadTexture("Assets/apple.png");
+	pixelgoldenapple = ImageTextureManager::LoadTexture("Assets/apple_golden1.png");
+	pixelraven = ImageTextureManager::LoadTexture("Assets/crow1.png");
+	pixelsnake = ImageTextureManager::LoadTexture("Assets/pix_green.png");
 
 	//Pliki wê¿a
-	snake_head_down = TextureManager::LoadTexture("Assets/head_down.png");
-	snake_head_up = TextureManager::LoadTexture("Assets/head_up.png");
-	snake_head_right = TextureManager::LoadTexture("Assets/head_right.png");
-	snake_head_left = TextureManager::LoadTexture("Assets/head_left.png");
+	snake_head_down = ImageTextureManager::LoadTexture("Assets/head_down.png");
+	snake_head_up = ImageTextureManager::LoadTexture("Assets/head_up.png");
+	snake_head_right = ImageTextureManager::LoadTexture("Assets/head_right.png");
+	snake_head_left = ImageTextureManager::LoadTexture("Assets/head_left.png");
 
-	snake_tail_down = TextureManager::LoadTexture("Assets/tail_down.png");
-	snake_tail_up = TextureManager::LoadTexture("Assets/tail_up.png");
-	snake_tail_right = TextureManager::LoadTexture("Assets/tail_right.png");
-	snake_tail_left = TextureManager::LoadTexture("Assets/tail_left.png");
+	snake_tail_down = ImageTextureManager::LoadTexture("Assets/tail_down.png");
+	snake_tail_up = ImageTextureManager::LoadTexture("Assets/tail_up.png");
+	snake_tail_right = ImageTextureManager::LoadTexture("Assets/tail_right.png");
+	snake_tail_left = ImageTextureManager::LoadTexture("Assets/tail_left.png");
 
-	snake_turn_1 = TextureManager::LoadTexture("Assets/turn1.png");
-	snake_turn_2 = TextureManager::LoadTexture("Assets/turn2.png");
-	snake_turn_3 = TextureManager::LoadTexture("Assets/turn3.png");
-	snake_turn_4 = TextureManager::LoadTexture("Assets/turn4.png");
+	snake_turn_1 = ImageTextureManager::LoadTexture("Assets/turn1.png");
+	snake_turn_2 = ImageTextureManager::LoadTexture("Assets/turn2.png");
+	snake_turn_3 = ImageTextureManager::LoadTexture("Assets/turn3.png");
+	snake_turn_4 = ImageTextureManager::LoadTexture("Assets/turn4.png");
 
-	snake_body_vert = TextureManager::LoadTexture("Assets/body_vert.png");
-	snake_body_horizon = TextureManager::LoadTexture("Assets/body_horizon.png");
+	snake_body_vert = ImageTextureManager::LoadTexture("Assets/body_vert.png");
+	snake_body_horizon = ImageTextureManager::LoadTexture("Assets/body_horizon.png");
 }
 
 //TABLICA WÊ¯A
@@ -621,8 +621,8 @@ void SnakeObject::AppleTree(int arr[29][41])
 	}
 
 	//animacja golden apple
-	if (interval2 == delay) pixelgoldenapple = TextureManager::LoadTexture("Assets/apple_golden2.png");
-	if (interval2 == delay * 2) pixelgoldenapple = TextureManager::LoadTexture("Assets/apple_golden1.png");
+	if (interval2 == delay) pixelgoldenapple = ImageTextureManager::LoadTexture("Assets/apple_golden2.png");
+	if (interval2 == delay * 2) pixelgoldenapple = ImageTextureManager::LoadTexture("Assets/apple_golden1.png");
 
 
 	//losowanie kruka
@@ -646,7 +646,7 @@ void SnakeObject::AppleTree(int arr[29][41])
 	}
 
 	//animacja golden apple
-	if (interval3 == delay) pixelraven = TextureManager::LoadTexture("Assets/crow2.png");
-	if (interval3 == delay * 2) pixelraven = TextureManager::LoadTexture("Assets/crow1.png");
+	if (interval3 == delay) pixelraven = ImageTextureManager::LoadTexture("Assets/crow2.png");
+	if (interval3 == delay * 2) pixelraven = ImageTextureManager::LoadTexture("Assets/crow1.png");
 
 }

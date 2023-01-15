@@ -3,7 +3,7 @@
 //Tworzenie obiektu
 void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
 {
-	objTexture = TextureManager::LoadTexture(texturesheet);
+	objTexture = ImageTextureManager::LoadTexture(texturesheet);
 	cordsOfObject.point.x = x; cordsOfObject.point.y = y;
 }
 

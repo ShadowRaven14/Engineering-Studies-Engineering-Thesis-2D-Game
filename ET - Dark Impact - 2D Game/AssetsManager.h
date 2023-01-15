@@ -2,7 +2,7 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "SDL_ttf.h"
-#include "TextureManager.h"
+#include "ImageTextureManager.h"
 #include <string>
 #include <map>
 

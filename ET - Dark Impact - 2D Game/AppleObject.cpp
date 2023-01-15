@@ -3,7 +3,7 @@
 AppleObject::AppleObject(const char* texturesheet, int x, int y)
 {
 	std::cout << "Nowe Apple na ziemi" << std::endl;
-	objTexture = TextureManager::LoadTexture(texturesheet);
+	objTexture = ImageTextureManager::LoadTexture(texturesheet);
 
 	srand((unsigned)time(NULL));
 	cordsOfObject.point.x = (rand() % (25 - 2) + 1) * 32;

@@ -167,10 +167,10 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="CoordinatesOfHero.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
-    <ClCompile Include="TextDisplayManager.cpp" />
+    <ClCompile Include="TextTextureManager.cpp" />
     <ClCompile Include="_VirtualObject.cpp" />
     <ClCompile Include="SnakeObject.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="ImageTextureManager.cpp" />
     <ClCompile Include="BasicFunctions.cpp" />
     <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
@@ -192,11 +192,11 @@
     <ClInclude Include="Point.h" />
     <ClInclude Include="CoordinatesOfHero.h" />
     <ClInclude Include="TeleportObject.h" />
-    <ClInclude Include="TextDisplayManager.h" />
+    <ClInclude Include="TextTextureManager.h" />
     <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />
     <ClInclude Include="SnakeObject.h" />
-    <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="ImageTextureManager.h" />
     <ClInclude Include="BasicFunctions.h" />
     <ClInclude Include="_VirtualMap.h" />
   </ItemGroup>

@@ -111,7 +111,7 @@
     <ClCompile Include="AssetsManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
-    <ClCompile Include="TextureManager.cpp">
+    <ClCompile Include="ImageTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
     <ClCompile Include="CoinObject.cpp">
@@ -120,7 +120,7 @@
     <ClCompile Include="TeleportObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="TextDisplayManager.cpp">
+    <ClCompile Include="TextTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,7 +185,7 @@
     <ClInclude Include="AssetsManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
-    <ClInclude Include="TextureManager.h">
+    <ClInclude Include="ImageTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
     <ClInclude Include="CoinObject.h">
@@ -194,7 +194,7 @@
     <ClInclude Include="TeleportObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="TextDisplayManager.h">
+    <ClInclude Include="TextTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
   </ItemGroup>

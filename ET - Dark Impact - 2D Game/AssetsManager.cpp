@@ -21,7 +21,7 @@ SDL_Texture* AssetsManager::GetTexture(std::string id)
 
 void AssetsManager::LoadTexture(std::string id, const char* path)
 {
-	//textures.emplace(id, TextureManager::LoadTexture(path));
+	//textures.emplace(id, ImageTextureManager::LoadTexture(path));
 }
 
 TTF_Font* AssetsManager::GetFont(std::string id)

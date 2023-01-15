@@ -19,10 +19,10 @@ int main(int argc, char* argv[])
     //const char* text = "Hi, this is my pixel game!";
     //TTF_Font* font = TTF_OpenFont("Fonts/pixel.fon", 25);
     //SDL_Color color = { 255, 255, 255 };
-    //SDL_Surface* surface =  TTF_RenderText_Solid(font, text, color);
-    //SDL_Texture* texture =  SDL_CreateTextureFromSurface(Game::mainGameRender, surface);
+    //SDL_Surface* mainGameFontSurface =  TTF_RenderText_Solid(font, text, color);
+    //SDL_Texture* mainGameFontTexture =  SDL_CreateTextureFromSurface(Game::mainGameRender, mainGameFontSurface);
     //int texW = 0;  int texH = 928;
-    //SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+    //SDL_QueryTexture(mainGameFontTexture, NULL, NULL, &texW, &texH);
     //SDL_Rect dstrect = { 0, 0, texW, texH };
 
     while (mainGame->Running())
@@ -34,9 +34,8 @@ int main(int argc, char* argv[])
         mainGame->Update();
         
         //Tu renderuj sta³y tekst.
-
-        /*SDL_RenderCopy(Game::mainGameRender, texture, NULL, &dstrect);
-        SDL_RenderPresent(Game::mainGameRender);*/
+        //SDL_RenderCopy(Game::mainGameRender, mainGameFontTexture, NULL, &dstrect);
+        //SDL_RenderPresent(Game::mainGameRender);
 
         frameTime = SDL_GetTicks() - frameStart;
         
@@ -74,15 +73,15 @@ int main(int argc, char* argv[])
 //
 //    TTF_Font* font = TTF_OpenFont("Fonts/pixel.fon", 25);
 //    SDL_Color color = { 255, 255, 255 };
-//    SDL_Surface* surface = 
+//    SDL_Surface* mainGameFontSurface = 
 //        TTF_RenderText_Solid(font, 
 //            text, color);
-//    SDL_Texture* texture = 
-//        SDL_CreateTextureFromSurface(renderer, surface);
+//    SDL_Texture* mainGameFontTexture = 
+//        SDL_CreateTextureFromSurface(renderer, mainGameFontSurface);
 //
 //    int texW = 0;
 //    int texH = 0;
-//    SDL_QueryTexture(texture, NULL, NULL, &texW, &texH);
+//    SDL_QueryTexture(mainGameFontTexture, NULL, NULL, &texW, &texH);
 //    SDL_Rect dstrect = { 0, 0, texW, texH };
 //    
 //
@@ -96,8 +95,8 @@ int main(int argc, char* argv[])
 //            quit = true;
 //            break;
 //        }
-//        //SDL_RenderCopy(renderer, texture, NULL, NULL);
-//        SDL_RenderCopy(renderer, texture, NULL, &dstrect);
+//        //SDL_RenderCopy(renderer, mainGameFontTexture, NULL, NULL);
+//        SDL_RenderCopy(renderer, mainGameFontTexture, NULL, &dstrect);
 //        SDL_RenderPresent(renderer);
 //
 //        

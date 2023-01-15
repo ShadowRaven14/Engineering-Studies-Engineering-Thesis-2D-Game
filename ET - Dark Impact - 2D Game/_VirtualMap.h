@@ -2,7 +2,7 @@
 
 #pragma once
 #include "Game.h"
-#include "TextureManager.h"
+#include "ImageTextureManager.h"
 
 class _VirtualMap
 {
