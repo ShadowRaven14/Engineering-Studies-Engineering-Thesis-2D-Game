@@ -1,17 +1,13 @@
 #include "GameLevel.h"
 
-GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
-	const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport)
+GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, 
+	const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin)
 {
 	std::cout << "THE GAME_LEVEL LOADED." << std::endl;
 
 	//Wyœwietlenie tekstu powitalnego
-	//welcomeInfo = "Hi! Welcome to new game level!";
-	//welcomeColor = { 255, 255, 255 };
-	//TextTextureManager::InitTextDisplay(25, welcomeInfo, welcomeColor);
 	welcomeInfo = bnInfo;
 	welcomeColor = bnColor;
-	SDL_Delay(500);
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
@@ -46,39 +42,34 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 		CoinObject* basicCoin = new CoinObject(bnCoin);
 		basicCoins.push_back(basicCoin);
 	}
-
-	//ustawienie punktu teleportu
-	teleportPoint = bnTeleport;
 }
 
 GameLevel::GameLevel(const GameLevel& tempLevel)
 {
-	welcomeInfo = tempLevel.welcomeInfo; //upewniæ siê czy dobrze
+	welcomeInfo = tempLevel.welcomeInfo;
+	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
-	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
-	teleportPoint = tempLevel.teleportPoint;
 }
 
 GameLevel GameLevel::operator = (const GameLevel& tempLevel)
 {
-	welcomeInfo = tempLevel.welcomeInfo; //upewniæ siê czy dobrze
+	welcomeInfo = tempLevel.welcomeInfo;
+	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
-	std::cout << "KOPIOWANY Punkt:" << startingPoint->x << startingPoint->y << std::endl;
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
-	teleportPoint = tempLevel.teleportPoint;
 
 	return *this;
 }
@@ -95,6 +86,7 @@ void GameLevel::Update()
 	HeroCollideWithChest();
 	HeroCollideWithCoin();
 
+	//Generowanie tekstu powitalnego
 	TextTextureManager::DrawTextTexture(
 		TextTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
 }
@@ -108,6 +100,7 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
 	basicHero->Render();
 
+	//Generowanie tekstu powitalnego
 	TextTextureManager::DrawTextTexture(
 		TextTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
 }

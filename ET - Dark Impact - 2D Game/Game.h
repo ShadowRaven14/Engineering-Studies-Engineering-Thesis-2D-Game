@@ -29,10 +29,10 @@ public:
 	static SDL_Renderer* mainGameRender;
 	static SDL_Event mainGameEvent;
 
-	static TTF_Font* mainGameFont;
-	static SDL_Surface* mainGameFontSurface;
-	static SDL_Texture* mainGameFontTexture;
-	static SDL_Rect dstrect;
+	//static TTF_Font* mainGameFont;
+	//static SDL_Surface* mainGameFontSurface;
+	//static SDL_Texture* mainGameFontTexture;
+	//static SDL_Rect dstrect;
 
 private:
 	bool isGameRunning = false;

@@ -6,10 +6,10 @@
 GameLevelManager *gameLevelManager;
 SDL_Renderer *Game::mainGameRender = nullptr;
 SDL_Event Game::mainGameEvent;
-TTF_Font *Game::mainGameFont;
-SDL_Surface* Game::mainGameFontSurface;
-SDL_Texture* Game::mainGameFontTexture;
-SDL_Rect Game::dstrect;
+//TTF_Font *Game::mainGameFont;
+//SDL_Surface* Game::mainGameFontSurface;
+//SDL_Texture* Game::mainGameFontTexture;
+//SDL_Rect Game::dstrect;
 
 //Kontruktor
 Game::Game()
@@ -96,9 +96,9 @@ void Game::Render()
 //Czyszczenie
 void Game::Clean()
 {
-	SDL_DestroyTexture(mainGameFontTexture);
-	SDL_FreeSurface(mainGameFontSurface);
-	TTF_CloseFont(mainGameFont);
+	//SDL_DestroyTexture(mainGameFontTexture);
+	//SDL_FreeSurface(mainGameFontSurface);
+	//TTF_CloseFont(mainGameFont);
 	TTF_Quit();
 	SDL_DestroyWindow(mainGameWindow);
 	SDL_DestroyRenderer(mainGameRender);

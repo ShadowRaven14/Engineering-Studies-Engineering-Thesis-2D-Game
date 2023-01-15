@@ -5,7 +5,7 @@ GameLevelManager::GameLevelManager()
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
 	basicLevel = new GameLevel(
-		"Hi! Welcome to game 1!",
+		"Hi! Welcome to level first!",
 		new SDL_Color{ 255, 255, 0 },
 		"Maps/StartingMap.txt",
 		new Point(640, 448),
@@ -13,11 +13,10 @@ GameLevelManager::GameLevelManager()
 		"Textures/apple.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
-		"Textures/Coin.png",
-		new Point(672, 480));
+		"Textures/Coin.png");
 
 	secondLevel = new GameLevel(
-		"Hi! Welcome to game 2!",
+		"Hi! Welcome to level second!",
 		new SDL_Color{ 255, 0, 255 },
 		"Maps/Test.txt",
 		new Point(640, 448),
@@ -25,11 +24,10 @@ GameLevelManager::GameLevelManager()
 		"Textures/apple.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
-		"Textures/Coin.png",
-		new Point(672, 480));
+		"Textures/Coin.png");
 
 	thirdLevel = new GameLevel(
-		"Hi! Welcome to game 3!",
+		"Hi! Welcome to level third!",
 		new SDL_Color{ 0, 255, 255 },
 		"Maps/Exported.txt",
 		new Point(640, 448),
@@ -37,8 +35,7 @@ GameLevelManager::GameLevelManager()
 		"Textures/apple.png",
 		"Textures/HumanMage.png",
 		"Textures/WoodenChest.png",
-		"Textures/Coin.png",
-		new Point(672, 480));
+		"Textures/Coin.png");
 
 	ChangeLevel(basicLevel);
 	currentLevelID = 0;
@@ -47,8 +44,6 @@ GameLevelManager::GameLevelManager()
 void GameLevelManager::Update()
 {
 	currentLevel->Update();
-
-	//TeleportToNewMap(TranslatePoint(currentLevel->basicHero->GetDestRect()));
 	HeroCollideWithTeleport();
 }
 
@@ -88,31 +83,33 @@ void GameLevelManager::HeroCollideWithTeleport()
 		{
 			if (abs(currentLevel->basicHero->GetDestRect().y - currentLevel->basicTeleports[i]->GetDestRect().y) < 32)
 			{
-				std::cout << "Collision with Teleport!" << std::endl;
-				currentLevelID = currentLevel->basicTeleports[i]->destination;
-				//std::cout << i << " " << currentLevelID << std::endl;
-				//SDL_Delay(300);
-
-				switch (currentLevelID)
+				if (currentLevel->basicHero->cordsOfObject.input == 'f')
 				{
-				case 0:
-					ChangeLevel(basicLevel);
-					break;
+					std::cout << "Collision with Teleport!" << std::endl;
+					currentLevelID = currentLevel->basicTeleports[i]->destination;
+					SDL_Delay(300);
 
-				case 1:
-					ChangeLevel(secondLevel);
-					break;
+					switch (currentLevelID)
+					{
+					case 0:
+						ChangeLevel(basicLevel);
+						break;
 
-				case 2:
-					ChangeLevel(thirdLevel);
-					break;
+					case 1:
+						ChangeLevel(secondLevel);
+						break;
 
-				default:
-					ChangeLevel(basicLevel);
-					currentLevelID = 0;
+					case 2:
+						ChangeLevel(thirdLevel);
+						break;
+
+					default:
+						ChangeLevel(basicLevel);
+						currentLevelID = 0;
+						break;
+					}
 					break;
 				}
-				break;
 			}
 		}
 	}

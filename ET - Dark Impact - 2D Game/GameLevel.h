@@ -17,11 +17,11 @@
 class GameLevel
 {
 public:
-	GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
-		const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport);
+	GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, 
+		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin);
 	GameLevel(const GameLevel &tempLevel);
 	~GameLevel();
-	GameLevel operator=(const GameLevel& tempLevel);
+	GameLevel operator= (const GameLevel& tempLevel); //Przeci¹¿enie operatora
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
@@ -36,7 +36,6 @@ public:
 	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
 	std::vector <CoinObject*> basicCoins;
-	Point *teleportPoint;
 
 	void HeroCollideWithEnemy();
 	void HeroCollideWithChest();
