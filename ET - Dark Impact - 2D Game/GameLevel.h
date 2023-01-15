@@ -10,12 +10,14 @@
 #include "CoinObject.h"
 #include "GameObjective.h"
 #include <vector>
+#include "ImageTextureManager.h"
+#include "TextTextureManager.h"
 
 
 class GameLevel
 {
 public:
-	GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
+	GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
 		const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport);
 	GameLevel(const GameLevel &tempLevel);
 	~GameLevel();
@@ -25,6 +27,8 @@ public:
 
 	GameObjective gameObjective;
 
+	const char* welcomeInfo;
+	SDL_Color* welcomeColor;
 	Point* startingPoint;
 	BackgroundMap *basicMap;
 	HeroObject *basicHero;

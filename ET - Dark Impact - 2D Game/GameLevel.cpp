@@ -1,10 +1,19 @@
 #include "GameLevel.h"
 
-GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
+GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, const char* bnHero, const char* bnTel,
 	const char* bnEnemy, const char* bnChest, const char* bnCoin, Point* bnTeleport)
 {
 	std::cout << "THE GAME_LEVEL LOADED." << std::endl;
 
+	//Wyœwietlenie tekstu powitalnego
+	//welcomeInfo = "Hi! Welcome to new game level!";
+	//welcomeColor = { 255, 255, 255 };
+	//TextTextureManager::InitTextDisplay(25, welcomeInfo, welcomeColor);
+	welcomeInfo = bnInfo;
+	welcomeColor = bnColor;
+	SDL_Delay(500);
+
+	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
 	basicHero = new HeroObject(bnHero, startingPoint);
@@ -38,11 +47,13 @@ GameLevel::GameLevel(std::string bnMap, Point* bnStart, const char* bnHero, cons
 		basicCoins.push_back(basicCoin);
 	}
 
+	//ustawienie punktu teleportu
 	teleportPoint = bnTeleport;
 }
 
 GameLevel::GameLevel(const GameLevel& tempLevel)
 {
+	welcomeInfo = tempLevel.welcomeInfo; //upewniæ siê czy dobrze
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
@@ -57,6 +68,7 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 
 GameLevel GameLevel::operator = (const GameLevel& tempLevel)
 {
+	welcomeInfo = tempLevel.welcomeInfo; //upewniæ siê czy dobrze
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 	basicHero = tempLevel.basicHero;
@@ -82,6 +94,9 @@ void GameLevel::Update()
 	HeroCollideWithEnemy();
 	HeroCollideWithChest();
 	HeroCollideWithCoin();
+
+	TextTextureManager::DrawTextTexture(
+		TextTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
 }
 
 void GameLevel::Render()
@@ -92,6 +107,9 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
 	basicHero->Render();
+
+	TextTextureManager::DrawTextTexture(
+		TextTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
 }
 
 void GameLevel::HeroCollideWithEnemy()

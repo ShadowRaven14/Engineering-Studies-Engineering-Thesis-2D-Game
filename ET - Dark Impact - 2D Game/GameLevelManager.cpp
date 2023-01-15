@@ -5,6 +5,8 @@ GameLevelManager::GameLevelManager()
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
 	basicLevel = new GameLevel(
+		"Hi! Welcome to game 1!",
+		new SDL_Color{ 255, 255, 0 },
 		"Maps/StartingMap.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -15,6 +17,8 @@ GameLevelManager::GameLevelManager()
 		new Point(672, 480));
 
 	secondLevel = new GameLevel(
+		"Hi! Welcome to game 2!",
+		new SDL_Color{ 255, 0, 255 },
 		"Maps/Test.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -25,6 +29,8 @@ GameLevelManager::GameLevelManager()
 		new Point(672, 480));
 
 	thirdLevel = new GameLevel(
+		"Hi! Welcome to game 3!",
+		new SDL_Color{ 0, 255, 255 },
 		"Maps/Exported.txt",
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
@@ -85,7 +91,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 				std::cout << "Collision with Teleport!" << std::endl;
 				currentLevelID = currentLevel->basicTeleports[i]->destination;
 				//std::cout << i << " " << currentLevelID << std::endl;
-				SDL_Delay(300);
+				//SDL_Delay(300);
 
 				switch (currentLevelID)
 				{
