@@ -15,9 +15,9 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
-	TeleportObject* basicTeleport1 = new TeleportObject("Textures/apple.png", 656, 620, 0);
-	TeleportObject* basicTeleport2 = new TeleportObject("Textures/apple_golden1.png", 262, 310, 1);
-	TeleportObject* basicTeleport3 = new TeleportObject("Textures/apple_golden2.png", 1050, 310, 2);
+	TeleportObject* basicTeleport1 = new TeleportObject("Textures/PortalBlue.png", 656, 620, 0);
+	TeleportObject* basicTeleport2 = new TeleportObject("Textures/PortalRed.png", 262, 310, 1);
+	TeleportObject* basicTeleport3 = new TeleportObject("Textures/PortalViolet.png", 1050, 310, 2);
 	basicTeleports.push_back(basicTeleport1);
 	basicTeleports.push_back(basicTeleport2);
 	basicTeleports.push_back(basicTeleport3);

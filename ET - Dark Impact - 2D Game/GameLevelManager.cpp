@@ -11,7 +11,7 @@ GameLevelManager::GameLevelManager()
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
 		"Textures/apple.png",
-		"Textures/HumanMage.png",
+		"Textures/HumanMageBlue.png",
 		"Textures/WoodenChest.png",
 		"Textures/Coin.png");
 
@@ -22,7 +22,7 @@ GameLevelManager::GameLevelManager()
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
 		"Textures/apple.png",
-		"Textures/HumanMage.png",
+		"Textures/HumanMageGreen.png",
 		"Textures/WoodenChest.png",
 		"Textures/Coin.png");
 
@@ -33,7 +33,7 @@ GameLevelManager::GameLevelManager()
 		new Point(640, 448),
 		"Textures/ElvenTracker.png",
 		"Textures/apple.png",
-		"Textures/HumanMage.png",
+		"Textures/HumanMageRed.png",
 		"Textures/WoodenChest.png",
 		"Textures/Coin.png");
 
