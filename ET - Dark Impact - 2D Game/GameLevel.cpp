@@ -124,6 +124,18 @@ void GameLevel::HeroCollideWithEnemy()
 				{
 					gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
 					gameObjective.CurrentScorePoints();
+					if (gameObjective.HeroHealthPoints <= 10)
+					{
+						std::cout << "You have low HP... " << gameObjective.HeroHealthPoints << std::endl;
+						if (gameObjective.HeroHealthPoints <= 0)
+						{
+							std::cout << "You have died..." << std::endl;
+							Game::isGameRunning = false;
+						}
+					}
+
+					
+						
 				}
 
 			}

@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
     mainGame = new Game();
     mainGame->Init("MainGameWindow", 1312, 928, false);
 
-    while (mainGame->Running())
+    while (mainGame->isGameRunning==true)
     {
         frameStart = SDL_GetTicks();
 

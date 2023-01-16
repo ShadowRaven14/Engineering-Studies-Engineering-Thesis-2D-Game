@@ -10,6 +10,7 @@ SDL_Event Game::mainGameEvent;
 //SDL_Surface* Game::mainGameFontSurface;
 //SDL_Texture* Game::mainGameFontTexture;
 //SDL_Rect Game::dstrect;
+bool Game::isGameRunning = false;
 
 //Kontruktor
 Game::Game()
@@ -26,8 +27,7 @@ Game::~Game()
 //Inicjalizacja
 void Game::Init(const char* title, int width, int height, bool fullscreen)
 {
-	int flags = 0;
-
+	int flags = 0;	
 	if (fullscreen)
 	{
 		flags = SDL_WINDOW_FULLSCREEN;

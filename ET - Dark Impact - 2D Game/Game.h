@@ -22,8 +22,6 @@ public:
 	void Update();
 	void Render();
 	void Clean();
-
-	bool Running() { return isGameRunning; }
 	void HandleEvents();
 
 	static SDL_Renderer* mainGameRender;
@@ -34,7 +32,9 @@ public:
 	//static SDL_Texture* mainGameFontTexture;
 	//static SDL_Rect dstrect;
 
+	static bool isGameRunning;
+
 private:
-	bool isGameRunning = false;
+	
 	SDL_Window* mainGameWindow;
 };

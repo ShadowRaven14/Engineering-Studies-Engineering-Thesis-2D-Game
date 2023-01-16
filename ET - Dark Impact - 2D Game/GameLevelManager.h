@@ -15,7 +15,6 @@ public:
 	Point TranslatePoint(SDL_Rect currentPoint);
 	void ChangeLevel(GameLevel* newLevel); //Zmiana obecnego punktu
 	void HeroCollideWithTeleport();
-	//void ChangeTeleportPoint(Point newPoint); //Zmiana obecnego punktu
 
 private:
 	GameLevel *basicLevel, *secondLevel, *thirdLevel;
