@@ -8,7 +8,7 @@
 #include "EnemyObject.h"
 #include "ChestObject.h"
 #include "CoinObject.h"
-#include "GameObjective.h"
+#include "HeroStatistics.h"
 #include <vector>
 #include "ImageTextureManager.h"
 #include "TextTextureManager.h"
@@ -25,7 +25,7 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
-	GameObjective gameObjective;
+	//HeroStatistics heroStatistics;
 
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;

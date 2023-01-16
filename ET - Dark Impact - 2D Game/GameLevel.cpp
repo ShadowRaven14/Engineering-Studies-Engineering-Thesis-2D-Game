@@ -115,29 +115,11 @@ void GameLevel::HeroCollideWithEnemy()
 			{
 				//std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
-				if (basicHero->Strength > 10)
+
+				if (basicHero->HandleEnemyCollision(20) == true)
 				{
-					gameObjective.ScorePoints = gameObjective.ScorePoints + 1000;
 					basicEnemies.erase(basicEnemies.begin() + i); i--;
 				}
-				else
-				{
-					gameObjective.HeroHealthPoints = gameObjective.HeroHealthPoints - 1;
-					gameObjective.CurrentScorePoints();
-					if (gameObjective.HeroHealthPoints <= 10)
-					{
-						std::cout << "You have low HP... " << gameObjective.HeroHealthPoints << std::endl;
-						if (gameObjective.HeroHealthPoints <= 0)
-						{
-							std::cout << "You have died..." << std::endl;
-							Game::isGameRunning = false;
-						}
-					}
-
-					
-						
-				}
-
 			}
 		}
 	}
@@ -156,34 +138,13 @@ void GameLevel::HeroCollideWithChest()
 				if (basicHero->cordsOfObject.input == 'f')
 				{
 					//std::cout << "Chest has been collected!" << std::endl;
-					basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
 					SDL_Delay(10);
 
-					gameObjective.ScorePoints = gameObjective.ScorePoints + 100;
-					gameObjective.CollectedChests++;
-					gameObjective.CurrentScorePoints();
-
-					int r = rand() % 3;
-					switch (r)
+					if (basicHero->HandleChestCollision() == true)
 					{
-					case 0:
-						basicHero->Agility++;
-						break;
-
-					case 1:
-						basicHero->Strength++;
-						break;
-
-					case 2:
-						basicHero->Intelligence++;
-						break;
-
-					default:
-						break;
-					}
-					
-					basicHero->CurrentStatistics();
-					basicHero->cordsOfObject.input = NULL;
+						basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
+						basicHero->cordsOfObject.input = NULL;
+					}	
 				}
 			}
 		}
@@ -200,11 +161,11 @@ void GameLevel::HeroCollideWithCoin()
 			{
 				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);
-				gameObjective.ScorePoints = gameObjective.ScorePoints + 10;
-				gameObjective.CollectedCoins++;
-				gameObjective.CurrentScorePoints();
 
-				basicCoins.erase(basicCoins.begin() + i); i--;
+				if (basicHero->HandleCoinCollision() == true)
+				{
+					basicCoins.erase(basicCoins.begin() + i); i--;
+				}
 			}
 		}
 	}

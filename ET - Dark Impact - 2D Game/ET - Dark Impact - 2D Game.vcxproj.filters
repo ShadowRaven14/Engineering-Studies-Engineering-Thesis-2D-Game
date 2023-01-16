@@ -96,12 +96,6 @@
     <ClCompile Include="GameLevel.cpp">
       <Filter>Source Files\LevelCpp</Filter>
     </ClCompile>
-    <ClCompile Include="GameObjective.cpp">
-      <Filter>Source Files\LevelCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="HeroChoices.cpp">
-      <Filter>Source Files\LevelCpp</Filter>
-    </ClCompile>
     <ClCompile Include="KeyboardManager.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
@@ -122,6 +116,12 @@
     </ClCompile>
     <ClCompile Include="TextTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroStatistics.cpp">
+      <Filter>Source Files\HeroUtilsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroChoices.cpp">
+      <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,12 +170,6 @@
     <ClInclude Include="GameLevel.h">
       <Filter>Header Files\LevelH</Filter>
     </ClInclude>
-    <ClInclude Include="HeroChoices.h">
-      <Filter>Header Files\LevelH</Filter>
-    </ClInclude>
-    <ClInclude Include="GameObjective.h">
-      <Filter>Header Files\LevelH</Filter>
-    </ClInclude>
     <ClInclude Include="KeyboardManager.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
@@ -196,6 +190,12 @@
     </ClInclude>
     <ClInclude Include="TextTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroStatistics.h">
+      <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+    <ClInclude Include="HeroChoices.h">
+      <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
