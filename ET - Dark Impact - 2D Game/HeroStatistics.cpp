@@ -2,7 +2,6 @@
 
 HeroStatistics::HeroStatistics()
 {
-	HeroHealthPoints = 25;
 	ScorePoints = 0;
 	CollectedChests = 0;
 	CollectedCoins = 0;
@@ -35,7 +34,6 @@ bool HeroStatistics::HandleEnemyCollision(int power)
 	{
 		HeroHealthPoints = HeroHealthPoints - 1;
 		Game::isGameRunning = IsHeroAlive();
-		return false;
 	}
 
 	//ShowCurrentStatistics();
@@ -76,18 +74,18 @@ bool HeroStatistics::HandleCoinCollision()
 	CollectedCoins++;
 	ScorePoints = ScorePoints + 10;
 
-	//ShowCurrentStatistics();
+	ShowCurrentStatistics();
 	return true;
 }
 
 
 void HeroStatistics::ShowCurrentStatistics()
 {
-	//std::cout << "- - - Objectives - - -" << std::endl;
-	//std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
-	//std::cout << "ScorePoints: " << ScorePoints << std::endl;
-	//std::cout << "CollectedChests: " << CollectedChests << std::endl;
-	//std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
-	//std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
-	//std::cout << "- - - - - - - - - - -" << std::endl;
+	std::cout << "- - - Objectives - - -" << std::endl;
+	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
+	std::cout << "ScorePoints: " << ScorePoints << std::endl;
+	std::cout << "CollectedChests: " << CollectedChests << std::endl;
+	std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
+	std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
+	std::cout << "- - - - - - - - - - -" << std::endl;
 }

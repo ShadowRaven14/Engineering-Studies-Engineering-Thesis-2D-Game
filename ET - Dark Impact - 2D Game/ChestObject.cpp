@@ -3,7 +3,7 @@
 //Konstruktor wroga
 ChestObject::ChestObject(const char* texturesheet, int x, int y)
 {
-	ObjectInit(texturesheet, x, y);  //Podstawowa funkcja z klasy interfejsu
+	BasicInit(texturesheet, x, y);  //Podstawowa funkcja z klasy interfejsu
 }
 
 //Konstruktor wroga
@@ -15,11 +15,11 @@ ChestObject::ChestObject(const char* texturesheet)
 //Aktualizacja wroga
 void ChestObject::Update()
 {
-	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Renderowanie wroga
 void ChestObject::Render()
 {
-	RenderInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }

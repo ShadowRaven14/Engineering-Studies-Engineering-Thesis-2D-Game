@@ -13,7 +13,7 @@ public:
 	void Render(); //Renderowanie
 
 	Point TranslatePoint(SDL_Rect currentPoint);
-	void ChangeLevel(GameLevel* newLevel); //Zmiana obecnego punktu
+	void ChangeCurrentLevel(GameLevel* newLevel); //Zmiana obecnego poziomu
 	void HeroCollideWithTeleport();
 
 private:

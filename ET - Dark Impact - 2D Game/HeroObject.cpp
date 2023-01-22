@@ -4,34 +4,67 @@
 //Konstruktor bohatera
 HeroObject::HeroObject(const char* texturesheet, int x, int y)
 {
-	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
+	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Konstruktor bohatera
 HeroObject::HeroObject(const char* texturesheet, Point* point)
 {
-	ObjectInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
+	BasicInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
 }
 
-HeroObject::HeroObject(const HeroObject& tempObject)
+HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 {
-	objTexture = tempObject.objTexture;
-	cordsOfObject = tempObject.cordsOfObject;
+	std::cout << "Konstruk kopiuj¹cy HeroObject";
+	objTexture = tempHero.objTexture;
+	cordsOfObject = tempHero.cordsOfObject;
+
+	HeroName = tempHero.HeroName;
+	HeroHealthPoints = tempHero.HeroHealthPoints;
+	MeleeAttack = tempHero.MeleeAttack, RangedAttack = tempHero.RangedAttack, MagicAttack = tempHero.MagicAttack;
+	MeleeDefense = tempHero.MeleeDefense, RangedDefense = tempHero.RangedDefense, MagicDefense = tempHero.MagicDefense;
+	Strength = tempHero.Strength, Intelligence = tempHero.Intelligence, Agility = tempHero.Agility;
+
+	ScorePoints = tempHero.ScorePoints;
+	CollectedChests = tempHero.CollectedChests;
+	CollectedCoins = tempHero.CollectedCoins;
+	SlayedEnemies = tempHero.SlayedEnemies;
+}
+
+HeroObject& HeroObject::operator = (const HeroObject& tempHero) //Nie dzia³a?
+{
+	std::cout << "Konstruk kopiuj¹cy HeroObject";
+	objTexture = tempHero.objTexture;
+	cordsOfObject = tempHero.cordsOfObject;
+
+	HeroName = tempHero.HeroName;
+	HeroHealthPoints = tempHero.HeroHealthPoints;
+	MeleeAttack = tempHero.MeleeAttack, RangedAttack = tempHero.RangedAttack, MagicAttack = tempHero.MagicAttack;
+	MeleeDefense = tempHero.MeleeDefense, RangedDefense = tempHero.RangedDefense, MagicDefense = tempHero.MagicDefense;
+	Strength = tempHero.Strength, Intelligence = tempHero.Intelligence, Agility = tempHero.Agility;
+
+	ScorePoints = tempHero.ScorePoints;
+	CollectedChests = tempHero.CollectedChests;
+	CollectedCoins = tempHero.CollectedCoins;
+	SlayedEnemies = tempHero.SlayedEnemies;
+
+	return *this;
 }
 
 //Aktualizacja bohatera
 void HeroObject::Update()
 {
-	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
 	MoveWithHero();
 }
 
 //Renderowanie bohatera
 void HeroObject::Render()
 {
-	RenderInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }
 //PODSTAWOWE
+
 
 
 //Poruszanie siê bohaterem

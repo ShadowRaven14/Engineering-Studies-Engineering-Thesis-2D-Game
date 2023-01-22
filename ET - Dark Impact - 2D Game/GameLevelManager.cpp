@@ -37,7 +37,7 @@ GameLevelManager::GameLevelManager()
 		"Textures/WoodenChest.png",
 		"Textures/Coin.png");
 
-	ChangeLevel(basicLevel);
+	ChangeCurrentLevel(basicLevel);
 	currentLevelID = 0;
 }
 
@@ -62,10 +62,11 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 	return newcurrentPoint;
 }
 
-void GameLevelManager::ChangeLevel(GameLevel* newLevel)
+void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 {
 	std::cout << "Change level." << std::endl;
 	currentLevel = newLevel;
+	//currentLevel->CopyLevel(newLevel);
 
 	currentLevel->basicHero->MoveHeroToPoint(
 		new Point(
@@ -92,19 +93,19 @@ void GameLevelManager::HeroCollideWithTeleport()
 					switch (currentLevelID)
 					{
 					case 0:
-						ChangeLevel(basicLevel);
+						ChangeCurrentLevel(basicLevel);
 						break;
 
 					case 1:
-						ChangeLevel(secondLevel);
+						ChangeCurrentLevel(secondLevel);
 						break;
 
 					case 2:
-						ChangeLevel(thirdLevel);
+						ChangeCurrentLevel(thirdLevel);
 						break;
 
 					default:
-						ChangeLevel(basicLevel);
+						ChangeCurrentLevel(basicLevel);
 						currentLevelID = 0;
 						break;
 					}

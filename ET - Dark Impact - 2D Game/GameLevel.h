@@ -18,13 +18,16 @@ class GameLevel
 {
 public:
 	GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, 
-		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin);
+		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, 
+		const char* bnCoin);
 	GameLevel(const GameLevel &tempLevel);
 	~GameLevel();
-	GameLevel operator= (const GameLevel& tempLevel); //Przeci¹¿enie operatora
+	GameLevel& operator= (const GameLevel& tempLevel); //Przeci¹¿enie operatora
+	GameLevel& operator= (GameLevel* tempLevel); //Przeci¹¿enie operatora
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	void CopyLevel (GameLevel* tempLevel); //Przeci¹¿enie operatora
 	//HeroStatistics heroStatistics;
 
 	const char* welcomeInfo;

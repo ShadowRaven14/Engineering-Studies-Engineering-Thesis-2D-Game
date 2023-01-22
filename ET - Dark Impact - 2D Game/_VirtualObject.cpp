@@ -1,14 +1,14 @@
 #include "_VirtualObject.h"
 
 //Tworzenie obiektu
-void _VirtualObject::ObjectInit(const char* texturesheet, int x, int y)
+void _VirtualObject::BasicInit(const char* texturesheet, int x, int y)
 {
 	objTexture = ImageTextureManager::LoadTexture(texturesheet);
 	cordsOfObject.point.x = x; cordsOfObject.point.y = y;
 }
 
 //Aktualizowanie obiektu
-void _VirtualObject::UpdateInit()
+void _VirtualObject::BasicUpdate()
 {
 	srcRect.h = 64; //Wysokoœæ w pikselach
 	srcRect.w = 64; //Szerokoœæ w pikselach
@@ -22,7 +22,7 @@ void _VirtualObject::UpdateInit()
 }
 
 //Renderowanie obiektu
-void _VirtualObject::RenderInit()
+void _VirtualObject::BasicRender()
 {
 	SDL_RenderCopy(Game::mainGameRender, objTexture, &srcRect, &destRect);
 }
@@ -32,7 +32,7 @@ void _VirtualObject::RandomizeCoordinates(const char* texturesheet)
 {
 	int x = rand() % 1312, y = rand() % 928;
 	//std::cout << x << " " << y << std::endl;
-	ObjectInit(texturesheet, x, y);
+	BasicInit(texturesheet, x, y);
 }
 
 SDL_Rect _VirtualObject::GetSrcRect()

@@ -9,9 +9,9 @@ class _VirtualObject
 {
 public:
 	//Podstawowe
-	void ObjectInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
-	void UpdateInit(); //Aktualizowanie obiektu
-	void RenderInit(); //Renderowanie obiektu
+	void BasicInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
+	void BasicUpdate(); //Aktualizowanie obiektu
+	void BasicRender(); //Renderowanie obiektu
 	void RandomizeCoordinates(const char* texturesheet); //Generowanie losowej pozycji
 
 	//Zaawansowane

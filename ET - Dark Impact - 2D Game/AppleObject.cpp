@@ -18,10 +18,10 @@ AppleObject::~AppleObject()
 
 void AppleObject::Update()
 {
-	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
 }
 
 void AppleObject::Render()
 {
-	RenderInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }

@@ -3,7 +3,7 @@
 //Konstruktor wroga
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
-	ObjectInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
+	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 	sx = sy = true;
 }
 
@@ -16,14 +16,14 @@ EnemyObject::EnemyObject(const char* texturesheet)
 //Aktualizacja wroga
 void EnemyObject::Update()
 {
-	UpdateInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
 	MoveWithEnemyV1();
 }
 
 //Renderowanie wroga
 void EnemyObject::Render()
 {
-	RenderInit(); //Podstawowa funkcja z klasy interfejsu
+	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }
 
 //Poruszanie siê wroga
