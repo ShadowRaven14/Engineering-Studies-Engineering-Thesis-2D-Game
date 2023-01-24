@@ -48,15 +48,6 @@ GameLevelManager::GameLevelManager()
 		"Textures/WoodenChest.png",
 		"Textures/Coin.png");
 
-	/*if (basicLevel == 0) Game::isGameRunning = false;
-	else std::cout << basicLevel << std::endl;
-	if (secondLevel == 0) Game::isGameRunning = false;
-	else std::cout << secondLevel << std::endl;
-	if (thirdLevel == 0) Game::isGameRunning = false;
-	else std::cout << thirdLevel << std::endl;
-	if (currentLevel == 0) Game::isGameRunning = false;
-	else std::cout << currentLevel << std::endl;*/
-
 	ChangeCurrentLevel(basicLevel);
 	currentLevelID = 0;
 }
@@ -85,28 +76,7 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 {
 	std::cout << "Change level." << std::endl;
-
-	//currentLevel = newLevel;
 	currentLevel->CopyLevel(newLevel);
-
-	//std::cout << "Kopiowanie GameLevel.";
-	//currentLevel->welcomeInfo = newLevel->welcomeInfo;
-	//currentLevel->welcomeColor = newLevel->welcomeColor;
-	//currentLevel->startingPoint = newLevel->startingPoint;
-	//currentLevel->basicMap = newLevel->basicMap;
-	////currentLevel->basicHero = newLevel->basicHero;
-	//currentLevel->basicHero->MoveHeroToPoint(currentLevel->startingPoint);
-	//for (unsigned int i = 0; i < currentLevel->basicTeleports.size(); i++) currentLevel->basicTeleports[i] = newLevel->basicTeleports[i];
-	//for (unsigned int i = 0; i < currentLevel->basicEnemies.size(); i++) currentLevel->basicEnemies[i] = newLevel->basicEnemies[i];
-	//for (unsigned int i = 0; i < currentLevel->basicChests.size(); i++) currentLevel->basicChests[i] = newLevel->basicChests[i];
-	//for (unsigned int i = 0; i < currentLevel->basicCoins.size(); i++) currentLevel->basicCoins[i] = newLevel->basicCoins[i];
-
-	//currentLevel->basicHero->MoveHeroToPoint(
-	//	new Point(
-	//		currentLevel->startingPoint->x,
-	//		currentLevel->startingPoint->y
-	//	)
-	//);
 }
 
 void GameLevelManager::HeroCollideWithTeleport()

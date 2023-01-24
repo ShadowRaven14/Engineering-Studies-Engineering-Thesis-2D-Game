@@ -28,7 +28,6 @@ public:
 	void Render(); //Renderowanie
 
 	void CopyLevel (GameLevel* tempLevel); //Przeci¹¿enie operatora
-	//HeroStatistics heroStatistics;
 
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;
