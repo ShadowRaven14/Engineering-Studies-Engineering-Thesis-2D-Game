@@ -46,7 +46,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 
 GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 {
-	std::cout << "Konstruk kopiuj¹cy GameLevel";
+	std::cout << "Konstruktor kopiuj¹cy GameLevel";
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
@@ -59,9 +59,9 @@ GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
 }
 
-GameLevel& GameLevel::operator = (const GameLevel& tempLevel) //Nie dzia³a?
+GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 {
-	std::cout << "Konstruk kopiuj¹cy GameLevel";
+	std::cout << "Konstruktor kopiuj¹cy GameLevel";
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
@@ -76,14 +76,15 @@ GameLevel& GameLevel::operator = (const GameLevel& tempLevel) //Nie dzia³a?
 	return *this;
 }
 
-GameLevel& GameLevel::operator=(GameLevel* tempLevel)
+GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 {
-	std::cout << "Konstruk kopiuj¹cy GameLevel";
+	std::cout << "Konstruktor kopiuj¹cy GameLevel";
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
 	basicHero = tempLevel->basicHero;
+	basicHero->ScorePoints = tempLevel->basicHero->ScorePoints;
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
@@ -95,12 +96,12 @@ GameLevel& GameLevel::operator=(GameLevel* tempLevel)
 
 void GameLevel::CopyLevel(GameLevel* tempLevel)
 {
-	std::cout << "Konstruk GameLevel";
+	std::cout << "Kopiowanie GameLevel. Bez HeroObject.";
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
-	basicHero = tempLevel->basicHero;
+
 	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];

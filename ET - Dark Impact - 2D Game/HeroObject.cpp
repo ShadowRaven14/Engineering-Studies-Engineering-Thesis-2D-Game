@@ -15,7 +15,7 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 
 HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 {
-	std::cout << "Konstruk kopiuj¹cy HeroObject";
+	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	objTexture = tempHero.objTexture;
 	cordsOfObject = tempHero.cordsOfObject;
 
@@ -31,9 +31,9 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 	SlayedEnemies = tempHero.SlayedEnemies;
 }
 
-HeroObject& HeroObject::operator = (const HeroObject& tempHero) //Nie dzia³a?
+HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 {
-	std::cout << "Konstruk kopiuj¹cy HeroObject";
+	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	objTexture = tempHero.objTexture;
 	cordsOfObject = tempHero.cordsOfObject;
 
@@ -47,6 +47,26 @@ HeroObject& HeroObject::operator = (const HeroObject& tempHero) //Nie dzia³a?
 	CollectedChests = tempHero.CollectedChests;
 	CollectedCoins = tempHero.CollectedCoins;
 	SlayedEnemies = tempHero.SlayedEnemies;
+
+	return *this;
+}
+
+HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
+{
+	std::cout << "Konstruktor kopiuj¹cy HeroObject";
+	objTexture = tempHero->objTexture;
+	cordsOfObject = tempHero->cordsOfObject;
+
+	HeroName = tempHero->HeroName;
+	HeroHealthPoints = tempHero->HeroHealthPoints;
+	MeleeAttack = tempHero->MeleeAttack, RangedAttack = tempHero->RangedAttack, MagicAttack = tempHero->MagicAttack;
+	MeleeDefense = tempHero->MeleeDefense, RangedDefense = tempHero->RangedDefense, MagicDefense = tempHero->MagicDefense;
+	Strength = tempHero->Strength, Intelligence = tempHero->Intelligence, Agility = tempHero->Agility;
+
+	ScorePoints = tempHero->ScorePoints;
+	CollectedChests = tempHero->CollectedChests;
+	CollectedCoins = tempHero->CollectedCoins;
+	SlayedEnemies = tempHero->SlayedEnemies;
 
 	return *this;
 }

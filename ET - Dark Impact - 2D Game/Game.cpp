@@ -3,7 +3,7 @@
 #include "TextTextureManager.h"
 #include "GameLevelManager.h"
 
-GameLevelManager *gameLevelManager;
+GameLevelManager *gameLevelManager = nullptr;
 SDL_Renderer *Game::mainGameRender = nullptr;
 SDL_Event Game::mainGameEvent;
 //TTF_Font *Game::mainGameFont;

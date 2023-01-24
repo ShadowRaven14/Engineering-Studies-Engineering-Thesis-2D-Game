@@ -15,6 +15,7 @@ public:
 	HeroObject(const HeroObject& tempHero);
 	~HeroObject(); //Destruktor bohatera
 	HeroObject& operator= (const HeroObject& tempHero); //Przeci¹¿enie operatora
+	HeroObject& operator= (HeroObject* tempHero); //Przeci¹¿enie operatora
 	void Update(); //Aktualizacja bohatera
 	void Render(); //Renderowanie bohatera
 
