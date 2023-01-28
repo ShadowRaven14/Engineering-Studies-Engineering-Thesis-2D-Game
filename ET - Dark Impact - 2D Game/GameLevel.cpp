@@ -12,7 +12,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
-	basicHero = new HeroObject(bnHero, startingPoint);
+	//basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
 	TeleportObject* basicTeleport1 = new TeleportObject("Textures/PortalBlue.png", 656, 620, 0);
@@ -51,8 +51,8 @@ GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
-	basicHero = tempLevel.basicHero;
-	basicHero->MoveHeroToPoint(startingPoint);
+	//basicHero = tempLevel.basicHero;
+	//basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
@@ -66,8 +66,8 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
-	basicHero = tempLevel.basicHero;
-	basicHero->MoveHeroToPoint(startingPoint);
+	//basicHero = tempLevel.basicHero;
+	//basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
@@ -83,9 +83,9 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
-	basicHero = tempLevel->basicHero;
-	basicHero->ScorePoints = tempLevel->basicHero->ScorePoints;
-	basicHero->MoveHeroToPoint(startingPoint);
+	//basicHero = tempLevel->basicHero;
+	//basicHero->ScorePoints = tempLevel->basicHero->ScorePoints;
+	//basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel->basicChests[i];
@@ -96,13 +96,12 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 
 void GameLevel::CopyLevel(GameLevel* tempLevel)
 {
-	std::cout << "Kopiowanie GameLevel. Bez HeroObject.";
+	std::cout << "Kopiowanie GameLevel. Bez HeroObject." << std::endl;
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
 
-	basicHero->MoveHeroToPoint(startingPoint);
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel->basicChests[i];
@@ -115,11 +114,11 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
-	basicHero->Update();
+	//basicHero->Update();
 
-	HeroCollideWithEnemy();
-	HeroCollideWithChest();
-	HeroCollideWithCoin();
+	//HeroCollideWithEnemy();
+	//HeroCollideWithChest();
+	//HeroCollideWithCoin();
 
 	//Generowanie tekstu powitalnego
 	TextTextureManager::DrawTextTexture(
@@ -133,75 +132,9 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
-	basicHero->Render();
+	//basicHero->Render();
 
 	//Generowanie tekstu powitalnego
 	TextTextureManager::DrawTextTexture(
 		TextTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
-}
-
-void GameLevel::HeroCollideWithEnemy()
-{
-	for (unsigned int i = 0; i < basicEnemies.size(); i++)
-	{
-		if (abs(basicHero->GetDestRect().x - basicEnemies[i]->GetDestRect().x) < 32)
-		{
-			if (abs(basicHero->GetDestRect().y - basicEnemies[i]->GetDestRect().y) < 32)
-			{
-				//std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
-				SDL_Delay(10);
-
-				if (basicHero->HandleEnemyCollision(20) == true)
-				{
-					basicEnemies.erase(basicEnemies.begin() + i); i--;
-				}
-			}
-		}
-	}
-}
-
-void GameLevel::HeroCollideWithChest()
-{
-	for (unsigned int i = 0; i < basicChests.size(); i++)
-	{
-		if (abs(basicHero->GetDestRect().x - basicChests[i]->GetDestRect().x) < 32)
-		{
-			if (abs(basicHero->GetDestRect().y - basicChests[i]->GetDestRect().y) < 32)
-			{
-				//SDL_Texture* isTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest.png");
-				//&& basicChests[i]->objTexture == isTexture
-				if (basicHero->cordsOfObject.input == 'f')
-				{
-					//std::cout << "Chest has been collected!" << std::endl;
-					SDL_Delay(10);
-
-					if (basicHero->HandleChestCollision() == true)
-					{
-						basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
-						basicHero->cordsOfObject.input = NULL;
-					}	
-				}
-			}
-		}
-	}
-}
-
-void GameLevel::HeroCollideWithCoin()
-{
-	for (unsigned int i = 0; i < basicCoins.size(); i++)
-	{
-		if (abs(basicHero->GetDestRect().x - basicCoins[i]->GetDestRect().x) < 20)
-		{
-			if (abs(basicHero->GetDestRect().y - basicCoins[i]->GetDestRect().y) < 20)
-			{
-				std::cout << "Coin has been collected!" << std::endl;
-				SDL_Delay(10);
-
-				if (basicHero->HandleCoinCollision() == true)
-				{
-					basicCoins.erase(basicCoins.begin() + i); i--;
-				}
-			}
-		}
-	}
 }

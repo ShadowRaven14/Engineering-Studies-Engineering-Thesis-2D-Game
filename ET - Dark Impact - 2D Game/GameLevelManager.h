@@ -14,11 +14,15 @@ public:
 
 	Point TranslatePoint(SDL_Rect currentPoint);
 	void ChangeCurrentLevel(GameLevel* newLevel); //Zmiana obecnego poziomu
+	void HeroCollideWithCoin();
+	void HeroCollideWithChest();
+	void HeroCollideWithEnemy();
 	void HeroCollideWithTeleport();
 
 private:
-	GameLevel *basicLevel, *secondLevel, *thirdLevel;
-	GameLevel *currentLevel;
+	HeroObject* mainHero;
+	GameLevel* basicLevel, * secondLevel, * thirdLevel;
+	GameLevel* currentLevel;
 	short currentLevelID;
 };
 

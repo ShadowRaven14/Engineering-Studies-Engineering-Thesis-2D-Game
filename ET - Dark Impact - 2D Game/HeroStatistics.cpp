@@ -26,6 +26,7 @@ bool HeroStatistics::HandleEnemyCollision(int power)
 {
 	if (Strength > power)
 	{
+		std::cout << "Enemy slayed!" << std::endl;
 		ScorePoints = ScorePoints + (power * 10);
 		SlayedEnemies++;
 		return true;

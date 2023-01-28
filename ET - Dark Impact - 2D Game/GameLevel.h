@@ -32,15 +32,13 @@ public:
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;
 	Point* startingPoint;
-	BackgroundMap *basicMap;
-	HeroObject *basicHero;
+	BackgroundMap* basicMap;
+	//HeroObject* basicHero;
 	std::vector <TeleportObject*> basicTeleports;
 	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
 	std::vector <CoinObject*> basicCoins;
 
-	void HeroCollideWithEnemy();
-	void HeroCollideWithChest();
-	void HeroCollideWithCoin();
+
 };
 
