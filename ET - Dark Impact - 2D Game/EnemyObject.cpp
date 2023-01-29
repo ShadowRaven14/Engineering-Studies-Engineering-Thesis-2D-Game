@@ -30,16 +30,10 @@ void EnemyObject::Render()
 void EnemyObject::MoveWithEnemyV1()
 {
 	if (cordsOfObject.point.x >= 1248)
-	{
 		sx = false;
-		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue.png");
-		
-	}
+
 	else if (cordsOfObject.point.x <= 64)
-	{
 		sx = true;
-		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue_GoRight.png");
-	}
 		
 
 	switch (sx)
@@ -54,8 +48,12 @@ void EnemyObject::MoveWithEnemyV1()
 	}
 	
 
-	if (cordsOfObject.point.y >= 864) sy = false;
-	else if (cordsOfObject.point.y <= 64) sy = true;
+	if (cordsOfObject.point.y >= 864)
+		sy = false;
+		
+	else if (cordsOfObject.point.y <= 64)
+		sy = true;
+		
 
 	switch (sy)
 	{

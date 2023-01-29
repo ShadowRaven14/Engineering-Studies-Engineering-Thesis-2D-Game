@@ -3,44 +3,48 @@
 //Obs³uga klawiatury
 CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfObject)
 {
-	//WCZYTYWANIE KLAWIATURY
-	if (Game::mainGameEvent.type == SDL_KEYDOWN)
-	{
-		// WHILE MOVING DOWN
-		if (Game::mainGameEvent.key.keysym.sym == SDLK_s)
-		{
-			//std::cout << " Przycisk S" << std::endl;
-			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 's';
-			cordsOfObject.point.y = cordsOfObject.point.y + 16;
-		}
-		// WHILE MOVING UP
-		else if (Game::mainGameEvent.key.keysym.sym == SDLK_w)
-		{
-			//std::cout << " Przycisk W" << std::endl;
-			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'w';
-			cordsOfObject.point.y = cordsOfObject.point.y - 16;
-		}
-		// WHILE MOVING RIGHT
-		else if (Game::mainGameEvent.key.keysym.sym == SDLK_d)
-		{
-			//std::cout << " Przycisk D" << std::endl;
-			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'd';
-			cordsOfObject.point.x = cordsOfObject.point.x + 16;
-		}
-		// WHILE MOVING LEFT
-		else if (Game::mainGameEvent.key.keysym.sym == SDLK_a)
-		{
-			//std::cout << " Przycisk A" << std::endl;
-			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'a';
-			cordsOfObject.point.x = cordsOfObject.point.x - 16;
-		}
-		// WHILE MOVING LEFT
-		else if (Game::mainGameEvent.key.keysym.sym == SDLK_f)
-		{
-			//std::cout << " Przycisk F" << std::endl;
-			cordsOfObject.previnput = cordsOfObject.input; cordsOfObject.input = 'f';
-		}
-		return cordsOfObject;
-	}
-	else return cordsOfObject;
+    int speed = 4;
+    int hero_x_velocity = 0;
+    int hero_y_velocity = 0;
+    const Uint8* state = SDL_GetKeyboardState(NULL);
+
+    //INTERAKCJE
+    if (Game::mainGameEvent.type == SDL_KEYDOWN)
+    {
+        //INTERAKCJA Z INNYM OBIEKTEM
+        if (Game::mainGameEvent.key.keysym.sym == SDLK_f)
+        {
+            cordsOfObject.previnput = cordsOfObject.input;
+            cordsOfObject.input = 'f';
+        }
+        //WYJŒCIE Z GRY
+        if (Game::mainGameEvent.key.keysym.sym == SDLK_ESCAPE)
+        {
+            Game::isGameRunning = false;
+        }
+    }
+
+    if (state[SDL_SCANCODE_RETURN])
+        printf("<RETURN> is pressed.\n");
+
+    if (state[SDL_SCANCODE_LSHIFT])
+        speed = speed * 2;
+
+    if (state[SDL_SCANCODE_W])
+        hero_y_velocity = -speed;
+
+    if (state[SDL_SCANCODE_A])
+        hero_x_velocity = -speed;
+
+    if (state[SDL_SCANCODE_S])
+        hero_y_velocity = speed;
+
+    if (state[SDL_SCANCODE_D])
+        hero_x_velocity = speed;
+        
+    
+    
+    cordsOfObject.point.x += hero_x_velocity;
+    cordsOfObject.point.y += hero_y_velocity;
+    return cordsOfObject;
 }
