@@ -1,6 +1,6 @@
 #include "Game.h"
 #include "ImageTextureManager.h"
-#include "TextTextureManager.h"
+#include "FontTextureManager.h"
 #include "GameLevelManager.h"
 
 GameLevelManager *gameLevelManager = nullptr;

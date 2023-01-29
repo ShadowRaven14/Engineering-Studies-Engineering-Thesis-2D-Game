@@ -29,8 +29,18 @@ void EnemyObject::Render()
 //Poruszanie siê wroga
 void EnemyObject::MoveWithEnemyV1()
 {
-	if (cordsOfObject.point.x >= 1248) sx = false;
-	else if (cordsOfObject.point.x <= 64) sx = true;
+	if (cordsOfObject.point.x >= 1248)
+	{
+		sx = false;
+		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue.png");
+		
+	}
+	else if (cordsOfObject.point.x <= 64)
+	{
+		sx = true;
+		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue_GoRight.png");
+	}
+		
 
 	switch (sx)
 	{

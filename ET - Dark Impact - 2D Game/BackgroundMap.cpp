@@ -30,12 +30,12 @@ BackgroundMap::~BackgroundMap()
 
 void BackgroundMap::InitializeTextures()
 {
-	blank = ImageTextureManager::LoadTexture("Textures/blank.png");
-	sand = ImageTextureManager::LoadTexture("Textures/pix_sand.png");
-	stone = ImageTextureManager::LoadTexture("Textures/pix_stone.png");
-	snow = ImageTextureManager::LoadTexture("Textures/pix_snow.png");
-	wood = ImageTextureManager::LoadTexture("Textures/pix_wood2.png");
-	grass = ImageTextureManager::LoadTexture("Textures/pix_grass.png");
+	blank = ImageTextureManager::LoadTexture("Images/_blank.png");
+	sand = ImageTextureManager::LoadTexture("Images/pix_sand.png");
+	stone = ImageTextureManager::LoadTexture("Images/pix_stone.png");
+	snow = ImageTextureManager::LoadTexture("Images/pix_snow.png");
+	wood = ImageTextureManager::LoadTexture("Images/pix_wood2.png");
+	grass = ImageTextureManager::LoadTexture("Images/pix_grass.png");
 	//dirt = ImageTextureManager::LoadTexture("Textures/pix_brown.png");
 	//water = ImageTextureManager::LoadTexture("Textures/pix_blue.png");
 	//lava = ImageTextureManager::LoadTexture("Textures/pix_red.png");

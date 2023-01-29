@@ -4,51 +4,51 @@ GameLevelManager::GameLevelManager()
 {
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
-	mainHero = new HeroObject("Textures/ElvenTracker.png", new Point(640, 448));
+	mainHero = new HeroObject("Images/ElvenTracker.png", new Point(640, 448));
 
 	basicLevel = new GameLevel(
 		"Hi! Welcome to level first!",
 		new SDL_Color{ 255, 255, 0 },
 		"Maps/StartingMap.txt",
 		new Point(640, 448),
-		"Textures/ElvenTracker.png",
-		"Textures/PortalBlue.png",
-		"Textures/HumanMageBlue.png",
-		"Textures/WoodenChest.png",
-		"Textures/Coin.png");
+		"Images/ElvenTracker.png",
+		"Images/PortalBlue.png",
+		"Images/HumanMageBlue.png",
+		"Images/WoodenChest.png",
+		"Images/Coin.png");
 
 	secondLevel = new GameLevel(
 		"Hi! Welcome to level second!",
 		new SDL_Color{ 255, 0, 255 },
 		"Maps/Test.txt",
 		new Point(640, 448),
-		"Textures/ElvenTracker.png",
-		"Textures/PortalRed.png",
-		"Textures/HumanMageGreen.png",
-		"Textures/WoodenChest.png",
-		"Textures/Coin.png");
+		"Images/ElvenTracker.png",
+		"Images/PortalRed.png",
+		"Images/HumanMageGreen.png",
+		"Images/WoodenChest.png",
+		"Images/Coin.png");
 
 	thirdLevel = new GameLevel(
 		"Hi! Welcome to level third!",
 		new SDL_Color{ 0, 255, 255 },
 		"Maps/Exported.txt",
 		new Point(640, 448),
-		"Textures/ElvenTracker.png",
-		"Textures/PortalViolet.png",
-		"Textures/HumanMageRed.png",
-		"Textures/WoodenChest.png",
-		"Textures/Coin.png");
+		"Images/ElvenTracker.png",
+		"Images/PortalViolet.png",
+		"Images/HumanMageRed.png",
+		"Images/WoodenChest.png",
+		"Images/Coin.png");
 
 	currentLevel = new GameLevel(
 		"Simple text.",
 		new SDL_Color{ 255, 255, 255 },
 		"Maps/Exported.txt",
 		new Point(100, 100),
-		"Textures/ElvenTracker.png",
-		"Textures/apple.png",
-		"Textures/apple.png",
-		"Textures/apple.png",
-		"Textures/apple.png");
+		"Images/ElvenTracker.png",
+		"Images/apple.png",
+		"Images/apple.png",
+		"Images/apple.png",
+		"Images/apple.png");
 
 	ChangeCurrentLevel(basicLevel);
 	currentLevelID = 0;

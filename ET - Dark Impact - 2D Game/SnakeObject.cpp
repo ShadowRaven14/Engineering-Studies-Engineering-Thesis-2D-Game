@@ -162,7 +162,7 @@ void SnakeObject::DrawMap(int arr[29][41])
 
 void SnakeObject::InitializeTextures()
 {
-	blank = ImageTextureManager::LoadTexture("Assets/blank.png");
+	blank = ImageTextureManager::LoadTexture("Assets/_blank.png");
 	apple = ImageTextureManager::LoadTexture("Assets/apple.png");
 
 	//pliki dodatków

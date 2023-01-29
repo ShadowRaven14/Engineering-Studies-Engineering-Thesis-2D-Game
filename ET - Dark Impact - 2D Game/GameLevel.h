@@ -11,7 +11,7 @@
 #include "HeroStatistics.h"
 #include <vector>
 #include "ImageTextureManager.h"
-#include "TextTextureManager.h"
+#include "FontTextureManager.h"
 
 
 class GameLevel

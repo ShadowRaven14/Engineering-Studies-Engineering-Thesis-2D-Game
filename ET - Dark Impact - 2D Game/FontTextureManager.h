@@ -1,7 +1,7 @@
 #pragma once
 #include "Game.h"
 
-class TextTextureManager
+class FontTextureManager
 {
 public:
 	//Podstawowe
