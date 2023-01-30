@@ -1,6 +1,7 @@
 /*Klasa poœrednia wspomagaj¹ca dzia³anie odczytywania z klawiatury.*/
 
 #include "Point.h"
+#include <string>
 
 #pragma once
 class CoordinatesOfHero 
@@ -10,6 +11,6 @@ public:
 	CoordinatesOfHero();
 	Point point; //pozycja na mapie wzglêdem osi xy
 	char input; //obecny klawisz
-	char previnput;	//wczeœniejszy klawisz
+	const char* image;
 };
 

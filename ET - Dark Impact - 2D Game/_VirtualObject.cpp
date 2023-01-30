@@ -4,7 +4,7 @@
 void _VirtualObject::BasicInit(const char* texturesheet, int x, int y)
 {
 	objTexture = ImageTextureManager::LoadTexture(texturesheet);
-	cordsOfObject.point.x = x; cordsOfObject.point.y = y;
+	cordsOfObject.x = x; cordsOfObject.y = y;
 }
 
 //Aktualizowanie obiektu
@@ -17,8 +17,8 @@ void _VirtualObject::BasicUpdate()
 
 	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
 	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
-	destRect.x = cordsOfObject.point.x; //Punkt na mapie wzglêdem X
-	destRect.y = cordsOfObject.point.y; //Punkt na mapie wzglêdem Y
+	destRect.x = cordsOfObject.x; //Punkt na mapie wzglêdem X
+	destRect.y = cordsOfObject.y; //Punkt na mapie wzglêdem Y
 }
 
 //Renderowanie obiektu
@@ -30,7 +30,7 @@ void _VirtualObject::BasicRender()
 //Generowanie losowej pozycji
 void _VirtualObject::RandomizeCoordinates(const char* texturesheet)
 {
-	int x = rand() % 1312, y = rand() % 928;
+	int x = rand() % (Game::windowX - 64), y = rand() % (Game::windowY - 64);
 	//std::cout << x << " " << y << std::endl;
 	BasicInit(texturesheet, x, y);
 }

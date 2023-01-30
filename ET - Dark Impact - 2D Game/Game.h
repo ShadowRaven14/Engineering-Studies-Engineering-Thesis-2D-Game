@@ -33,6 +33,7 @@ public:
 	//static SDL_Rect dstrect;
 
 	static bool isGameRunning;
+	static int windowX, windowY;
 
 private:
 	

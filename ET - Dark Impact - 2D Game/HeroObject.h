@@ -22,4 +22,5 @@ public:
 	//Zaawansowane
 	void MoveWithHero(); //Poruszanie siê bohaterem
 	void MoveHeroToPoint(Point* point); //Poruszanie siê bohaterem
+	CoordinatesOfHero cordsOfHero; //Bohater na mapie
 };

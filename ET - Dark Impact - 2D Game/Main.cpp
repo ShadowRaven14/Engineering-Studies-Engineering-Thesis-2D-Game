@@ -14,7 +14,10 @@ int main(int argc, char* argv[])
     int frameTime;
 
     mainGame = new Game();
-    mainGame->Init("MainGameWindow", 1312, 928, false);
+    mainGame->Init("MainGameWindow", 
+        mainGame->windowX, 
+        mainGame->windowY, 
+        false);
 
     while (mainGame->isGameRunning==true)
     {

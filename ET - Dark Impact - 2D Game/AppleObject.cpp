@@ -1,5 +1,6 @@
 #include "AppleObject.h"
 
+/*
 AppleObject::AppleObject(const char* texturesheet, int x, int y)
 {
 	std::cout << "Nowe Apple na ziemi" << std::endl;
@@ -25,3 +26,4 @@ void AppleObject::Render()
 {
 	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }
+*/

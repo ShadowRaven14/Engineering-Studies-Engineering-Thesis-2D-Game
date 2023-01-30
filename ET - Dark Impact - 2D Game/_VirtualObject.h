@@ -21,7 +21,8 @@ public:
 	void SetDestRect(SDL_Rect newdestRect);
 
 	SDL_Texture* objTexture; //Tekstura obiektu
-	CoordinatesOfHero cordsOfObject; //Punkt na mapie
+	//CoordinatesOfHero cordsOfObject; //Punkt na mapie
+	Point cordsOfObject;
 
 protected:
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze

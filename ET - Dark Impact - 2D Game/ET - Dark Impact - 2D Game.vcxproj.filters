@@ -19,12 +19,6 @@
     <Filter Include="Source Files\GameObjectsCpp">
       <UniqueIdentifier>{f08e72a0-466c-4172-bff6-62e1b5469982}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MapCpp">
-      <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\MapH">
-      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\UtilsCpp">
       <UniqueIdentifier>{5e489ddd-e1f9-4dcf-8598-7343b9ad1468}</UniqueIdentifier>
     </Filter>
@@ -37,17 +31,23 @@
     <Filter Include="Source Files\HeroUtilsCpp">
       <UniqueIdentifier>{a9827ee7-79db-4e86-a82d-137766627adf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\LevelCpp">
-      <UniqueIdentifier>{c50d01b5-2b3b-4dc3-8211-cb865b764ff6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\LevelH">
-      <UniqueIdentifier>{ddbeac22-8152-4df3-b753-0f7538b0ebdb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SDL2_ManagersCpp">
       <UniqueIdentifier>{e217a5c2-6ee6-4cfb-ad71-fed32b9cd914}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\SDL2_ManagersH">
       <UniqueIdentifier>{0538c411-418a-4234-9904-494152220968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LevelUtilsH">
+      <UniqueIdentifier>{ddbeac22-8152-4df3-b753-0f7538b0ebdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MapUtilsH">
+      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LevelUtilsCpp">
+      <UniqueIdentifier>{c50d01b5-2b3b-4dc3-8211-cb865b764ff6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MapUtilsCpp">
+      <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -73,13 +73,13 @@
       <Filter>Source Files\UtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BackgroundMap.cpp">
-      <Filter>Source Files\MapCpp</Filter>
+      <Filter>Source Files\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_VirtualMap.cpp">
-      <Filter>Source Files\MapCpp</Filter>
+      <Filter>Source Files\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BasicClass.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
@@ -91,10 +91,10 @@
       <Filter>Source Files\UtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="GameLevelManager.cpp">
-      <Filter>Source Files\LevelCpp</Filter>
+      <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="GameLevel.cpp">
-      <Filter>Source Files\LevelCpp</Filter>
+      <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="KeyboardManager.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
@@ -147,13 +147,13 @@
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
     <ClInclude Include="BackgroundMap.h">
-      <Filter>Header Files\MapH</Filter>
+      <Filter>Header Files\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
-      <Filter>Header Files\MapH</Filter>
+      <Filter>Header Files\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="BasicClass.h">
       <Filter>Header Files\HeroUtlisH</Filter>
@@ -165,10 +165,10 @@
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
     <ClInclude Include="GameLevelManager.h">
-      <Filter>Header Files\LevelH</Filter>
+      <Filter>Header Files\LevelUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="GameLevel.h">
-      <Filter>Header Files\LevelH</Filter>
+      <Filter>Header Files\LevelUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="KeyboardManager.h">
       <Filter>Header Files\HeroUtlisH</Filter>

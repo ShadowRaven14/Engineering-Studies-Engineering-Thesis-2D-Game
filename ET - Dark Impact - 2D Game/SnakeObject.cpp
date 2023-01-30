@@ -1,6 +1,6 @@
 #include "SnakeObject.h"
 
-
+/*
 int Level[29][41] =
 {
 	{0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0,},
@@ -650,3 +650,4 @@ void SnakeObject::AppleTree(int arr[29][41])
 	if (interval3 == delay * 2) pixelraven = ImageTextureManager::LoadTexture("Assets/crow1.png");
 
 }
+*/

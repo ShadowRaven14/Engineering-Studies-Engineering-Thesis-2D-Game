@@ -125,7 +125,7 @@ void GameLevelManager::HeroCollideWithChest()
 			{
 				//SDL_Texture* isTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest.png");
 				//&& basicChests[i]->objTexture == isTexture
-				if (mainHero->cordsOfObject.input == 'f')
+				if (mainHero->cordsOfHero.input == 'f')
 				{
 					//std::cout << "Chest has been collected!" << std::endl;
 					SDL_Delay(10);
@@ -133,7 +133,7 @@ void GameLevelManager::HeroCollideWithChest()
 					if (mainHero->HandleChestCollision() == true)
 					{
 						currentLevel->basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
-						mainHero->cordsOfObject.input = NULL;
+						mainHero->cordsOfHero.input = NULL;
 					}
 				}
 			}
@@ -171,7 +171,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 		{
 			if (abs(mainHero->GetDestRect().y - currentLevel->basicTeleports[i]->GetDestRect().y) < 32)
 			{
-				if (mainHero->cordsOfObject.input == 'f')
+				if (mainHero->cordsOfHero.input == 'f')
 				{
 					std::cout << "Collision with Teleport!" << std::endl;
 					currentLevelID = currentLevel->basicTeleports[i]->destination;
