@@ -21,29 +21,39 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	basicTeleports.push_back(basicTeleport1);
 	basicTeleports.push_back(basicTeleport2);
 	basicTeleports.push_back(basicTeleport3);
+	
+	//Iloœæ generowanych obiektów
+	int n;
 
 	//Dodanie elementów do wektora basicEnemies
-	for (int i = 0; i < 3; i++)
+	n = rand() % 5 + 1;
+	std::cout << n << " enemies spawn" << std::endl;
+	for (int i = 0; i < n; i++)
 	{
 		EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
 		basicEnemies.push_back(basicEnemy);
 	}
 
 	//Dodanie elementów do wektora basicChests
-	for (int i = 0; i < 5; i++)
+	n = rand() % 9 + 1;
+	std::cout << n << " chests spawn" << std::endl;
+	for (int i = 0; i < n; i++)
 	{
 		ChestObject* basicChest = new ChestObject(bnChest);
 		basicChests.push_back(basicChest);
 	}
 
 	//Dodanie elementów do wektora basicCoins
-	for (int i = 0; i < 20; i++)
+	n = rand() % 19 + 1;
+	std::cout << n << " coins spawn" << std::endl;
+	for (int i = 0; i < n; i++)
 	{
 		CoinObject* basicCoin = new CoinObject(bnCoin);
 		basicCoins.push_back(basicCoin);
 	}
 }
 
+/*
 GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy GameLevel";
@@ -93,19 +103,27 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 
 	return *this;
 }
+*/
 
 void GameLevel::CopyLevel(GameLevel* tempLevel)
 {
 	std::cout << "Kopiowanie GameLevel. Bez HeroObject." << std::endl;
+	//std::cout << welcomeInfo << std::endl;
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
 
-	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
+	basicTeleports = tempLevel->basicTeleports;
+	basicEnemies = tempLevel->basicEnemies;
+	basicChests = tempLevel->basicChests;
+	basicCoins = tempLevel->basicCoins;
+
+	/*for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel->basicChests[i];
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel->basicCoins[i];
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel->basicCoins[i];*/
+	//std::cout << welcomeInfo << std::endl;
 }
 
 void GameLevel::Update()

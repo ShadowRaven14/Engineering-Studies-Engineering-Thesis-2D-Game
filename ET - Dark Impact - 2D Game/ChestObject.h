@@ -13,5 +13,7 @@ public:
 	~ChestObject(); //Destruktor skrzynki
 	void Update(); //Aktualizacja skrzynki
 	void Render(); //Renderowanie skrzynki
+
+	bool isOpen;
 };
 

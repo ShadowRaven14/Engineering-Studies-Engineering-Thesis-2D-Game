@@ -44,11 +44,11 @@ GameLevelManager::GameLevelManager()
 		new SDL_Color{ 255, 255, 255 },
 		"Maps/Exported.txt",
 		new Point(100, 100),
-		"Images/ElvenTracker.png",
-		"Images/apple.png",
-		"Images/apple.png",
-		"Images/apple.png",
-		"Images/apple.png");
+		"Images/AppleGolden.png",
+		"Images/AppleGolden.png",
+		"Images/AppleGolden.png",
+		"Images/AppleGolden.png",
+		"Images/AppleGolden.png");
 
 	ChangeCurrentLevel(basicLevel);
 	currentLevelID = 0;
@@ -62,6 +62,7 @@ void GameLevelManager::Update()
 	HeroCollideWithChest();
 	HeroCollideWithEnemy(); //Znikaj¹ na wszystkich mapach
 	HeroCollideWithTeleport();
+	//std::cout << currentLevel->welcomeInfo << std::endl;
 }
 
 void GameLevelManager::Render()
@@ -123,18 +124,21 @@ void GameLevelManager::HeroCollideWithChest()
 		{
 			if (abs(mainHero->GetDestRect().y - currentLevel->basicChests[i]->GetDestRect().y) < 32)
 			{
-				//SDL_Texture* isTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest.png");
-				//&& basicChests[i]->objTexture == isTexture
 				if (mainHero->cordsOfHero.input == 'f')
 				{
-					//std::cout << "Chest has been collected!" << std::endl;
-					SDL_Delay(10);
-
-					if (mainHero->HandleChestCollision() == true)
+					if (currentLevel->basicChests[i]->isOpen == false)
 					{
-						currentLevel->basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Textures/WoodenChest_Open.png");
-						mainHero->cordsOfHero.input = NULL;
+						std::cout << "Chest has been collected!" << std::endl;
+						SDL_Delay(10);
+
+						if (mainHero->HandleChestCollision() == true)
+						{
+							currentLevel->basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Images/WoodenChest_Open.png");
+							mainHero->cordsOfHero.input = NULL;
+						}
+						currentLevel->basicChests[i]->isOpen = true;
 					}
+					mainHero->cordsOfHero.input = ' ';
 				}
 			}
 		}
@@ -156,6 +160,7 @@ void GameLevelManager::HeroCollideWithEnemy()
 				if (mainHero->HandleEnemyCollision(5) == true)
 				{
 					currentLevel->basicEnemies.erase(currentLevel->basicEnemies.begin() + i); i--;
+					
 				}
 			}
 		}
@@ -181,22 +186,28 @@ void GameLevelManager::HeroCollideWithTeleport()
 					{
 					case 0:
 						ChangeCurrentLevel(basicLevel);
+						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					case 1:
 						ChangeCurrentLevel(secondLevel);
+						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					case 2:
 						ChangeCurrentLevel(thirdLevel);
+						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					default:
 						ChangeCurrentLevel(basicLevel);
+						//mainHero->cordsOfHero.input = ' ';
 						currentLevelID = 0;
 						break;
 					}
-					break;
+					//break;
+
+					mainHero->cordsOfHero.input = ' ';
 				}
 			}
 		}
