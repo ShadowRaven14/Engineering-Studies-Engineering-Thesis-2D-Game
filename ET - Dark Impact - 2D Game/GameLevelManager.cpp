@@ -84,7 +84,7 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 {
 	std::cout << "Change level." << std::endl;
-	currentLevel->CopyLevel(newLevel);
+	currentLevel = newLevel;
 	mainHero->MoveHeroToPoint(currentLevel->startingPoint);
 }
 
@@ -154,7 +154,7 @@ void GameLevelManager::HeroCollideWithEnemy()
 		{
 			if (abs(mainHero->GetDestRect().y - currentLevel->basicEnemies[i]->GetDestRect().y) < 32)
 			{
-				//std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
+				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
 
 				if (mainHero->HandleEnemyCollision(5) == true)
@@ -186,26 +186,21 @@ void GameLevelManager::HeroCollideWithTeleport()
 					{
 					case 0:
 						ChangeCurrentLevel(basicLevel);
-						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					case 1:
 						ChangeCurrentLevel(secondLevel);
-						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					case 2:
 						ChangeCurrentLevel(thirdLevel);
-						//mainHero->cordsOfHero.input = ' ';
 						break;
 
 					default:
 						ChangeCurrentLevel(basicLevel);
-						//mainHero->cordsOfHero.input = ' ';
 						currentLevelID = 0;
 						break;
 					}
-					//break;
 
 					mainHero->cordsOfHero.input = ' ';
 				}

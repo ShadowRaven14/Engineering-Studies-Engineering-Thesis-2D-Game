@@ -12,7 +12,6 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
-	//basicHero = new HeroObject(bnHero, startingPoint);
 
 	//Dodanie elementów do wektora basicEnemies
 	TeleportObject* basicTeleport1 = new TeleportObject("Images/PortalBlue.png", 656, 620, 0);
@@ -27,7 +26,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 
 	//Dodanie elementów do wektora basicEnemies
 	n = rand() % 5 + 1;
-	std::cout << n << " enemies spawn" << std::endl;
+	std::cout << n << " enemies spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
 		EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
@@ -36,7 +35,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 
 	//Dodanie elementów do wektora basicChests
 	n = rand() % 9 + 1;
-	std::cout << n << " chests spawn" << std::endl;
+	std::cout << n << " chests spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
 		ChestObject* basicChest = new ChestObject(bnChest);
@@ -45,7 +44,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 
 	//Dodanie elementów do wektora basicCoins
 	n = rand() % 19 + 1;
-	std::cout << n << " coins spawn" << std::endl;
+	std::cout << n << " coins spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
 		CoinObject* basicCoin = new CoinObject(bnCoin);
@@ -53,62 +52,43 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	}
 }
 
-/*
+
 GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 {
-	std::cout << "Konstruktor kopiuj¹cy GameLevel";
+	std::cout << "Konstruktor kopiuj¹cy GameLevel.";
+
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
-	//basicHero = tempLevel.basicHero;
-	//basicHero->MoveHeroToPoint(startingPoint);
-	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
-	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
+
+	basicTeleports = tempLevel.basicTeleports;
+	basicEnemies = tempLevel.basicEnemies;
+	basicChests = tempLevel.basicChests;
+	basicCoins = tempLevel.basicCoins;
 }
 
 GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 {
-	std::cout << "Konstruktor kopiuj¹cy GameLevel";
+	std::cout << "Przeci¹¿enie operatora '='.";
+
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
-	//basicHero = tempLevel.basicHero;
-	//basicHero->MoveHeroToPoint(startingPoint);
-	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel.basicTeleports[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel.basicEnemies[i];
-	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel.basicChests[i];
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel.basicCoins[i];
+
+	basicTeleports = tempLevel.basicTeleports;
+	basicEnemies = tempLevel.basicEnemies;
+	basicChests = tempLevel.basicChests;
+	basicCoins = tempLevel.basicCoins;
 
 	return *this;
 }
 
 GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 {
-	std::cout << "Konstruktor kopiuj¹cy GameLevel";
-	welcomeInfo = tempLevel->welcomeInfo;
-	welcomeColor = tempLevel->welcomeColor;
-	startingPoint = tempLevel->startingPoint;
-	basicMap = tempLevel->basicMap;
-	//basicHero = tempLevel->basicHero;
-	//basicHero->ScorePoints = tempLevel->basicHero->ScorePoints;
-	//basicHero->MoveHeroToPoint(startingPoint);
-	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
-	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel->basicChests[i];
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel->basicCoins[i];
+	std::cout << "Przeci¹¿enie operatora '='.";
 
-	return *this;
-}
-*/
-
-void GameLevel::CopyLevel(GameLevel* tempLevel)
-{
-	std::cout << "Kopiowanie GameLevel. Bez HeroObject." << std::endl;
-	//std::cout << welcomeInfo << std::endl;
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;
 	startingPoint = tempLevel->startingPoint;
@@ -119,11 +99,7 @@ void GameLevel::CopyLevel(GameLevel* tempLevel)
 	basicChests = tempLevel->basicChests;
 	basicCoins = tempLevel->basicCoins;
 
-	/*for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i] = tempLevel->basicTeleports[i];
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i] = tempLevel->basicEnemies[i];
-	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i] = tempLevel->basicChests[i];
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i] = tempLevel->basicCoins[i];*/
-	//std::cout << welcomeInfo << std::endl;
+	return *this;
 }
 
 void GameLevel::Update()
@@ -132,11 +108,6 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
-	//basicHero->Update();
-
-	//HeroCollideWithEnemy();
-	//HeroCollideWithChest();
-	//HeroCollideWithCoin();
 
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(
@@ -150,7 +121,6 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
-	//basicHero->Render();
 
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(

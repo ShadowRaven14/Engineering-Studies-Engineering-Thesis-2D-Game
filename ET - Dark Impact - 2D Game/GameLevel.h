@@ -27,13 +27,10 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
-	void CopyLevel (GameLevel* tempLevel); //Przeci¹¿enie operatora
-
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;
 	Point* startingPoint;
 	BackgroundMap* basicMap;
-	//HeroObject* basicHero;
 	std::vector <TeleportObject*> basicTeleports;
 	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
