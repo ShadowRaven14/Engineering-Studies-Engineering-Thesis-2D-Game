@@ -10,7 +10,7 @@ GameLevelManager::GameLevelManager()
 		std::cout << "GAME IN TEST MODE." << std::endl;
 
 		//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
-		mainHero = new HeroObject("Images/ElvenTracker.png", new Point(640, 448));
+		mainHero = new HeroObject("Images/ElvenTracker_GoLeft.png", new Point(640, 448));
 
 		//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
 		currentLevel = new GameLevel();
@@ -22,10 +22,10 @@ GameLevelManager::GameLevelManager()
 			new SDL_Color{ 255, 255, 0 },
 			"Maps/StartingMap.txt",
 			new Point(640, 448),
-			"Images/ElvenTracker.png",
+			"Images/ElvenTracker_GoLeft.png",
 			"Images/PortalBlue.png",
-			"Images/HumanMageBlue_GoRight.png",
-			"Images/WoodenChest.png",
+			"Images/HumanMageBlue_GoLeft.png",
+			"Images/WoodenChest_GoLeft.png",
 			"Images/Coin.png");
 
 		//Poziom Pierwszy 
@@ -35,10 +35,10 @@ GameLevelManager::GameLevelManager()
 			new SDL_Color{ 255, 0, 255 },
 			"Maps/Test.txt",
 			new Point(640, 448),
-			"Images/ElvenTracker.png",
+			"Images/ElvenTracker_GoLeft.png",
 			"Images/PortalRed.png",
-			"Images/HumanMageGreen.png",
-			"Images/WoodenChest.png",
+			"Images/HumanMageGreen_GoLeft.png",
+			"Images/WoodenChest_GoLeft.png",
 			"Images/Coin.png");
 
 		//Poziom Pierwszy
@@ -48,10 +48,10 @@ GameLevelManager::GameLevelManager()
 			new SDL_Color{ 0, 255, 255 },
 			"Maps/Exported.txt",
 			new Point(640, 448),
-			"Images/ElvenTracker.png",
+			"Images/ElvenTracker_GoLeft.png",
 			"Images/PortalViolet.png",
-			"Images/HumanMageRed.png",
-			"Images/WoodenChest.png",
+			"Images/HumanMageRed_GoLeft.png",
+			"Images/WoodenChest_GoLeft.png",
 			"Images/Coin.png");
 
 		break;
@@ -172,7 +172,8 @@ void GameLevelManager::HeroCollideWithChest()
 
 						if (mainHero->HandleChestCollision() == true)
 						{
-							currentLevel->basicChests[i]->currentObjectTexture = ImageTextureManager::LoadTexture("Images/WoodenChest_Open.png");
+							currentLevel->basicChests[i]->currentObjectTexture = 
+								ImageTextureManager::LoadTexture(currentLevel->basicChests[i]->usableTextures[1]);
 							mainHero->cordsOfHero.input = NULL;
 						}
 						currentLevel->basicChests[i]->isOpen = true;

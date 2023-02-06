@@ -25,7 +25,7 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfHero)
     if (state[SDL_SCANCODE_A])
     {
         hero_x_velocity = -speed;
-        cordsOfHero.image = "Images/ElvenTracker_GoRight.png";
+        cordsOfHero.ntexture = 1;
     }
 
     if (state[SDL_SCANCODE_S])
@@ -36,7 +36,7 @@ CoordinatesOfHero KeyboardManager::HandleKeyboard(CoordinatesOfHero cordsOfHero)
     if (state[SDL_SCANCODE_D])
     {
         hero_x_velocity = speed;
-        cordsOfHero.image = "Images/ElvenTracker.png";
+        cordsOfHero.ntexture = 0;
     }
 
     if (state[SDL_SCANCODE_F])

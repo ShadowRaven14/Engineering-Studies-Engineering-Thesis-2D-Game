@@ -11,6 +11,6 @@ public:
 	CoordinatesOfHero();
 	Point point; //pozycja na mapie wzglêdem osi xy
 	char input; //obecny klawisz
-	const char* image;
+	short ntexture;
 };
 

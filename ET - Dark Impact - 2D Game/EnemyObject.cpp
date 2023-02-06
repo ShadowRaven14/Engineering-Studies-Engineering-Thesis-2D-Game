@@ -11,7 +11,7 @@ EnemyObject::EnemyObject(unsigned short type)
 		power = 5;
 		tempTex = "Images/HumanMageGreen_GoRight.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/HumanMageGreen.png";
+		tempTex = "Images/HumanMageGreen_GoLeft.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
@@ -21,7 +21,7 @@ EnemyObject::EnemyObject(unsigned short type)
 		power = 10;
 		tempTex = "Images/HumanMageBlue_GoRight.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/HumanMageBlue.png";
+		tempTex = "Images/HumanMageBlue_GoLeft.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
@@ -31,7 +31,7 @@ EnemyObject::EnemyObject(unsigned short type)
 		power = 15;
 		tempTex = "Images/HumanMageRed_GoRight.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/HumanMageRed.png";
+		tempTex = "Images/HumanMageRed_GoLeft.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);

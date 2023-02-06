@@ -9,7 +9,7 @@ HeroObject::HeroObject(unsigned short type)
 	case 1:
 		tempTex = "Images/ElvenTracker_GoRight.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/ElvenTracker.png";
+		tempTex = "Images/ElvenTracker_GoLeft.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
@@ -123,7 +123,7 @@ void HeroObject::MoveWithHero()
 	cordsOfHero = KeyboardManager::HandleKeyboard(cordsOfHero);
 
 	//Podmiana tekstury w razie koniecznoœci
-	currentObjectTexture = ImageTextureManager::LoadTexture(cordsOfHero.image);
+	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[cordsOfHero.ntexture]);
 }
 
 void HeroObject::MoveHeroToPoint(Point* point)

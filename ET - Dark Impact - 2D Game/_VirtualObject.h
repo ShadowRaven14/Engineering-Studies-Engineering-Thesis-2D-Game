@@ -20,12 +20,11 @@ public:
 	SDL_Rect GetDestRect();
 	void SetDestRect(SDL_Rect newdestRect);
 
-
+	std::vector <const char*> usableTextures;
 	SDL_Texture* currentObjectTexture; //Tekstura obiektu
 	Point cordsOfObject; //Punkt na mapie
 
 protected:
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
-	std::vector <const char*> usableTextures;
 };
 

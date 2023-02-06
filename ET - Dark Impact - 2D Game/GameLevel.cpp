@@ -190,9 +190,9 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 void GameLevel::Update()
 {
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Update();
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
+	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(
@@ -203,9 +203,9 @@ void GameLevel::Render()
 {
 	basicMap->DrawMap();
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Render();
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
+	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(
