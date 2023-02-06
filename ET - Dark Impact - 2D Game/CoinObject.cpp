@@ -3,15 +3,19 @@ using namespace std;
 
 CoinObject::CoinObject(unsigned short type)
 {
+	const char* tempTex;
+
 	switch (type)
 	{
 	case 1:
-		const char* tex1 = "Images/Coin.png";
-		usableTextures.push_back(tex1);
+		tempTex = "Images/Coin.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	default:
 		std::cout << "Error: Type Construktor." << std::endl;
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 	}
 

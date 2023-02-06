@@ -17,6 +17,8 @@
 class GameLevel
 {
 public:
+	GameLevel();
+	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart);
 	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, 
 		const char* bnCoin);

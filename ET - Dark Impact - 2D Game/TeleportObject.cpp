@@ -2,28 +2,32 @@
 
 TeleportObject::TeleportObject(unsigned short type)
 {
+	const char* tempTex;
+
 	switch (type)
 	{
 	case 1:
-		destination = 1;
-		const char* tex1 = "Images/PortalBlue.png";
-		usableTextures.push_back(tex1);
+		destination = 0; //startLevel
+		tempTex = "Images/PortalBlue.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	case 2:
-		destination = 2;
-		const char* tex1 = "Images/PortalRed.png";
-		usableTextures.push_back(tex1);
+		destination = 1; //firstLevel
+		tempTex = "Images/PortalRed.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	case 3:
-		destination = 3;
-		const char* tex1 = "Images/PortalViolet.png";
-		usableTextures.push_back(tex1);
+		destination = 2; //secondLevel
+		tempTex = "Images/PortalViolet.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	default:
 		std::cout << "Error: Type Construktor." << std::endl;
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 	}
 

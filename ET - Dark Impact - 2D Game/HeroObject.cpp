@@ -2,17 +2,23 @@
 
 HeroObject::HeroObject(unsigned short type)
 {
+	const char* tempTex;
+
 	switch (type)
 	{
 	case 1:
-		const char* tex1 = "Images/ElvenTracker_GoRight.png";
-		const char* tex2 = "Images/ElvenTracker.png";
-		usableTextures.push_back(tex1);
-		usableTextures.push_back(tex2);
+		tempTex = "Images/ElvenTracker_GoRight.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/ElvenTracker.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	default:
 		std::cout << "Error: Type Construktor." << std::endl;
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 	}
 

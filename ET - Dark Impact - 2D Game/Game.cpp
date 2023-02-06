@@ -11,6 +11,7 @@ SDL_Event Game::mainGameEvent;
 //SDL_Texture* Game::mainGameFontTexture;
 //SDL_Rect Game::dstrect;
 bool Game::isGameRunning = false;
+bool Game::TestMode = false;
 int Game::windowX = 1312;
 int Game::windowY = 928;
 

@@ -4,59 +4,94 @@ GameLevelManager::GameLevelManager()
 {
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
-	mainHero = new HeroObject("Images/ElvenTracker.png", new Point(640, 448));
+	switch (Game::TestMode)
+	{
+	case true:
+		std::cout << "GAME IN TEST MODE." << std::endl;
 
-	startLevel = new GameLevel(
-		0,
-		"Hi! Welcome to level first!",
-		new SDL_Color{ 255, 255, 0 },
-		"Maps/StartingMap.txt",
-		new Point(640, 448),
-		"Images/ElvenTracker.png",
-		"Images/PortalBlue.png",
-		"Images/HumanMageBlue_GoRight.png",
-		"Images/WoodenChest.png",
-		"Images/Coin.png");
+		//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
+		mainHero = new HeroObject("Images/ElvenTracker.png", new Point(640, 448));
 
-	firstLevel = new GameLevel(
-		1,
-		"Hi! Welcome to level second!",
-		new SDL_Color{ 255, 0, 255 },
-		"Maps/Test.txt",
-		new Point(640, 448),
-		"Images/ElvenTracker.png",
-		"Images/PortalRed.png",
-		"Images/HumanMageGreen.png",
-		"Images/WoodenChest.png",
-		"Images/Coin.png");
+		//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
+		currentLevel = new GameLevel();
 
-	secondLevel = new GameLevel(
-		2,
-		"Hi! Welcome to level third!",
-		new SDL_Color{ 0, 255, 255 },
-		"Maps/Exported.txt",
-		new Point(640, 448),
-		"Images/ElvenTracker.png",
-		"Images/PortalViolet.png",
-		"Images/HumanMageRed.png",
-		"Images/WoodenChest.png",
-		"Images/Coin.png");
+		//Poziom Startowy, od niego zaczynamy
+		startLevel = new GameLevel(
+			0,
+			"Hi! Welcome to start level!",
+			new SDL_Color{ 255, 255, 0 },
+			"Maps/StartingMap.txt",
+			new Point(640, 448),
+			"Images/ElvenTracker.png",
+			"Images/PortalBlue.png",
+			"Images/HumanMageBlue_GoRight.png",
+			"Images/WoodenChest.png",
+			"Images/Coin.png");
 
-	//Tutaj bêdziemy podstawiaæ aktualny poziom
-	currentLevel = new GameLevel(
-		99,
-		"Simple text.",
-		new SDL_Color{ 255, 255, 255 },
-		"Maps/Exported.txt",
-		new Point(100, 100),
-		"Images/AppleGolden.png",
-		"Images/AppleGolden.png",
-		"Images/AppleGolden.png",
-		"Images/AppleGolden.png",
-		"Images/AppleGolden.png");
+		//Poziom Pierwszy 
+		firstLevel = new GameLevel(
+			1,
+			"Hi! Welcome to first level!",
+			new SDL_Color{ 255, 0, 255 },
+			"Maps/Test.txt",
+			new Point(640, 448),
+			"Images/ElvenTracker.png",
+			"Images/PortalRed.png",
+			"Images/HumanMageGreen.png",
+			"Images/WoodenChest.png",
+			"Images/Coin.png");
 
+		//Poziom Pierwszy
+		secondLevel = new GameLevel(
+			2,
+			"Hi! Welcome to second level!",
+			new SDL_Color{ 0, 255, 255 },
+			"Maps/Exported.txt",
+			new Point(640, 448),
+			"Images/ElvenTracker.png",
+			"Images/PortalViolet.png",
+			"Images/HumanMageRed.png",
+			"Images/WoodenChest.png",
+			"Images/Coin.png");
+
+		break;
+
+	case false:
+		std::cout << "GAME IN NORMAL-PLAY MODE." << std::endl;
+
+		//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
+		mainHero = new HeroObject(1);
+
+		//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
+		currentLevel = new GameLevel();
+
+		//Poziom Startowy, od niego zaczynamy
+		startLevel = new GameLevel(
+			0, "Hi! Welcome to start level!", 
+			new SDL_Color{ 255, 255, 0 },
+			"Maps/StartingMap.txt", 
+			new Point(640, 448));
+
+		//Poziom Pierwszy 
+		firstLevel = new GameLevel(
+			1, "Hi! Welcome to first level!",
+			new SDL_Color{ 255, 0, 255 },
+			"Maps/Test.txt",
+			new Point(640, 448));
+
+		//Poziom Pierwszy
+		secondLevel = new GameLevel(
+			2, "Hi! Welcome to second level!",
+			new SDL_Color{ 0, 255, 255 },
+			"Maps/Exported.txt",
+			new Point(640, 448));
+
+		break;
+	}
+	
+	//Ustawiamy Poziom Obecny na Poziom Startowy
 	ChangeCurrentLevel(startLevel);
-	currentLevelID = 0;
+	currentLevelID = currentLevel->levelID;
 }
 
 void GameLevelManager::Update()

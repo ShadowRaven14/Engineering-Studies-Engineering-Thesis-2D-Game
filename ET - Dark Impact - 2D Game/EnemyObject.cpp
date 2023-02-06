@@ -9,36 +9,38 @@ EnemyObject::EnemyObject(unsigned short type)
 	{
 	case 1:
 		power = 5;
-		tempTex = "Images/HumanMageRed_GoRight.png";
+		tempTex = "Images/HumanMageGreen_GoRight.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/HumanMageRed.png";
+		tempTex = "Images/HumanMageGreen.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/Apple.png";
+		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 2:
 		power = 10;
 		tempTex = "Images/HumanMageBlue_GoRight.png";
-		tex2 = "Images/HumanMageBlue.png";
-		tex3 = "Images/Apple.png";
 		usableTextures.push_back(tempTex);
-		usableTextures.push_back(tex2);
-		usableTextures.push_back(tex3);
+		tempTex = "Images/HumanMageBlue.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	case 3:
 		power = 15;
-		tempTex = "Images/HumanMageGreen_GoRight.png";
-		tex2 = "Images/HumanMageGreen.png";
-		tex3 = "Images/Apple.png";
+		tempTex = "Images/HumanMageRed_GoRight.png";
 		usableTextures.push_back(tempTex);
-		usableTextures.push_back(tex2);
-		usableTextures.push_back(tex3);
+		tempTex = "Images/HumanMageRed.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 
 	default:
 		std::cout << "Error: Type Construktor." << std::endl;
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
 		break;
 	}
 	

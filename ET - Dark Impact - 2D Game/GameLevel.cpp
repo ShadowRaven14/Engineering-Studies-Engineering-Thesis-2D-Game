@@ -1,5 +1,81 @@
 #include "GameLevel.h"
 
+GameLevel::GameLevel()
+{
+	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << "NONE" << "." << std::endl;
+
+	//Identyfikator danego poziomu
+	levelID = 100;
+
+	//Wyœwietlenie tekstu powitalnego
+	welcomeInfo = nullptr;
+	welcomeColor = nullptr;
+
+	//Przygotowanie mapy i bohatera
+	basicMap = new BackgroundMap("Maps/Test.txt");
+	startingPoint = new Point(0, 0);
+}
+
+GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart)
+{
+	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
+
+	//Identyfikator danego poziomu
+	levelID = bnID;
+
+	//Wyœwietlenie tekstu powitalnego
+	welcomeInfo = bnInfo;
+	welcomeColor = bnColor;
+
+	//Przygotowanie mapy i bohatera
+	basicMap = new BackgroundMap(bnMap);
+	startingPoint = bnStart;
+
+	//Iloœæ generowanych obiektów
+	int rand_quantity;
+	int rand_type;
+
+	//Dodanie elementów do wektora basicCoins
+	rand_quantity = rand() % 10 + 10;
+	std::cout << rand_quantity << " coins spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = 1;
+		CoinObject* basicCoin = new CoinObject(rand_type);
+		basicCoins.push_back(basicCoin);
+	}
+
+	//Dodanie elementów do wektora basicChests
+	rand_quantity = rand() % 8 + 2;
+	std::cout << rand_quantity << " chests spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = 1;
+		ChestObject* basicChest = new ChestObject(rand_type);
+		basicChests.push_back(basicChest);
+	}
+
+	//Dodanie elementów do wektora basicEnemies
+	rand_quantity = rand() % 5 + 1;
+	std::cout << rand_quantity << " enemies spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3 + 1;
+		EnemyObject* basicEnemy = new EnemyObject(rand_type);
+		basicEnemies.push_back(basicEnemy);
+	}
+
+	//Dodanie elementów do wektora basicTeleports
+	rand_quantity = rand() % 1 + 3;
+	std::cout << rand_quantity << " portals spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3 + 1;
+		TeleportObject* basicTeleport = new TeleportObject(rand_type);
+		basicTeleports.push_back(basicTeleport);
+	}
+}
+
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 	const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin)
 {
@@ -15,6 +91,37 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
+	
+	//Iloœæ generowanych obiektów
+	int rand_quantity;
+
+	//Dodanie elementów do wektora basicCoins
+	rand_quantity = rand() % 10 + 10;
+	std::cout << rand_quantity << " coins spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		CoinObject* basicCoin = new CoinObject(bnCoin);
+		basicCoins.push_back(basicCoin);
+	}
+
+	//Dodanie elementów do wektora basicChests
+	rand_quantity = rand() % 8 + 2;
+	std::cout << rand_quantity << " chests spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		ChestObject* basicChest = new ChestObject(bnChest);
+		basicChests.push_back(basicChest);
+	}
+
+	//Dodanie elementów do wektora basicEnemies
+	rand_quantity = rand() % 5 + 1;
+	std::cout << rand_quantity << " enemies spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
+		EnemyObject* basicEnemy = new EnemyObject(1);
+		basicEnemies.push_back(basicEnemy);
+	}
 
 	//Dodanie elementów do wektora basicEnemies
 	TeleportObject* basicTeleport1 = new TeleportObject("Images/PortalBlue.png", 656, 620, 0);
@@ -23,39 +130,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	basicTeleports.push_back(basicTeleport1);
 	basicTeleports.push_back(basicTeleport2);
 	basicTeleports.push_back(basicTeleport3);
-	
-	//Iloœæ generowanych obiektów
-	int n;
-
-	//Dodanie elementów do wektora basicEnemies
-	n = rand() % 5 + 1;
-	std::cout << n << " enemies spawn." << std::endl;
-	for (int i = 0; i < n; i++)
-	{
-		//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
-		EnemyObject* basicEnemy = new EnemyObject(1);
-		basicEnemies.push_back(basicEnemy);
-	}
-
-	//Dodanie elementów do wektora basicChests
-	n = rand() % 8 + 2;
-	std::cout << n << " chests spawn." << std::endl;
-	for (int i = 0; i < n; i++)
-	{
-		ChestObject* basicChest = new ChestObject(bnChest);
-		basicChests.push_back(basicChest);
-	}
-
-	//Dodanie elementów do wektora basicCoins
-	n = rand() % 10 + 10;
-	std::cout << n << " coins spawn." << std::endl;
-	for (int i = 0; i < n; i++)
-	{
-		CoinObject* basicCoin = new CoinObject(bnCoin);
-		basicCoins.push_back(basicCoin);
-	}
 }
-
 
 GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 {
