@@ -8,9 +8,10 @@ class HeroStatistics : public BasicClass
 public:
 	HeroStatistics();
 	bool IsHeroAlive();
-	bool HandleEnemyCollision(int power);
 	bool HandleChestCollision(short worth);
+	bool HandlePotionCollision(short power);
 	bool HandleCoinCollision();
+	bool HandleEnemyCollision(int power);
 	void ShowCurrentStatistics();
 	
 	unsigned int ScorePoints;

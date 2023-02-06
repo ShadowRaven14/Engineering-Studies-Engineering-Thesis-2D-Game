@@ -114,6 +114,9 @@
     <ClCompile Include="HeroStatistics.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="PotionObject.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeroObject.h">
@@ -178,6 +181,9 @@
     </ClInclude>
     <ClInclude Include="HeroStatistics.h">
       <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

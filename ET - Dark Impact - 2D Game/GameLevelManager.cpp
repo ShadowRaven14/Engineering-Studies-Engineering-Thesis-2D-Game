@@ -98,10 +98,11 @@ void GameLevelManager::Update()
 {
 	currentLevel->Update();
 	mainHero->Update();
-	HeroCollideWithCoin(); //Znikaj¹ na wszystkich mapach
-	HeroCollideWithChest();
-	HeroCollideWithEnemy(); //Znikaj¹ na wszystkich mapach
 	HeroCollideWithTeleport();
+	HeroCollideWithChest();
+	HeroCollideWithPotion();
+	HeroCollideWithCoin();
+	HeroCollideWithEnemy();
 }
 
 void GameLevelManager::Render()
@@ -132,81 +133,6 @@ void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 /*
 * ROZPATRZ KOLIZJE
 */
-
-//KOLIZJA Z MONET¥
-void GameLevelManager::HeroCollideWithCoin()
-{
-	for (unsigned int i = 0; i < currentLevel->basicCoins.size(); i++)
-	{
-		if (abs(mainHero->GetDestRect().x - currentLevel->basicCoins[i]->GetDestRect().x) < 20)
-		{
-			if (abs(mainHero->GetDestRect().y - currentLevel->basicCoins[i]->GetDestRect().y) < 20)
-			{
-				std::cout << "Coin has been collected!" << std::endl;
-				SDL_Delay(10);
-
-				if (mainHero->HandleCoinCollision() == true)
-				{
-					currentLevel->basicCoins.erase(currentLevel->basicCoins.begin() + i); i--;
-				}
-			}
-		}
-	}
-}
-
-//KOLIZJA ZE SKRZYNI¥
-void GameLevelManager::HeroCollideWithChest()
-{
-	for (unsigned int i = 0; i < currentLevel->basicChests.size(); i++)
-	{
-		if (abs(mainHero->GetDestRect().x - currentLevel->basicChests[i]->GetDestRect().x) < 32)
-		{
-			if (abs(mainHero->GetDestRect().y - currentLevel->basicChests[i]->GetDestRect().y) < 32)
-			{
-				if (mainHero->cordsOfHero.input == 'f')
-				{
-					if (currentLevel->basicChests[i]->isOpen == false)
-					{
-						std::cout << "Chest has been collected!" << std::endl;
-						SDL_Delay(10);
-
-						if (mainHero->HandleChestCollision(currentLevel->basicChests[i]->worth) == true)
-						{
-							currentLevel->basicChests[i]->currentObjectTexture = 
-								ImageTextureManager::LoadTexture(currentLevel->basicChests[i]->usableTextures[1]);
-							mainHero->cordsOfHero.input = NULL;
-						}
-						currentLevel->basicChests[i]->isOpen = true;
-					}
-					mainHero->cordsOfHero.input = ' ';
-				}
-			}
-		}
-	}
-}
-
-//KOLIZJA Z WROGIEM
-void GameLevelManager::HeroCollideWithEnemy()
-{
-	for (unsigned int i = 0; i < currentLevel->basicEnemies.size(); i++)
-	{
-		if (abs(mainHero->GetDestRect().x - currentLevel->basicEnemies[i]->GetDestRect().x) < 32)
-		{
-			if (abs(mainHero->GetDestRect().y - currentLevel->basicEnemies[i]->GetDestRect().y) < 32)
-			{
-				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
-				SDL_Delay(10);
-
-				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
-				if (mainHero->HandleEnemyCollision(currentLevel->basicEnemies[i]->power) == true)
-				{
-					currentLevel->basicEnemies.erase(currentLevel->basicEnemies.begin() + i); i--;
-					
-				}
-			}
-		}
-	}
-}
 
 //KOLIZJA Z TELEPORTEM
 void GameLevelManager::HeroCollideWithTeleport()
@@ -249,3 +175,101 @@ void GameLevelManager::HeroCollideWithTeleport()
 		}
 	}
 }
+
+//KOLIZJA ZE SKRZYNI¥
+void GameLevelManager::HeroCollideWithChest()
+{
+	for (unsigned int i = 0; i < currentLevel->basicChests.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - currentLevel->basicChests[i]->GetDestRect().x) < 32)
+		{
+			if (abs(mainHero->GetDestRect().y - currentLevel->basicChests[i]->GetDestRect().y) < 32)
+			{
+				if (mainHero->cordsOfHero.input == 'f')
+				{
+					if (currentLevel->basicChests[i]->isOpen == false)
+					{
+						std::cout << "Chest has been collected!" << std::endl;
+						SDL_Delay(10);
+
+						if (mainHero->HandleChestCollision(currentLevel->basicChests[i]->worth) == true)
+						{
+							currentLevel->basicChests[i]->currentObjectTexture = 
+								ImageTextureManager::LoadTexture(currentLevel->basicChests[i]->usableTextures[1]);
+							mainHero->cordsOfHero.input = NULL;
+						}
+						currentLevel->basicChests[i]->isOpen = true;
+					}
+					mainHero->cordsOfHero.input = ' ';
+				}
+			}
+		}
+	}
+}
+
+//KOLIZJA ZE SKRZYNI¥
+void GameLevelManager::HeroCollideWithPotion()
+{
+	for (unsigned int i = 0; i < currentLevel->basicPotions.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - currentLevel->basicPotions[i]->GetDestRect().x) < 32)
+		{
+			if (abs(mainHero->GetDestRect().y - currentLevel->basicPotions[i]->GetDestRect().y) < 32)
+			{
+				std::cout << "Potion has been collected!" << std::endl;
+				SDL_Delay(10);
+
+				if (mainHero->HandlePotionCollision(currentLevel->basicPotions[i]->power) == true)
+				{
+					currentLevel->basicPotions.erase(currentLevel->basicPotions.begin() + i); i--;
+				}
+			}
+		}
+	}
+}
+
+
+//KOLIZJA Z MONET¥
+void GameLevelManager::HeroCollideWithCoin()
+{
+	for (unsigned int i = 0; i < currentLevel->basicCoins.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - currentLevel->basicCoins[i]->GetDestRect().x) < 20)
+		{
+			if (abs(mainHero->GetDestRect().y - currentLevel->basicCoins[i]->GetDestRect().y) < 20)
+			{
+				std::cout << "Coin has been collected!" << std::endl;
+				SDL_Delay(10);
+
+				if (mainHero->HandleCoinCollision() == true)
+				{
+					currentLevel->basicCoins.erase(currentLevel->basicCoins.begin() + i); i--;
+				}
+			}
+		}
+	}
+}
+
+//KOLIZJA Z WROGIEM
+void GameLevelManager::HeroCollideWithEnemy()
+{
+	for (unsigned int i = 0; i < currentLevel->basicEnemies.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - currentLevel->basicEnemies[i]->GetDestRect().x) < 32)
+		{
+			if (abs(mainHero->GetDestRect().y - currentLevel->basicEnemies[i]->GetDestRect().y) < 32)
+			{
+				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
+				SDL_Delay(10);
+
+				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
+				if (mainHero->HandleEnemyCollision(currentLevel->basicEnemies[i]->power) == true)
+				{
+					currentLevel->basicEnemies.erase(currentLevel->basicEnemies.begin() + i); i--;
+					
+				}
+			}
+		}
+	}
+}
+

@@ -164,6 +164,7 @@
     <ClCompile Include="BackgroundMap.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="CoordinatesOfHero.cpp" />
+    <ClCompile Include="PotionObject.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
     <ClCompile Include="FontTextureManager.cpp" />
     <ClCompile Include="_VirtualObject.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="GameLevelManager.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="CoordinatesOfHero.h" />
+    <ClInclude Include="PotionObject.h" />
     <ClInclude Include="TeleportObject.h" />
     <ClInclude Include="FontTextureManager.h" />
     <ClInclude Include="_VirtualObject.h" />

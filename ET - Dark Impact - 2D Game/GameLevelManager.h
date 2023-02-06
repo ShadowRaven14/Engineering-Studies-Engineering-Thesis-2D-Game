@@ -3,6 +3,8 @@ Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 
 #pragma once
 #include "GameLevel.h"
+#include "HeroObject.h"
+//#include "HeroStatistics.h"
 
 class GameLevelManager
 {
@@ -14,10 +16,12 @@ public:
 
 	Point TranslatePoint(SDL_Rect currentPoint);
 	void ChangeCurrentLevel(GameLevel* newLevel); //Zmiana obecnego poziomu
-	void HeroCollideWithCoin();
-	void HeroCollideWithChest();
-	void HeroCollideWithEnemy();
+
 	void HeroCollideWithTeleport();
+	void HeroCollideWithChest();
+	void HeroCollideWithPotion();
+	void HeroCollideWithCoin();
+	void HeroCollideWithEnemy();
 
 private:
 	HeroObject* mainHero;

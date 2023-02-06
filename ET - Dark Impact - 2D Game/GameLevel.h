@@ -3,15 +3,17 @@
 #pragma once
 #include "Point.h"
 #include "BackgroundMap.h"
-#include "HeroObject.h"
+
 #include "TeleportObject.h"
-#include "EnemyObject.h"
 #include "ChestObject.h"
+#include "PotionObject.h"
 #include "CoinObject.h"
-#include "HeroStatistics.h"
+#include "EnemyObject.h"
+
 #include <vector>
 #include "ImageTextureManager.h"
 #include "FontTextureManager.h"
+
 
 
 class GameLevel
@@ -35,8 +37,9 @@ public:
 	Point* startingPoint;
 	BackgroundMap* basicMap;
 	std::vector <TeleportObject*> basicTeleports;
-	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
+	std::vector <PotionObject*> basicPotions;
 	std::vector <CoinObject*> basicCoins;
+	std::vector <EnemyObject*> basicEnemies;
 };
 
