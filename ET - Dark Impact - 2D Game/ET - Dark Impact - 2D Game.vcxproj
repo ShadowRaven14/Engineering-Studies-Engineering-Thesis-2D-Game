@@ -149,7 +149,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AppleObject.cpp" />
     <ClCompile Include="AssetsManager.cpp" />
     <ClCompile Include="BasicClass.cpp" />
     <ClCompile Include="ChestObject.cpp" />
@@ -157,7 +156,6 @@
     <ClCompile Include="HeroStatistics.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="HeroObject.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="GameLevel.cpp" />
@@ -169,13 +167,11 @@
     <ClCompile Include="TeleportObject.cpp" />
     <ClCompile Include="FontTextureManager.cpp" />
     <ClCompile Include="_VirtualObject.cpp" />
-    <ClCompile Include="SnakeObject.cpp" />
     <ClCompile Include="ImageTextureManager.cpp" />
     <ClCompile Include="BasicFunctions.cpp" />
     <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppleObject.h" />
     <ClInclude Include="AssetsManager.h" />
     <ClInclude Include="BasicClass.h" />
     <ClInclude Include="ChestObject.h" />
@@ -183,7 +179,6 @@
     <ClInclude Include="HeroStatistics.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="HeroChoices.h" />
     <ClInclude Include="HeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
     <ClInclude Include="KeyboardManager.h" />
@@ -195,7 +190,6 @@
     <ClInclude Include="FontTextureManager.h" />
     <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />
-    <ClInclude Include="SnakeObject.h" />
     <ClInclude Include="ImageTextureManager.h" />
     <ClInclude Include="BasicFunctions.h" />
     <ClInclude Include="_VirtualMap.h" />

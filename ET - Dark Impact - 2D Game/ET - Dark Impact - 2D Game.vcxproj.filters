@@ -57,12 +57,6 @@
     <ClCompile Include="HeroObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="AppleObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="SnakeObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="_VirtualObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
@@ -120,18 +114,9 @@
     <ClCompile Include="HeroStatistics.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="HeroChoices.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppleObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
     <ClInclude Include="HeroObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
-    <ClInclude Include="SnakeObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualObject.h">
@@ -192,9 +177,6 @@
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
     <ClInclude Include="HeroStatistics.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
-    <ClInclude Include="HeroChoices.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
   </ItemGroup>
