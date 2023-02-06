@@ -233,7 +233,7 @@ void SnakeObject::Update()
 //RENDER
 void SnakeObject::Render()
 {
-	SDL_RenderCopy(Game::mainGameRender, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::mainGameRender, currentObjectTexture, &srcRect, &destRect);
 	DrawMap(Level);
 }
 

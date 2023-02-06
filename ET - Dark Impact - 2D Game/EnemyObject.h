@@ -8,6 +8,7 @@ class EnemyObject
 {
 public:
 	//Podstawowe
+	EnemyObject(unsigned short type);
 	EnemyObject(const char* texturesheet, int x, int y); //Konstruktor wroga
 	EnemyObject(const char* texturesheet); //Konstruktor wroga
 	~EnemyObject(); //Destruktor wroga
@@ -15,6 +16,10 @@ public:
 	void Render(); //Renderowanie wroga
 
 	//Zaawansowane
-	bool sx, sy; //Pomoc przy kierowaniu wrogiem
 	void MoveWithEnemyV1(); //Poruszanie siê wroga
+	void ChangeCurrentTexture(int n);
+	unsigned short type;
+	unsigned int power;
+	bool isMovingRight, isMovingUp; //Pomoc przy kierowaniu wrogiem
+	
 };

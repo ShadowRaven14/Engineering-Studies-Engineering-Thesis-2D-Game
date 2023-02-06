@@ -6,18 +6,20 @@ GameLevelManager::GameLevelManager()
 
 	mainHero = new HeroObject("Images/ElvenTracker.png", new Point(640, 448));
 
-	basicLevel = new GameLevel(
+	startLevel = new GameLevel(
+		0,
 		"Hi! Welcome to level first!",
 		new SDL_Color{ 255, 255, 0 },
 		"Maps/StartingMap.txt",
 		new Point(640, 448),
 		"Images/ElvenTracker.png",
 		"Images/PortalBlue.png",
-		"Images/HumanMageBlue.png",
+		"Images/HumanMageBlue_GoRight.png",
 		"Images/WoodenChest.png",
 		"Images/Coin.png");
 
-	secondLevel = new GameLevel(
+	firstLevel = new GameLevel(
+		1,
 		"Hi! Welcome to level second!",
 		new SDL_Color{ 255, 0, 255 },
 		"Maps/Test.txt",
@@ -28,7 +30,8 @@ GameLevelManager::GameLevelManager()
 		"Images/WoodenChest.png",
 		"Images/Coin.png");
 
-	thirdLevel = new GameLevel(
+	secondLevel = new GameLevel(
+		2,
 		"Hi! Welcome to level third!",
 		new SDL_Color{ 0, 255, 255 },
 		"Maps/Exported.txt",
@@ -39,7 +42,9 @@ GameLevelManager::GameLevelManager()
 		"Images/WoodenChest.png",
 		"Images/Coin.png");
 
+	//Tutaj bêdziemy podstawiaæ aktualny poziom
 	currentLevel = new GameLevel(
+		99,
 		"Simple text.",
 		new SDL_Color{ 255, 255, 255 },
 		"Maps/Exported.txt",
@@ -50,7 +55,7 @@ GameLevelManager::GameLevelManager()
 		"Images/AppleGolden.png",
 		"Images/AppleGolden.png");
 
-	ChangeCurrentLevel(basicLevel);
+	ChangeCurrentLevel(startLevel);
 	currentLevelID = 0;
 }
 
@@ -62,7 +67,6 @@ void GameLevelManager::Update()
 	HeroCollideWithChest();
 	HeroCollideWithEnemy(); //Znikaj¹ na wszystkich mapach
 	HeroCollideWithTeleport();
-	//std::cout << currentLevel->welcomeInfo << std::endl;
 }
 
 void GameLevelManager::Render()
@@ -83,9 +87,9 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 
 void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 {
-	std::cout << "Change level." << std::endl;
 	currentLevel = newLevel;
 	mainHero->MoveHeroToPoint(currentLevel->startingPoint);
+	std::cout << "Change level. Current Level ID = " << currentLevel->levelID << "." << std::endl;
 }
 
 
@@ -133,7 +137,7 @@ void GameLevelManager::HeroCollideWithChest()
 
 						if (mainHero->HandleChestCollision() == true)
 						{
-							currentLevel->basicChests[i]->objTexture = ImageTextureManager::LoadTexture("Images/WoodenChest_Open.png");
+							currentLevel->basicChests[i]->currentObjectTexture = ImageTextureManager::LoadTexture("Images/WoodenChest_Open.png");
 							mainHero->cordsOfHero.input = NULL;
 						}
 						currentLevel->basicChests[i]->isOpen = true;
@@ -157,7 +161,8 @@ void GameLevelManager::HeroCollideWithEnemy()
 				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);
 
-				if (mainHero->HandleEnemyCollision(5) == true)
+				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
+				if (mainHero->HandleEnemyCollision(currentLevel->basicEnemies[i]->power) == true)
 				{
 					currentLevel->basicEnemies.erase(currentLevel->basicEnemies.begin() + i); i--;
 					
@@ -185,19 +190,19 @@ void GameLevelManager::HeroCollideWithTeleport()
 					switch (currentLevelID)
 					{
 					case 0:
-						ChangeCurrentLevel(basicLevel);
+						ChangeCurrentLevel(startLevel);
 						break;
 
 					case 1:
-						ChangeCurrentLevel(secondLevel);
+						ChangeCurrentLevel(firstLevel);
 						break;
 
 					case 2:
-						ChangeCurrentLevel(thirdLevel);
+						ChangeCurrentLevel(secondLevel);
 						break;
 
 					default:
-						ChangeCurrentLevel(basicLevel);
+						ChangeCurrentLevel(startLevel);
 						currentLevelID = 0;
 						break;
 					}

@@ -17,7 +17,7 @@
 class GameLevel
 {
 public:
-	GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, 
+	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, 
 		const char* bnCoin);
 	GameLevel(const GameLevel &tempLevel);
@@ -27,6 +27,7 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	unsigned short levelID;
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;
 	Point* startingPoint;
@@ -35,7 +36,5 @@ public:
 	std::vector <EnemyObject*> basicEnemies;
 	std::vector <ChestObject*> basicChests;
 	std::vector <CoinObject*> basicCoins;
-
-
 };
 

@@ -8,6 +8,7 @@ class ChestObject
 {
 public:
 	//Podstawowe
+	ChestObject(unsigned short type);
 	ChestObject(const char* texturesheet, int x, int y); //Konstruktor skrzynki
 	ChestObject(const char* texturesheet); //Konstruktor skrzynki
 	~ChestObject(); //Destruktor skrzynki

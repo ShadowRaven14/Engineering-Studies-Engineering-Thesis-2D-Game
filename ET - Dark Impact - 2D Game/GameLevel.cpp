@@ -1,9 +1,12 @@
 #include "GameLevel.h"
 
-GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart, 
+GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 	const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin)
 {
-	std::cout << "THE GAME_LEVEL LOADED." << std::endl;
+	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
+
+	//Identyfikator danego poziomu
+	levelID = bnID;
 
 	//Wyœwietlenie tekstu powitalnego
 	welcomeInfo = bnInfo;
@@ -29,12 +32,13 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	std::cout << n << " enemies spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
-		EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
+		//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
+		EnemyObject* basicEnemy = new EnemyObject(1);
 		basicEnemies.push_back(basicEnemy);
 	}
 
 	//Dodanie elementów do wektora basicChests
-	n = rand() % 9 + 1;
+	n = rand() % 8 + 2;
 	std::cout << n << " chests spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -43,7 +47,7 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 	}
 
 	//Dodanie elementów do wektora basicCoins
-	n = rand() % 19 + 1;
+	n = rand() % 10 + 10;
 	std::cout << n << " coins spawn." << std::endl;
 	for (int i = 0; i < n; i++)
 	{
@@ -56,6 +60,8 @@ GameLevel::GameLevel(const char* bnInfo, SDL_Color* bnColor, std::string bnMap, 
 GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy GameLevel.";
+
+	levelID = tempLevel.levelID;
 
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
@@ -71,6 +77,8 @@ GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 {
 	std::cout << "Przeci¹¿enie operatora '='.";
+
+	levelID = tempLevel.levelID;
 
 	welcomeInfo = tempLevel.welcomeInfo;
 	welcomeColor = tempLevel.welcomeColor;
@@ -88,6 +96,8 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 {
 	std::cout << "Przeci¹¿enie operatora '='.";
+
+	levelID = tempLevel->levelID;
 
 	welcomeInfo = tempLevel->welcomeInfo;
 	welcomeColor = tempLevel->welcomeColor;

@@ -1,5 +1,26 @@
 #include "HeroObject.h"
 
+HeroObject::HeroObject(unsigned short type)
+{
+	switch (type)
+	{
+	case 1:
+		const char* tex1 = "Images/ElvenTracker_GoRight.png";
+		const char* tex2 = "Images/ElvenTracker.png";
+		usableTextures.push_back(tex1);
+		usableTextures.push_back(tex2);
+		break;
+
+	default:
+		std::cout << "Error: Type Construktor." << std::endl;
+		break;
+	}
+
+	BasicInit(usableTextures[0],
+		(Game::windowX - (srcRect.w / 2)) / 2,
+		(Game::windowY - (srcRect.h / 2)) / 2);
+}
+
 //PODSTAWOWE
 //Konstruktor bohatera
 HeroObject::HeroObject(const char* texturesheet, int x, int y)
@@ -16,7 +37,7 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
-	objTexture = tempHero.objTexture;
+	currentObjectTexture = tempHero.currentObjectTexture;
 	cordsOfHero = tempHero.cordsOfHero;
 
 	HeroName = tempHero.HeroName;
@@ -34,7 +55,7 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
-	objTexture = tempHero.objTexture;
+	currentObjectTexture = tempHero.currentObjectTexture;
 	cordsOfHero = tempHero.cordsOfHero;
 
 	HeroName = tempHero.HeroName;
@@ -54,7 +75,7 @@ HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
-	objTexture = tempHero->objTexture;
+	currentObjectTexture = tempHero->currentObjectTexture;
 	cordsOfHero = tempHero->cordsOfHero;
 
 	HeroName = tempHero->HeroName;
@@ -96,7 +117,7 @@ void HeroObject::MoveWithHero()
 	cordsOfHero = KeyboardManager::HandleKeyboard(cordsOfHero);
 
 	//Podmiana tekstury w razie koniecznoœci
-	objTexture = ImageTextureManager::LoadTexture(cordsOfHero.image);
+	currentObjectTexture = ImageTextureManager::LoadTexture(cordsOfHero.image);
 }
 
 void HeroObject::MoveHeroToPoint(Point* point)

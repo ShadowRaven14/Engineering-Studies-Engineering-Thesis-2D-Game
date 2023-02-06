@@ -6,6 +6,7 @@ class TeleportObject :
 {
 public:
 	//Podstawowe
+	TeleportObject(unsigned short type);
 	TeleportObject(const char* texturesheet, int x, int y, int des); //Konstruktor bohatera
 	TeleportObject(const char* texturesheet, Point* point, int des); //Konstruktor bohatera
 	TeleportObject(const TeleportObject& tempObject);

@@ -3,7 +3,7 @@
 //Tworzenie obiektu
 void _VirtualObject::BasicInit(const char* texturesheet, int x, int y)
 {
-	objTexture = ImageTextureManager::LoadTexture(texturesheet);
+	currentObjectTexture = ImageTextureManager::LoadTexture(texturesheet);
 	cordsOfObject.x = x; cordsOfObject.y = y;
 }
 
@@ -24,7 +24,7 @@ void _VirtualObject::BasicUpdate()
 //Renderowanie obiektu
 void _VirtualObject::BasicRender()
 {
-	SDL_RenderCopy(Game::mainGameRender, objTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::mainGameRender, currentObjectTexture, &srcRect, &destRect);
 }
 
 //Generowanie losowej pozycji

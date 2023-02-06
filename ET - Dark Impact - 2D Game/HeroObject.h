@@ -9,6 +9,7 @@ class HeroObject
 {
 public:
 	//Podstawowe
+	HeroObject(unsigned short type);
 	HeroObject(const char* texturesheet, int x, int y); //Konstruktor bohatera
 	HeroObject(const char* texturesheet, Point* point); //Konstruktor bohatera
 	HeroObject(const _VirtualObject& tempObject);

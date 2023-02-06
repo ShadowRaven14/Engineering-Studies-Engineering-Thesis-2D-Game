@@ -21,7 +21,7 @@ public:
 
 private:
 	HeroObject* mainHero;
-	GameLevel* basicLevel, * secondLevel, * thirdLevel;
+	GameLevel* startLevel, * firstLevel, * secondLevel;
 	GameLevel* currentLevel;
 	short currentLevelID;
 };

@@ -1,16 +1,62 @@
 #include "EnemyObject.h"
 
 //Konstruktor wroga
+EnemyObject::EnemyObject(unsigned short type)
+{
+	const char* tempTex;
+
+	switch (type)
+	{
+	case 1:
+		power = 5;
+		tempTex = "Images/HumanMageRed_GoRight.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/HumanMageRed.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/Apple.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 2:
+		power = 10;
+		tempTex = "Images/HumanMageBlue_GoRight.png";
+		tex2 = "Images/HumanMageBlue.png";
+		tex3 = "Images/Apple.png";
+		usableTextures.push_back(tempTex);
+		usableTextures.push_back(tex2);
+		usableTextures.push_back(tex3);
+		break;
+
+	case 3:
+		power = 15;
+		tempTex = "Images/HumanMageGreen_GoRight.png";
+		tex2 = "Images/HumanMageGreen.png";
+		tex3 = "Images/Apple.png";
+		usableTextures.push_back(tempTex);
+		usableTextures.push_back(tex2);
+		usableTextures.push_back(tex3);
+		break;
+
+	default:
+		std::cout << "Error: Type Construktor." << std::endl;
+		break;
+	}
+	
+	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
+
+	isMovingRight = isMovingUp = true;
+}
+
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
 	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
-	sx = sy = true;
+	isMovingRight = isMovingUp = true;
 }
 
 EnemyObject::EnemyObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet); //Podstawowa funkcja z klasy interfejsu
-	sx = sy = true;
+	isMovingRight = isMovingUp = true;
 }
 
 //Aktualizacja wroga
@@ -29,20 +75,20 @@ void EnemyObject::Render()
 //Poruszanie siê wroga
 void EnemyObject::MoveWithEnemyV1()
 {
-	if (cordsOfObject.x >= Game::windowX - 64) //1248
+
+	if (cordsOfObject.x <= 64)
 	{
-		sx = false;
-		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue.png");
+		isMovingRight = true;
+		currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[0]);
+	}
+	else if (cordsOfObject.x >= Game::windowX - 64) //1248
+	{
+		isMovingRight = false;
+		currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[1]);
 
 	}
-	else if (cordsOfObject.x <= 64)
-	{
-		sx = true;
-		objTexture = ImageTextureManager::LoadTexture("Images/HumanMageBlue_GoRight.png");
-	}
-		
 
-	switch (sx)
+	switch (isMovingRight)
 	{
 	case true:
 		cordsOfObject.x = cordsOfObject.x + 4;
@@ -54,14 +100,14 @@ void EnemyObject::MoveWithEnemyV1()
 	}
 	
 
-	if (cordsOfObject.y >= Game::windowY - 64) //864
-		sy = false;
-		
-	else if (cordsOfObject.y <= 64)
-		sy = true;
+	if (cordsOfObject.y <= 64)
+		isMovingUp = true;
+
+	else if (cordsOfObject.y >= Game::windowY - 64) //864
+		isMovingUp = false;
 		
 
-	switch (sy)
+	switch (isMovingUp)
 	{
 	case true:
 		cordsOfObject.y = cordsOfObject.y + 4;
@@ -71,4 +117,9 @@ void EnemyObject::MoveWithEnemyV1()
 		cordsOfObject.y = cordsOfObject.y - 4;
 		break;
 	}
+}
+
+void EnemyObject::ChangeCurrentTexture(int n)
+{
+	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[n]);
 }
