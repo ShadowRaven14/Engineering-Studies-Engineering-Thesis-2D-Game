@@ -16,5 +16,6 @@ public:
 	void Render(); //Renderowanie skrzynki
 
 	bool isOpen;
+	short worth;
 };
 

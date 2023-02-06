@@ -9,7 +9,7 @@ public:
 	HeroStatistics();
 	bool IsHeroAlive();
 	bool HandleEnemyCollision(int power);
-	bool HandleChestCollision();
+	bool HandleChestCollision(short worth);
 	bool HandleCoinCollision();
 	void ShowCurrentStatistics();
 	

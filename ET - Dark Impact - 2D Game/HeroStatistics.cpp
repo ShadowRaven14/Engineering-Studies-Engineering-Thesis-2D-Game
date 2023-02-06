@@ -41,24 +41,24 @@ bool HeroStatistics::HandleEnemyCollision(int power)
 	return false;
 }
 
-bool HeroStatistics::HandleChestCollision()
+bool HeroStatistics::HandleChestCollision(short worth)
 {
 	CollectedChests++;
-	ScorePoints = ScorePoints + 100;
+	ScorePoints = ScorePoints + (worth * 10);
 
 	int r = rand() % 3;
 	switch (r)
 	{
 	case 0:
-		Agility++;
+		Agility = Agility + worth;
 		break;
 
 	case 1:
-		Strength++;
+		Strength = Strength + worth;
 		break;
 
 	case 2:
-		Intelligence++;
+		Intelligence = Intelligence + worth;
 		break;
 
 	default:

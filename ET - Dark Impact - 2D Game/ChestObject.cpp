@@ -7,7 +7,16 @@ ChestObject::ChestObject(unsigned short type)
 	switch (type)
 	{
 	case 1:
+		worth = 5;
 		tempTex = "Images/ChestWooden_Closed.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/ChestWooden_Open.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 2:
+		worth = 10;
+		tempTex = "Images/ChestIron_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/ChestWooden_Open.png";
 		usableTextures.push_back(tempTex);

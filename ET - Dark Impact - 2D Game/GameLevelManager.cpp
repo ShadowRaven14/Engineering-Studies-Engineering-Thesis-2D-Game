@@ -170,7 +170,7 @@ void GameLevelManager::HeroCollideWithChest()
 						std::cout << "Chest has been collected!" << std::endl;
 						SDL_Delay(10);
 
-						if (mainHero->HandleChestCollision() == true)
+						if (mainHero->HandleChestCollision(currentLevel->basicChests[i]->worth) == true)
 						{
 							currentLevel->basicChests[i]->currentObjectTexture = 
 								ImageTextureManager::LoadTexture(currentLevel->basicChests[i]->usableTextures[1]);

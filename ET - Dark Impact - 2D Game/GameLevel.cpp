@@ -50,7 +50,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " chests spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = 1;
+		rand_type = rand() % 2 + 1;
 		ChestObject* basicChest = new ChestObject(rand_type);
 		basicChests.push_back(basicChest);
 	}
