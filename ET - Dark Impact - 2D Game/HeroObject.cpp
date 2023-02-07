@@ -6,7 +6,7 @@ HeroObject::HeroObject(unsigned short type)
 
 	switch (type)
 	{
-	case 1:
+	case 0:
 		tempTex = "Images/ElvenTracker_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/ElvenTracker_GoLeft.png";

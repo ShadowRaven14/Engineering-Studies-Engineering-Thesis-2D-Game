@@ -6,13 +6,13 @@ PotionObject::PotionObject(unsigned short type)
 
 	switch (type)
 	{
-	case 1:
+	case 0:
 		power = 10;
 		tempTex = "Images/PotionHealth.png";
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 2:
+	case 1:
 		power = 10;
 		tempTex = "Images/PotionMana.png";
 		usableTextures.push_back(tempTex);

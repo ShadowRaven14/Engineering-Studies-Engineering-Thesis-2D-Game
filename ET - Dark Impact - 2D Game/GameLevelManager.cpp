@@ -5,7 +5,7 @@ GameLevelManager::GameLevelManager()
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
 	//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
-	mainHero = new HeroObject(1);
+	mainHero = new HeroObject(0);
 
 	//Poziom Startowy, od niego zaczynamy
 	basicGameLevels.push_back(
@@ -41,7 +41,6 @@ GameLevelManager::GameLevelManager()
 void GameLevelManager::Update()
 {
 	basicGameLevels[currentLevelID]->Update();
-	//currentLevel->Update();
 	mainHero->Update();
 	HeroCollideWithTeleport();
 	HeroCollideWithChest();

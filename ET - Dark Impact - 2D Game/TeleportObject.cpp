@@ -6,19 +6,19 @@ TeleportObject::TeleportObject(unsigned short type)
 
 	switch (type)
 	{
-	case 1:
+	case 0:
 		destination = 0; //startLevel
 		tempTex = "Images/PortalBlue.png";
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 2:
+	case 1:
 		destination = 1; //firstLevel
 		tempTex = "Images/PortalRed.png";
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 3:
+	case 2:
 		destination = 2; //secondLevel
 		tempTex = "Images/PortalViolet.png";
 		usableTextures.push_back(tempTex);

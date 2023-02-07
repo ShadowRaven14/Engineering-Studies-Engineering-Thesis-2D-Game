@@ -37,12 +37,18 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	int rand_quantity;
 	int rand_type;
 
+	//Tworzymy portal do kolejnego poziomu
+	if (levelID < 2) //Jeœli nie jesteœmy na ostatnim poziomie, tworzymy portal do kolejnego poziomu
+		basicTeleports.push_back(new TeleportObject(levelID + 1));
+	if (levelID > 0) //Jeœli nie jesteœmy na poziomie startowym, tworzymy portal do wczeœniejszego poziomu
+		basicTeleports.push_back(new TeleportObject(levelID - 1));
+
 	//Dodanie elementów do wektora basicTeleports
-	rand_quantity = rand() % 1 + 2;
+	rand_quantity = 0;
 	std::cout << rand_quantity << " portals spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 3 + 1;
+		rand_type = rand() % 3;
 		TeleportObject* basicTeleport = new TeleportObject(rand_type);
 		basicTeleports.push_back(basicTeleport);
 	}
@@ -52,7 +58,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " chests spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2 + 1;
+		rand_type = rand() % 2;
 		ChestObject* basicChest = new ChestObject(rand_type);
 		basicChests.push_back(basicChest);
 	}
@@ -62,7 +68,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " potions spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2 + 1;
+		rand_type = rand() % 2;
 		PotionObject* basicPotion = new PotionObject(rand_type);
 		basicPotions.push_back(basicPotion);
 	}
@@ -72,7 +78,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " coins spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = 1;
+		rand_type = 0;
 		CoinObject* basicCoin = new CoinObject(rand_type);
 		basicCoins.push_back(basicCoin);
 	}
@@ -82,7 +88,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 3 + 1;
+		rand_type = rand() % 3;
 		EnemyObject* basicEnemy = new EnemyObject(rand_type);
 		basicEnemies.push_back(basicEnemy);
 	}

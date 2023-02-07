@@ -7,7 +7,7 @@ CoinObject::CoinObject(unsigned short type)
 
 	switch (type)
 	{
-	case 1:
+	case 0:
 		tempTex = "Images/Coin.png";
 		usableTextures.push_back(tempTex);
 		break;

@@ -7,7 +7,7 @@ EnemyObject::EnemyObject(unsigned short type)
 
 	switch (type)
 	{
-	case 1:
+	case 0:
 		power = 5;
 		tempTex = "Images/HumanMageGreen_GoRight.png";
 		usableTextures.push_back(tempTex);
@@ -17,7 +17,7 @@ EnemyObject::EnemyObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 2:
+	case 1:
 		power = 10;
 		tempTex = "Images/HumanMageBlue_GoRight.png";
 		usableTextures.push_back(tempTex);
@@ -27,7 +27,7 @@ EnemyObject::EnemyObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 3:
+	case 2:
 		power = 15;
 		tempTex = "Images/HumanMageRed_GoRight.png";
 		usableTextures.push_back(tempTex);
