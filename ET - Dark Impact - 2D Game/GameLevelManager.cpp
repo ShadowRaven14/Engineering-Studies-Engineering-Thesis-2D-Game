@@ -4,98 +4,56 @@ GameLevelManager::GameLevelManager()
 {
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
 
-	switch (Game::TestMode)
-	{
-	case true:
-		std::cout << "GAME IN TEST MODE." << std::endl;
+	//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
+	mainHero = new HeroObject(1);
 
-		//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
-		mainHero = new HeroObject("Images/ElvenTracker_GoLeft.png", new Point(640, 448));
+	//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
+	currentLevel = new GameLevel();
 
-		//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
-		currentLevel = new GameLevel();
+	//Poziom Startowy, od niego zaczynamy
+	GameLevel* tempLevel1 = new GameLevel(
+		0, "Hi! Welcome to start level!",
+		new SDL_Color{ 255, 255, 0 },
+		"Maps/StartingMap.txt",
+		new Point(640, 448));
 
-		//Poziom Startowy, od niego zaczynamy
-		startLevel = new GameLevel(
-			0,
-			"Hi! Welcome to start level!",
-			new SDL_Color{ 255, 255, 0 },
-			"Maps/StartingMap.txt",
-			new Point(640, 448),
-			"Images/ElvenTracker_GoLeft.png",
-			"Images/PortalBlue.png",
-			"Images/HumanMageBlue_GoLeft.png",
-			"Images/WoodenChest_GoLeft.png",
-			"Images/Coin.png");
+	basicGameLevels.push_back(
+		new GameLevel(
+		0, "Hi! Welcome to start level!",
+		new SDL_Color{ 255, 255, 0 },
+		"Maps/StartingMap.txt",
+		new Point(640, 448))
+	);
+	//delete tempLevel1;
 
-		//Poziom Pierwszy 
-		firstLevel = new GameLevel(
-			1,
-			"Hi! Welcome to first level!",
-			new SDL_Color{ 255, 0, 255 },
-			"Maps/Test.txt",
-			new Point(640, 448),
-			"Images/ElvenTracker_GoLeft.png",
-			"Images/PortalRed.png",
-			"Images/HumanMageGreen_GoLeft.png",
-			"Images/WoodenChest_GoLeft.png",
-			"Images/Coin.png");
+	//Poziom Pierwszy 
+	GameLevel* tempLevel2 = new GameLevel(
+		1, "Hi! Welcome to first level!",
+		new SDL_Color{ 255, 0, 255 },
+		"Maps/Test.txt",
+		new Point(640, 448));
 
-		//Poziom Pierwszy
-		secondLevel = new GameLevel(
-			2,
-			"Hi! Welcome to second level!",
-			new SDL_Color{ 0, 255, 255 },
-			"Maps/Exported.txt",
-			new Point(640, 448),
-			"Images/ElvenTracker_GoLeft.png",
-			"Images/PortalViolet.png",
-			"Images/HumanMageRed_GoLeft.png",
-			"Images/WoodenChest_GoLeft.png",
-			"Images/Coin.png");
+	basicGameLevels.push_back(tempLevel2);
+	//delete tempLevel2;
 
-		break;
+	//Poziom Pierwszy
+	GameLevel* tempLevel3 = new GameLevel(
+		2, "Hi! Welcome to second level!",
+		new SDL_Color{ 0, 255, 255 },
+		"Maps/Exported.txt",
+		new Point(640, 448));
 
-	case false:
-		std::cout << "GAME IN NORMAL-PLAY MODE." << std::endl;
+	basicGameLevels.push_back(tempLevel2);
+	//delete tempLevel3;
 
-		//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
-		mainHero = new HeroObject(1);
-
-		//Poziom Obecny, Tutaj bêdziemy podstawiaæ aktualny poziom
-		currentLevel = new GameLevel();
-
-		//Poziom Startowy, od niego zaczynamy
-		startLevel = new GameLevel(
-			0, "Hi! Welcome to start level!", 
-			new SDL_Color{ 255, 255, 0 },
-			"Maps/StartingMap.txt", 
-			new Point(640, 448));
-
-		//Poziom Pierwszy 
-		firstLevel = new GameLevel(
-			1, "Hi! Welcome to first level!",
-			new SDL_Color{ 255, 0, 255 },
-			"Maps/Test.txt",
-			new Point(640, 448));
-
-		//Poziom Pierwszy
-		secondLevel = new GameLevel(
-			2, "Hi! Welcome to second level!",
-			new SDL_Color{ 0, 255, 255 },
-			"Maps/Exported.txt",
-			new Point(640, 448));
-
-		break;
-	}
-	
 	//Ustawiamy Poziom Obecny na Poziom Startowy
-	ChangeCurrentLevel(startLevel);
+	ChangeCurrentLevel(basicGameLevels[0]);
 	currentLevelID = currentLevel->levelID;
 }
 
 void GameLevelManager::Update()
 {
+	//basicGameLevels[currentLevelID]->Update();
 	currentLevel->Update();
 	mainHero->Update();
 	HeroCollideWithTeleport();
@@ -107,6 +65,7 @@ void GameLevelManager::Update()
 
 void GameLevelManager::Render()
 {
+	//basicGameLevels[currentLevelID]->Render();
 	currentLevel->Render();
 	mainHero->Render();
 }
@@ -129,7 +88,6 @@ void GameLevelManager::ChangeCurrentLevel(GameLevel* newLevel)
 }
 
 
-
 /*
 * ROZPATRZ KOLIZJE
 */
@@ -149,25 +107,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 					currentLevelID = currentLevel->basicTeleports[i]->destination;
 					SDL_Delay(300);
 
-					switch (currentLevelID)
-					{
-					case 0:
-						ChangeCurrentLevel(startLevel);
-						break;
-
-					case 1:
-						ChangeCurrentLevel(firstLevel);
-						break;
-
-					case 2:
-						ChangeCurrentLevel(secondLevel);
-						break;
-
-					default:
-						ChangeCurrentLevel(startLevel);
-						currentLevelID = 0;
-						break;
-					}
+					ChangeCurrentLevel(basicGameLevels[currentLevelID]);
 
 					mainHero->cordsOfHero.input = ' ';
 				}
@@ -272,4 +212,3 @@ void GameLevelManager::HeroCollideWithEnemy()
 		}
 	}
 }
-

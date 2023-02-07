@@ -25,8 +25,10 @@ public:
 
 private:
 	HeroObject* mainHero;
-	GameLevel* startLevel, * firstLevel, * secondLevel;
 	GameLevel* currentLevel;
+	std::vector <GameLevel*> basicGameLevels;
+
+	//GameLevel* startLevel, * firstLevel, * secondLevel;
 	short currentLevelID;
 };
 
