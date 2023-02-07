@@ -10,6 +10,7 @@ GameLevel::GameLevel()
 	//Wyœwietlenie tekstu powitalnego
 	welcomeInfo = nullptr;
 	welcomeColor = nullptr;
+	welcomeFontTexture = nullptr;
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap("Maps/Test.txt");
@@ -26,6 +27,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	//Wyœwietlenie tekstu powitalnego
 	welcomeInfo = bnInfo;
 	welcomeColor = bnColor;
+	welcomeFontTexture = FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor);
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
@@ -97,6 +99,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	//Wyœwietlenie tekstu powitalnego
 	welcomeInfo = bnInfo;
 	welcomeColor = bnColor;
+	welcomeFontTexture = FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor);
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
@@ -211,8 +214,8 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 
 	//Generowanie tekstu powitalnego
-	FontTextureManager::DrawTextTexture(
-		FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
+	/*FontTextureManager::DrawTextTexture(
+		FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));*/
 }
 
 void GameLevel::Render()
@@ -225,6 +228,5 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 
 	//Generowanie tekstu powitalnego
-	FontTextureManager::DrawTextTexture(
-		FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));
+	FontTextureManager::DrawTextTexture(welcomeFontTexture);
 }

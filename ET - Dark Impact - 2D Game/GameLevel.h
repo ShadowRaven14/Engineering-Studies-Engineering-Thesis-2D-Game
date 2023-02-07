@@ -34,6 +34,7 @@ public:
 	unsigned short levelID;
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;
+	SDL_Texture* welcomeFontTexture;
 	Point* startingPoint;
 	BackgroundMap* basicMap;
 	std::vector <TeleportObject*> basicTeleports;
