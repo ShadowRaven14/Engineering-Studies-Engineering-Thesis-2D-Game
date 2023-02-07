@@ -15,7 +15,6 @@ public:
 	void Render(); //Renderowanie
 
 	Point TranslatePoint(SDL_Rect currentPoint);
-	void ChangeCurrentLevel(GameLevel* newLevel); //Zmiana obecnego poziomu
 
 	void HeroCollideWithTeleport();
 	void HeroCollideWithChest();
@@ -25,10 +24,7 @@ public:
 
 private:
 	HeroObject* mainHero;
-	GameLevel* currentLevel;
-	std::vector <GameLevel*> basicGameLevels;
-
-	//GameLevel* startLevel, * firstLevel, * secondLevel;
 	short currentLevelID;
+	std::vector <GameLevel*> basicGameLevels;
 };
 

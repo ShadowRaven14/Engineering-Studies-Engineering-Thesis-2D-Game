@@ -38,7 +38,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	int rand_type;
 
 	//Dodanie elementów do wektora basicTeleports
-	rand_quantity = rand() % 1 + 3;
+	rand_quantity = rand() % 1 + 2;
 	std::cout << rand_quantity << " portals spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
