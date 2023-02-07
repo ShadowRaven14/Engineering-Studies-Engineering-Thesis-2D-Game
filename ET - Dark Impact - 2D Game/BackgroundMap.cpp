@@ -16,8 +16,8 @@ BackgroundMap::BackgroundMap(std::string mapname)
 	srcRect.x = 0;
 	srcRect.y = 0;
 
-	destRect.h = srcRect.h / 37.5; //Wysokoœæ w grze
-	destRect.w = srcRect.w / 37.5; //Szerokoœæ w grze
+	destRect.h = Game::objectsSize; //srcRect.h / 37.5; //Wysokoœæ w grze
+	destRect.w = Game::objectsSize; //srcRect.w / 37.5; //Szerokoœæ w grze
 	destRect.x = 0;
 	destRect.y = 0;
 }
@@ -51,8 +51,8 @@ void BackgroundMap::DrawMap()
 		{
 			type = map[row][column];
 
-			destRect.x = column * 32;
-			destRect.y = row * 32;
+			destRect.x = column * Game::objectsSize;
+			destRect.y = row * Game::objectsSize;
 
 			switch (type)
 			{

@@ -19,7 +19,7 @@ GameLevelManager::GameLevelManager()
 	//Poziom Pierwszy 
 	basicGameLevels.push_back(
 		new GameLevel(
-			1, "Hi! Welcome to first level!",
+			1, "Hi! Welcome to 1st level!",
 			new SDL_Color{ 255, 0, 255 },
 			"Maps/Test.txt",
 			new Point(640, 448))
@@ -28,7 +28,7 @@ GameLevelManager::GameLevelManager()
 	//Poziom Drugi
 	basicGameLevels.push_back(
 		new GameLevel(
-			2, "Hi! Welcome to second level!",
+			2, "Hi! Welcome to 2st level!",
 			new SDL_Color{ 0, 255, 255 },
 			"Maps/Exported.txt",
 			new Point(640, 448))
@@ -75,9 +75,9 @@ void GameLevelManager::HeroCollideWithTeleport()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicTeleports.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicTeleports[i]->GetDestRect().x) < 32)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicTeleports[i]->GetDestRect().x) < Game::objectsSize)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicTeleports[i]->GetDestRect().y) < 32)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicTeleports[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				//Sprawadzamy, czy zosta³ nacisniêty przycisk 'f'
 				if (mainHero->cordsOfHero.input == 'f')
@@ -102,9 +102,9 @@ void GameLevelManager::HeroCollideWithChest()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicChests.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicChests[i]->GetDestRect().x) < 32)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicChests[i]->GetDestRect().x) < Game::objectsSize)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicChests[i]->GetDestRect().y) < 32)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicChests[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				//Sprawadzamy, czy zosta³ nacisniêty przycisk 'f'
 				if (mainHero->cordsOfHero.input == 'f')
@@ -136,9 +136,9 @@ void GameLevelManager::HeroCollideWithPotion()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicPotions.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().x) < 32)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().x) < Game::objectsSize)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().y) < 32)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				std::cout << "Potion has been collected!" << std::endl;
 				SDL_Delay(10);
@@ -160,9 +160,9 @@ void GameLevelManager::HeroCollideWithCoin()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicCoins.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().x) < 20)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().x) < Game::objectsSize/2)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().y) < 20)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().y) < Game::objectsSize/2)
 			{
 				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);
@@ -183,9 +183,9 @@ void GameLevelManager::HeroCollideWithEnemy()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicEnemies.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().x) < 32)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().x) < Game::objectsSize)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().y) < 32)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
 				SDL_Delay(10);

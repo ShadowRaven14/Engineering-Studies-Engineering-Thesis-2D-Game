@@ -36,8 +36,8 @@ CoinObject::CoinObject(const char* texturesheet)
 void CoinObject::Update()
 {
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	srcRect.h = srcRect.h * 2; //Wysokoœæ w pikselach
-	srcRect.w = srcRect.w * 2; //Szerokoœæ w pikselach
+	//destRect.h = destRect.h * 2; //Wysokoœæ w grze
+	//destRect.w = destRect.w * 2; //Szerokoœæ w grze
 }
 
 //Renderowanie bohatera

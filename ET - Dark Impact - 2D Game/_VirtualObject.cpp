@@ -15,8 +15,8 @@ void _VirtualObject::BasicUpdate()
 	srcRect.x = 0;
 	srcRect.y = 0;
 
-	destRect.h = srcRect.h / 2; //Wysokoœæ w grze
-	destRect.w = srcRect.w / 2; //Szerokoœæ w grze
+	destRect.h = Game::objectsSize; //srcRect.h / 2; //Wysokoœæ w grze
+	destRect.w = Game::objectsSize; //srcRect.w / 2; //Szerokoœæ w grze
 	destRect.x = cordsOfObject.x; //Punkt na mapie wzglêdem X
 	destRect.y = cordsOfObject.y; //Punkt na mapie wzglêdem Y
 }

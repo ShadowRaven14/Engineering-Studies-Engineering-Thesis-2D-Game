@@ -34,6 +34,7 @@ public:
 
 	static bool isGameRunning;
 	static bool TestMode;
+	static int objectsSize;
 	static int windowX, windowY;
 
 private:
