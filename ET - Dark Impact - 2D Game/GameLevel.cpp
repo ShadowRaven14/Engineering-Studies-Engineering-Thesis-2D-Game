@@ -212,10 +212,6 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
-
-	//Generowanie tekstu powitalnego
-	/*FontTextureManager::DrawTextTexture(
-		FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor));*/
 }
 
 void GameLevel::Render()

@@ -50,11 +50,8 @@ SDL_Texture* FontTextureManager::InitTextDisplay(int size, const char* text, SDL
 void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture, SDL_Rect srcRect, SDL_Rect destRect)
 {
 	int texW = 20;  int texH = 20;
-	int displayTextX = 0; int displayTextY = 0;
 	SDL_QueryTexture(textTexture, NULL, NULL, &texW, &texH);
-	SDL_Rect dstrect = { displayTextX, displayTextY, texW, texH };
-	SDL_RenderCopy(Game::mainGameRender, textTexture, NULL, &dstrect); //SDL_TTF
-	//SDL_RenderCopy(Game::mainGameRender, textTexture, &srcRect, &destRect);
+	SDL_RenderCopy(Game::mainGameRender, textTexture, &srcRect, &destRect); //SDL_TTF
 }
 
 void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture)
