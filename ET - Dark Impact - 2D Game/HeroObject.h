@@ -3,9 +3,10 @@
 #pragma once
 #include "_VirtualObject.h"
 #include "HeroStatistics.h"
+#include "HeroKeyboardHandler.h"
 
 class HeroObject
-	: public virtual _VirtualObject, public HeroStatistics
+	: public virtual _VirtualObject, public HeroStatistics, public HeroKeyboardHandler
 {
 public:
 	//Podstawowe
@@ -23,5 +24,6 @@ public:
 	//Zaawansowane
 	void MoveWithHero(); //Poruszanie siê bohaterem
 	void MoveHeroToPoint(Point* point); //Poruszanie siê bohaterem
-	CoordinatesOfHero cordsOfHero; //Bohater na mapie
+
+	//static int speed;
 };

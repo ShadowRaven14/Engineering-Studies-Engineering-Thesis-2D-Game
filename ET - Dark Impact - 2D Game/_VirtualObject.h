@@ -3,7 +3,7 @@
 #pragma once
 #include "Game.h"
 #include "ImageTextureManager.h"
-#include "KeyboardManager.h"
+#include "Point.h"
 
 class _VirtualObject
 {

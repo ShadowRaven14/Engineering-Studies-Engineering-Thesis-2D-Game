@@ -44,7 +44,6 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero.currentObjectTexture;
-	cordsOfHero = tempHero.cordsOfHero;
 
 	HeroName = tempHero.HeroName;
 	HeroHealthPoints = tempHero.HeroHealthPoints;
@@ -56,13 +55,19 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 	CollectedChests = tempHero.CollectedChests;
 	CollectedCoins = tempHero.CollectedCoins;
 	SlayedEnemies = tempHero.SlayedEnemies;
+
+	//cordsOfHero = tempHero.cordsOfHero;
+	pointInMap.x = tempHero.pointInMap.x;
+	pointInMap.y = tempHero.pointInMap.y;
+	inputFromKeyboard = tempHero.inputFromKeyboard;
+	textureNumber = tempHero.textureNumber;
+	speedShift = tempHero.speedShift;
 }
 
 HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero.currentObjectTexture;
-	cordsOfHero = tempHero.cordsOfHero;
 
 	HeroName = tempHero.HeroName;
 	HeroHealthPoints = tempHero.HeroHealthPoints;
@@ -74,6 +79,13 @@ HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 	CollectedChests = tempHero.CollectedChests;
 	CollectedCoins = tempHero.CollectedCoins;
 	SlayedEnemies = tempHero.SlayedEnemies;
+
+	//cordsOfHero = tempHero.cordsOfHero;
+	pointInMap.x = tempHero.pointInMap.x;
+	pointInMap.y = tempHero.pointInMap.y;
+	inputFromKeyboard = tempHero.inputFromKeyboard;
+	textureNumber = tempHero.textureNumber;
+	speedShift = tempHero.speedShift;
 
 	return *this;
 }
@@ -82,7 +94,6 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero->currentObjectTexture;
-	cordsOfHero = tempHero->cordsOfHero;
 
 	HeroName = tempHero->HeroName;
 	HeroHealthPoints = tempHero->HeroHealthPoints;
@@ -95,6 +106,13 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 	CollectedCoins = tempHero->CollectedCoins;
 	SlayedEnemies = tempHero->SlayedEnemies;
 
+	//cordsOfHero = tempHero->cordsOfHero;
+	pointInMap.x = tempHero->pointInMap.x;
+	pointInMap.y = tempHero->pointInMap.y;
+	inputFromKeyboard = tempHero->inputFromKeyboard;
+	textureNumber = tempHero->textureNumber;
+	speedShift = tempHero->speedShift;
+
 	return *this;
 }
 
@@ -102,8 +120,8 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 void HeroObject::Update()
 {
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	destRect.x = cordsOfHero.point.x; //Punkt na mapie wzglêdem X
-	destRect.y = cordsOfHero.point.y; //Punkt na mapie wzglêdem Y
+	destRect.x = pointInMap.x; //Punkt na mapie wzglêdem X
+	destRect.y = pointInMap.y; //Punkt na mapie wzglêdem Y
 	MoveWithHero();
 }
 
@@ -119,15 +137,16 @@ void HeroObject::Render()
 //Poruszanie siê bohaterem
 void HeroObject::MoveWithHero()
 {
-	// Obs³uguj input z klawiatury
-	cordsOfHero = KeyboardManager::HandleKeyboard(cordsOfHero);
+	//Obs³uguj input z klawiatury
+	HandleKeyboard();
+	//cordsOfHero = HeroKeyboardHandler::HandleKeyboard(cordsOfHero);
 
 	//Podmiana tekstury w razie koniecznoœci
-	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[cordsOfHero.ntexture]);
+	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[textureNumber]);
 }
 
 void HeroObject::MoveHeroToPoint(Point* point)
 {
-	cordsOfHero.point.x = point->x;
-	cordsOfHero.point.y = point->y;
+	pointInMap.x = point->x;
+	pointInMap.y = point->y;
 }

@@ -80,7 +80,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicTeleports[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				//Sprawadzamy, czy zosta³ nacisniêty przycisk 'f'
-				if (mainHero->cordsOfHero.input == 'f')
+				if (mainHero->inputFromKeyboard == 'f')
 				{
 					std::cout << "Collision with Teleport!" << std::endl;
 					SDL_Delay(500);
@@ -90,7 +90,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 					std::cout << "Change level. Current Level ID = " << currentLevelID << "." << std::endl;
 					mainHero->MoveHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
 
-					mainHero->cordsOfHero.input = ' ';	
+					mainHero->inputFromKeyboard = ' ';	
 				}
 			}
 		}
@@ -107,7 +107,7 @@ void GameLevelManager::HeroCollideWithChest()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicChests[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				//Sprawadzamy, czy zosta³ nacisniêty przycisk 'f'
-				if (mainHero->cordsOfHero.input == 'f')
+				if (mainHero->inputFromKeyboard == 'f')
 				{
 					//Upewniamy siê, ¿e skrzynia nie zosta³a ju¿ otwarta
 					if (basicGameLevels[currentLevelID]->basicChests[i]->isOpen == false)
@@ -120,11 +120,11 @@ void GameLevelManager::HeroCollideWithChest()
 						{
 							basicGameLevels[currentLevelID]->basicChests[i]->currentObjectTexture =
 								ImageTextureManager::LoadTexture(basicGameLevels[currentLevelID]->basicChests[i]->usableTextures[1]);
-							mainHero->cordsOfHero.input = NULL;
+							mainHero->inputFromKeyboard = NULL;
 						}
 						basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;
 					}
-					mainHero->cordsOfHero.input = ' ';
+					mainHero->inputFromKeyboard = ' ';
 				}
 			}
 		}

@@ -90,10 +90,7 @@
     <ClCompile Include="GameLevel.cpp">
       <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="KeyboardManager.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="CoordinatesOfHero.cpp">
+    <ClCompile Include="HeroKeyboardHandler.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="AssetsManager.cpp">
@@ -158,10 +155,7 @@
     <ClInclude Include="GameLevel.h">
       <Filter>Header Files\LevelUtilsH</Filter>
     </ClInclude>
-    <ClInclude Include="KeyboardManager.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
-    <ClInclude Include="CoordinatesOfHero.h">
+    <ClInclude Include="HeroKeyboardHandler.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="AssetsManager.h">

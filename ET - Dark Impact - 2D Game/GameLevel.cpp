@@ -213,6 +213,7 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 
 void GameLevel::Update()
 {
+	basicMap->Update();
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
@@ -222,7 +223,7 @@ void GameLevel::Update()
 
 void GameLevel::Render()
 {
-	basicMap->DrawMap();
+	basicMap->Render();
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Render();

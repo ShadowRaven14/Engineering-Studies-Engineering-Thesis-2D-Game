@@ -11,8 +11,11 @@ public:
 	//Podstawowe
 	BackgroundMap(std::string mapname);
 	~BackgroundMap();
+	void Update(); //przesuwaj mapê
+	void Render(); //rysuj mapê
 
 	//Zaawansowane
 	void InitializeTextures(); //inicjalizuj tekstury
-	void DrawMap(); //rysuj mapê
+
+	int shiftX, shiftY;
 };

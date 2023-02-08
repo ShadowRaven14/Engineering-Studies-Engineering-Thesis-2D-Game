@@ -20,6 +20,9 @@ BackgroundMap::BackgroundMap(std::string mapname)
 	destRect.w = Game::objectsSize; //srcRect.w / 37.5; //Szerokoœæ w grze
 	destRect.x = 0;
 	destRect.y = 0;
+
+	shiftX = 0;
+	shiftY = 0;
 }
 
 BackgroundMap::~BackgroundMap()
@@ -28,21 +31,13 @@ BackgroundMap::~BackgroundMap()
 }
 
 
-void BackgroundMap::InitializeTextures()
+void BackgroundMap::Update()
 {
-	blank = ImageTextureManager::LoadTexture("Images/_blank.png");
-	sand = ImageTextureManager::LoadTexture("Images/pix_sand.png");
-	stone = ImageTextureManager::LoadTexture("Images/pix_stone.png");
-	snow = ImageTextureManager::LoadTexture("Images/pix_snow.png");
-	wood = ImageTextureManager::LoadTexture("Images/pix_wood2.png");
-	grass = ImageTextureManager::LoadTexture("Images/pix_grass.png");
-	//dirt = ImageTextureManager::LoadTexture("Textures/pix_brown.png");
-	//water = ImageTextureManager::LoadTexture("Textures/pix_blue.png");
-	//lava = ImageTextureManager::LoadTexture("Textures/pix_red.png");
-
+	//shiftX--;
+	//shiftY--;
 }
 
-void BackgroundMap::DrawMap()
+void BackgroundMap::Render()
 {
 	int type = 0;
 	for (int row = 0; row < 29; row++)
@@ -51,8 +46,8 @@ void BackgroundMap::DrawMap()
 		{
 			type = map[row][column];
 
-			destRect.x = column * Game::objectsSize;
-			destRect.y = row * Game::objectsSize;
+			destRect.x = shiftX + (column * Game::objectsSize);
+			destRect.y = shiftY + (row * Game::objectsSize);
 
 			switch (type)
 			{
@@ -81,4 +76,17 @@ void BackgroundMap::DrawMap()
 			}
 		}
 	}
+}
+
+void BackgroundMap::InitializeTextures()
+{
+	blank = ImageTextureManager::LoadTexture("Images/_blank.png");
+	sand = ImageTextureManager::LoadTexture("Images/pix_sand.png");
+	stone = ImageTextureManager::LoadTexture("Images/pix_stone.png");
+	snow = ImageTextureManager::LoadTexture("Images/pix_snow.png");
+	wood = ImageTextureManager::LoadTexture("Images/pix_wood2.png");
+	grass = ImageTextureManager::LoadTexture("Images/pix_grass.png");
+	//dirt = ImageTextureManager::LoadTexture("Textures/pix_brown.png");
+	//water = ImageTextureManager::LoadTexture("Textures/pix_blue.png");
+	//lava = ImageTextureManager::LoadTexture("Textures/pix_red.png");
 }

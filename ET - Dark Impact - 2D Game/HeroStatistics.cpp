@@ -73,7 +73,7 @@ bool HeroStatistics::HandleChestCollision(short worth)
 bool HeroStatistics::HandlePotionCollision(short power)
 {
 	HeroHealthPoints = HeroHealthPoints + power;
-	std::cout << HeroHealthPoints << std::endl;
+	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
 	return true;
 }
 
