@@ -13,6 +13,8 @@ public:
 	void BasicUpdate(); //Aktualizowanie obiektu
 	void BasicRender(); //Renderowanie obiektu
 	void RandomizeCoordinates(const char* texturesheet); //Generowanie losowej pozycji
+	
+	void MoveObjectBy(int x, int y);
 
 	//Zaawansowane
 	SDL_Rect GetSrcRect();

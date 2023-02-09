@@ -4,7 +4,8 @@
 void _VirtualObject::BasicInit(const char* texturesheet, int x, int y)
 {
 	currentObjectTexture = ImageTextureManager::LoadTexture(texturesheet);
-	cordsOfObject.x = x; cordsOfObject.y = y;
+	cordsOfObject.x = 0; cordsOfObject.y = 0;
+	MoveObjectBy(x, y);
 }
 
 //Aktualizowanie obiektu
@@ -33,6 +34,12 @@ void _VirtualObject::RandomizeCoordinates(const char* texturesheet)
 	int x = rand() % (Game::windowX - 64), y = rand() % (Game::windowY - 64);
 	//std::cout << x << " " << y << std::endl;
 	BasicInit(texturesheet, x, y);
+}
+
+void _VirtualObject::MoveObjectBy(int x, int y)
+{
+	cordsOfObject.x = cordsOfObject.x + x;
+	cordsOfObject.y = cordsOfObject.y + y;
 }
 
 SDL_Rect _VirtualObject::GetSrcRect()

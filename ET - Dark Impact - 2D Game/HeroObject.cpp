@@ -122,7 +122,9 @@ void HeroObject::Update()
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
 	destRect.x = pointInMap.x; //Punkt na mapie wzglêdem X
 	destRect.y = pointInMap.y; //Punkt na mapie wzglêdem Y
-	MoveWithHero();
+
+	HandleKeyboard(); //Obs³uguj input z klawiatury, Poruszanie siê bohaterem
+	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[textureNumber]); //Podmiana tekstury w razie koniecznoœci
 }
 
 //Renderowanie bohatera
@@ -132,20 +134,7 @@ void HeroObject::Render()
 }
 //PODSTAWOWE
 
-
-
-//Poruszanie siê bohaterem
-void HeroObject::MoveWithHero()
-{
-	//Obs³uguj input z klawiatury
-	HandleKeyboard();
-	//cordsOfHero = HeroKeyboardHandler::HandleKeyboard(cordsOfHero);
-
-	//Podmiana tekstury w razie koniecznoœci
-	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[textureNumber]);
-}
-
-void HeroObject::MoveHeroToPoint(Point* point)
+void HeroObject::TeleportHeroToPoint(Point* point)
 {
 	pointInMap.x = point->x;
 	pointInMap.y = point->y;

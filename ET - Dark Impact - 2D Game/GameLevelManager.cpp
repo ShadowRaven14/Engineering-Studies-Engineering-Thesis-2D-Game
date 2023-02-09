@@ -42,6 +42,8 @@ void GameLevelManager::Update()
 {
 	basicGameLevels[currentLevelID]->Update();
 	mainHero->Update();
+	HandleHeroMovement();
+
 	HeroCollideWithTeleport();
 	HeroCollideWithChest();
 	HeroCollideWithPotion();
@@ -55,6 +57,18 @@ void GameLevelManager::Render()
 	mainHero->Render();
 }
 
+void GameLevelManager::HandleHeroMovement()
+{
+	int temp_shiftX = basicGameLevels[currentLevelID]->startingPoint->x - mainHero->pointInMap.x;
+	int temp_shiftY = basicGameLevels[currentLevelID]->startingPoint->y - mainHero->pointInMap.y;
+	BackgroundMap::shiftX = BackgroundMap::shiftX + temp_shiftX;
+	BackgroundMap::shiftY = BackgroundMap::shiftY + temp_shiftY;
+
+	basicGameLevels[currentLevelID]->MoveAllObjectsBy(temp_shiftX, temp_shiftY);
+
+	mainHero->pointInMap.x = basicGameLevels[currentLevelID]->startingPoint->x;
+	mainHero->pointInMap.y = basicGameLevels[currentLevelID]->startingPoint->y;
+}
 
 Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 {
@@ -64,6 +78,7 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 
 	return newcurrentPoint;
 }
+
 
 
 /*
@@ -88,7 +103,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 					//Przenosimy siê na inny Poziom
 					currentLevelID = basicGameLevels[currentLevelID]->basicTeleports[i]->destination;
 					std::cout << "Change level. Current Level ID = " << currentLevelID << "." << std::endl;
-					mainHero->MoveHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
+					mainHero->TeleportHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
 
 					mainHero->inputFromKeyboard = ' ';	
 				}

@@ -31,6 +31,8 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	void MoveAllObjectsBy(int x, int y);
+
 	unsigned short levelID;
 	const char* welcomeInfo;
 	SDL_Color* welcomeColor;

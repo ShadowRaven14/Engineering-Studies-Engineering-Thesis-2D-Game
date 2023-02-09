@@ -6,13 +6,13 @@ HeroKeyboardHandler::HeroKeyboardHandler()
     pointInMap.y = 448;
     inputFromKeyboard = ' ';
     textureNumber = 0;
-    speedShift = 4;
+    speedShift = 6;
 }
 
 //Obs³uga klawiatury
 void HeroKeyboardHandler::HandleKeyboard()
 {
-    int speed = 4;
+    int speed = 6;
     int hero_x_velocity = 0;
     int hero_y_velocity = 0;
     const Uint8* state = SDL_GetKeyboardState(NULL);
@@ -25,6 +25,9 @@ void HeroKeyboardHandler::HandleKeyboard()
 
     if (state[SDL_SCANCODE_LSHIFT])
         speed = speed * 2;
+
+    if (state[SDL_SCANCODE_LCTRL])
+        speed = speed / 2;
 
     if (state[SDL_SCANCODE_W])
     {

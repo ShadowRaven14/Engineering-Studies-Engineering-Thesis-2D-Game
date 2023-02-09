@@ -17,5 +17,5 @@ public:
 	//Zaawansowane
 	void InitializeTextures(); //inicjalizuj tekstury
 
-	int shiftX, shiftY;
+	static int shiftX, shiftY;
 };

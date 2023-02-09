@@ -22,8 +22,7 @@ public:
 	void Render(); //Renderowanie bohatera
 
 	//Zaawansowane
-	void MoveWithHero(); //Poruszanie siê bohaterem
-	void MoveHeroToPoint(Point* point); //Poruszanie siê bohaterem
+	void TeleportHeroToPoint(Point* point); //Poruszanie siê bohaterem
 
 	//static int speed;
 };

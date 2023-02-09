@@ -3,6 +3,9 @@
 #include <fstream>
 #include <string>
 
+int BackgroundMap::shiftX = 0;
+int BackgroundMap::shiftY = 0;
+
 BackgroundMap::BackgroundMap(std::string mapname)
 {
 	std::cout << "THE MAP HAS BEEN CREATED." << std::endl;

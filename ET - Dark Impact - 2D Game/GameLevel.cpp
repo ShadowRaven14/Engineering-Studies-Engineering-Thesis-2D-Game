@@ -233,3 +233,12 @@ void GameLevel::Render()
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(welcomeFontTexture);
 }
+
+void GameLevel::MoveAllObjectsBy(int x, int y)
+{
+	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->MoveObjectBy(x,y);
+	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->MoveObjectBy(x, y);
+}

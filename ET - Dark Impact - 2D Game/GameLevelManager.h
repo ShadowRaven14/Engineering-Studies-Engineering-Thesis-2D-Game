@@ -14,6 +14,7 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	void HandleHeroMovement();
 	Point TranslatePoint(SDL_Rect currentPoint);
 
 	void HeroCollideWithTeleport();
