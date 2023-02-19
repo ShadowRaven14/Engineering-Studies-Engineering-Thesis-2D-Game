@@ -13,9 +13,9 @@ GameLevelManager::GameLevelManager()
 			0, "Hi! Welcome to start level!",
 			new SDL_Color{ 255, 255, 0 },
 			"Maps/StartingMap.txt",
-			new Point(640, 448))
+			new Point(640, 448)) //new Point(BackgroundMap::mapX / 2, BackgroundMap::mapY / 2))
 	);
-
+	
 	//Poziom Pierwszy 
 	basicGameLevels.push_back(
 		new GameLevel(
@@ -36,6 +36,15 @@ GameLevelManager::GameLevelManager()
 
 	//Ustawiamy ID tak aby wskaza³o Poziom na którym jesteœmy
 	currentLevelID = 0;
+
+	std::cout << "mainHero->pointInGame: " << mainHero->pointInGame.x << " " << mainHero->pointInGame.y << std::endl;
+	std::cout << "middleOFmap: " << BackgroundMap::middleOFmap.x << " " << BackgroundMap::middleOFmap.y << std::endl;
+
+	int tempShiftX = BackgroundMap::middleOFmap.x - mainHero->pointInGame.x;
+	BackgroundMap::mapShiftX = BackgroundMap::mapShiftX - tempShiftX;
+
+	int tempShiftY = BackgroundMap::middleOFmap.y - mainHero->pointInGame.y;
+	BackgroundMap::mapShiftY = BackgroundMap::mapShiftY - tempShiftY;
 }
 
 void GameLevelManager::Update()
@@ -59,15 +68,50 @@ void GameLevelManager::Render()
 
 void GameLevelManager::HandleHeroMovement()
 {
-	int temp_shiftX = basicGameLevels[currentLevelID]->startingPoint->x - mainHero->pointInMap.x;
-	int temp_shiftY = basicGameLevels[currentLevelID]->startingPoint->y - mainHero->pointInMap.y;
-	BackgroundMap::shiftX = BackgroundMap::shiftX + temp_shiftX;
-	BackgroundMap::shiftY = BackgroundMap::shiftY + temp_shiftY;
+	//std::cout << "heroInMap: " << BackgroundMap::heroInMap.x << " " << BackgroundMap::heroInMap.y << std::endl;
 
-	basicGameLevels[currentLevelID]->MoveAllObjectsBy(temp_shiftX, temp_shiftY);
+	int tempShiftX = basicGameLevels[currentLevelID]->startingPoint->x - mainHero->pointInGame.x;
+	
+	
 
-	mainHero->pointInMap.x = basicGameLevels[currentLevelID]->startingPoint->x;
-	mainHero->pointInMap.y = basicGameLevels[currentLevelID]->startingPoint->y;
+	if (BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x < distanceToEdge.x)
+	{
+		BackgroundMap::mapShiftX = BackgroundMap::mapShiftX + tempShiftX;
+		//std::cout << "NIEEE " << mainHero->pointInGame.x / 2 << std::endl;
+		mainHero->pointInGame.x = basicGameLevels[currentLevelID]->startingPoint->x;
+		basicGameLevels[currentLevelID]->MoveAllObjectsBy(tempShiftX, 0);
+		//BackgroundMap::heroInMap.x = BackgroundMap::heroInMap.x - tempShiftX;
+	}
+	else
+	{
+		//std::cout << "TAAAK " << mainHero->pointInGame.x/2 << std::endl;
+		//std::cout << "mainHero->pointInMap: " << mainHero->pointInGame.x << " " << mainHero->pointInGame.y << std::endl;
+		//mainHero->pointInGame.x = BackgroundMap::heroInMap.x - mainHero->pointInGame.x;
+		BackgroundMap::heroInMap.x = BackgroundMap::heroInMap.x + tempShiftX;
+	}
+
+
+
+	int tempShiftY = basicGameLevels[currentLevelID]->startingPoint->y - mainHero->pointInGame.y;
+	
+	
+
+	if (BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y < distanceToEdge.y)
+	{
+		BackgroundMap::mapShiftY = BackgroundMap::mapShiftY + tempShiftY;
+		mainHero->pointInGame.y = basicGameLevels[currentLevelID]->startingPoint->y;
+		basicGameLevels[currentLevelID]->MoveAllObjectsBy(0, tempShiftY);
+		//BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y + tempShiftY;
+	}
+	else
+	{
+		//std::cout << "YYY" << mainHero->pointInGame.y/2 << std::endl;
+		BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y + tempShiftY;
+	}
+	
+	
+
+	std::cout << "TWIERDZENIE: " << BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x << " " << BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y << std::endl;
 }
 
 Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)

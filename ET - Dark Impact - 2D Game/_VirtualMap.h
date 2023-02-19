@@ -13,7 +13,7 @@ public:
 	void ExportMapToTxt(std::string name); //zapisz mapê w pliku txt
 
 protected:
-	int map[29][45]; //mapa
+	int map[29][41]; //mapa
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 
 	//Zmienne tekstur

@@ -43,7 +43,7 @@ void Game::Init(const char* title, int width, int height, bool fullscreen)
 		mainGameRender = SDL_CreateRenderer(mainGameWindow, -1, 0);
 
 		if (mainGameRender) 
-			SDL_SetRenderDrawColor(mainGameRender, 255, 255, 255, 255);
+			SDL_SetRenderDrawColor(mainGameRender, 10, 10, 10, 10);
 
 		isGameRunning = true;
 	}

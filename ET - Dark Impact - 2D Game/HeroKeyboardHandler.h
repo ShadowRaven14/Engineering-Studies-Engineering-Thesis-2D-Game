@@ -12,7 +12,7 @@ public:
 	HeroKeyboardHandler();
 	void HandleKeyboard(); //Obs³uga klawiatury
 
-	Point pointInMap; //pozycja na mapie wzglêdem osi xy
+	Point pointInGame; //pozycja na mapie wzglêdem osi xy
 	char inputFromKeyboard; //obecny klawisz
 	short textureNumber; //numer tekstory
 	int speedShift; //szybkoœæ postaci

@@ -2,6 +2,7 @@
 
 #pragma once
 #include "Game.h"
+#include "Point.h"
 #include "_VirtualMap.h"
 
 class BackgroundMap :
@@ -17,5 +18,9 @@ public:
 	//Zaawansowane
 	void InitializeTextures(); //inicjalizuj tekstury
 
-	static int shiftX, shiftY;
+	static Point middleOFmap;
+	static Point heroInMap;
+	static int mapShiftX, mapShiftY;
+	static int mapX, mapY;
+	static int mapCurrentX, mapCurrentY;
 };

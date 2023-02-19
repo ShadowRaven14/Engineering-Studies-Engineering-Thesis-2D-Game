@@ -15,6 +15,8 @@ public:
 	void Render(); //Renderowanie
 
 	void HandleHeroMovement();
+	const Point distanceToEdge = Point(320, 224);
+
 	Point TranslatePoint(SDL_Rect currentPoint);
 
 	void HeroCollideWithTeleport();

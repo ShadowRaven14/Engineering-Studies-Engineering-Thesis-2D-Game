@@ -2,8 +2,8 @@
 
 HeroKeyboardHandler::HeroKeyboardHandler()
 {
-    pointInMap.x = 640;
-    pointInMap.y = 448;
+    pointInGame.x = 640;
+    pointInGame.y = 448;
     inputFromKeyboard = ' ';
     textureNumber = 0;
     speedShift = 6;
@@ -56,7 +56,7 @@ void HeroKeyboardHandler::HandleKeyboard()
         inputFromKeyboard = 'f';
     }
 
-    pointInMap.x += hero_x_velocity;
-    pointInMap.y += hero_y_velocity;
+    pointInGame.x += hero_x_velocity;
+    pointInGame.y += hero_y_velocity;
     speedShift = speed;
 }

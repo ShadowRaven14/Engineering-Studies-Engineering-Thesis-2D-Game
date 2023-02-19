@@ -57,8 +57,8 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 	SlayedEnemies = tempHero.SlayedEnemies;
 
 	//cordsOfHero = tempHero.cordsOfHero;
-	pointInMap.x = tempHero.pointInMap.x;
-	pointInMap.y = tempHero.pointInMap.y;
+	pointInGame.x = tempHero.pointInGame.x;
+	pointInGame.y = tempHero.pointInGame.y;
 	inputFromKeyboard = tempHero.inputFromKeyboard;
 	textureNumber = tempHero.textureNumber;
 	speedShift = tempHero.speedShift;
@@ -81,8 +81,8 @@ HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 	SlayedEnemies = tempHero.SlayedEnemies;
 
 	//cordsOfHero = tempHero.cordsOfHero;
-	pointInMap.x = tempHero.pointInMap.x;
-	pointInMap.y = tempHero.pointInMap.y;
+	pointInGame.x = tempHero.pointInGame.x;
+	pointInGame.y = tempHero.pointInGame.y;
 	inputFromKeyboard = tempHero.inputFromKeyboard;
 	textureNumber = tempHero.textureNumber;
 	speedShift = tempHero.speedShift;
@@ -107,8 +107,8 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 	SlayedEnemies = tempHero->SlayedEnemies;
 
 	//cordsOfHero = tempHero->cordsOfHero;
-	pointInMap.x = tempHero->pointInMap.x;
-	pointInMap.y = tempHero->pointInMap.y;
+	pointInGame.x = tempHero->pointInGame.x;
+	pointInGame.y = tempHero->pointInGame.y;
 	inputFromKeyboard = tempHero->inputFromKeyboard;
 	textureNumber = tempHero->textureNumber;
 	speedShift = tempHero->speedShift;
@@ -120,8 +120,9 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 void HeroObject::Update()
 {
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	destRect.x = pointInMap.x; //Punkt na mapie wzglêdem X
-	destRect.y = pointInMap.y; //Punkt na mapie wzglêdem Y
+	//std::cout << "cordsOfObject: " << cordsOfObject.x << " " << cordsOfObject.y << std::endl;
+	destRect.x = pointInGame.x; //Punkt na mapie wzglêdem X
+	destRect.y = pointInGame.y; //Punkt na mapie wzglêdem Y
 
 	HandleKeyboard(); //Obs³uguj input z klawiatury, Poruszanie siê bohaterem
 	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[textureNumber]); //Podmiana tekstury w razie koniecznoœci
@@ -136,6 +137,6 @@ void HeroObject::Render()
 
 void HeroObject::TeleportHeroToPoint(Point* point)
 {
-	pointInMap.x = point->x;
-	pointInMap.y = point->y;
+	pointInGame.x = point->x;
+	pointInGame.y = point->y;
 }

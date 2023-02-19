@@ -3,8 +3,14 @@
 #include <fstream>
 #include <string>
 
-int BackgroundMap::shiftX = 0;
-int BackgroundMap::shiftY = 0;
+int BackgroundMap::mapShiftX = 0;
+int BackgroundMap::mapShiftY = 0;
+int BackgroundMap::mapX = Game::objectsSize * 41;
+int BackgroundMap::mapY = Game::objectsSize * 29;
+//int BackgroundMap::mapCurrentX = (mapX - Game::objectsSize) / 2;
+//int BackgroundMap::mapCurrentY = (mapY - Game::objectsSize) / 2;
+Point BackgroundMap::heroInMap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
+Point BackgroundMap::middleOFmap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
 
 BackgroundMap::BackgroundMap(std::string mapname)
 {
@@ -24,8 +30,8 @@ BackgroundMap::BackgroundMap(std::string mapname)
 	destRect.x = 0;
 	destRect.y = 0;
 
-	shiftX = 0;
-	shiftY = 0;
+	//BackgroundMap::mapShiftX = 0;
+	//BackgroundMap::mapShiftY = 0;
 }
 
 BackgroundMap::~BackgroundMap()
@@ -36,8 +42,12 @@ BackgroundMap::~BackgroundMap()
 
 void BackgroundMap::Update()
 {
-	//shiftX--;
-	//shiftY--;
+	//mapShiftX--;
+	//mapShiftY--;
+	/*std::cout << "mapXY: " << mapX << " " << mapY << std::endl;
+	std::cout << "mapShiftXY: "<< mapShiftX << " " << mapShiftY << std::endl;
+	std::cout << "mapCurrentXY: " << mapCurrentX << " " << mapCurrentY << std::endl;
+	std::cout << "-------------------" << std::endl;*/
 }
 
 void BackgroundMap::Render()
@@ -49,8 +59,8 @@ void BackgroundMap::Render()
 		{
 			type = map[row][column];
 
-			destRect.x = shiftX + (column * Game::objectsSize);
-			destRect.y = shiftY + (row * Game::objectsSize);
+			destRect.x = mapShiftX + (column * Game::objectsSize);
+			destRect.y = mapShiftY + (row * Game::objectsSize);
 
 			switch (type)
 			{
