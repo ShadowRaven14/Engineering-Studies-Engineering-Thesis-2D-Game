@@ -76,50 +76,32 @@ void GameLevelManager::Render()
 
 void GameLevelManager::HandleHeroMovement()
 {
-	//std::cout << "heroInMap: " << BackgroundMap::heroInMap.x << " " << BackgroundMap::heroInMap.y << std::endl;
-
 	int tempShiftX = basicGameLevels[currentLevelID]->startingPoint->x - mainHero->pointInGame.x;
-
-	if (BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x < distanceToEdge.x)
+	BackgroundMap::heroInMap.x = BackgroundMap::heroInMap.x - tempShiftX;
+	if (BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x < distanceToEdge.x
+		&& BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x > distanceToEdge.x * (-1))
 	{
 		BackgroundMap::mapShiftX = BackgroundMap::mapShiftX + tempShiftX;
-		//std::cout << "NIEEE " << mainHero->pointInGame.x / 2 << std::endl;
 		mainHero->pointInGame.x = basicGameLevels[currentLevelID]->startingPoint->x;
 		basicGameLevels[currentLevelID]->MoveAllObjectsBy(tempShiftX, 0);
-		//BackgroundMap::heroInMap.x = BackgroundMap::heroInMap.x - tempShiftX;
 	}
 	else
 	{
-		//std::cout << "TAAAK " << mainHero->pointInGame.x/2 << std::endl;
-		//std::cout << "mainHero->pointInMap: " << mainHero->pointInGame.x << " " << mainHero->pointInGame.y << std::endl;
-		//mainHero->pointInGame.x = BackgroundMap::heroInMap.x - mainHero->pointInGame.x;
 		BackgroundMap::heroInMap.x = BackgroundMap::heroInMap.x + tempShiftX;
 	}
 
-
-
 	int tempShiftY = basicGameLevels[currentLevelID]->startingPoint->y - mainHero->pointInGame.y;
-	
-	
-
-	if (BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y < distanceToEdge.y)
+	BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y - tempShiftY;
+	if (BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y < distanceToEdge.y
+		&& BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y > distanceToEdge.y * (-1))
 	{
 		BackgroundMap::mapShiftY = BackgroundMap::mapShiftY + tempShiftY;
 		mainHero->pointInGame.y = basicGameLevels[currentLevelID]->startingPoint->y;
 		basicGameLevels[currentLevelID]->MoveAllObjectsBy(0, tempShiftY);
-		//BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y + tempShiftY;
 	}
 	else
 	{
-		//std::cout << "YYY" << mainHero->pointInGame.y/2 << std::endl;
 		BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y + tempShiftY;
-	}
-
-
-	playerChoices.testGameMode = PlayerChoices::TEST_GAME_MODE::STOPPED;
-	if (playerChoices.testGameMode == PlayerChoices::TEST_GAME_MODE::INIT)
-	{
-		std::cout << "TWIERDZENIE: " << BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x << " " << BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y << std::endl;
 	}
 }
 
@@ -335,4 +317,9 @@ void GameLevelManager::HandleTextRender()
 		textIntelligenceObject->Render();
 		mainHero->inputFromKeyboard = ' ';
 	}
+	/*SDL_DestroyTexture(textHealthPointsObject->fontTexture);
+	SDL_DestroyTexture(textScorePointsObject->fontTexture);
+	SDL_DestroyTexture(textStrengthObject->fontTexture);
+	SDL_DestroyTexture(textAgilityObject->fontTexture);
+	SDL_DestroyTexture(textIntelligenceObject->fontTexture);*/
 }

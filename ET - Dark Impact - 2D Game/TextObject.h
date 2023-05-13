@@ -2,10 +2,8 @@
 #include "FontTextureManager.h"
 #include "ImageTextureManager.h"
 #include "FontTextureManager.h"
-#include "_VirtualObject.h"
 
 class TextObject 
-	: public virtual _VirtualObject
 {
 public:
 	TextObject();
