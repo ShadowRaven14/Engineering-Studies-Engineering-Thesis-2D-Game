@@ -8,9 +8,9 @@ GameLevel::GameLevel()
 	levelID = 100;
 
 	//Wyœwietlenie tekstu powitalnego
-	welcomeInfo = nullptr;
-	welcomeColor = nullptr;
-	welcomeFontTexture = nullptr;
+	info = nullptr;
+	color = nullptr;
+	fontTexture = nullptr;
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap("Maps/Test.txt");
@@ -25,9 +25,9 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	levelID = bnID;
 
 	//Wyœwietlenie tekstu powitalnego
-	welcomeInfo = bnInfo;
-	welcomeColor = bnColor;
-	welcomeFontTexture = FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor);
+	info = bnInfo;
+	color = bnColor;
+	fontTexture = FontTextureManager::InitTextDisplay(25, info, *color);
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
@@ -103,9 +103,9 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	levelID = bnID;
 
 	//Wyœwietlenie tekstu powitalnego
-	welcomeInfo = bnInfo;
-	welcomeColor = bnColor;
-	welcomeFontTexture = FontTextureManager::InitTextDisplay(25, welcomeInfo, *welcomeColor);
+	info = bnInfo;
+	color = bnColor;
+	fontTexture = FontTextureManager::InitTextDisplay(25, info, *color);
 
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap(bnMap);
@@ -141,7 +141,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	}
 
 	//Dodanie elementów do wektora basicEnemies
-	rand_quantity = rand() % 5 + 1;
+	rand_quantity = rand() % 5 + 2;
 	std::cout << rand_quantity << " enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
@@ -159,8 +159,8 @@ GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 
 	levelID = tempLevel.levelID;
 
-	welcomeInfo = tempLevel.welcomeInfo;
-	welcomeColor = tempLevel.welcomeColor;
+	info = tempLevel.info;
+	color = tempLevel.color;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 
@@ -177,8 +177,8 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 
 	levelID = tempLevel.levelID;
 
-	welcomeInfo = tempLevel.welcomeInfo;
-	welcomeColor = tempLevel.welcomeColor;
+	info = tempLevel.info;
+	color = tempLevel.color;
 	startingPoint = tempLevel.startingPoint;
 	basicMap = tempLevel.basicMap;
 
@@ -197,8 +197,8 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 
 	levelID = tempLevel->levelID;
 
-	welcomeInfo = tempLevel->welcomeInfo;
-	welcomeColor = tempLevel->welcomeColor;
+	info = tempLevel->info;
+	color = tempLevel->color;
 	startingPoint = tempLevel->startingPoint;
 	basicMap = tempLevel->basicMap;
 
@@ -231,7 +231,7 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 
 	//Generowanie tekstu powitalnego
-	FontTextureManager::DrawTextTexture(welcomeFontTexture);
+	FontTextureManager::DrawTextTexture(fontTexture);
 }
 
 void GameLevel::MoveAllObjectsBy(int x, int y)

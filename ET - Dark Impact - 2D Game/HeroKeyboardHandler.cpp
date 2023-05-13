@@ -56,6 +56,11 @@ void HeroKeyboardHandler::HandleKeyboard()
         inputFromKeyboard = 'f';
     }
 
+    if (state[SDL_SCANCODE_TAB])
+    {
+        inputFromKeyboard = 't';
+    }
+
     pointInGame.x += hero_x_velocity;
     pointInGame.y += hero_y_velocity;
     speedShift = speed;

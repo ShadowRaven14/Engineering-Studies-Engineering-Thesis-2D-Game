@@ -54,6 +54,15 @@ void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture, SDL_Rect srcR
 	SDL_RenderCopy(Game::mainGameRender, textTexture, &srcRect, &destRect); //SDL_TTF
 }
 
+void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture, int x, int y)
+{
+	int texW = 20;  int texH = 20;
+	int displayTextX = x; int displayTextY = y;
+	SDL_QueryTexture(textTexture, NULL, NULL, &texW, &texH);
+	SDL_Rect dstrect = { displayTextX, displayTextY, texW, texH };
+	SDL_RenderCopy(Game::mainGameRender, textTexture, NULL, &dstrect); //SDL_TTF
+}
+
 void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture)
 {
 	int texW = 20;  int texH = 20;

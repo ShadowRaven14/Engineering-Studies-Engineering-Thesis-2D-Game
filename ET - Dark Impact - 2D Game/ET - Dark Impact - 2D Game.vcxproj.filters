@@ -117,6 +117,9 @@
     <ClCompile Include="PlayerChoices.cpp">
       <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="TextObject.cpp">
+      <Filter>Source Files\SDL2_ManagersCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeroObject.h">
@@ -184,6 +187,9 @@
     </ClInclude>
     <ClInclude Include="PlayerChoices.h">
       <Filter>Header Files\LevelUtilsH</Filter>
+    </ClInclude>
+    <ClInclude Include="TextObject.h">
+      <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

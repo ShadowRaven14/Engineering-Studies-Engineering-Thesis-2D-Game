@@ -3,8 +3,8 @@ Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 
 #pragma once
 #include "GameLevel.h"
+#include "TextObject.h"
 #include "HeroObject.h"
-//#include "HeroObjectives.h"
 
 class GameLevelManager
 {
@@ -25,7 +25,15 @@ public:
 	void HeroCollideWithCoin();
 	void HeroCollideWithEnemy();
 
+	void HandleTextUpdate();
+	void HandleTextRender();
+
 private:
+	TextObject* textHealthPointsObject;
+	TextObject* textScorePointsObject;
+	TextObject* textStrengthObject;
+	TextObject* textAgilityObject;
+	TextObject* textIntelligenceObject;
 	HeroObject* mainHero;
 	short currentLevelID;
 	std::vector <GameLevel*> basicGameLevels;

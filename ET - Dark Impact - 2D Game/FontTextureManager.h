@@ -15,6 +15,7 @@ public:
 	//Zaawansowane
 	static SDL_Texture* InitTextDisplay(int size, const char* text, SDL_Color color);
 	static void DrawTextTexture(SDL_Texture* textTexture, SDL_Rect srcRect, SDL_Rect destRect);
+	static void DrawTextTexture(SDL_Texture* textTexture, int x, int y);
 	static void DrawTextTexture(SDL_Texture* textTexture);
 };
 

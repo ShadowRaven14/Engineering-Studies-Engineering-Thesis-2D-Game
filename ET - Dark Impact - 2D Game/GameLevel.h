@@ -34,9 +34,9 @@ public:
 	void MoveAllObjectsBy(int x, int y);
 
 	unsigned short levelID;
-	const char* welcomeInfo;
-	SDL_Color* welcomeColor;
-	SDL_Texture* welcomeFontTexture;
+	const char* info;
+	SDL_Color* color;
+	SDL_Texture* fontTexture;
 	Point* startingPoint;
 	BackgroundMap* basicMap;
 	std::vector <TeleportObject*> basicTeleports;

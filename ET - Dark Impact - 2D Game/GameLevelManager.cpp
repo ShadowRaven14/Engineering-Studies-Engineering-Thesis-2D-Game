@@ -1,5 +1,6 @@
 #include "GameLevelManager.h"
 #include "PlayerChoices.h"
+#include <string>
 
 PlayerChoices playerChoices;
 
@@ -60,16 +61,17 @@ void GameLevelManager::Update()
 	HeroCollideWithChest();
 	HeroCollideWithPotion();
 	HeroCollideWithCoin();
-	//std::cout << playerChoices.relationshipWithMages << std::endl;
-	if (playerChoices.relationshipWithMages < 5)
-		HeroCollideWithEnemy();
-	
+	if (playerChoices.relationshipWithMages < 5) HeroCollideWithEnemy();
+
+	HandleTextUpdate();
 }
 
 void GameLevelManager::Render()
 {
 	basicGameLevels[currentLevelID]->Render();
 	mainHero->Render();
+
+	HandleTextRender();
 }
 
 void GameLevelManager::HandleHeroMovement()
@@ -279,5 +281,58 @@ void GameLevelManager::HeroCollideWithEnemy()
 				
 			}
 		}
+	}
+}
+
+void GameLevelManager::HandleTextUpdate()
+{
+	int numText; std::string strText; int h = 0;
+
+	h = h+25;
+	numText = mainHero->HeroHealthPoints;
+	strText = std::to_string(numText);
+	strText = "HeroHealthPoints: " + strText;
+	char const* pcharText_HeroHealthPoints = strText.c_str();
+	textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h+25;
+	numText = mainHero->ScorePoints;
+	strText = std::to_string(numText);
+	strText = "ScorePoints: " + strText;
+	char const* pcharText_ScorePoints = strText.c_str();
+	textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h+25;
+	numText = mainHero->Strength;
+	strText = std::to_string(numText);
+	strText = "Strength: " + strText;
+	char const* pcharText_Strength = strText.c_str();
+	textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h+25;
+	numText = mainHero->Agility;
+	strText = std::to_string(numText);
+	strText = "Agility: " + strText;
+	char const* pcharText_Agility = strText.c_str();
+	textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h+25;
+	numText = mainHero->Intelligence;
+	strText = std::to_string(numText);
+	strText = "Intelligence: " + strText;
+	char const* pcharText_Intelligence = strText.c_str();
+	textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
+}
+
+void GameLevelManager::HandleTextRender()
+{
+	if (mainHero->inputFromKeyboard == 't')
+	{
+		textHealthPointsObject->Render();
+		textScorePointsObject->Render();
+		textStrengthObject->Render();
+		textAgilityObject->Render();
+		textIntelligenceObject->Render();
+		mainHero->inputFromKeyboard = ' ';
 	}
 }

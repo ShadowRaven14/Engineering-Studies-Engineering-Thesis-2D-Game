@@ -167,6 +167,7 @@
     <ClCompile Include="PotionObject.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
     <ClCompile Include="FontTextureManager.cpp" />
+    <ClCompile Include="TextObject.cpp" />
     <ClCompile Include="_VirtualObject.cpp" />
     <ClCompile Include="ImageTextureManager.cpp" />
     <ClCompile Include="BasicFunctions.cpp" />
@@ -190,6 +191,7 @@
     <ClInclude Include="PotionObject.h" />
     <ClInclude Include="TeleportObject.h" />
     <ClInclude Include="FontTextureManager.h" />
+    <ClInclude Include="TextObject.h" />
     <ClInclude Include="_VirtualObject.h" />
     <ClInclude Include="SimpleMathExamples.h" />
     <ClInclude Include="ImageTextureManager.h" />
