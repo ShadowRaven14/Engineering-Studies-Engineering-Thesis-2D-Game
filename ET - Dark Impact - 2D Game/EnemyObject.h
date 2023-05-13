@@ -16,7 +16,11 @@ public:
 	void Render(); //Renderowanie wroga
 
 	//Zaawansowane
-	void MoveWithEnemyV1(); //Poruszanie siê wroga
+	short typeOfMovement;
+	void RandomizeTypeOfMovement();
+	void MoveWithEnemyV1(); //Poruszanie siê wroga wersja 1
+	void MoveWithEnemyV2(); //Poruszanie siê wroga wersja 2
+	void MoveWithEnemyV3(); //Poruszanie siê wroga wersja 3
 	void ChangeCurrentTexture(int n);
 	unsigned short type;
 	unsigned int power;

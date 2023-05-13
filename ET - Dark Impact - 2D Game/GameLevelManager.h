@@ -4,7 +4,7 @@ Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 #pragma once
 #include "GameLevel.h"
 #include "HeroObject.h"
-//#include "HeroStatistics.h"
+//#include "HeroObjectives.h"
 
 class GameLevelManager
 {

@@ -108,11 +108,14 @@
     <ClCompile Include="FontTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
-    <ClCompile Include="HeroStatistics.cpp">
+    <ClCompile Include="HeroObjectives.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="PotionObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerChoices.cpp">
+      <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,11 +176,14 @@
     <ClInclude Include="FontTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
-    <ClInclude Include="HeroStatistics.h">
+    <ClInclude Include="HeroObjectives.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="PotionObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerChoices.h">
+      <Filter>Header Files\LevelUtilsH</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

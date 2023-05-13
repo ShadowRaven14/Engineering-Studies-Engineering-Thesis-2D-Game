@@ -2,11 +2,11 @@
 
 #pragma once
 #include "_VirtualObject.h"
-#include "HeroStatistics.h"
+#include "HeroObjectives.h"
 #include "HeroKeyboardHandler.h"
 
 class HeroObject
-	: public virtual _VirtualObject, public HeroStatistics, public HeroKeyboardHandler
+	: public virtual _VirtualObject, public HeroObjectives, public HeroKeyboardHandler
 {
 public:
 	//Podstawowe

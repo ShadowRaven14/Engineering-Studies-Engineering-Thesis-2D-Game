@@ -153,7 +153,7 @@
     <ClCompile Include="BasicClass.cpp" />
     <ClCompile Include="ChestObject.cpp" />
     <ClCompile Include="CoinObject.cpp" />
-    <ClCompile Include="HeroStatistics.cpp" />
+    <ClCompile Include="HeroObjectives.cpp" />
     <ClCompile Include="EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="HeroObject.cpp" />
@@ -162,6 +162,7 @@
     <ClCompile Include="GameLevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
+    <ClCompile Include="PlayerChoices.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PotionObject.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
@@ -176,7 +177,7 @@
     <ClInclude Include="BasicClass.h" />
     <ClInclude Include="ChestObject.h" />
     <ClInclude Include="CoinObject.h" />
-    <ClInclude Include="HeroStatistics.h" />
+    <ClInclude Include="HeroObjectives.h" />
     <ClInclude Include="EnemyObject.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="HeroObject.h" />
@@ -184,6 +185,7 @@
     <ClInclude Include="HeroKeyboardHandler.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="GameLevelManager.h" />
+    <ClInclude Include="PlayerChoices.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PotionObject.h" />
     <ClInclude Include="TeleportObject.h" />

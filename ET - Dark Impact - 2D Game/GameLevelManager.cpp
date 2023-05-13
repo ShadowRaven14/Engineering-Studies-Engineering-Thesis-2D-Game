@@ -1,4 +1,7 @@
 #include "GameLevelManager.h"
+#include "PlayerChoices.h"
+
+PlayerChoices playerChoices;
 
 GameLevelManager::GameLevelManager()
 {
@@ -57,7 +60,10 @@ void GameLevelManager::Update()
 	HeroCollideWithChest();
 	HeroCollideWithPotion();
 	HeroCollideWithCoin();
-	HeroCollideWithEnemy();
+	//std::cout << playerChoices.relationshipWithMages << std::endl;
+	if (playerChoices.relationshipWithMages < 5)
+		HeroCollideWithEnemy();
+	
 }
 
 void GameLevelManager::Render()
@@ -71,8 +77,6 @@ void GameLevelManager::HandleHeroMovement()
 	//std::cout << "heroInMap: " << BackgroundMap::heroInMap.x << " " << BackgroundMap::heroInMap.y << std::endl;
 
 	int tempShiftX = basicGameLevels[currentLevelID]->startingPoint->x - mainHero->pointInGame.x;
-	
-	
 
 	if (BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x < distanceToEdge.x)
 	{
@@ -108,10 +112,13 @@ void GameLevelManager::HandleHeroMovement()
 		//std::cout << "YYY" << mainHero->pointInGame.y/2 << std::endl;
 		BackgroundMap::heroInMap.y = BackgroundMap::heroInMap.y + tempShiftY;
 	}
-	
-	
 
-	std::cout << "TWIERDZENIE: " << BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x << " " << BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y << std::endl;
+
+	playerChoices.testGameMode = PlayerChoices::TEST_GAME_MODE::STOPPED;
+	if (playerChoices.testGameMode == PlayerChoices::TEST_GAME_MODE::INIT)
+	{
+		std::cout << "TWIERDZENIE: " << BackgroundMap::heroInMap.x - BackgroundMap::middleOFmap.x << " " << BackgroundMap::heroInMap.y - BackgroundMap::middleOFmap.y << std::endl;
+	}
 }
 
 Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
@@ -149,7 +156,10 @@ void GameLevelManager::HeroCollideWithTeleport()
 					std::cout << "Change level. Current Level ID = " << currentLevelID << "." << std::endl;
 					mainHero->TeleportHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
 
-					mainHero->inputFromKeyboard = ' ';	
+					mainHero->inputFromKeyboard = ' ';
+
+					playerChoices.relationMages--;
+					playerChoices.setRelationshipWithMages();
 				}
 			}
 		}
@@ -246,7 +256,7 @@ void GameLevelManager::HeroCollideWithEnemy()
 		{
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().y) < Game::objectsSize)
 			{
-				std::cout << "Collision with Enemy! ENGAGE!" << std::endl;
+				std::cout << "Collision with Enemy! ENGAGE!";
 				SDL_Delay(10);
 
 				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
@@ -254,8 +264,19 @@ void GameLevelManager::HeroCollideWithEnemy()
 				{
 					basicGameLevels[currentLevelID]->basicEnemies.
 						erase(basicGameLevels[currentLevelID]->basicEnemies.begin() + i); i--;
-					
+
+					std::cout << " You have SLAYED enemy!" << std::endl;
 				}
+				else
+				{
+					if (playerChoices.relationshipWithMages > 1)
+						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
+					else
+						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
+
+					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+				}
+				
 			}
 		}
 	}
