@@ -41,10 +41,13 @@ SDL_Texture* FontTextureManager::PrepareTexture(SDL_Surface* fontSurface)
 SDL_Texture* FontTextureManager::InitTextDisplay(int size, const char* text, SDL_Color color)
 {
 	TTF_Font* font = TTF_OpenFont("Fonts/pixel.fon", size);
-	SDL_Surface* fontSurface = TTF_RenderText_Solid(font, text, color);
-	SDL_Texture* fontTexture = SDL_CreateTextureFromSurface(Game::mainGameRender, fontSurface);
-
-	return fontTexture;
+	if (font) {
+		SDL_Surface* fontSurface = TTF_RenderText_Solid(font, text, color);
+		SDL_Texture* fontTexture = SDL_CreateTextureFromSurface(Game::mainGameRender, fontSurface);
+		SDL_FreeSurface(fontSurface);
+		return fontTexture;
+	}
+	return nullptr;
 }
 
 void FontTextureManager::DrawTextTexture(SDL_Texture* textTexture, SDL_Rect srcRect, SDL_Rect destRect)

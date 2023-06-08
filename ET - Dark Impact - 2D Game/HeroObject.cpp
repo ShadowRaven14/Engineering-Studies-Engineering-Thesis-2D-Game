@@ -11,7 +11,7 @@ HeroObject::HeroObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/ElvenTracker_GoLeft.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/AppleNormal.png";
+		tempTex = "Images/_blank.png";
 		usableTextures.push_back(tempTex);
 		break;
 

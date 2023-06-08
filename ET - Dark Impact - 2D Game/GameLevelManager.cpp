@@ -258,6 +258,7 @@ void GameLevelManager::HeroCollideWithEnemy()
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
+					mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[2]);
 					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
 				

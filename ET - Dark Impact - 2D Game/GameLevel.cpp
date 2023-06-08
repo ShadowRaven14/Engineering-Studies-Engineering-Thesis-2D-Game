@@ -68,7 +68,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << rand_quantity << " potions spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2;
+		rand_type = rand() % 4;
 		PotionObject* basicPotion = new PotionObject(rand_type);
 		basicPotions.push_back(basicPotion);
 	}
@@ -84,11 +84,11 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	}
 
 	//Dodanie elementów do wektora basicEnemies
-	rand_quantity = rand() % 5 + 1;
+	rand_quantity = rand() % 6 + 1;
 	std::cout << rand_quantity << " enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 3;
+		rand_type = rand() % 5;
 		EnemyObject* basicEnemy = new EnemyObject(rand_type);
 		basicEnemies.push_back(basicEnemy);
 	}

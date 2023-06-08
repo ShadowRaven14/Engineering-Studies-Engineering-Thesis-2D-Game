@@ -8,7 +8,28 @@ EnemyObject::EnemyObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 25;
+		power = 100;
+		tempTex = "Images/MagicChaos.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/MagicChaos.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 1:
+		power = 100;
+		tempTex = "Images/MagicFire.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/MagicFire.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+
+	case 2:
+		power = 15;
 		tempTex = "Images/HumanMageGreen_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageGreen_GoLeft.png";
@@ -17,8 +38,8 @@ EnemyObject::EnemyObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 1:
-		power = 50;
+	case 3:
+		power = 30;
 		tempTex = "Images/HumanMageBlue_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageBlue_GoLeft.png";
@@ -27,8 +48,8 @@ EnemyObject::EnemyObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 2:
-		power = 100;
+	case 4:
+		power = 50;
 		tempTex = "Images/HumanMageRed_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageRed_GoLeft.png";
