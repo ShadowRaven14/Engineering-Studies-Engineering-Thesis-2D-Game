@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="_VirtualObject" Collapsed="true">
+    <Position X="8" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>gABQAAgFAAAAAAAAAAAQAAAAAAQBBAAAAAAQAAAJQAA=</HashCode>
+      <FileName>_VirtualObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ChestObject" Collapsed="true">
+    <Position X="6.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAAAAAAAAAAAAAQAAAAAAAAAAABAAACAAAQA=</HashCode>
+      <FileName>ChestObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoinObject" Collapsed="true">
+    <Position X="9.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAA=</HashCode>
+      <FileName>CoinObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyObject" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>gAQBAAAAAAAAAABAAAAAAAABAAEBAAAAABAAEAQQAAA=</HashCode>
+      <FileName>EnemyObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeroObject" Collapsed="true">
+    <Position X="4.25" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAEAAAAAAAAAAAAAAAAAAQABAkAAAAAAA=</HashCode>
+      <FileName>HeroObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PotionObject" Collapsed="true">
+    <Position X="6.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAkAAAAAAAAAAAAAAAAAAEAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>PotionObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TeleportObject" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAACAAAAAIAAAAAAAABAABAAIAAA=</HashCode>
+      <FileName>TeleportObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeroKeyboardHandler" Collapsed="true">
+    <Position X="1.25" Y="5.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAAABAAAAAQAAAEAEAAAQA=</HashCode>
+      <FileName>HeroKeyboardHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeroObjectives" Collapsed="true">
+    <Position X="4.25" Y="6.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACAAAAAAAAAAAADABCIAAAAgAQAAAAEAIAAAA=</HashCode>
+      <FileName>HeroObjectives.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="_VirtualMap" Collapsed="true">
+    <Position X="4.75" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAEAEAgBAAhAAAAAAAAAAAICAAAQAAAAAAAQAAAgQAA=</HashCode>
+      <FileName>_VirtualMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BackgroundMap" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAAAAAQAAAAABAAAAAAACAAQAABAgADACgAA=</HashCode>
+      <FileName>BackgroundMap.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FontTextureManager" Collapsed="true">
+    <Position X="5.25" Y="1.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIBAAAAAAAAAAAAAAAAAAIAAAAAAAgg=</HashCode>
+      <FileName>FontTextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ImageTextureManager" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ImageTextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextObject" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAAAQAAAAAAAAAAAAAAAAAAAACAQBIIAAAAAAA=</HashCode>
+      <FileName>TextObject.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Game" Collapsed="true">
+    <Position X="4" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAABAAAAAAAAgAAQAAAAAAiBIAAADBACAAABQAA=</HashCode>
+      <FileName>Game.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeroChoices" Collapsed="true">
+    <Position X="0.75" Y="6" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="HeroChoices::TEST_GAME_MODE" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>HeroChoices.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="HeroChoices::RELATIONSHIP_WITH_MAGES" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>HeroChoices.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAACAACAAAAAAAAAAACAAAGAAAAAA=</HashCode>
+      <FileName>HeroChoices.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HeroBasicClass" Collapsed="true">
+    <Position X="1.25" Y="7" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAABAAAQRAAAACAAAAABAAAAABABAAEAACCQ=</HashCode>
+      <FileName>HeroBasicClass.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLevelManager" Collapsed="true">
+    <Position X="7" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAQABQAAEAgAAICgAAKgAEgAAAEgAAEoABEgEAAAAAA=</HashCode>
+      <FileName>GameLevelManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLevel" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>ABUAQAEAAAAEEAAAAAEAAAAAAAAAQACCQBAgEQAAAIA=</HashCode>
+      <FileName>GameLevel.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

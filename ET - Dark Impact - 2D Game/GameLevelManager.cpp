@@ -1,8 +1,8 @@
 #include "GameLevelManager.h"
-#include "PlayerChoices.h"
+#include "HeroChoices.h"
 #include <string>
 
-PlayerChoices playerChoices;
+HeroChoices HeroChoices;
 
 GameLevelManager::GameLevelManager()
 {
@@ -61,7 +61,7 @@ void GameLevelManager::Update()
 	HeroCollideWithChest();
 	HeroCollideWithPotion();
 	HeroCollideWithCoin();
-	if (playerChoices.relationshipWithMages < 5) HeroCollideWithEnemy();
+	if (HeroChoices.relationshipWithMages < 5) HeroCollideWithEnemy();
 
 	HandleTextUpdate();
 }
@@ -142,8 +142,8 @@ void GameLevelManager::HeroCollideWithTeleport()
 
 					mainHero->inputFromKeyboard = ' ';
 
-					playerChoices.relationMages--;
-					playerChoices.setRelationshipWithMages();
+					HeroChoices.relationMages--;
+					HeroChoices.setRelationshipWithMages();
 				}
 			}
 		}
@@ -253,7 +253,7 @@ void GameLevelManager::HeroCollideWithEnemy()
 				}
 				else
 				{
-					if (playerChoices.relationshipWithMages > 1)
+					if (HeroChoices.relationshipWithMages > 1)
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;

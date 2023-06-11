@@ -75,7 +75,7 @@
     <ClCompile Include="_VirtualMap.cpp">
       <Filter>Source Files\MapUtilsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="BasicClass.cpp">
+    <ClCompile Include="HeroBasicClass.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="ChestObject.cpp">
@@ -92,9 +92,6 @@
     </ClCompile>
     <ClCompile Include="HeroKeyboardHandler.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="AssetsManager.cpp">
-      <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
     <ClCompile Include="ImageTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
@@ -114,11 +111,11 @@
     <ClCompile Include="PotionObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerChoices.cpp">
-      <Filter>Source Files\LevelUtilsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="TextObject.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="HeroChoices.cpp">
+      <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,7 +143,7 @@
     <ClInclude Include="_VirtualMap.h">
       <Filter>Header Files\MapUtilsH</Filter>
     </ClInclude>
-    <ClInclude Include="BasicClass.h">
+    <ClInclude Include="HeroBasicClass.h">
       <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="ChestObject.h">
@@ -163,9 +160,6 @@
     </ClInclude>
     <ClInclude Include="HeroKeyboardHandler.h">
       <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
-    <ClInclude Include="AssetsManager.h">
-      <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
     <ClInclude Include="ImageTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
@@ -185,11 +179,14 @@
     <ClInclude Include="PotionObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerChoices.h">
-      <Filter>Header Files\LevelUtilsH</Filter>
-    </ClInclude>
     <ClInclude Include="TextObject.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
+    <ClInclude Include="HeroChoices.h">
+      <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

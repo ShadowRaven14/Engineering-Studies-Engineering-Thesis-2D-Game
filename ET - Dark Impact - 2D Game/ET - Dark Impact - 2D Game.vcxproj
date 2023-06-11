@@ -149,8 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AssetsManager.cpp" />
-    <ClCompile Include="BasicClass.cpp" />
+    <ClCompile Include="HeroBasicClass.cpp" />
     <ClCompile Include="ChestObject.cpp" />
     <ClCompile Include="CoinObject.cpp" />
     <ClCompile Include="HeroObjectives.cpp" />
@@ -162,7 +161,7 @@
     <ClCompile Include="GameLevelManager.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
-    <ClCompile Include="PlayerChoices.cpp" />
+    <ClCompile Include="HeroChoices.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PotionObject.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
@@ -174,8 +173,7 @@
     <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetsManager.h" />
-    <ClInclude Include="BasicClass.h" />
+    <ClInclude Include="HeroBasicClass.h" />
     <ClInclude Include="ChestObject.h" />
     <ClInclude Include="CoinObject.h" />
     <ClInclude Include="HeroObjectives.h" />
@@ -186,7 +184,7 @@
     <ClInclude Include="HeroKeyboardHandler.h" />
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="GameLevelManager.h" />
-    <ClInclude Include="PlayerChoices.h" />
+    <ClInclude Include="HeroChoices.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PotionObject.h" />
     <ClInclude Include="TeleportObject.h" />
@@ -197,6 +195,9 @@
     <ClInclude Include="ImageTextureManager.h" />
     <ClInclude Include="BasicFunctions.h" />
     <ClInclude Include="_VirtualMap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
