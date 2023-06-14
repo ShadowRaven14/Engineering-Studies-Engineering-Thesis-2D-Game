@@ -7,26 +7,14 @@ PotionObject::PotionObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 5;
-		tempTex = "Images/AppleNormal.png";
-		usableTextures.push_back(tempTex);
-		break;
-
-	case 1:
 		power = 10;
 		tempTex = "Images/PotionHealth.png";
 		usableTextures.push_back(tempTex);
 		break;
 
-	case 2:
+	case 1:
 		power = 15;
 		tempTex = "Images/PotionMana.png";
-		usableTextures.push_back(tempTex);
-		break;
-
-	case 3:
-		power = 20;
-		tempTex = "Images/AppleGolden.png";
 		usableTextures.push_back(tempTex);
 		break;
 

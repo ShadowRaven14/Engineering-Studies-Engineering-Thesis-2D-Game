@@ -6,8 +6,11 @@
 
 #include "TeleportObject.h"
 #include "ChestObject.h"
-#include "PotionObject.h"
+
+#include "AppleItemObject.h"
 #include "CoinObject.h"
+#include "PotionObject.h"
+
 #include "EnemyObject.h"
 #include "EnemySentinelObject.h"
 #include "EnemyMageObject.h"
@@ -44,10 +47,12 @@ public:
 
 	std::vector <TeleportObject*> basicTeleports;
 	std::vector <ChestObject*> basicChests;
-	std::vector <PotionObject*> basicPotions;
-	std::vector <CoinObject*> basicCoins;
-	std::vector <EnemyObject*> basicEnemies;
 
+	std::vector <AppleItemObject*> basicItemApples;
+	std::vector <CoinObject*> basicCoins;
+	std::vector <PotionObject*> basicPotions;
+
+	std::vector <EnemyObject*> basicEnemies;
 	std::vector <EnemyMageObject*> basicMageEnemies;
 	std::vector <EnemySentinelObject*> basicSentinelEnemies;
 };

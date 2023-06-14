@@ -63,14 +63,14 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		basicChests.push_back(basicChest);
 	}
 
-	//Dodanie elementów do wektora basicPotions
+	//Dodanie elementów do wektora basicItemApples
 	rand_quantity = rand() % 8 + 2;
-	std::cout << rand_quantity << " potions spawn." << std::endl;
+	std::cout << rand_quantity << " apples spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 4;
-		PotionObject* basicPotion = new PotionObject(rand_type);
-		basicPotions.push_back(basicPotion);
+		rand_type = rand() % 2;
+		AppleItemObject* basicApple = new AppleItemObject(rand_type);
+		basicItemApples.push_back(basicApple);
 	}
 
 	//Dodanie elementów do wektora basicCoins
@@ -81,6 +81,16 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		rand_type = 0;
 		CoinObject* basicCoin = new CoinObject(rand_type);
 		basicCoins.push_back(basicCoin);
+	}
+
+	//Dodanie elementów do wektora basicPotions
+	rand_quantity = rand() % 8 + 2;
+	std::cout << rand_quantity << " potions spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 2;
+		PotionObject* basicPotion = new PotionObject(rand_type);
+		basicPotions.push_back(basicPotion);
 	}
 
 	////Dodanie elementów do wektora basicEnemies
@@ -160,16 +170,15 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		basicCoins.push_back(basicCoin);
 	}
 
-	//Dodanie elementów do wektora basicEnemies
-	rand_quantity = rand() % 5 + 2;
-	std::cout << rand_quantity << " enemies spawn." << std::endl;
-	for (int i = 0; i < rand_quantity; i++)
-	{
-		//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
-		EnemyObject* basicEnemy = new EnemyObject(1);
-		basicEnemies.push_back(basicEnemy);
-	}
-
+	////Dodanie elementów do wektora basicEnemies
+	//rand_quantity = rand() % 5 + 2;
+	//std::cout << rand_quantity << " enemies spawn." << std::endl;
+	//for (int i = 0; i < rand_quantity; i++)
+	//{
+	//	//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
+	//	EnemyObject* basicEnemy = new EnemyObject(1);
+	//	basicEnemies.push_back(basicEnemy);
+	//}
 	
 }
 
@@ -186,8 +195,10 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 
 	basicTeleports = tempLevel.basicTeleports;
 	basicChests = tempLevel.basicChests;
-	basicPotions = tempLevel.basicPotions;
+
+	basicItemApples = tempLevel.basicItemApples;
 	basicCoins = tempLevel.basicCoins;
+	basicPotions = tempLevel.basicPotions;
 
 	basicEnemies = tempLevel.basicEnemies;
 	basicMageEnemies = tempLevel.basicMageEnemies;
@@ -207,8 +218,10 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel)
 
 	basicTeleports = tempLevel.basicTeleports;
 	basicChests = tempLevel.basicChests;
-	basicPotions = tempLevel.basicPotions;
+
+	basicItemApples = tempLevel.basicItemApples;
 	basicCoins = tempLevel.basicCoins;
+	basicPotions = tempLevel.basicPotions;
 
 	basicEnemies = tempLevel.basicEnemies;
 	basicMageEnemies = tempLevel.basicMageEnemies;
@@ -231,8 +244,10 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 
 	basicTeleports = tempLevel->basicTeleports;
 	basicChests = tempLevel->basicChests;
-	basicPotions = tempLevel->basicPotions;
+
+	basicItemApples = tempLevel->basicItemApples;
 	basicCoins = tempLevel->basicCoins;
+	basicPotions = tempLevel->basicPotions;
 
 	basicEnemies = tempLevel->basicEnemies;
 	basicMageEnemies = tempLevel->basicMageEnemies;
@@ -246,8 +261,10 @@ void GameLevel::Update()
 	basicMap->Update();
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Update();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
+
+	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
+	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
 
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Update();
@@ -259,8 +276,10 @@ void GameLevel::Render()
 	basicMap->Render();
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->Render();
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Render();
+
+	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
+	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Render();
 
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Render();
@@ -274,8 +293,10 @@ void GameLevel::MoveAllObjectsBy(int x, int y)
 {
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->MoveObjectBy(x,y);
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->MoveObjectBy(x, y);
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->MoveObjectBy(x, y);
+
+	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->MoveObjectBy(x, y);
 
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->MoveObjectBy(x, y);

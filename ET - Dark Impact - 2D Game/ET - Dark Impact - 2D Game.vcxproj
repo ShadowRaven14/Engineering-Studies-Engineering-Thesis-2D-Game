@@ -149,6 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AppleItemObject.cpp" />
     <ClCompile Include="EnemyMageObject.cpp" />
     <ClCompile Include="EnemySentinelObject.cpp" />
     <ClCompile Include="HeroBasicClass.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="BackgroundMap.cpp" />
     <ClCompile Include="HeroChoices.cpp" />
+    <ClCompile Include="ItemObject.cpp" />
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="PotionObject.cpp" />
     <ClCompile Include="TeleportObject.cpp" />
@@ -175,6 +177,7 @@
     <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AppleItemObject.h" />
     <ClInclude Include="EnemyMageObject.h" />
     <ClInclude Include="EnemySentinelObject.h" />
     <ClInclude Include="HeroBasicClass.h" />
@@ -189,6 +192,7 @@
     <ClInclude Include="GameLevel.h" />
     <ClInclude Include="GameLevelManager.h" />
     <ClInclude Include="HeroChoices.h" />
+    <ClInclude Include="ItemObject.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="PotionObject.h" />
     <ClInclude Include="TeleportObject.h" />

@@ -55,6 +55,12 @@
     <Filter Include="Source Files\LevelUtilsCpp\MapUtilsCpp">
       <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjectsH\SpecItemObjectsH">
+      <UniqueIdentifier>{18e74408-649f-4fab-bc37-fc7a97cd19f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjectsCpp\SpecItemObjectsCpp">
+      <UniqueIdentifier>{e7c1c1a3-d35e-4515-ab59-c27d00a8d80e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -102,9 +108,6 @@
     <ClCompile Include="ImageTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
-    <ClCompile Include="CoinObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="TeleportObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
@@ -113,9 +116,6 @@
     </ClCompile>
     <ClCompile Include="HeroObjectives.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="PotionObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="TextObject.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
@@ -128,6 +128,18 @@
     </ClCompile>
     <ClCompile Include="EnemySentinelObject.cpp">
       <Filter>Source Files\GameObjectsCpp\SpecEnemyObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ItemObject.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PotionObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecItemObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CoinObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecItemObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="AppleItemObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecItemObjectsCpp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +185,6 @@
     <ClInclude Include="ImageTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
-    <ClInclude Include="CoinObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
     <ClInclude Include="TeleportObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
@@ -184,9 +193,6 @@
     </ClInclude>
     <ClInclude Include="HeroObjectives.h">
       <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
-    <ClInclude Include="PotionObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="TextObject.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
@@ -202,6 +208,18 @@
     </ClInclude>
     <ClInclude Include="EnemyObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="PotionObject.h">
+      <Filter>Header Files\GameObjectsH\SpecItemObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="CoinObject.h">
+      <Filter>Header Files\GameObjectsH\SpecItemObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="AppleItemObject.h">
+      <Filter>Header Files\GameObjectsH\SpecItemObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
