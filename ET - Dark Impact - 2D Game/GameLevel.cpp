@@ -83,14 +83,34 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		basicCoins.push_back(basicCoin);
 	}
 
-	//Dodanie elementów do wektora basicEnemies
-	rand_quantity = rand() % 6 + 1;
+	////Dodanie elementów do wektora basicEnemies
+	//rand_quantity = rand() % 6 + 1;
+	//std::cout << rand_quantity << " enemies spawn." << std::endl;
+	//for (int i = 0; i < rand_quantity; i++)
+	//{
+	//	rand_type = rand() % 5;
+	//	EnemyObject* basicEnemy = new EnemyObject(rand_type);
+	//	basicEnemies.push_back(basicEnemy);
+	//}
+
+	//Dodanie elementów do wektora basicMageEnemies
+	rand_quantity = rand() % 3 + 1;
 	std::cout << rand_quantity << " enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 5;
-		EnemyObject* basicEnemy = new EnemyObject(rand_type);
-		basicEnemies.push_back(basicEnemy);
+		rand_type = rand() % 3;
+		EnemyMageObject* basicEnemy = new EnemyMageObject(rand_type);
+		basicMageEnemies.push_back(basicEnemy);
+	}
+
+	//Dodanie elementów do wektora basicSentinelEnemies
+	rand_quantity = rand() % 2 + 1;
+	std::cout << rand_quantity << " enemies spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 2;
+		EnemySentinelObject* basicEnemy = new EnemySentinelObject(rand_type);
+		basicSentinelEnemies.push_back(basicEnemy);
 	}
 }
 
@@ -111,7 +131,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	basicMap = new BackgroundMap(bnMap);
 	startingPoint = bnStart;
 	
-	//Dodanie elementów do wektora basicEnemies
+	//Dodanie elementów do wektora basicTeleports
 	TeleportObject* basicTeleport1 = new TeleportObject("Images/PortalBlue.png", 656, 620, 0);
 	TeleportObject* basicTeleport2 = new TeleportObject("Images/PortalRed.png", 262, 310, 1);
 	TeleportObject* basicTeleport3 = new TeleportObject("Images/PortalViolet.png", 1050, 310, 2);
@@ -153,7 +173,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	
 }
 
-GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
+GameLevel::GameLevel(const GameLevel& tempLevel)
 {
 	std::cout << "Konstruktor kopiuj¹cy GameLevel.";
 
@@ -168,10 +188,13 @@ GameLevel::GameLevel(const GameLevel& tempLevel) //Nie dzia³a?
 	basicChests = tempLevel.basicChests;
 	basicPotions = tempLevel.basicPotions;
 	basicCoins = tempLevel.basicCoins;
+
 	basicEnemies = tempLevel.basicEnemies;
+	basicMageEnemies = tempLevel.basicMageEnemies;
+	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
 }
 
-GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
+GameLevel& GameLevel::operator= (const GameLevel& tempLevel)
 {
 	std::cout << "Przeci¹¿enie operatora '='.";
 
@@ -186,7 +209,11 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel) //Nie dzia³a?
 	basicChests = tempLevel.basicChests;
 	basicPotions = tempLevel.basicPotions;
 	basicCoins = tempLevel.basicCoins;
+
 	basicEnemies = tempLevel.basicEnemies;
+	basicMageEnemies = tempLevel.basicMageEnemies;
+	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
+
 
 	return *this;
 }
@@ -206,7 +233,10 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 	basicChests = tempLevel->basicChests;
 	basicPotions = tempLevel->basicPotions;
 	basicCoins = tempLevel->basicCoins;
+
 	basicEnemies = tempLevel->basicEnemies;
+	basicMageEnemies = tempLevel->basicMageEnemies;
+	basicSentinelEnemies = tempLevel->basicSentinelEnemies;
 
 	return *this;
 }
@@ -218,7 +248,10 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
+
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
+	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Update();
+	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->Update();
 }
 
 void GameLevel::Render()
@@ -228,7 +261,10 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Render();
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
+
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
+	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Render();
+	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->Render();
 
 	//Generowanie tekstu powitalnego
 	FontTextureManager::DrawTextTexture(fontTexture);
@@ -240,5 +276,8 @@ void GameLevel::MoveAllObjectsBy(int x, int y)
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->MoveObjectBy(x, y);
+
 	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->MoveObjectBy(x, y);
 }

@@ -40,13 +40,19 @@
     <Filter Include="Header Files\LevelUtilsH">
       <UniqueIdentifier>{ddbeac22-8152-4df3-b753-0f7538b0ebdb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\MapUtilsH">
-      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\LevelUtilsCpp">
       <UniqueIdentifier>{c50d01b5-2b3b-4dc3-8211-cb865b764ff6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\MapUtilsCpp">
+    <Filter Include="Source Files\GameObjectsCpp\SpecEnemyObjectsCpp">
+      <UniqueIdentifier>{2d4cd8ef-6c1e-4a77-a33f-11837b77db62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjectsH\SpecEnemyObjectsH">
+      <UniqueIdentifier>{25bdf948-815e-425a-a8d9-10a0b5a302b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\LevelUtilsH\MapUtilsH">
+      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LevelUtilsCpp\MapUtilsCpp">
       <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -67,13 +73,13 @@
       <Filter>Source Files\UtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BackgroundMap.cpp">
-      <Filter>Source Files\MapUtilsCpp</Filter>
+      <Filter>Source Files\LevelUtilsCpp\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_VirtualMap.cpp">
-      <Filter>Source Files\MapUtilsCpp</Filter>
+      <Filter>Source Files\LevelUtilsCpp\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="HeroBasicClass.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
@@ -117,6 +123,12 @@
     <ClCompile Include="HeroChoices.cpp">
       <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="EnemyMageObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecEnemyObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="EnemySentinelObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecEnemyObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HeroObject.h">
@@ -128,20 +140,17 @@
     <ClInclude Include="SimpleMathExamples.h">
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
     <ClInclude Include="BasicFunctions.h">
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
     <ClInclude Include="BackgroundMap.h">
-      <Filter>Header Files\MapUtilsH</Filter>
+      <Filter>Header Files\LevelUtilsH\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
-      <Filter>Header Files\MapUtilsH</Filter>
+      <Filter>Header Files\LevelUtilsH\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="HeroBasicClass.h">
       <Filter>Header Files\HeroUtlisH</Filter>
@@ -184,6 +193,15 @@
     </ClInclude>
     <ClInclude Include="HeroChoices.h">
       <Filter>Header Files\HeroUtlisH</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyMageObject.h">
+      <Filter>Header Files\GameObjectsH\SpecEnemyObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemySentinelObject.h">
+      <Filter>Header Files\GameObjectsH\SpecEnemyObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="EnemyObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

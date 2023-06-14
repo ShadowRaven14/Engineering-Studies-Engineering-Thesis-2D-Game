@@ -149,6 +149,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EnemyMageObject.cpp" />
+    <ClCompile Include="EnemySentinelObject.cpp" />
     <ClCompile Include="HeroBasicClass.cpp" />
     <ClCompile Include="ChestObject.cpp" />
     <ClCompile Include="CoinObject.cpp" />
@@ -173,6 +175,8 @@
     <ClCompile Include="_VirtualMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EnemyMageObject.h" />
+    <ClInclude Include="EnemySentinelObject.h" />
     <ClInclude Include="HeroBasicClass.h" />
     <ClInclude Include="ChestObject.h" />
     <ClInclude Include="CoinObject.h" />

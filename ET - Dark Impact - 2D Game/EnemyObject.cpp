@@ -1,5 +1,20 @@
 #include "EnemyObject.h"
 
+EnemyObject::EnemyObject()
+{
+	const char* tempTex;
+
+	power = 10;
+	/*std::cout << "Error: Type Construktor." << std::endl;
+	tempTex = "Images/AppleGolden.png";
+	usableTextures.push_back(tempTex);*/
+
+	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
+	RandomizeTypeOfMovement();
+	isMovingRight = isMovingUp = true;
+}
+
+
 //Konstruktor wroga
 EnemyObject::EnemyObject(unsigned short type)
 {
@@ -73,12 +88,14 @@ EnemyObject::EnemyObject(unsigned short type)
 
 EnemyObject::EnemyObject(const char* texturesheet, int x, int y)
 {
+	power = 10;
 	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 	isMovingRight = isMovingUp = true;
 }
 
 EnemyObject::EnemyObject(const char* texturesheet)
 {
+	power = 10;
 	RandomizeCoordinates(texturesheet); //Podstawowa funkcja z klasy interfejsu
 	isMovingRight = isMovingUp = true;
 }

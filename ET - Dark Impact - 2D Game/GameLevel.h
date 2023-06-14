@@ -9,6 +9,8 @@
 #include "PotionObject.h"
 #include "CoinObject.h"
 #include "EnemyObject.h"
+#include "EnemySentinelObject.h"
+#include "EnemyMageObject.h"
 
 #include <vector>
 #include "ImageTextureManager.h"
@@ -39,10 +41,14 @@ public:
 	SDL_Texture* fontTexture;
 	Point* startingPoint;
 	BackgroundMap* basicMap;
+
 	std::vector <TeleportObject*> basicTeleports;
 	std::vector <ChestObject*> basicChests;
 	std::vector <PotionObject*> basicPotions;
 	std::vector <CoinObject*> basicCoins;
 	std::vector <EnemyObject*> basicEnemies;
+
+	std::vector <EnemyMageObject*> basicMageEnemies;
+	std::vector <EnemySentinelObject*> basicSentinelEnemies;
 };
 
