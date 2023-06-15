@@ -69,18 +69,30 @@ void BackgroundMap::Render()
 				break;
 
 			case 1:
-				ImageTextureManager::DrawImageTexture(wood, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(wood1, srcRect, destRect);
 				break;
 
 			case 2:
-				ImageTextureManager::DrawImageTexture(grass, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(wood2, srcRect, destRect);
 				break;
 
 			case 3:
-				ImageTextureManager::DrawImageTexture(stone, srcRect, destRect);
+				ImageTextureManager::DrawImageTexture(grass, srcRect, destRect);
 				break;
 
 			case 4:
+				ImageTextureManager::DrawImageTexture(stone1, srcRect, destRect);
+				break;
+
+			case 5:
+				ImageTextureManager::DrawImageTexture(stone2, srcRect, destRect);
+				break;
+
+			case 6:
+				ImageTextureManager::DrawImageTexture(stone3, srcRect, destRect);
+				break;
+
+			case 7:
 				ImageTextureManager::DrawImageTexture(snow, srcRect, destRect);
 				break;
 
@@ -95,10 +107,13 @@ void BackgroundMap::InitializeTextures()
 {
 	blank = ImageTextureManager::LoadTexture("Images/_blank.png");
 	sand = ImageTextureManager::LoadTexture("Images/pix_sand.png");
-	stone = ImageTextureManager::LoadTexture("Images/pix_stone.png");
-	snow = ImageTextureManager::LoadTexture("Images/pix_snow.png");
-	wood = ImageTextureManager::LoadTexture("Images/pix_wood2.png");
+	wood1 = ImageTextureManager::LoadTexture("Images/pix_wood1.png");
+	wood2 = ImageTextureManager::LoadTexture("Images/pix_wood2.png");
 	grass = ImageTextureManager::LoadTexture("Images/pix_grass.png");
+	stone1 = ImageTextureManager::LoadTexture("Images/pix_stone1.png");
+	stone2 = ImageTextureManager::LoadTexture("Images/pix_stone2.png");
+	stone3 = ImageTextureManager::LoadTexture("Images/pix_stone3.png");
+	snow = ImageTextureManager::LoadTexture("Images/pix_snow.png");
 	//dirt = ImageTextureManager::LoadTexture("Textures/pix_brown.png");
 	//water = ImageTextureManager::LoadTexture("Textures/pix_blue.png");
 	//lava = ImageTextureManager::LoadTexture("Textures/pix_red.png");

@@ -46,3 +46,14 @@ void _VirtualMap::ExportMapToTxt(std::string name)
 	}
 	write.close();
 }
+
+void _VirtualMap::RandomizeMap()
+{
+	for (int row = 0; row < 29; row++)
+	{
+		for (int column = 0; column < 41; column++)
+		{
+			map[row][column] = rand() % 8;
+		}
+	}
+}

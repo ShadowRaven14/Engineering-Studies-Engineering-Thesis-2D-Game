@@ -10,7 +10,7 @@ ChestObject::ChestObject(unsigned short type)
 		worth = 5;
 		tempTex = "Images/ChestWooden_Closed.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/ChestWooden_Open.png";
+		tempTex = "Images/Chest_Open.png";
 		usableTextures.push_back(tempTex);
 		break;
 
@@ -18,7 +18,7 @@ ChestObject::ChestObject(unsigned short type)
 		worth = 10;
 		tempTex = "Images/ChestIron_Closed.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/ChestWooden_Open.png";
+		tempTex = "Images/Chest_Open.png";
 		usableTextures.push_back(tempTex);
 		break;
 

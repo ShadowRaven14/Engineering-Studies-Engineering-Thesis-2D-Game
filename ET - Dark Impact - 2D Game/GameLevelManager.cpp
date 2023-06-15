@@ -118,6 +118,34 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 	return newcurrentPoint;
 }
 
+void GameLevelManager::ChangeHeroTexture_DamageOrHeal(bool damage)
+{
+	const char* tempHeroTexture = (const char*)mainHero->currentObjectTexture;
+
+	if (damage == true)
+	{
+		if (tempHeroTexture == mainHero->usableTextures[0])
+		{
+			mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[2]);
+		}
+		if (tempHeroTexture == mainHero->usableTextures[1])
+		{
+			mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[3]);
+		}
+	}
+	else
+	{
+		if (tempHeroTexture == mainHero->usableTextures[0])
+		{
+			mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[4]);
+		}
+		if (tempHeroTexture == mainHero->usableTextures[1])
+		{
+			mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[5]);
+		}
+	}
+}
+
 
 
 /*
@@ -181,6 +209,12 @@ void GameLevelManager::HeroCollide_With_Chest()
 							basicGameLevels[currentLevelID]->basicChests[i]->currentObjectTexture =
 								ImageTextureManager::LoadTexture(basicGameLevels[currentLevelID]->basicChests[i]->usableTextures[1]);
 							mainHero->inputFromKeyboard = NULL;
+
+							if (heroChoices.relationshipWithMages > 1)
+							{
+								heroChoices.relationMages--;
+								heroChoices.setRelationshipWithMages();
+							}
 						}
 						basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;
 					}
@@ -204,9 +238,12 @@ void GameLevelManager::HeroCollide_With_AppleItem()
 				std::cout << "Apple has been collected!" << std::endl;
 				SDL_Delay(10);
 
-				//Sprawdzamy czy bohater mo¿e zebraæ monetê
+				//Sprawdzamy czy bohater mo¿e zebraæ jab³ko
 				if (mainHero->HandleAppleCollision(basicGameLevels[currentLevelID]->basicItemApples[i]->power) == true)
 				{
+					mainHero->ChangeHeroTexture_DamageOrHeal(false);
+					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+
 					basicGameLevels[currentLevelID]->basicItemApples.
 						erase(basicGameLevels[currentLevelID]->basicItemApples.begin() + i); i--;
 
@@ -267,6 +304,9 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 				//Sprawdzamy czy bohater mo¿e zebraæ miksturê
 				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicItemPotions[i]->power) == true)
 				{
+					mainHero->ChangeHeroTexture_DamageOrHeal(false);
+					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+
 					basicGameLevels[currentLevelID]->basicItemPotions.
 						erase(basicGameLevels[currentLevelID]->basicItemPotions.begin() + i); i--;
 
@@ -309,10 +349,9 @@ void GameLevelManager::HeroCollide_With_MageEnemy()
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
-					mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[2]);
+					mainHero->ChangeHeroTexture_DamageOrHeal(true);
 					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
-
 			}
 		}
 	}
@@ -346,10 +385,9 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
-					mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[2]);
+					mainHero->ChangeHeroTexture_DamageOrHeal(true);
 					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
-				
 			}
 		}
 	}

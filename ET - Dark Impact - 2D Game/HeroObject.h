@@ -23,6 +23,7 @@ public:
 
 	//Zaawansowane
 	void TeleportHeroToPoint(Point* point); //Poruszanie siê bohaterem
+	void ChangeHeroTexture_DamageOrHeal(bool damage);
 
 	//static int speed;
 };

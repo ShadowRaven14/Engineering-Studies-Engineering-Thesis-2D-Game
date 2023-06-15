@@ -18,6 +18,7 @@ public:
 	const Point distanceToEdge = Point(320, 224);
 
 	Point TranslatePoint(SDL_Rect currentPoint);
+	void ChangeHeroTexture_DamageOrHeal(bool damage);
 
 	void HeroCollide_With_Teleport();
 	void HeroCollide_With_Chest();

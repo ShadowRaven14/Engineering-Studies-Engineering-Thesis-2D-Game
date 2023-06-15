@@ -90,7 +90,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << "==> " << rand_quantity << " potions item spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2;
+		rand_type = rand() % 3;
 		PotionObject* basicPotion = new PotionObject(rand_type);
 		basicItemPotions.push_back(basicPotion);
 	}

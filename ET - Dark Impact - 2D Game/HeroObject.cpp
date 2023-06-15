@@ -11,8 +11,17 @@ HeroObject::HeroObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/ElvenTracker_GoLeft.png";
 		usableTextures.push_back(tempTex);
-		tempTex = "Images/_blank.png";
+
+		tempTex = "Images/ElvenTracker_GoRight_damaged.png";
 		usableTextures.push_back(tempTex);
+		tempTex = "Images/ElvenTracker_GoLeft_damaged.png";
+		usableTextures.push_back(tempTex);
+
+		tempTex = "Images/ElvenTracker_GoRight_healed.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/ElvenTracker_GoLeft_healed.png";
+		usableTextures.push_back(tempTex);
+
 		break;
 
 	default:
@@ -139,4 +148,32 @@ void HeroObject::TeleportHeroToPoint(Point* point)
 {
 	pointInGame.x = point->x;
 	pointInGame.y = point->y;
+}
+
+void HeroObject::ChangeHeroTexture_DamageOrHeal(bool damage)
+{
+	const char* tempHeroTexture = (const char*)currentObjectTexture;
+
+	if (damage == true)
+	{
+		if (tempHeroTexture == usableTextures[0])
+		{
+			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[2]);
+		}
+		if (tempHeroTexture == usableTextures[1])
+		{
+			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[3]);
+		}
+	}
+	else
+	{
+		if (tempHeroTexture == usableTextures[0])
+		{
+			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[4]);
+		}
+		if (tempHeroTexture == usableTextures[1])
+		{
+			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[5]);
+		}
+	}
 }

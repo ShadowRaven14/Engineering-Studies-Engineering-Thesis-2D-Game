@@ -49,15 +49,16 @@ bool HeroObjectives::HandleChestCollision(short worth)
 	switch (r)
 	{
 	case 0:
-		Agility = Agility + worth;
+		Strength = Strength + worth;
+		
 		break;
 
 	case 1:
-		Strength = Strength + worth;
+		Intelligence = Intelligence + worth;
 		break;
 
 	case 2:
-		Intelligence = Intelligence + worth;
+		Agility = Agility + worth;
 		break;
 
 	default:
@@ -92,6 +93,26 @@ bool HeroObjectives::HandlePotionCollision(short power)
 {
 	HeroHealthPoints = HeroHealthPoints + power;
 	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
+
+	int r = rand() % 3;
+	switch (r)
+	{
+	case 0:
+		Strength = Strength + 1;
+		
+		break;
+
+	case 1:
+		Intelligence = Intelligence + 1;
+		break;
+
+	case 2:
+		Agility = Agility + 1;
+		break;
+
+	default:
+		break;
+	}
 
 	//ShowCurrentObjectives();
 	return true;

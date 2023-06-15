@@ -8,13 +8,19 @@ PotionObject::PotionObject(unsigned short type)
 	{
 	case 0:
 		power = 10;
-		tempTex = "Images/PotionHealth.png";
+		tempTex = "Images/PotionStrength.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 1:
 		power = 15;
-		tempTex = "Images/PotionMana.png";
+		tempTex = "Images/PotionIntelligence.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 2:
+		power = 15;
+		tempTex = "Images/PotionAgility.png";
 		usableTextures.push_back(tempTex);
 		break;
 
