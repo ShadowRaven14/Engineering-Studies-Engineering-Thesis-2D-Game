@@ -9,6 +9,7 @@ public:
 	HeroObjectives();
 	bool IsHeroAlive();
 
+	bool HandleTeleportCollision(short challenge);
 	bool HandleChestCollision(short worth);
 
 	bool HandleAppleCollision(short power);

@@ -11,8 +11,6 @@ public:
 
 	std::string HeroName;
 	int HeroHealthPoints;
-	int MeleeAttack, RangedAttack, MagicAttack;
-	int MeleeDefense, RangedDefense, MagicDefense;
 	int Strength, Intelligence, Agility;
 };
 

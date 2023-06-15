@@ -164,20 +164,23 @@ void GameLevelManager::HeroCollide_With_Teleport()
 				//Sprawadzamy, czy zosta³ nacisniêty przycisk 'f'
 				if (mainHero->inputFromKeyboard == 'f')
 				{
-					std::cout << "Collision with Teleport!" << std::endl;
-					SDL_Delay(500);
-
-					//Przenosimy siê na inny Poziom
-					currentLevelID = basicGameLevels[currentLevelID]->basicTeleports[i]->destination;
-					std::cout << "Change level. Current Level ID = " << currentLevelID << "." << std::endl;
-					mainHero->TeleportHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
-
-					mainHero->inputFromKeyboard = ' ';
-
-					if (heroChoices.relationshipWithSentinels > 1)
+					if (mainHero->HandleTeleportCollision(basicGameLevels[currentLevelID]->basicTeleports[i]->challenge) == true)
 					{
-						heroChoices.relationSentinels--;
-						heroChoices.setRelationshipWithSentinels();
+						std::cout << "Collision with Teleport!" << std::endl;
+						SDL_Delay(500);
+
+						//Przenosimy siê na inny Poziom
+						currentLevelID = basicGameLevels[currentLevelID]->basicTeleports[i]->destination;
+						std::cout << "Change level. Current Level ID = " << currentLevelID << "." << std::endl;
+						mainHero->TeleportHeroToPoint(basicGameLevels[currentLevelID]->startingPoint);
+
+						mainHero->inputFromKeyboard = ' ';
+
+						if (heroChoices.relationshipWithSentinels > 1)
+						{
+							heroChoices.relationSentinels--;
+							heroChoices.setRelationshipWithSentinels();
+						}
 					}
 				}
 			}
@@ -200,12 +203,12 @@ void GameLevelManager::HeroCollide_With_Chest()
 					//Upewniamy siê, ¿e skrzynia nie zosta³a ju¿ otwarta
 					if (basicGameLevels[currentLevelID]->basicChests[i]->isOpen == false)
 					{
-						std::cout << "Chest has been collected!" << std::endl;
-						SDL_Delay(10);
-
+						
 						//Sprawdzamy czy bohater mo¿e otworzyæ skrzyniê
 						if (mainHero->HandleChestCollision(basicGameLevels[currentLevelID]->basicChests[i]->worth) == true)
 						{
+							std::cout << "Chest has been collected!" << std::endl;
+
 							basicGameLevels[currentLevelID]->basicChests[i]->currentObjectTexture =
 								ImageTextureManager::LoadTexture(basicGameLevels[currentLevelID]->basicChests[i]->usableTextures[1]);
 							mainHero->inputFromKeyboard = NULL;
@@ -215,8 +218,11 @@ void GameLevelManager::HeroCollide_With_Chest()
 								heroChoices.relationMages--;
 								heroChoices.setRelationshipWithMages();
 							}
+
+							basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;
+
+							SDL_Delay(10);
 						}
-						basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;
 					}
 					mainHero->inputFromKeyboard = ' ';
 				}
@@ -258,6 +264,8 @@ void GameLevelManager::HeroCollide_With_AppleItem()
 						heroChoices.relationSentinels++;
 						heroChoices.setRelationshipWithSentinels();
 					}
+
+					SDL_Delay(10);
 				}
 			}
 		}
@@ -315,6 +323,8 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 						heroChoices.relationMages--;
 						heroChoices.setRelationshipWithMages();
 					}
+
+					SDL_Delay(10);
 				}
 			}
 		}
@@ -350,7 +360,7 @@ void GameLevelManager::HeroCollide_With_MageEnemy()
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
 					mainHero->ChangeHeroTexture_DamageOrHeal(true);
-					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+					//std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
 			}
 		}
@@ -386,7 +396,7 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
 					mainHero->ChangeHeroTexture_DamageOrHeal(true);
-					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+					//std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
 			}
 		}
@@ -398,52 +408,54 @@ void GameLevelManager::HandleTextUpdate()
 {
 	int numText; std::string strText; int h = 0;
 
-	h = h + 25;
+	h = h + 35;
 	numText = mainHero->HeroHealthPoints;
 	strText = std::to_string(numText);
-	strText = "HeroHealthPoints: " + strText;
+	strText = " HeroHealthPoints: " + strText;
 	char const* pcharText_HeroHealthPoints = strText.c_str();
 	textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
 	numText = mainHero->ScorePoints;
 	strText = std::to_string(numText);
-	strText = "ScorePoints: " + strText;
+	strText = " ScorePoints: " + strText;
 	char const* pcharText_ScorePoints = strText.c_str();
 	textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h + 25;
+
+	h = h + 35;
 	numText = mainHero->Strength;
 	strText = std::to_string(numText);
-	strText = "Strength: " + strText;
+	strText = " Strength: " + strText;
 	char const* pcharText_Strength = strText.c_str();
 	textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
 	numText = mainHero->Agility;
 	strText = std::to_string(numText);
-	strText = "Agility: " + strText;
+	strText = " Agility: " + strText;
 	char const* pcharText_Agility = strText.c_str();
 	textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
 	numText = mainHero->Intelligence;
 	strText = std::to_string(numText);
-	strText = "Intelligence: " + strText;
+	strText = " Intelligence: " + strText;
 	char const* pcharText_Intelligence = strText.c_str();
 	textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h + 25;
+
+	h = h + 35;
 	numText = heroChoices.relationMages;
 	strText = std::to_string(numText);
-	strText = "MageRelations: " + strText;
+	strText = " MageRelations: " + strText;
 	char const* pcharText_MageRelations = strText.c_str();
 	textMageRelationsObject = new TextObject(pcharText_MageRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
 	numText = heroChoices.relationSentinels;
 	strText = std::to_string(numText);
-	strText = "SentinelsRelations: " + strText;
+	strText = " SentinelsRelations: " + strText;
 	char const* pcharText_SentinelsRelations = strText.c_str();	
 	textSentinelsRelationsObject = new TextObject(pcharText_SentinelsRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
 }

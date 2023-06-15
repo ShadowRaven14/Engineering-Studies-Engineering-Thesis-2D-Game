@@ -56,8 +56,6 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 
 	HeroName = tempHero.HeroName;
 	HeroHealthPoints = tempHero.HeroHealthPoints;
-	MeleeAttack = tempHero.MeleeAttack, RangedAttack = tempHero.RangedAttack, MagicAttack = tempHero.MagicAttack;
-	MeleeDefense = tempHero.MeleeDefense, RangedDefense = tempHero.RangedDefense, MagicDefense = tempHero.MagicDefense;
 	Strength = tempHero.Strength, Intelligence = tempHero.Intelligence, Agility = tempHero.Agility;
 
 	ScorePoints = tempHero.ScorePoints;
@@ -80,8 +78,6 @@ HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 
 	HeroName = tempHero.HeroName;
 	HeroHealthPoints = tempHero.HeroHealthPoints;
-	MeleeAttack = tempHero.MeleeAttack, RangedAttack = tempHero.RangedAttack, MagicAttack = tempHero.MagicAttack;
-	MeleeDefense = tempHero.MeleeDefense, RangedDefense = tempHero.RangedDefense, MagicDefense = tempHero.MagicDefense;
 	Strength = tempHero.Strength, Intelligence = tempHero.Intelligence, Agility = tempHero.Agility;
 
 	ScorePoints = tempHero.ScorePoints;
@@ -106,8 +102,6 @@ HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
 
 	HeroName = tempHero->HeroName;
 	HeroHealthPoints = tempHero->HeroHealthPoints;
-	MeleeAttack = tempHero->MeleeAttack, RangedAttack = tempHero->RangedAttack, MagicAttack = tempHero->MagicAttack;
-	MeleeDefense = tempHero->MeleeDefense, RangedDefense = tempHero->RangedDefense, MagicDefense = tempHero->MagicDefense;
 	Strength = tempHero->Strength, Intelligence = tempHero->Intelligence, Agility = tempHero->Agility;
 
 	ScorePoints = tempHero->ScorePoints;

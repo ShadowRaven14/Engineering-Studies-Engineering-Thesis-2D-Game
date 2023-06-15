@@ -17,4 +17,5 @@ public:
 	//Zaawansowane
 	Point coordinatesOfTeleport;
 	int destination;
+	short challenge;
 };

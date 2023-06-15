@@ -24,6 +24,8 @@ bool HeroObjectives::IsHeroAlive()
 
 bool HeroObjectives::HandleEnemyCollision(int power)
 {
+	std::cout << "Challenge Strength: " << power << std::endl;
+
 	if (Strength > power)
 	{
 		ScorePoints = ScorePoints + (power * 10);
@@ -40,34 +42,56 @@ bool HeroObjectives::HandleEnemyCollision(int power)
 	return false;
 }
 
+bool HeroObjectives::HandleTeleportCollision(short challenge)
+{
+	std::cout << "Challenge Intelligence: " << challenge << std::endl;
+
+	if (Intelligence > challenge)
+	{
+		return true;
+	}
+
+	//ShowCurrentObjectives();
+	return false;
+}
+
 bool HeroObjectives::HandleChestCollision(short worth)
 {
+	std::cout << "Challenge Agility: " << worth << std::endl;
+
 	CollectedChests++;
-	ScorePoints = ScorePoints + (worth * 10);
+	ScorePoints = ScorePoints + (worth * 5);
 
 	int r = rand() % 3;
-	switch (r)
+	if (Agility > worth)
 	{
-	case 0:
-		Strength = Strength + worth;
-		
-		break;
+		switch (r)
+		{
+		case 0:
+			Strength = Strength + worth;
 
-	case 1:
-		Intelligence = Intelligence + worth;
-		break;
+			break;
 
-	case 2:
-		Agility = Agility + worth;
-		break;
+		case 1:
+			Intelligence = Intelligence + worth;
+			break;
 
-	default:
-		break;
+		case 2:
+			Agility = Agility + worth;
+			break;
+
+		default:
+			break;
+		}
+
+		CurrentStatistics();
+		//ShowCurrentObjectives();
+		return true;
 	}
 
 	CurrentStatistics();
 	//ShowCurrentObjectives();
-	return true;
+	return false;
 }
 
 bool HeroObjectives::HandleAppleCollision(short power)
