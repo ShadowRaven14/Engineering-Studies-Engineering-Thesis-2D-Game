@@ -203,7 +203,6 @@ void GameLevelManager::HeroCollide_With_Chest()
 					//Upewniamy siê, ¿e skrzynia nie zosta³a ju¿ otwarta
 					if (basicGameLevels[currentLevelID]->basicChests[i]->isOpen == false)
 					{
-						
 						//Sprawdzamy czy bohater mo¿e otworzyæ skrzyniê
 						if (mainHero->HandleChestCollision(basicGameLevels[currentLevelID]->basicChests[i]->worth) == true)
 						{
@@ -219,9 +218,7 @@ void GameLevelManager::HeroCollide_With_Chest()
 								heroChoices.setRelationshipWithMages();
 							}
 
-							basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;
-
-							SDL_Delay(10);
+							basicGameLevels[currentLevelID]->basicChests[i]->isOpen = true;					
 						}
 					}
 					mainHero->inputFromKeyboard = ' ';
@@ -242,7 +239,6 @@ void GameLevelManager::HeroCollide_With_AppleItem()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemApples[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
 				std::cout << "Apple has been collected!" << std::endl;
-				SDL_Delay(10);
 
 				//Sprawdzamy czy bohater mo¿e zebraæ jab³ko
 				if (mainHero->HandleAppleCollision(basicGameLevels[currentLevelID]->basicItemApples[i]->power) == true)
@@ -264,8 +260,6 @@ void GameLevelManager::HeroCollide_With_AppleItem()
 						heroChoices.relationSentinels++;
 						heroChoices.setRelationshipWithSentinels();
 					}
-
-					SDL_Delay(10);
 				}
 			}
 		}
@@ -283,7 +277,6 @@ void GameLevelManager::HeroCollide_With_CoinItem()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemCoins[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
 				std::cout << "Coin has been collected!" << std::endl;
-				SDL_Delay(10);
 
 				//Sprawdzamy czy bohater mo¿e zebraæ monetê
 				if (mainHero->HandleCoinCollision(10) == true)
@@ -307,8 +300,7 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
 				std::cout << "Potion has been collected!" << std::endl;
-				SDL_Delay(10);
-
+				
 				//Sprawdzamy czy bohater mo¿e zebraæ miksturê
 				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicItemPotions[i]->power) == true)
 				{
@@ -323,8 +315,6 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 						heroChoices.relationMages--;
 						heroChoices.setRelationshipWithMages();
 					}
-
-					SDL_Delay(10);
 				}
 			}
 		}
@@ -342,7 +332,6 @@ void GameLevelManager::HeroCollide_With_MageEnemy()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicMageEnemies[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				std::cout << "Collision with Enemy Mage! ENGAGE!";
-				SDL_Delay(10);
 
 				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
 				if (mainHero->HandleEnemyCollision(basicGameLevels[currentLevelID]->basicMageEnemies[i]->power) == true)
@@ -354,12 +343,13 @@ void GameLevelManager::HeroCollide_With_MageEnemy()
 				}
 				else
 				{
+					mainHero->ChangeHeroTexture_DamageOrHeal(true);
+
 					if (heroChoices.relationshipWithMages > 1)
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
-					mainHero->ChangeHeroTexture_DamageOrHeal(true);
 					//std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
 			}
@@ -378,7 +368,6 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicSentinelEnemies[i]->GetDestRect().y) < Game::objectsSize)
 			{
 				std::cout << "Collision with Enemy Sentinel! ENGAGE!";
-				SDL_Delay(10);
 
 				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
 				if (mainHero->HandleEnemyCollision(basicGameLevels[currentLevelID]->basicSentinelEnemies[i]->power) == true)
@@ -390,12 +379,13 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 				}
 				else
 				{
+					mainHero->ChangeHeroTexture_DamageOrHeal(true);
+
 					if (heroChoices.relationshipWithSentinels > 1)
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
 
-					mainHero->ChangeHeroTexture_DamageOrHeal(true);
 					//std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
 				}
 			}

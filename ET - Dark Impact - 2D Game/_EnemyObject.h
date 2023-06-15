@@ -17,6 +17,7 @@ public:
 	void MoveWithEnemyV1(); //Poruszanie siê wroga wersja 1
 	void MoveWithEnemyV2(); //Poruszanie siê wroga wersja 2
 	void MoveWithEnemyV3(); //Poruszanie siê wroga wersja 3
+	void MoveWithEnemyV4(); //Poruszanie siê wroga wersja 4
 	void ChangeCurrentTexture(int n);
 	unsigned short type;
 	unsigned int power;

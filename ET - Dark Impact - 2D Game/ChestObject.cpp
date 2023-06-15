@@ -7,7 +7,7 @@ ChestObject::ChestObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		worth = rand() % 3 + 3;
+		worth = rand() % 2 + 3;
 		tempTex = "Images/ChestWooden_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/Chest_Open.png";
@@ -15,7 +15,15 @@ ChestObject::ChestObject(unsigned short type)
 		break;
 
 	case 1:
-		worth = rand() % 6 + 6;
+		worth = rand() % 2 + 3;
+		tempTex = "Images/ChestWooden_Closed.png";
+		usableTextures.push_back(tempTex);
+		tempTex = "Images/Chest_Open.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 2:
+		worth = rand() % 4 + 6;
 		tempTex = "Images/ChestIron_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/Chest_Open.png";

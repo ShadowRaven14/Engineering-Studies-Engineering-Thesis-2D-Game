@@ -49,7 +49,7 @@ HeroObject::HeroObject(const char* texturesheet, Point* point)
 	BasicInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
 }
 
-HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
+HeroObject::HeroObject(const HeroObject& tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero.currentObjectTexture;
@@ -71,7 +71,7 @@ HeroObject::HeroObject(const HeroObject& tempHero) //Nie dzia³a?
 	speedShift = tempHero.speedShift;
 }
 
-HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
+HeroObject& HeroObject::operator= (const HeroObject& tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero.currentObjectTexture;
@@ -95,7 +95,7 @@ HeroObject& HeroObject::operator= (const HeroObject& tempHero) //Nie dzia³a?
 	return *this;
 }
 
-HeroObject& HeroObject::operator= (HeroObject* tempHero) //Nie dzia³a?
+HeroObject& HeroObject::operator= (HeroObject* tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy HeroObject";
 	currentObjectTexture = tempHero->currentObjectTexture;
@@ -129,6 +129,8 @@ void HeroObject::Update()
 
 	HandleKeyboard(); //Obs³uguj input z klawiatury, Poruszanie siê bohaterem
 	currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[textureNumber]); //Podmiana tekstury w razie koniecznoœci
+	if (textureNumber == 0) isMovingRight = true;
+	else isMovingRight = false;
 }
 
 //Renderowanie bohatera
@@ -150,22 +152,22 @@ void HeroObject::ChangeHeroTexture_DamageOrHeal(bool damage)
 
 	if (damage == true)
 	{
-		if (tempHeroTexture == usableTextures[0])
+		if (isMovingRight)
 		{
 			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[2]);
 		}
-		if (tempHeroTexture == usableTextures[1])
+		else
 		{
 			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[3]);
 		}
 	}
 	else
 	{
-		if (tempHeroTexture == usableTextures[0])
+		if (isMovingRight)
 		{
 			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[4]);
 		}
-		if (tempHeroTexture == usableTextures[1])
+		else
 		{
 			currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[5]);
 		}

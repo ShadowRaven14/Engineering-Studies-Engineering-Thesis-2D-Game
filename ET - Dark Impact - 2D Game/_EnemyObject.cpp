@@ -19,6 +19,10 @@ void _EnemyObject::Update()
 		MoveWithEnemyV3();
 		break;
 
+	case 4:
+		MoveWithEnemyV4();
+		break;
+
 	default:
 		break;
 	}
@@ -33,7 +37,7 @@ void _EnemyObject::Render()
 
 void _EnemyObject::RandomizeTypeOfMovement()
 {
-	typeOfMovement = rand() % 3 + 1;
+	typeOfMovement = rand() % 4 + 1;
 	//std::cout << "typeOfMovement: " << typeOfMovement << std::endl;
 }
 
@@ -174,6 +178,56 @@ void _EnemyObject::MoveWithEnemyV3()
 
 	case false:
 		cordsOfObject.y = cordsOfObject.y - 2;
+		break;
+	}
+}
+
+//Poruszanie siê wroga
+void _EnemyObject::MoveWithEnemyV4()
+{
+
+	if (cordsOfObject.x <= 32)
+	{
+		isMovingRight = true;
+		currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[0]);
+	}
+	else if (cordsOfObject.x >= (Game::gameX - 64) + ((Game::windowX - Game::gameX) / 2) - 192)
+	{
+		isMovingRight = false;
+		currentObjectTexture = ImageTextureManager::LoadTexture(usableTextures[1]);
+
+	}
+
+	short rx = rand() % 4 + 8;
+	short ry = rand() % 4 + 8;
+
+	switch (isMovingRight)
+	{
+	case true:
+		cordsOfObject.x = cordsOfObject.x + rx;
+		break;
+
+	case false:
+		cordsOfObject.x = cordsOfObject.x - rx;
+		break;
+	}
+
+
+	if (cordsOfObject.y <= 32)
+		isMovingUp = true;
+
+	else if (cordsOfObject.y >= (Game::gameY - 64) + ((Game::windowY - Game::gameY) / 2) - 192)
+		isMovingUp = false;
+
+
+	switch (isMovingUp)
+	{
+	case true:
+		cordsOfObject.y = cordsOfObject.y + ry;
+		break;
+
+	case false:
+		cordsOfObject.y = cordsOfObject.y - ry;
 		break;
 	}
 }

@@ -63,7 +63,7 @@ bool HeroObjectives::HandleChestCollision(short worth)
 	ScorePoints = ScorePoints + (worth * 5);
 
 	int r = rand() % 3;
-	if (Agility > worth)
+	if (Agility > worth * 2)
 	{
 		switch (r)
 		{

@@ -21,7 +21,7 @@ EnemyMageObject::EnemyMageObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 15;
+		power = rand() % 5 + 10;
 		tempTex = "Images/HumanMageGreen_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageGreen_GoLeft.png";
@@ -31,7 +31,7 @@ EnemyMageObject::EnemyMageObject(unsigned short type)
 		break;
 
 	case 1:
-		power = 30;
+		power = rand() % 10 + 20;
 		tempTex = "Images/HumanMageBlue_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageBlue_GoLeft.png";
@@ -41,7 +41,7 @@ EnemyMageObject::EnemyMageObject(unsigned short type)
 		break;
 
 	case 2:
-		power = 50;
+		power = rand() % 10 + 40;
 		tempTex = "Images/HumanMageRed_GoRight.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/HumanMageRed_GoLeft.png";

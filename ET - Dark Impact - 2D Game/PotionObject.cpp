@@ -7,19 +7,19 @@ PotionObject::PotionObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 10;
+		power = rand() % 10 + 5;
 		tempTex = "Images/PotionStrength.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 1:
-		power = 15;
+		power = rand() % 10 + 5;
 		tempTex = "Images/PotionIntelligence.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 2:
-		power = 15;
+		power = rand() % 10 + 5;
 		tempTex = "Images/PotionAgility.png";
 		usableTextures.push_back(tempTex);
 		break;

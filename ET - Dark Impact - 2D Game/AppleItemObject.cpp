@@ -7,13 +7,19 @@ AppleItemObject::AppleItemObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 5;
+		power = rand() % 5 - 5;
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 1:
-		power = 20;
+		power = rand() % 5 - 5;
+		tempTex = "Images/AppleNormal.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 2:
+		power = rand() % 5 + 5;
 		tempTex = "Images/AppleGolden.png";
 		usableTextures.push_back(tempTex);
 		break;

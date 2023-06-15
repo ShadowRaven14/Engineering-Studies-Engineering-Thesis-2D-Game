@@ -60,7 +60,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << "==> " << rand_quantity << " chests spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2;
+		rand_type = rand() % 3;
 		ChestObject* basicChest = new ChestObject(rand_type);
 		basicChests.push_back(basicChest);
 	}
@@ -70,7 +70,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << "==> " << rand_quantity << " apples item spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
-		rand_type = rand() % 2;
+		rand_type = rand() % 3;
 		AppleItemObject* basicApple = new AppleItemObject(rand_type);
 		basicItemApples.push_back(basicApple);
 	}
@@ -96,7 +96,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	}
 
 	//Dodanie elementów do wektora basicMageEnemies
-	rand_quantity = rand() % 3 + 1;
+	rand_quantity = rand() % 2 + 2;
 	std::cout << "==> " << rand_quantity << " mage enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{

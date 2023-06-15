@@ -21,7 +21,7 @@ EnemySentinelObject::EnemySentinelObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		power = 100;
+		power = rand() % 20 + 60;
 		tempTex = "Images/MagicChaos.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/MagicChaos.png";
@@ -31,7 +31,7 @@ EnemySentinelObject::EnemySentinelObject(unsigned short type)
 		break;
 
 	case 1:
-		power = 100;
+		power = rand() % 20 + 80;
 		tempTex = "Images/MagicFire.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/MagicFire.png";
