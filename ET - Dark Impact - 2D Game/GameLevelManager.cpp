@@ -59,8 +59,12 @@ void GameLevelManager::Update()
 
 	HeroCollide_With_Teleport();
 	HeroCollide_With_Chest();
-	HeroCollide_With_PotionItem();
+
+	HeroCollide_With_AppleItem();
 	HeroCollide_With_CoinItem();
+	HeroCollide_With_PotionItem();
+	
+	if (heroChoices.relationshipWithMages < 5) HeroCollide_With_MageEnemy();
 	if (heroChoices.relationshipWithSentinels < 5) HeroCollide_With_SentinelEnemy();
 
 	HandleTextUpdate();
@@ -142,8 +146,11 @@ void GameLevelManager::HeroCollide_With_Teleport()
 
 					mainHero->inputFromKeyboard = ' ';
 
-					heroChoices.relationSentinels--;
-					heroChoices.setRelationshipWithSentinels();
+					if (heroChoices.relationshipWithSentinels > 1)
+					{
+						heroChoices.relationSentinels--;
+						heroChoices.setRelationshipWithSentinels();
+					}
 				}
 			}
 		}
@@ -203,8 +210,17 @@ void GameLevelManager::HeroCollide_With_AppleItem()
 					basicGameLevels[currentLevelID]->basicItemApples.
 						erase(basicGameLevels[currentLevelID]->basicItemApples.begin() + i); i--;
 
-					heroChoices.relationMages++;
-					heroChoices.setRelationshipWithMages();
+					if (heroChoices.relationshipWithMages < 5)
+					{
+						heroChoices.relationMages++;
+						heroChoices.setRelationshipWithMages();
+					}
+					
+					if (heroChoices.relationshipWithSentinels < 5)
+					{
+						heroChoices.relationSentinels++;
+						heroChoices.setRelationshipWithSentinels();
+					}
 				}
 			}
 		}
@@ -241,9 +257,9 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicItemPotions.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().x) < Game::objectsSize)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().x) < Game::objectsSize / 2)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().y) < Game::objectsSize)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
 				std::cout << "Potion has been collected!" << std::endl;
 				SDL_Delay(10);
@@ -254,8 +270,11 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 					basicGameLevels[currentLevelID]->basicItemPotions.
 						erase(basicGameLevels[currentLevelID]->basicItemPotions.begin() + i); i--;
 
-					heroChoices.relationMages--;
-					heroChoices.setRelationshipWithMages();
+					if (heroChoices.relationshipWithMages > 1)
+					{
+						heroChoices.relationMages--;
+						heroChoices.setRelationshipWithMages();
+					}
 				}
 			}
 		}
@@ -336,45 +355,61 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 	}
 }
 
+
 void GameLevelManager::HandleTextUpdate()
 {
 	int numText; std::string strText; int h = 0;
 
-	h = h+25;
+	h = h + 25;
 	numText = mainHero->HeroHealthPoints;
 	strText = std::to_string(numText);
 	strText = "HeroHealthPoints: " + strText;
 	char const* pcharText_HeroHealthPoints = strText.c_str();
 	textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h+25;
+	h = h + 25;
 	numText = mainHero->ScorePoints;
 	strText = std::to_string(numText);
 	strText = "ScorePoints: " + strText;
 	char const* pcharText_ScorePoints = strText.c_str();
 	textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h+25;
+	h = h + 25;
 	numText = mainHero->Strength;
 	strText = std::to_string(numText);
 	strText = "Strength: " + strText;
 	char const* pcharText_Strength = strText.c_str();
 	textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h+25;
+	h = h + 25;
 	numText = mainHero->Agility;
 	strText = std::to_string(numText);
 	strText = "Agility: " + strText;
 	char const* pcharText_Agility = strText.c_str();
 	textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h+25;
+	h = h + 25;
 	numText = mainHero->Intelligence;
 	strText = std::to_string(numText);
 	strText = "Intelligence: " + strText;
 	char const* pcharText_Intelligence = strText.c_str();
 	textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h + 25;
+	numText = heroChoices.relationMages;
+	strText = std::to_string(numText);
+	strText = "MageRelations: " + strText;
+	char const* pcharText_MageRelations = strText.c_str();
+	textMageRelationsObject = new TextObject(pcharText_MageRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+	h = h + 25;
+	numText = heroChoices.relationSentinels;
+	strText = std::to_string(numText);
+	strText = "SentinelsRelations: " + strText;
+	char const* pcharText_SentinelsRelations = strText.c_str();	
+	textSentinelsRelationsObject = new TextObject(pcharText_SentinelsRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
 }
+
 
 void GameLevelManager::HandleTextRender()
 {
@@ -382,11 +417,17 @@ void GameLevelManager::HandleTextRender()
 	{
 		textHealthPointsObject->Render();
 		textScorePointsObject->Render();
+
 		textStrengthObject->Render();
 		textAgilityObject->Render();
 		textIntelligenceObject->Render();
+
+		textMageRelationsObject->Render();
+		textSentinelsRelationsObject->Render();	
+
 		mainHero->inputFromKeyboard = ' ';
 	}
+
 	/*SDL_DestroyTexture(textHealthPointsObject->fontTexture);
 	SDL_DestroyTexture(textScorePointsObject->fontTexture);
 	SDL_DestroyTexture(textStrengthObject->fontTexture);

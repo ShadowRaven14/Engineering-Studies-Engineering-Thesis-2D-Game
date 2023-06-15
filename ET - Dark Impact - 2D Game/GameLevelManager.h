@@ -33,13 +33,18 @@ public:
 	void HandleTextRender();
 
 private:
+	short currentLevelID;
+	std::vector <GameLevel*> basicGameLevels;
+	HeroObject* mainHero;
+	
 	TextObject* textHealthPointsObject;
 	TextObject* textScorePointsObject;
+
 	TextObject* textStrengthObject;
 	TextObject* textAgilityObject;
 	TextObject* textIntelligenceObject;
-	HeroObject* mainHero;
-	short currentLevelID;
-	std::vector <GameLevel*> basicGameLevels;
+
+	TextObject* textMageRelationsObject;
+	TextObject* textSentinelsRelationsObject;
 };
 
