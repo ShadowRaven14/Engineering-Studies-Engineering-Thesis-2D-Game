@@ -27,15 +27,3 @@ PotionObject::PotionObject(unsigned short type)
 
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 }
-
-void PotionObject::Update()
-{
-	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	destRect.h = destRect.h / 1.5; //Wysokoœæ w grze
-	destRect.w = destRect.w / 1.5; //Szerokoœæ w grze
-}
-
-void PotionObject::Render()
-{
-	BasicRender(); //Podstawowa funkcja z klasy interfejsu
-}

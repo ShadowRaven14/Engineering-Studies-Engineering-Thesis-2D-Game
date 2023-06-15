@@ -2,11 +2,11 @@
 #include "HeroChoices.h"
 #include <string>
 
-HeroChoices HeroChoices;
+HeroChoices heroChoices;
 
 GameLevelManager::GameLevelManager()
 {
-	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl;
+	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl << std::endl;
 
 	//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
 	mainHero = new HeroObject(0);
@@ -57,11 +57,11 @@ void GameLevelManager::Update()
 	mainHero->Update();
 	HandleHeroMovement();
 
-	HeroCollideWithTeleport();
-	HeroCollideWithChest();
-	HeroCollideWithPotion();
-	HeroCollideWithCoin();
-	if (HeroChoices.relationshipWithMages < 5) HeroCollideWithEnemy();
+	HeroCollide_With_Teleport();
+	HeroCollide_With_Chest();
+	HeroCollide_With_PotionItem();
+	HeroCollide_With_CoinItem();
+	if (heroChoices.relationshipWithSentinels < 5) HeroCollide_With_SentinelEnemy();
 
 	HandleTextUpdate();
 }
@@ -121,7 +121,7 @@ Point GameLevelManager::TranslatePoint(SDL_Rect currentPoint)
 */
 
 //KOLIZJA Z TELEPORTEM
-void GameLevelManager::HeroCollideWithTeleport()
+void GameLevelManager::HeroCollide_With_Teleport()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicTeleports.size(); i++)
 	{
@@ -142,8 +142,8 @@ void GameLevelManager::HeroCollideWithTeleport()
 
 					mainHero->inputFromKeyboard = ' ';
 
-					HeroChoices.relationMages--;
-					HeroChoices.setRelationshipWithMages();
+					heroChoices.relationSentinels--;
+					heroChoices.setRelationshipWithSentinels();
 				}
 			}
 		}
@@ -151,7 +151,7 @@ void GameLevelManager::HeroCollideWithTeleport()
 }
 
 //KOLIZJA ZE SKRZYNI¥
-void GameLevelManager::HeroCollideWithChest()
+void GameLevelManager::HeroCollide_With_Chest()
 {
 	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicChests.size(); i++)
 	{
@@ -184,23 +184,27 @@ void GameLevelManager::HeroCollideWithChest()
 	}
 }
 
-//KOLIZJA ZE SKRZYNI¥
-void GameLevelManager::HeroCollideWithPotion()
+
+//KOLIZJA Z PRZEDMIOTEM JAB£KIEM
+void GameLevelManager::HeroCollide_With_AppleItem()
 {
-	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicPotions.size(); i++)
+	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicItemApples.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().x) < Game::objectsSize)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicItemApples[i]->GetDestRect().x) < Game::objectsSize / 2)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicPotions[i]->GetDestRect().y) < Game::objectsSize)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemApples[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
-				std::cout << "Potion has been collected!" << std::endl;
+				std::cout << "Apple has been collected!" << std::endl;
 				SDL_Delay(10);
 
-				//Sprawdzamy czy bohater mo¿e zebraæ miksturê
-				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicPotions[i]->power) == true)
+				//Sprawdzamy czy bohater mo¿e zebraæ monetê
+				if (mainHero->HandleAppleCollision(basicGameLevels[currentLevelID]->basicItemApples[i]->power) == true)
 				{
-					basicGameLevels[currentLevelID]->basicPotions.
-						erase(basicGameLevels[currentLevelID]->basicPotions.begin() + i); i--;
+					basicGameLevels[currentLevelID]->basicItemApples.
+						erase(basicGameLevels[currentLevelID]->basicItemApples.begin() + i); i--;
+
+					heroChoices.relationMages++;
+					heroChoices.setRelationshipWithMages();
 				}
 			}
 		}
@@ -208,52 +212,117 @@ void GameLevelManager::HeroCollideWithPotion()
 }
 
 
-//KOLIZJA Z MONET¥
-void GameLevelManager::HeroCollideWithCoin()
+//KOLIZJA Z PRZEDMIOTEM MONET¥
+void GameLevelManager::HeroCollide_With_CoinItem()
 {
-	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicCoins.size(); i++)
+	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicItemCoins.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().x) < Game::objectsSize/2)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicItemCoins[i]->GetDestRect().x) < Game::objectsSize / 2)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicCoins[i]->GetDestRect().y) < Game::objectsSize/2)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemCoins[i]->GetDestRect().y) < Game::objectsSize / 2)
 			{
 				std::cout << "Coin has been collected!" << std::endl;
 				SDL_Delay(10);
 
 				//Sprawdzamy czy bohater mo¿e zebraæ monetê
-				if (mainHero->HandleCoinCollision() == true)
+				if (mainHero->HandleCoinCollision(10) == true)
 				{
-					basicGameLevels[currentLevelID]->basicCoins.
-						erase(basicGameLevels[currentLevelID]->basicCoins.begin() + i); i--;
+					basicGameLevels[currentLevelID]->basicItemCoins.
+						erase(basicGameLevels[currentLevelID]->basicItemCoins.begin() + i); i--;
 				}
 			}
 		}
 	}
 }
 
-//KOLIZJA Z WROGIEM
-void GameLevelManager::HeroCollideWithEnemy()
+
+//KOLIZJA Z PRZEDMIOTEM MIKSTUR¥
+void GameLevelManager::HeroCollide_With_PotionItem()
 {
-	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicEnemies.size(); i++)
+	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicItemPotions.size(); i++)
 	{
-		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().x) < Game::objectsSize)
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().x) < Game::objectsSize)
 		{
-			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicEnemies[i]->GetDestRect().y) < Game::objectsSize)
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicItemPotions[i]->GetDestRect().y) < Game::objectsSize)
 			{
-				std::cout << "Collision with Enemy! ENGAGE!";
+				std::cout << "Potion has been collected!" << std::endl;
+				SDL_Delay(10);
+
+				//Sprawdzamy czy bohater mo¿e zebraæ miksturê
+				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicItemPotions[i]->power) == true)
+				{
+					basicGameLevels[currentLevelID]->basicItemPotions.
+						erase(basicGameLevels[currentLevelID]->basicItemPotions.begin() + i); i--;
+
+					heroChoices.relationMages--;
+					heroChoices.setRelationshipWithMages();
+				}
+			}
+		}
+	}
+}
+
+
+//KOLIZJA Z WROGIEM MAGIEM
+void GameLevelManager::HeroCollide_With_MageEnemy()
+{
+	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicMageEnemies.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicMageEnemies[i]->GetDestRect().x) < Game::objectsSize)
+		{
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicMageEnemies[i]->GetDestRect().y) < Game::objectsSize)
+			{
+				std::cout << "Collision with Enemy Mage! ENGAGE!";
 				SDL_Delay(10);
 
 				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
-				if (mainHero->HandleEnemyCollision(basicGameLevels[currentLevelID]->basicEnemies[i]->power) == true)
+				if (mainHero->HandleEnemyCollision(basicGameLevels[currentLevelID]->basicMageEnemies[i]->power) == true)
 				{
-					basicGameLevels[currentLevelID]->basicEnemies.
-						erase(basicGameLevels[currentLevelID]->basicEnemies.begin() + i); i--;
+					basicGameLevels[currentLevelID]->basicMageEnemies.
+						erase(basicGameLevels[currentLevelID]->basicMageEnemies.begin() + i); i--;
 
 					std::cout << " You have SLAYED enemy!" << std::endl;
 				}
 				else
 				{
-					if (HeroChoices.relationshipWithMages > 1)
+					if (heroChoices.relationshipWithMages > 1)
+						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
+					else
+						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;
+
+					mainHero->currentObjectTexture = ImageTextureManager::LoadTexture(mainHero->usableTextures[2]);
+					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
+				}
+
+			}
+		}
+	}
+}
+
+
+//KOLIZJA Z WROGIEM STRA¯NIKIEM
+void GameLevelManager::HeroCollide_With_SentinelEnemy()
+{
+	for (unsigned int i = 0; i < basicGameLevels[currentLevelID]->basicSentinelEnemies.size(); i++)
+	{
+		if (abs(mainHero->GetDestRect().x - basicGameLevels[currentLevelID]->basicSentinelEnemies[i]->GetDestRect().x) < Game::objectsSize)
+		{
+			if (abs(mainHero->GetDestRect().y - basicGameLevels[currentLevelID]->basicSentinelEnemies[i]->GetDestRect().y) < Game::objectsSize)
+			{
+				std::cout << "Collision with Enemy Sentinel! ENGAGE!";
+				SDL_Delay(10);
+
+				//Sprawdzamy czy nasza postaæ jest wystarczaj¹co silna aby pokonaæ wroga
+				if (mainHero->HandleEnemyCollision(basicGameLevels[currentLevelID]->basicSentinelEnemies[i]->power) == true)
+				{
+					basicGameLevels[currentLevelID]->basicSentinelEnemies.
+						erase(basicGameLevels[currentLevelID]->basicSentinelEnemies.begin() + i); i--;
+
+					std::cout << " You have SLAYED enemy!" << std::endl;
+				}
+				else
+				{
+					if (heroChoices.relationshipWithSentinels > 1)
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 1;
 					else
 						mainHero->HeroHealthPoints = mainHero->HeroHealthPoints - 2;

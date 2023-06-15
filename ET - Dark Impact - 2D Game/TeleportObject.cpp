@@ -63,6 +63,8 @@ TeleportObject::TeleportObject(const TeleportObject& tempObject)
 void TeleportObject::Update()
 {
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
+	destRect.h = destRect.h * 1.5; //Wysokoœæ w grze
+	destRect.w = destRect.w * 1.5; //Szerokoœæ w grzeu
 }
 
 //Renderowanie bohatera

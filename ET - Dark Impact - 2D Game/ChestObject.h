@@ -1,10 +1,10 @@
 /*Klasa reprezentuj¹c¹ obiekt gry typu skrzynia.*/
 
 #pragma once
-#include "_VirtualObject.h"
+#include "__VirtualObject.h"
 
 class ChestObject
-	: public virtual _VirtualObject
+	: public virtual __VirtualObject
 {
 public:
 	//Podstawowe

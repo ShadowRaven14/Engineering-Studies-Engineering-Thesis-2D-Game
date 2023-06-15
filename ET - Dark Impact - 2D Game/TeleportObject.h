@@ -1,8 +1,8 @@
 #pragma once
-#include "_VirtualObject.h"
+#include "__VirtualObject.h"
 
 class TeleportObject :
-    public virtual _VirtualObject
+    public virtual __VirtualObject
 {
 public:
 	//Podstawowe

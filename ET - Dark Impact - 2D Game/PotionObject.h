@@ -1,15 +1,11 @@
 #pragma once
-#include "_VirtualObject.h"
+#include "_ItemObject.h"
 
 class PotionObject :
-    public virtual _VirtualObject
+    public virtual _ItemObject
 {
 public:
     PotionObject(unsigned short type);
     ~PotionObject(); //Destruktor skrzynki
-    void Update(); //Aktualizacja skrzynki
-    void Render(); //Renderowanie skrzynki
-
-    short power;
 };
 

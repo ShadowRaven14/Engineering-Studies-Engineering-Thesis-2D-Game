@@ -14,7 +14,7 @@ Point BackgroundMap::middleOFmap = Point((mapX - Game::objectsSize) / 2, (mapY -
 
 BackgroundMap::BackgroundMap(std::string mapname)
 {
-	std::cout << "THE MAP HAS BEEN CREATED." << std::endl;
+	std::cout << "=> " << "THE MAP HAS BEEN CREATED." << std::endl;
 	InitializeTextures();
 	//LoadMapFromVariable(lvl1);
 	LoadStartingMapFromTxt(mapname);

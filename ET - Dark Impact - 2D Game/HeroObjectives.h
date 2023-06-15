@@ -8,10 +8,15 @@ class HeroObjectives : public HeroBasicClass
 public:
 	HeroObjectives();
 	bool IsHeroAlive();
+
 	bool HandleChestCollision(short worth);
+
+	bool HandleAppleCollision(short power);
+	bool HandleCoinCollision(short power);
 	bool HandlePotionCollision(short power);
-	bool HandleCoinCollision();
+
 	bool HandleEnemyCollision(int power);
+
 	void ShowCurrentObjectives();
 	
 	unsigned int ScorePoints;

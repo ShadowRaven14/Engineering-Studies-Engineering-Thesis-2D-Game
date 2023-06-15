@@ -69,10 +69,10 @@
     <ClCompile Include="HeroObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="_VirtualObject.cpp">
+    <ClCompile Include="__VirtualObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="EnemyObject.cpp">
+    <ClCompile Include="_EnemyObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BasicFunctions.cpp">
@@ -129,7 +129,7 @@
     <ClCompile Include="EnemySentinelObject.cpp">
       <Filter>Source Files\GameObjectsCpp\SpecEnemyObjectsCpp</Filter>
     </ClCompile>
-    <ClCompile Include="ItemObject.cpp">
+    <ClCompile Include="_ItemObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="PotionObject.cpp">
@@ -146,7 +146,7 @@
     <ClInclude Include="HeroObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="_VirtualObject.h">
+    <ClInclude Include="__VirtualObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="SimpleMathExamples.h">
@@ -206,7 +206,7 @@
     <ClInclude Include="EnemySentinelObject.h">
       <Filter>Header Files\GameObjectsH\SpecEnemyObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="EnemyObject.h">
+    <ClInclude Include="_EnemyObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="PotionObject.h">
@@ -215,7 +215,7 @@
     <ClInclude Include="CoinObject.h">
       <Filter>Header Files\GameObjectsH\SpecItemObjectsH</Filter>
     </ClInclude>
-    <ClInclude Include="ItemObject.h">
+    <ClInclude Include="_ItemObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
     <ClInclude Include="AppleItemObject.h">

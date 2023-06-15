@@ -1,5 +1,19 @@
 #include "EnemySentinelObject.h"
 
+EnemySentinelObject::EnemySentinelObject()
+{
+	const char* tempTex;
+
+	power = 10;
+	std::cout << "Error: Type Construktor." << std::endl;
+	tempTex = "Images/AppleNormal.png";
+	usableTextures.push_back(tempTex);
+
+	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
+	RandomizeTypeOfMovement();
+	isMovingRight = isMovingUp = true;
+}
+
 EnemySentinelObject::EnemySentinelObject(unsigned short type)
 {
 	const char* tempTex;
@@ -36,6 +50,20 @@ EnemySentinelObject::EnemySentinelObject(unsigned short type)
 
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 	RandomizeTypeOfMovement();
+	isMovingRight = isMovingUp = true;
+}
+
+EnemySentinelObject::EnemySentinelObject(const char* texturesheet, int x, int y)
+{
+	power = 10;
+	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
+	isMovingRight = isMovingUp = true;
+}
+
+EnemySentinelObject::EnemySentinelObject(const char* texturesheet)
+{
+	power = 10;
+	RandomizeCoordinates(texturesheet); //Podstawowa funkcja z klasy interfejsu
 	isMovingRight = isMovingUp = true;
 }
 

@@ -31,17 +31,3 @@ CoinObject::CoinObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu
 }
-
-//Aktualizacja bohatera
-void CoinObject::Update()
-{
-	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	//destRect.h = destRect.h * 2; //Wysokoœæ w grze
-	//destRect.w = destRect.w * 2; //Szerokoœæ w grze
-}
-
-//Renderowanie bohatera
-void CoinObject::Render()
-{
-	BasicRender(); //Podstawowa funkcja z klasy interfejsu
-}

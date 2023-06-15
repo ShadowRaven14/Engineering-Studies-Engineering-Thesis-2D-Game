@@ -11,7 +11,7 @@
 #include "CoinObject.h"
 #include "PotionObject.h"
 
-#include "EnemyObject.h"
+#include "_EnemyObject.h"
 #include "EnemySentinelObject.h"
 #include "EnemyMageObject.h"
 
@@ -49,10 +49,9 @@ public:
 	std::vector <ChestObject*> basicChests;
 
 	std::vector <AppleItemObject*> basicItemApples;
-	std::vector <CoinObject*> basicCoins;
-	std::vector <PotionObject*> basicPotions;
+	std::vector <CoinObject*> basicItemCoins;
+	std::vector <PotionObject*> basicItemPotions;
 
-	std::vector <EnemyObject*> basicEnemies;
 	std::vector <EnemyMageObject*> basicMageEnemies;
 	std::vector <EnemySentinelObject*> basicSentinelEnemies;
 };

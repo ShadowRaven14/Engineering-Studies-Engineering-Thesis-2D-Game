@@ -19,11 +19,15 @@ public:
 
 	Point TranslatePoint(SDL_Rect currentPoint);
 
-	void HeroCollideWithTeleport();
-	void HeroCollideWithChest();
-	void HeroCollideWithPotion();
-	void HeroCollideWithCoin();
-	void HeroCollideWithEnemy();
+	void HeroCollide_With_Teleport();
+	void HeroCollide_With_Chest();
+
+	void HeroCollide_With_AppleItem();
+	void HeroCollide_With_CoinItem();
+	void HeroCollide_With_PotionItem();
+	
+	void HeroCollide_With_MageEnemy();
+	void HeroCollide_With_SentinelEnemy();
 
 	void HandleTextUpdate();
 	void HandleTextRender();

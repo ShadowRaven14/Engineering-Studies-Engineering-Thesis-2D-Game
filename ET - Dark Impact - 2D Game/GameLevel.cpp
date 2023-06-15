@@ -15,11 +15,13 @@ GameLevel::GameLevel()
 	//Przygotowanie mapy i bohatera
 	basicMap = new BackgroundMap("Maps/Test.txt");
 	startingPoint = new Point(0, 0);
+
+	std::cout << std::endl;
 }
 
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart)
 {
-	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
+	std::cout << "=> " << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
 
 	//Identyfikator danego poziomu
 	levelID = bnID;
@@ -43,19 +45,19 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	if (levelID > 0) //Jeœli nie jesteœmy na poziomie startowym, tworzymy portal do wczeœniejszego poziomu
 		basicTeleports.push_back(new TeleportObject(levelID - 1));
 
-	//Dodanie elementów do wektora basicTeleports
-	rand_quantity = 0;
-	std::cout << rand_quantity << " portals spawn." << std::endl;
-	for (int i = 0; i < rand_quantity; i++)
-	{
-		rand_type = rand() % 3;
-		TeleportObject* basicTeleport = new TeleportObject(rand_type);
-		basicTeleports.push_back(basicTeleport);
-	}
+	////Dodanie elementów do wektora basicTeleports
+	//rand_quantity = 0;
+	//std::cout << "==> " << rand_quantity << " portals spawn." << std::endl;
+	//for (int i = 0; i < rand_quantity; i++)
+	//{
+	//	rand_type = rand() % 3;
+	//	TeleportObject* basicTeleport = new TeleportObject(rand_type);
+	//	basicTeleports.push_back(basicTeleport);
+	//}
 
 	//Dodanie elementów do wektora basicChests
 	rand_quantity = rand() % 8 + 2;
-	std::cout << rand_quantity << " chests spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " chests spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = rand() % 2;
@@ -64,8 +66,8 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	}
 
 	//Dodanie elementów do wektora basicItemApples
-	rand_quantity = rand() % 8 + 2;
-	std::cout << rand_quantity << " apples spawn." << std::endl;
+	rand_quantity = rand() % 2 + 2;
+	std::cout << "==> " << rand_quantity << " apples item spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = rand() % 2;
@@ -73,39 +75,29 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		basicItemApples.push_back(basicApple);
 	}
 
-	//Dodanie elementów do wektora basicCoins
-	rand_quantity = rand() % 10 + 10;
-	std::cout << rand_quantity << " coins spawn." << std::endl;
+	//Dodanie elementów do wektora basicItemCoins
+	rand_quantity = rand() % 20 + 20;
+	std::cout << "==> " << rand_quantity << " coins item spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = 0;
 		CoinObject* basicCoin = new CoinObject(rand_type);
-		basicCoins.push_back(basicCoin);
+		basicItemCoins.push_back(basicCoin);
 	}
 
-	//Dodanie elementów do wektora basicPotions
+	//Dodanie elementów do wektora basicItemPotions
 	rand_quantity = rand() % 8 + 2;
-	std::cout << rand_quantity << " potions spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " potions item spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = rand() % 2;
 		PotionObject* basicPotion = new PotionObject(rand_type);
-		basicPotions.push_back(basicPotion);
+		basicItemPotions.push_back(basicPotion);
 	}
-
-	////Dodanie elementów do wektora basicEnemies
-	//rand_quantity = rand() % 6 + 1;
-	//std::cout << rand_quantity << " enemies spawn." << std::endl;
-	//for (int i = 0; i < rand_quantity; i++)
-	//{
-	//	rand_type = rand() % 5;
-	//	EnemyObject* basicEnemy = new EnemyObject(rand_type);
-	//	basicEnemies.push_back(basicEnemy);
-	//}
 
 	//Dodanie elementów do wektora basicMageEnemies
 	rand_quantity = rand() % 3 + 1;
-	std::cout << rand_quantity << " enemies spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " mage enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = rand() % 3;
@@ -115,19 +107,21 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 
 	//Dodanie elementów do wektora basicSentinelEnemies
 	rand_quantity = rand() % 2 + 1;
-	std::cout << rand_quantity << " enemies spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " sentinel enemies spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		rand_type = rand() % 2;
 		EnemySentinelObject* basicEnemy = new EnemySentinelObject(rand_type);
 		basicSentinelEnemies.push_back(basicEnemy);
 	}
+
+	std::cout << std::endl;
 }
 
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 	const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin)
 {
-	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
+	std::cout << "=> " << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
 
 	//Identyfikator danego poziomu
 	levelID = bnID;
@@ -154,32 +148,23 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 
 	//Dodanie elementów do wektora basicChests
 	rand_quantity = rand() % 8 + 2;
-	std::cout << rand_quantity << " chests spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " chests spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		ChestObject* basicChest = new ChestObject(bnChest);
 		basicChests.push_back(basicChest);
 	}
 
-	//Dodanie elementów do wektora basicCoins
+	//Dodanie elementów do wektora basicItemCoins
 	rand_quantity = rand() % 10 + 10;
-	std::cout << rand_quantity << " coins spawn." << std::endl;
+	std::cout << "==> " << rand_quantity << " coins spawn." << std::endl;
 	for (int i = 0; i < rand_quantity; i++)
 	{
 		CoinObject* basicCoin = new CoinObject(bnCoin);
-		basicCoins.push_back(basicCoin);
+		basicItemCoins.push_back(basicCoin);
 	}
 
-	////Dodanie elementów do wektora basicEnemies
-	//rand_quantity = rand() % 5 + 2;
-	//std::cout << rand_quantity << " enemies spawn." << std::endl;
-	//for (int i = 0; i < rand_quantity; i++)
-	//{
-	//	//EnemyObject* basicEnemy = new EnemyObject(bnEnemy);
-	//	EnemyObject* basicEnemy = new EnemyObject(1);
-	//	basicEnemies.push_back(basicEnemy);
-	//}
-	
+	std::cout << std::endl;
 }
 
 GameLevel::GameLevel(const GameLevel& tempLevel)
@@ -197,10 +182,9 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 	basicChests = tempLevel.basicChests;
 
 	basicItemApples = tempLevel.basicItemApples;
-	basicCoins = tempLevel.basicCoins;
-	basicPotions = tempLevel.basicPotions;
+	basicItemCoins = tempLevel.basicItemCoins;
+	basicItemPotions = tempLevel.basicItemPotions;
 
-	basicEnemies = tempLevel.basicEnemies;
 	basicMageEnemies = tempLevel.basicMageEnemies;
 	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
 }
@@ -220,13 +204,11 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel)
 	basicChests = tempLevel.basicChests;
 
 	basicItemApples = tempLevel.basicItemApples;
-	basicCoins = tempLevel.basicCoins;
-	basicPotions = tempLevel.basicPotions;
+	basicItemCoins = tempLevel.basicItemCoins;
+	basicItemPotions = tempLevel.basicItemPotions;
 
-	basicEnemies = tempLevel.basicEnemies;
 	basicMageEnemies = tempLevel.basicMageEnemies;
 	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
-
 
 	return *this;
 }
@@ -246,10 +228,9 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 	basicChests = tempLevel->basicChests;
 
 	basicItemApples = tempLevel->basicItemApples;
-	basicCoins = tempLevel->basicCoins;
-	basicPotions = tempLevel->basicPotions;
+	basicItemCoins = tempLevel->basicItemCoins;
+	basicItemPotions = tempLevel->basicItemPotions;
 
-	basicEnemies = tempLevel->basicEnemies;
 	basicMageEnemies = tempLevel->basicMageEnemies;
 	basicSentinelEnemies = tempLevel->basicSentinelEnemies;
 
@@ -263,10 +244,9 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Update();
 
 	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->Update();
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Update();
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Update();
+	for (unsigned int i = 0; i < basicItemCoins.size(); i++) basicItemCoins[i]->Update();
+	for (unsigned int i = 0; i < basicItemPotions.size(); i++) basicItemPotions[i]->Update();
 
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Update();
 	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->Update();
 }
@@ -278,10 +258,9 @@ void GameLevel::Render()
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->Render();
 
 	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->Render();
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->Render();
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->Render();
+	for (unsigned int i = 0; i < basicItemCoins.size(); i++) basicItemCoins[i]->Render();
+	for (unsigned int i = 0; i < basicItemPotions.size(); i++) basicItemPotions[i]->Render();
 
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->Render();
 	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->Render();
 
@@ -295,10 +274,9 @@ void GameLevel::MoveAllObjectsBy(int x, int y)
 	for (unsigned int i = 0; i < basicChests.size(); i++) basicChests[i]->MoveObjectBy(x, y);
 
 	for (unsigned int i = 0; i < basicItemApples.size(); i++) basicItemApples[i]->MoveObjectBy(x, y);
-	for (unsigned int i = 0; i < basicCoins.size(); i++) basicCoins[i]->MoveObjectBy(x, y);
-	for (unsigned int i = 0; i < basicPotions.size(); i++) basicPotions[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicItemCoins.size(); i++) basicItemCoins[i]->MoveObjectBy(x, y);
+	for (unsigned int i = 0; i < basicItemPotions.size(); i++) basicItemPotions[i]->MoveObjectBy(x, y);
 
-	for (unsigned int i = 0; i < basicEnemies.size(); i++) basicEnemies[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicMageEnemies.size(); i++) basicMageEnemies[i]->MoveObjectBy(x, y);
 	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->MoveObjectBy(x, y);
 }

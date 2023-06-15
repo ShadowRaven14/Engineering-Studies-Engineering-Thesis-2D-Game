@@ -15,6 +15,8 @@ bool Game::TestMode = false;
 int Game::objectsSize = 48;
 int Game::windowX = 1312;
 int Game::windowY = 928;
+int Game::gameX = 41 * Game::objectsSize;
+int Game::gameY = 29 * Game::objectsSize;
 
 //Kontruktor
 Game::Game()

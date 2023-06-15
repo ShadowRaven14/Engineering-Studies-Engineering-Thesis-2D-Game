@@ -69,7 +69,7 @@ bool HeroObjectives::HandleChestCollision(short worth)
 	return true;
 }
 
-bool HeroObjectives::HandlePotionCollision(short power)
+bool HeroObjectives::HandleAppleCollision(short power)
 {
 	HeroHealthPoints = HeroHealthPoints + power;
 	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
@@ -78,11 +78,20 @@ bool HeroObjectives::HandlePotionCollision(short power)
 	return true;
 }
 
-bool HeroObjectives::HandleCoinCollision()
+bool HeroObjectives::HandleCoinCollision(short power)
 {
 	CollectedCoins++;
 	ScorePoints = ScorePoints + 10;
 	std::cout << "ScorePoints: " << ScorePoints << std::endl;
+
+	//ShowCurrentObjectives();
+	return true;
+}
+
+bool HeroObjectives::HandlePotionCollision(short power)
+{
+	HeroHealthPoints = HeroHealthPoints + power;
+	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
 
 	//ShowCurrentObjectives();
 	return true;

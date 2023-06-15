@@ -31,11 +31,3 @@ AppleItemObject::AppleItemObject(unsigned short type)
 AppleItemObject::~AppleItemObject()
 {
 }
-
-void AppleItemObject::Update()
-{
-}
-
-void AppleItemObject::Render()
-{
-}
