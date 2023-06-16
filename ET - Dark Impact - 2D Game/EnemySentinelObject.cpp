@@ -1,5 +1,6 @@
 #include "EnemySentinelObject.h"
 
+//Konstruktor
 EnemySentinelObject::EnemySentinelObject()
 {
 	const char* tempTex;
@@ -14,6 +15,7 @@ EnemySentinelObject::EnemySentinelObject()
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemySentinelObject::EnemySentinelObject(unsigned short type)
 {
 	const char* tempTex;
@@ -53,6 +55,7 @@ EnemySentinelObject::EnemySentinelObject(unsigned short type)
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemySentinelObject::EnemySentinelObject(const char* texturesheet, int x, int y)
 {
 	power = 10;
@@ -60,6 +63,7 @@ EnemySentinelObject::EnemySentinelObject(const char* texturesheet, int x, int y)
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemySentinelObject::EnemySentinelObject(const char* texturesheet)
 {
 	power = 10;
@@ -67,6 +71,7 @@ EnemySentinelObject::EnemySentinelObject(const char* texturesheet)
 	isMovingRight = isMovingUp = true;
 }
 
+//Destruktor
 EnemySentinelObject::~EnemySentinelObject()
 {
 }

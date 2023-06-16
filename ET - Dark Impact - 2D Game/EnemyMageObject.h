@@ -5,9 +5,10 @@ class EnemyMageObject :
     public _EnemyObject
 {
 public:
-    EnemyMageObject();
-    EnemyMageObject(unsigned short type);
-    EnemyMageObject(const char* texturesheet, int x, int y);
-    EnemyMageObject(const char* texturesheet);
-    ~EnemyMageObject();
+    //Podstawowe
+    EnemyMageObject(); //Konstruktor
+    EnemyMageObject(unsigned short type); //Konstruktor
+    EnemyMageObject(const char* texturesheet, int x, int y); //Konstruktor
+    EnemyMageObject(const char* texturesheet); //Konstruktor
+    ~EnemyMageObject(); //Destruktor
 };

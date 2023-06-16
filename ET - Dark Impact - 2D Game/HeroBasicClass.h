@@ -20,13 +20,13 @@ public:
 	bool HandlePotionCollision(unsigned short power);
 
 
-	std::string HeroName;
-	unsigned short HeroHealthPoints;
-	unsigned short Strength, Agility, Intelligence;
+	std::string HeroName = "Hero";
+	unsigned short HeroHealthPoints = 25;
+	unsigned short Strength = 10, Agility = 10, Intelligence = 10;
 
-	unsigned int ScorePoints;
-	unsigned short CollectedChests;
-	unsigned short CollectedCoins;
-	unsigned short SlayedEnemies;
+	unsigned int ScorePoints = 0;
+	unsigned short CollectedChests = 0;
+	unsigned short CollectedCoins = 0;
+	unsigned short SlayedEnemies = 0;
 };
 

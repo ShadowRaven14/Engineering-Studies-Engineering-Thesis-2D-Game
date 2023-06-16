@@ -10,14 +10,13 @@ class BackgroundMap :
 {
 public:
 	//Podstawowe
-	BackgroundMap(std::string mapname);
-	~BackgroundMap();
-	void Update(); //przesuwaj mapê
-	void Render(); //rysuj mapê
+	BackgroundMap(std::string mapname); //Konstruktor
+	~BackgroundMap(); //Destruktor
+	void Update(); //Aktualizacja //przesuwaj mapê
+	void Render(); //Renderowanie //rysuj mapê
 
 	//Zaawansowane
 	void InitializeTextures(); //inicjalizuj tekstury
-
 	static Point middleOFmap;
 	static Point heroInMap;
 	static int mapShiftX, mapShiftY;

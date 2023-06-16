@@ -1,5 +1,6 @@
 #include "GameLevel.h"
 
+//Konstruktor
 GameLevel::GameLevel()
 {
 	std::cout << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << "NONE" << "." << std::endl;
@@ -19,6 +20,7 @@ GameLevel::GameLevel()
 	std::cout << std::endl;
 }
 
+//Konstruktor
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart)
 {
 	std::cout << "=> " << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
@@ -44,16 +46,6 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 		basicTeleports.push_back(new TeleportObject(levelID + 1));
 	if (levelID > 0) //Jeœli nie jesteœmy na poziomie startowym, tworzymy portal do wczeœniejszego poziomu
 		basicTeleports.push_back(new TeleportObject(levelID - 1));
-
-	////Dodanie elementów do wektora basicTeleports
-	//rand_quantity = 0;
-	//std::cout << "==> " << rand_quantity << " portals spawn." << std::endl;
-	//for (int i = 0; i < rand_quantity; i++)
-	//{
-	//	rand_type = rand() % 3;
-	//	TeleportObject* basicTeleport = new TeleportObject(rand_type);
-	//	basicTeleports.push_back(basicTeleport);
-	//}
 
 	//Dodanie elementów do wektora basicChests
 	rand_quantity = rand() % 8 + 2;
@@ -118,6 +110,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << std::endl;
 }
 
+//Konstruktor
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 	const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, const char* bnCoin)
 {
@@ -167,6 +160,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	std::cout << std::endl;
 }
 
+//Konstruktor
 GameLevel::GameLevel(const GameLevel& tempLevel)
 {
 	std::cout << "Konstruktor kopiuj¹cy GameLevel.";
@@ -189,6 +183,7 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
 }
 
+//Przeci¹¿enie operatora
 GameLevel& GameLevel::operator= (const GameLevel& tempLevel)
 {
 	std::cout << "Przeci¹¿enie operatora '='.";
@@ -213,6 +208,7 @@ GameLevel& GameLevel::operator= (const GameLevel& tempLevel)
 	return *this;
 }
 
+//Przeci¹¿enie operatora
 GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 {
 	std::cout << "Przeci¹¿enie operatora '='.";
@@ -237,6 +233,7 @@ GameLevel& GameLevel::operator= (GameLevel* tempLevel)
 	return *this;
 }
 
+//Aktualizacja
 void GameLevel::Update()
 {
 	basicMap->Update();
@@ -251,6 +248,7 @@ void GameLevel::Update()
 	for (unsigned int i = 0; i < basicSentinelEnemies.size(); i++) basicSentinelEnemies[i]->Update();
 }
 
+//Renderowanie
 void GameLevel::Render()
 {
 	basicMap->Render();
@@ -268,6 +266,7 @@ void GameLevel::Render()
 	FontTextureManager::DrawTextTexture(fontTexture);
 }
 
+//Poruszenie wszystkich GameObjects
 void GameLevel::MoveAllObjectsBy(int x, int y)
 {
 	for (unsigned int i = 0; i < basicTeleports.size(); i++) basicTeleports[i]->MoveObjectBy(x,y);

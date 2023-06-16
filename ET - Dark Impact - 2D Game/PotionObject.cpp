@@ -1,5 +1,6 @@
 #include "PotionObject.h"
 
+//Konstruktor
 PotionObject::PotionObject(unsigned short type)
 {
 	const char* tempTex;

@@ -1,5 +1,6 @@
 #include "EnemyMageObject.h"
 
+//Konstruktor
 EnemyMageObject::EnemyMageObject()
 {
 	const char* tempTex;
@@ -14,6 +15,7 @@ EnemyMageObject::EnemyMageObject()
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemyMageObject::EnemyMageObject(unsigned short type)
 {
 	const char* tempTex;
@@ -63,6 +65,7 @@ EnemyMageObject::EnemyMageObject(unsigned short type)
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemyMageObject::EnemyMageObject(const char* texturesheet, int x, int y)
 {
 	power = 10;
@@ -70,6 +73,7 @@ EnemyMageObject::EnemyMageObject(const char* texturesheet, int x, int y)
 	isMovingRight = isMovingUp = true;
 }
 
+//Konstruktor
 EnemyMageObject::EnemyMageObject(const char* texturesheet)
 {
 	power = 10;
@@ -77,6 +81,7 @@ EnemyMageObject::EnemyMageObject(const char* texturesheet)
 	isMovingRight = isMovingUp = true;
 }
 
+//Destruktor
 EnemyMageObject::~EnemyMageObject()
 {
 }

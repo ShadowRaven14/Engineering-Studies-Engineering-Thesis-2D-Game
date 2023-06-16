@@ -1,6 +1,6 @@
 #include "_EnemyObject.h"
 
-//Aktualizacja wroga
+//Aktualizacja
 void _EnemyObject::Update()
 {
 	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
@@ -29,7 +29,7 @@ void _EnemyObject::Update()
 	
 }
 
-//Renderowanie wroga
+//Renderowanie
 void _EnemyObject::Render()
 {
 	BasicRender(); //Podstawowa funkcja z klasy interfejsu
@@ -41,7 +41,7 @@ void _EnemyObject::RandomizeTypeOfMovement()
 	//std::cout << "typeOfMovement: " << typeOfMovement << std::endl;
 }
 
-//Poruszanie siê wroga
+//Poruszanie siê wroga 1
 void _EnemyObject::MoveWithEnemyV1()
 {
 
@@ -88,7 +88,7 @@ void _EnemyObject::MoveWithEnemyV1()
 	}
 }
 
-//Poruszanie siê wroga
+//Poruszanie siê wroga 2
 void _EnemyObject::MoveWithEnemyV2()
 {
 
@@ -135,7 +135,7 @@ void _EnemyObject::MoveWithEnemyV2()
 	}
 }
 
-//Poruszanie siê wroga
+//Poruszanie siê wroga 3
 void _EnemyObject::MoveWithEnemyV3()
 {
 
@@ -166,7 +166,7 @@ void _EnemyObject::MoveWithEnemyV3()
 	if (cordsOfObject.y <= 64)
 		isMovingUp = true;
 
-	else if (cordsOfObject.y >= Game::windowY - 64) //864
+	else if (cordsOfObject.y >= Game::windowY - 64)
 		isMovingUp = false;
 
 
@@ -182,7 +182,7 @@ void _EnemyObject::MoveWithEnemyV3()
 	}
 }
 
-//Poruszanie siê wroga
+//Poruszanie siê wroga 4
 void _EnemyObject::MoveWithEnemyV4()
 {
 

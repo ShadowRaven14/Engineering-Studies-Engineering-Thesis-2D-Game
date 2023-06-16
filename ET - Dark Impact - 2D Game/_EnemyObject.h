@@ -8,11 +8,11 @@ class _EnemyObject
 {
 public:
 	//Podstawowe
-	void Update(); //Aktualizacja wroga
-	void Render(); //Renderowanie wroga
+	void Update(); //Aktualizacja
+	void Render(); //Renderowanie
 
 	//Zaawansowane
-	short typeOfMovement;
+	short typeOfMovement = 0;
 	void RandomizeTypeOfMovement();
 	void MoveWithEnemyV1(); //Poruszanie siê wroga wersja 1
 	void MoveWithEnemyV2(); //Poruszanie siê wroga wersja 2
@@ -20,8 +20,8 @@ public:
 	void MoveWithEnemyV4(); //Poruszanie siê wroga wersja 4
 	void ChangeCurrentTexture(int n);
 
-	unsigned short type;
-	unsigned short power;
-	bool isMovingRight, isMovingUp; //Pomoc przy kierowaniu wrogiem
+	unsigned short type = 0;
+	unsigned short power = 0;
+	bool isMovingRight = true, isMovingUp = true; //Pomoc przy kierowaniu wrogiem
 	
 };

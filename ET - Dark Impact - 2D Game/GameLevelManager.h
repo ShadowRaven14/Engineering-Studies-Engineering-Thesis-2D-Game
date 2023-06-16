@@ -9,11 +9,13 @@ Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 class GameLevelManager
 {
 public:
-	GameLevelManager();
-	~GameLevelManager();
+	//Podstawowe
+	GameLevelManager(); //Konstruktor
+	~GameLevelManager(); //Destruktor
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	//Zaawansowane
 	void HandleHeroMovement();
 	const Point distanceToEdge = Point(320, 224);
 
@@ -34,18 +36,19 @@ public:
 	void HandleTextRender();
 
 private:
+	//Zaawansowane
 	short currentLevelID;
-	std::vector <GameLevel*> basicGameLevels;
+	std::vector <GameLevel*> basicGameLevels; //tablica poziomów gry
 	MainHeroObject* mainHero;
 	
-	TextObject* textHealthPointsObject;
-	TextObject* textScorePointsObject;
+	TextObject* textHealthPointsObject = NULL;
+	TextObject* textScorePointsObject = NULL;
 
-	TextObject* textStrengthObject;
-	TextObject* textAgilityObject;
-	TextObject* textIntelligenceObject;
+	TextObject* textStrengthObject = NULL;
+	TextObject* textAgilityObject = NULL;
+	TextObject* textIntelligenceObject = NULL;
 
-	TextObject* textMageRelationsObject;
-	TextObject* textSentinelsRelationsObject;
+	TextObject* textMageRelationsObject = NULL;
+	TextObject* textSentinelsRelationsObject = NULL;
 };
 

@@ -5,9 +5,10 @@ class EnemySentinelObject :
     public _EnemyObject
 {
 public:
-    EnemySentinelObject();
-    EnemySentinelObject(unsigned short type);
-    EnemySentinelObject(const char* texturesheet, int x, int y);
-    EnemySentinelObject(const char* texturesheet);
-    ~EnemySentinelObject();
+    //Podstawowe
+    EnemySentinelObject(); //Konstruktor
+    EnemySentinelObject(unsigned short type); //Konstruktor
+    EnemySentinelObject(const char* texturesheet, int x, int y); //Konstruktor
+    EnemySentinelObject(const char* texturesheet); //Konstruktor
+    ~EnemySentinelObject(); //Destruktor
 };

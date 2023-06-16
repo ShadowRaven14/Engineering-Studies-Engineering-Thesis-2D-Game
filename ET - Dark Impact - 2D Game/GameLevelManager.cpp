@@ -4,6 +4,7 @@
 
 HeroChoices heroChoices;
 
+//Konstruktor
 GameLevelManager::GameLevelManager()
 {
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl << std::endl;
@@ -51,6 +52,7 @@ GameLevelManager::GameLevelManager()
 	BackgroundMap::mapShiftY = BackgroundMap::mapShiftY - tempShiftY;
 }
 
+//Aktualizacja
 void GameLevelManager::Update()
 {
 	basicGameLevels[currentLevelID]->Update();
@@ -70,6 +72,7 @@ void GameLevelManager::Update()
 	HandleTextUpdate();
 }
 
+//Renderowanie
 void GameLevelManager::Render()
 {
 	basicGameLevels[currentLevelID]->Render();

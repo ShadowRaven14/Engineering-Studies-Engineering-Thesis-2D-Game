@@ -29,19 +29,19 @@ Mapa stanowi podstawê poziomu - produkowana jest przez klasê BackgroundMap*/
 class GameLevel
 {
 public:
-	GameLevel();
-	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart);
+	GameLevel(); //Konstruktor
+	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart); //Konstruktor
 	GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart,
 		const char* bnHero, const char* bnTel, const char* bnEnemy, const char* bnChest, 
-		const char* bnCoin);
-	GameLevel(const GameLevel &tempLevel);
-	~GameLevel();
+		const char* bnCoin); //Konstruktor
+	GameLevel(const GameLevel &tempLevel); //Konstruktor
+	~GameLevel(); //Destruktor
 	GameLevel& operator= (const GameLevel& tempLevel); //Przeci¹¿enie operatora
 	GameLevel& operator= (GameLevel* tempLevel); //Przeci¹¿enie operatora
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
-	void MoveAllObjectsBy(int x, int y);
+	void MoveAllObjectsBy(int x, int y); //Poruszenie wszystkich GameObjects
 
 	unsigned short levelID;
 	const char* info;

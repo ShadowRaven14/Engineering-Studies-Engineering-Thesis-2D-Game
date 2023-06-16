@@ -1,6 +1,6 @@
 #include "CoinObject.h"
-using namespace std;
 
+//Konstruktor
 CoinObject::CoinObject(unsigned short type)
 {
 	const char* tempTex;
@@ -22,11 +22,13 @@ CoinObject::CoinObject(unsigned short type)
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 }
 
+//Konstruktor
 CoinObject::CoinObject(const char* texturesheet, int x, int y)
 {
 	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
 }
 
+//Konstruktor
 CoinObject::CoinObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu

@@ -22,9 +22,7 @@ public:
 	void Render(); //Renderowanie bohatera
 
 	//Zaawansowane
-	bool isMovingRight;
 	void TeleportHeroToPoint(Point* point); //Poruszanie siê bohaterem
 	void ChangeHeroTexture_DamageOrHeal(bool damage); //Zmiana tekstur bohatera jeœli otrzymuje obra¿enia lub siê leczy
-
-	//static int speed;
+	bool isMovingRight = true;
 };

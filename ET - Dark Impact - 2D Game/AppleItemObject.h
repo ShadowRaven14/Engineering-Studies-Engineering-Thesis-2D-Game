@@ -5,7 +5,8 @@ class AppleItemObject :
     public virtual _ItemObject
 {
 public:
-    AppleItemObject(unsigned short type);
-    ~AppleItemObject(); //Destruktor jab³ka
+    //Podstawowe
+    AppleItemObject(unsigned short type); //Konstruktor
+    ~AppleItemObject(); //Destruktor
 };
 

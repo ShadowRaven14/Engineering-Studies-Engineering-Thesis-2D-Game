@@ -8,13 +8,14 @@ class _VirtualMap
 {
 public:
 	//Zaawansowane
-	void LoadMapFromVariable(int arr[29][41]); //pobierz mapê
-	void LoadStartingMapFromTxt(std::string mapname); //pobierz z pliku txt
-	void ExportMapToTxt(std::string name); //zapisz mapê w pliku txt
-	void RandomizeMap(); //wygeneruj randomow¹ mapê
+	void LoadMapFromVariable(int arr[29][41]); //Pobierz mapê
+	void LoadStartingMapFromTxt(std::string mapname); //Pobierz z pliku txt
+	void ExportMapToTxt(std::string name); //Zapisz mapê w pliku txt
+	void RandomizeMap(); //Wygeneruj randomow¹ mapê
 
 protected:
-	int map[29][41]; //mapa
+	//Zaawansowane
+	int map[29][41]; //Tablica mapy gry
 	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
 
 	//Zmienne tekstur

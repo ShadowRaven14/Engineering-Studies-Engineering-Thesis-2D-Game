@@ -6,9 +6,9 @@ class CoinObject :
 {
 public:
     //Podstawowe
-    CoinObject(unsigned short type);
-    CoinObject(const char* texturesheet, int x, int y);
-    CoinObject(const char* texturesheet);
-    ~CoinObject();
+    CoinObject(unsigned short type); //Konstruktor
+    CoinObject(const char* texturesheet, int x, int y); //Konstruktor
+    CoinObject(const char* texturesheet); //Konstruktor
+    ~CoinObject(); //Destruktor
 };
 

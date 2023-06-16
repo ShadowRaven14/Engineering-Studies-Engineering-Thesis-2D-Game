@@ -7,8 +7,6 @@ int BackgroundMap::mapShiftX = 0;
 int BackgroundMap::mapShiftY = 0;
 int BackgroundMap::mapX = Game::objectsSize * 41;
 int BackgroundMap::mapY = Game::objectsSize * 29;
-//int BackgroundMap::mapCurrentX = (mapX - Game::objectsSize) / 2;
-//int BackgroundMap::mapCurrentY = (mapY - Game::objectsSize) / 2;
 Point BackgroundMap::heroInMap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
 Point BackgroundMap::middleOFmap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
 
@@ -16,22 +14,17 @@ BackgroundMap::BackgroundMap(std::string mapname)
 {
 	std::cout << "=> " << "THE MAP HAS BEEN CREATED." << std::endl;
 	InitializeTextures();
-	//LoadMapFromVariable(lvl1);
 	LoadStartingMapFromTxt(mapname);
-	//ExportMapToTxt("Maps/Exported.txt");
 
 	srcRect.h = 1200; //Wysokoœæ w pikselach
 	srcRect.w = 1200; //Szerokoœæ w pikselach
 	srcRect.x = 0;
 	srcRect.y = 0;
 
-	destRect.h = Game::objectsSize; //srcRect.h / 37.5; //Wysokoœæ w grze
-	destRect.w = Game::objectsSize; //srcRect.w / 37.5; //Szerokoœæ w grze
+	destRect.h = Game::objectsSize; //Wysokoœæ w grze
+	destRect.w = Game::objectsSize; //Szerokoœæ w grze
 	destRect.x = 0;
 	destRect.y = 0;
-
-	//BackgroundMap::mapShiftX = 0;
-	//BackgroundMap::mapShiftY = 0;
 }
 
 BackgroundMap::~BackgroundMap()
@@ -40,6 +33,7 @@ BackgroundMap::~BackgroundMap()
 }
 
 
+//Aktualizacja
 void BackgroundMap::Update()
 {
 	//mapShiftX--;
@@ -50,6 +44,7 @@ void BackgroundMap::Update()
 	std::cout << "-------------------" << std::endl;*/
 }
 
+//Renderowanie
 void BackgroundMap::Render()
 {
 	int type = 0;

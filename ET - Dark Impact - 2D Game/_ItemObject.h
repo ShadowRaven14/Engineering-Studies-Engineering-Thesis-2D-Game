@@ -5,10 +5,10 @@ class _ItemObject :
     public virtual __VirtualObject
 {
 public:
-    //Podstawowe
-    void Update();
-    void Render();
+	//Podstawowe
+	void Update(); //Aktualizacja
+	void Render(); //Renderowanie
 
     //Zaawansowane
-    unsigned short power;
+    unsigned short power = 0;
 };

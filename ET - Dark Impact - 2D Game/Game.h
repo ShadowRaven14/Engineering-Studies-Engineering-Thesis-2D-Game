@@ -16,22 +16,18 @@
 class Game
 {
 public:
+	//Podstawowe
 	Game();
 	~Game();
 	void Init(const char* title, int width, int height, bool fullscreen);
-	void Update();
-	void Render();
+	void Update(); //Aktualizacja
+	void Render(); //Renderowanie
 	void Clean();
 	void HandleEvents();
 
+	//Zaawansowane
 	static SDL_Renderer* mainGameRender;
 	static SDL_Event mainGameEvent;
-
-	//static TTF_Font* mainGameFont;
-	//static SDL_Surface* mainGameFontSurface;
-	//static SDL_Texture* mainGameFontTexture;
-	//static SDL_Rect dstrect;
-
 	static bool isGameRunning;
 	static bool TestMode;
 	static int objectsSize;
@@ -39,6 +35,6 @@ public:
 	static int gameX, gameY;
 
 private:
-	
+	//Zaawansowane
 	SDL_Window* mainGameWindow;
 };

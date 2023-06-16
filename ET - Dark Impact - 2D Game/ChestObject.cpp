@@ -1,5 +1,6 @@
 #include "ChestObject.h"
 
+//Konstruktor
 ChestObject::ChestObject(unsigned short type)
 {
 	const char* tempTex;
@@ -31,6 +32,7 @@ ChestObject::ChestObject(unsigned short type)
 		break;
 
 	default:
+		challenge = 0;
 		std::cout << "Error: Type Construktor." << std::endl;
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
@@ -38,16 +40,17 @@ ChestObject::ChestObject(unsigned short type)
 	}
 
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
+	isOpen = false;
 }
 
-//Konstruktor wroga
+//Konstruktor
 ChestObject::ChestObject(const char* texturesheet, int x, int y)
 {
 	BasicInit(texturesheet, x, y);  //Podstawowa funkcja z klasy interfejsu
 	isOpen = false;
 }
 
-//Konstruktor wroga
+//Konstruktor
 ChestObject::ChestObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu

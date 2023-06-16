@@ -13,6 +13,6 @@ public:
 	~TeleportObject(); //Destruktor
 
 	//Zaawansowane
-	Point coordinatesOfTeleport;
-	int destination;
+	Point coordinatesOfTeleport = Point(0, 0);
+	int destination = 0 ;
 };

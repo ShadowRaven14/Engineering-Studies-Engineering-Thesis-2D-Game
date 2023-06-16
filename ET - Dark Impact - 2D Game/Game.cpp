@@ -6,10 +6,6 @@
 GameLevelManager *gameLevelManager = nullptr;
 SDL_Renderer *Game::mainGameRender = nullptr;
 SDL_Event Game::mainGameEvent;
-//TTF_Font *Game::mainGameFont;
-//SDL_Surface* Game::mainGameFontSurface;
-//SDL_Texture* Game::mainGameFontTexture;
-//SDL_Rect Game::dstrect;
 bool Game::isGameRunning = false;
 bool Game::TestMode = false;
 int Game::objectsSize = 48;
@@ -49,17 +45,6 @@ void Game::Init(const char* title, int width, int height, bool fullscreen)
 
 		isGameRunning = true;
 	}
-
-	//TTF inicjalizacja
-	//const char* text = "Hello there!";
-	//mainGameFont = TTF_OpenFont("Fonts/pixel.fon", 25);
-	//SDL_Color color = { 255, 255, 255 };
-	//mainGameFontSurface = TTF_RenderText_Solid(mainGameFont, text, color);
-	//mainGameFontTexture = SDL_CreateTextureFromSurface(Game::mainGameRender, mainGameFontSurface);
-	//int texW = 20;  int texH = 20;
-	//int displayTextX = 0; int displayTextY = 0;
-	//SDL_QueryTexture(mainGameFontTexture, NULL, NULL, &texW, &texH);
-	//dstrect = { displayTextX, displayTextY, texW, texH };
 
 	//Symulator losowania
 	srand((unsigned)time(NULL));
@@ -102,9 +87,6 @@ void Game::Render()
 //Czyszczenie
 void Game::Clean()
 {
-	//SDL_DestroyTexture(mainGameFontTexture);
-	//SDL_FreeSurface(mainGameFontSurface);
-	//TTF_CloseFont(mainGameFont);
 	TTF_Quit();
 	SDL_DestroyWindow(mainGameWindow);
 	SDL_DestroyRenderer(mainGameRender);

@@ -14,6 +14,7 @@ HeroBasicClass::HeroBasicClass()
 
 void HeroBasicClass::CurrentStatistics()
 {
+	std::cout << std::endl;
 	std::cout << "- - - Objectives - - -" << std::endl;
 	std::cout << "Strength: " << Strength << std::endl;
 	std::cout << "Agility: " << Agility << std::endl;
@@ -27,6 +28,7 @@ void HeroBasicClass::CurrentStatistics()
 	std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
 	std::cout << "SlayedEnemies: " << SlayedEnemies << std::endl;
 	std::cout << "- - - - - - - - - - -" << std::endl;
+	std::cout << std::endl;
 }
 
 bool HeroBasicClass::IsHeroAlive()
@@ -59,7 +61,7 @@ bool HeroBasicClass::HandleEnemyCollision(unsigned short power)
 		return false;
 	}
 
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return false;
 }
 
@@ -72,7 +74,7 @@ bool HeroBasicClass::HandleTeleportCollision(unsigned short challenge)
 		return true;
 	}
 
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return false;
 }
 
@@ -105,13 +107,11 @@ bool HeroBasicClass::HandleChestCollision(unsigned short challenge)
 			break;
 		}
 
-		CurrentStatistics();
-		//ShowCurrentObjectives();
+		//CurrentStatistics();
 		return true;
 	}
 
-	CurrentStatistics();
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return false;
 }
 
@@ -120,7 +120,7 @@ bool HeroBasicClass::HandleAppleCollision(unsigned short power)
 	HeroHealthPoints = HeroHealthPoints + power;
 	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
 
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return true;
 }
 
@@ -130,7 +130,7 @@ bool HeroBasicClass::HandleCoinCollision(unsigned short power)
 	ScorePoints = ScorePoints + 10;
 	std::cout << "ScorePoints: " << ScorePoints << std::endl;
 
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return true;
 }
 
@@ -159,6 +159,6 @@ bool HeroBasicClass::HandlePotionCollision(unsigned short power)
 		break;
 	}
 
-	//ShowCurrentObjectives();
+	//CurrentStatistics();
 	return true;
 }

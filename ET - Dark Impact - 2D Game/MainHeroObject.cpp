@@ -1,5 +1,6 @@
 #include "MainHeroObject.h"
 
+//Konstruktor bohatera
 MainHeroObject::MainHeroObject(unsigned short type)
 {
 	const char* tempTex;
@@ -34,21 +35,25 @@ MainHeroObject::MainHeroObject(unsigned short type)
 	BasicInit(usableTextures[0],
 		(Game::windowX - (srcRect.w / 2)) / 2,
 		(Game::windowY - (srcRect.h / 2)) / 2);
+
+	isMovingRight = true;
 }
 
-//PODSTAWOWE
 //Konstruktor bohatera
 MainHeroObject::MainHeroObject(const char* texturesheet, int x, int y)
 {
 	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
+	isMovingRight = true;
 }
 
 //Konstruktor bohatera
 MainHeroObject::MainHeroObject(const char* texturesheet, Point* point)
 {
 	BasicInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
+	isMovingRight = true;
 }
 
+//Konstruktor bohatera
 MainHeroObject::MainHeroObject(const MainHeroObject& tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy MainHeroObject";
@@ -71,6 +76,7 @@ MainHeroObject::MainHeroObject(const MainHeroObject& tempHero)
 	speedShift = tempHero.speedShift;
 }
 
+//Konstruktor bohatera
 MainHeroObject& MainHeroObject::operator= (const MainHeroObject& tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy MainHeroObject";
@@ -95,6 +101,7 @@ MainHeroObject& MainHeroObject::operator= (const MainHeroObject& tempHero)
 	return *this;
 }
 
+//Konstruktor bohatera
 MainHeroObject& MainHeroObject::operator= (MainHeroObject* tempHero)
 {
 	std::cout << "Konstruktor kopiuj¹cy MainHeroObject";
@@ -138,14 +145,15 @@ void MainHeroObject::Render()
 {
 	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }
-//PODSTAWOWE
 
+//Poruszanie siê bohaterem
 void MainHeroObject::TeleportHeroToPoint(Point* point)
 {
 	pointInGame.x = point->x;
 	pointInGame.y = point->y;
 }
 
+//Zmiana tekstur bohatera jeœli otrzymuje obra¿enia lub siê leczy
 void MainHeroObject::ChangeHeroTexture_DamageOrHeal(bool damage)
 {
 	const char* tempHeroTexture = (const char*)currentObjectTexture;

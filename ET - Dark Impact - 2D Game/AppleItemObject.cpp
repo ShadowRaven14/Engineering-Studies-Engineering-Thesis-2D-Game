@@ -1,5 +1,6 @@
 #include "AppleItemObject.h"
 
+//Konstruktor
 AppleItemObject::AppleItemObject(unsigned short type)
 {
 	const char* tempTex;
@@ -34,6 +35,7 @@ AppleItemObject::AppleItemObject(unsigned short type)
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 }
 
+//Destruktor
 AppleItemObject::~AppleItemObject()
 {
 }

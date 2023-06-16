@@ -12,6 +12,7 @@ public:
 	void BasicInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
 	void BasicUpdate(); //Aktualizowanie obiektu
 	void BasicRender(); //Renderowanie obiektu
+
 	void RandomizeCoordinates(const char* texturesheet); //Generowanie losowej pozycji
 	
 	void MoveObjectBy(int x, int y);
@@ -24,9 +25,9 @@ public:
 
 	std::vector <const char*> usableTextures;
 	SDL_Texture* currentObjectTexture; //Tekstura obiektu
-	Point cordsOfObject; //Punkt na mapie
+	Point cordsOfObject = Point (0,0); //Punkt na mapie
 
 protected:
-	SDL_Rect srcRect, destRect; //Wymiary obiektu w pikselach, w grze
+	SDL_Rect srcRect = { 0 }, destRect = { 0 }; //Wymiary obiektu w pikselach, w grze
 };
 

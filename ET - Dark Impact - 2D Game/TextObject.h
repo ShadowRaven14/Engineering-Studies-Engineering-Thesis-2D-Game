@@ -5,6 +5,7 @@
 class TextObject 
 {
 public:
+	//Podstawowe
 	TextObject();
 	TextObject(int x, int y);
 	TextObject(const char* bnInfo, SDL_Color* bnColor);
@@ -13,9 +14,9 @@ public:
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
 
+	//Zaawansowane
 	int displayTextX; 
 	int displayTextY;
-
 	const char* info;
 	SDL_Color* color;
 	SDL_Texture* fontTexture;

@@ -10,9 +10,10 @@ public:
 	//Podstawowe
 	ChestObject(unsigned short type); //Konstruktor
 	ChestObject(const char* texturesheet, int x, int y); //Konstruktor
-	ChestObject(const char* texturesheet); //Konstruktor skrzynki
-	~ChestObject(); //Destruktor skrzynki
+	ChestObject(const char* texturesheet); //Konstruktor
+	~ChestObject(); //Destruktor
 
-	bool isOpen;
+	//Zaawansowane
+	bool isOpen = false;
 };
 

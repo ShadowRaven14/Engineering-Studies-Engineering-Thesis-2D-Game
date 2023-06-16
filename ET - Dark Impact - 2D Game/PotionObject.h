@@ -5,7 +5,8 @@ class PotionObject :
     public virtual _ItemObject
 {
 public:
-    PotionObject(unsigned short type);
-    ~PotionObject(); //Destruktor skrzynki
+    //Podstawowe
+    PotionObject(unsigned short type); //Konstruktor
+    ~PotionObject(); //Destruktor
 };
 

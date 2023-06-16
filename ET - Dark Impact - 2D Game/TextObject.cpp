@@ -32,11 +32,13 @@ TextObject::TextObject(const char* bnInfo, SDL_Color* bnColor, int x, int y)
 	displayTextX = x; displayTextY = y;
 }
 
+//Aktualizacja
 void TextObject::Update()
 {
 
 }
 
+//Renderowanie
 void TextObject::Render()
 {
 	//Generowanie tekstu

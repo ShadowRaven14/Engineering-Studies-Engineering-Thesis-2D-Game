@@ -1,5 +1,6 @@
 #include "TeleportObject.h"
 
+//Konstruktor
 TeleportObject::TeleportObject(unsigned short type)
 {
 	const char* tempTex;
@@ -42,6 +43,7 @@ TeleportObject::TeleportObject(unsigned short type)
 		break;
 
 	default:
+		destination = 0;
 		std::cout << "Error: Type Construktor." << std::endl;
 		tempTex = "Images/AppleNormal.png";
 		usableTextures.push_back(tempTex);
@@ -51,8 +53,7 @@ TeleportObject::TeleportObject(unsigned short type)
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 }
 
-//PODSTAWOWE
-//Konstruktor bohatera
+//Konstruktor
 TeleportObject::TeleportObject(const char* texturesheet, int x, int y, int des)
 {
 	BasicInit(texturesheet, x, y); //Podstawowa funkcja z klasy interfejsu
@@ -61,7 +62,7 @@ TeleportObject::TeleportObject(const char* texturesheet, int x, int y, int des)
 	destination = des;
 }
 
-//Konstruktor bohatera
+//Konstruktor
 TeleportObject::TeleportObject(const char* texturesheet, Point* point, int des)
 {
 	BasicInit(texturesheet, point->x, point->y); //Podstawowa funkcja z klasy interfejsu
@@ -70,9 +71,10 @@ TeleportObject::TeleportObject(const char* texturesheet, Point* point, int des)
 	destination = des;
 }
 
+//Konstruktor
 TeleportObject::TeleportObject(const TeleportObject& tempObject)
 {
 	currentObjectTexture = tempObject.currentObjectTexture;
 	cordsOfObject = tempObject.cordsOfObject;
+	destination = tempObject.destination;
 }
-//PODSTAWOWE

@@ -4,11 +4,11 @@ class _InteractiveObject :
     public virtual __VirtualObject
 {
 public:
-    //Podstawowe
-    void Update();
-    void Render();
+	//Podstawowe
+	void Update(); //Aktualizacja
+	void Render(); //Renderowanie
 
     //Zaawansowane
-    unsigned short challenge;
+    unsigned short challenge = 0;
 };
 
