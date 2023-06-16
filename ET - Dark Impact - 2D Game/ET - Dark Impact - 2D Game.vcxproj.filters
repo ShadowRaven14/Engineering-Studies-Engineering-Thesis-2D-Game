@@ -25,12 +25,6 @@
     <Filter Include="Header Files\UtilsH">
       <UniqueIdentifier>{2dd051a9-1e25-48ae-9006-565748356e21}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\HeroUtlisH">
-      <UniqueIdentifier>{ae8d5a84-4e81-4775-b8ab-ba67f0acc0ed}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\HeroUtilsCpp">
-      <UniqueIdentifier>{a9827ee7-79db-4e86-a82d-137766627adf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\SDL2_ManagersCpp">
       <UniqueIdentifier>{e217a5c2-6ee6-4cfb-ad71-fed32b9cd914}</UniqueIdentifier>
     </Filter>
@@ -49,24 +43,36 @@
     <Filter Include="Header Files\GameObjectsH\SpecEnemyObjectsH">
       <UniqueIdentifier>{25bdf948-815e-425a-a8d9-10a0b5a302b2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\LevelUtilsH\MapUtilsH">
-      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\LevelUtilsCpp\MapUtilsCpp">
-      <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\GameObjectsH\SpecItemObjectsH">
       <UniqueIdentifier>{18e74408-649f-4fab-bc37-fc7a97cd19f2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\GameObjectsCpp\SpecItemObjectsCpp">
       <UniqueIdentifier>{e7c1c1a3-d35e-4515-ab59-c27d00a8d80e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameObjectsH\HeroUtlisH">
+      <UniqueIdentifier>{ae8d5a84-4e81-4775-b8ab-ba67f0acc0ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjectsCpp\HeroUtilsCpp">
+      <UniqueIdentifier>{a9827ee7-79db-4e86-a82d-137766627adf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MapUtilsH">
+      <UniqueIdentifier>{f3109629-6dc5-413f-8b9c-a53b3d55f1d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MapUtilsCpp">
+      <UniqueIdentifier>{e5c7215a-ac84-4d3a-b8a0-db0e4a501cdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjectsCpp\SpecInteractiveObjectsCpp">
+      <UniqueIdentifier>{d34955ca-633a-42a9-beaa-ee2a045a9035}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjectsH\SpecInteractiveObjectsH">
+      <UniqueIdentifier>{385bec85-e0e2-4312-ac0d-369cef082797}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HeroObject.cpp">
+    <ClCompile Include="MainHeroObject.cpp">
       <Filter>Source Files\GameObjectsCpp</Filter>
     </ClCompile>
     <ClCompile Include="__VirtualObject.cpp">
@@ -79,19 +85,16 @@
       <Filter>Source Files\UtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="BackgroundMap.cpp">
-      <Filter>Source Files\LevelUtilsCpp\MapUtilsCpp</Filter>
+      <Filter>Source Files\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_VirtualMap.cpp">
-      <Filter>Source Files\LevelUtilsCpp\MapUtilsCpp</Filter>
+      <Filter>Source Files\MapUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="HeroBasicClass.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="ChestObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
+      <Filter>Source Files\GameObjectsCpp\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
       <Filter>Source Files\UtilsCpp</Filter>
@@ -103,25 +106,19 @@
       <Filter>Source Files\LevelUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="HeroKeyboardHandler.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
+      <Filter>Source Files\GameObjectsCpp\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="ImageTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
-    <ClCompile Include="TeleportObject.cpp">
-      <Filter>Source Files\GameObjectsCpp</Filter>
-    </ClCompile>
     <ClCompile Include="FontTextureManager.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
-    </ClCompile>
-    <ClCompile Include="HeroObjectives.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="TextObject.cpp">
       <Filter>Source Files\SDL2_ManagersCpp</Filter>
     </ClCompile>
     <ClCompile Include="HeroChoices.cpp">
-      <Filter>Source Files\HeroUtilsCpp</Filter>
+      <Filter>Source Files\GameObjectsCpp\HeroUtilsCpp</Filter>
     </ClCompile>
     <ClCompile Include="EnemyMageObject.cpp">
       <Filter>Source Files\GameObjectsCpp\SpecEnemyObjectsCpp</Filter>
@@ -141,11 +138,17 @@
     <ClCompile Include="AppleItemObject.cpp">
       <Filter>Source Files\GameObjectsCpp\SpecItemObjectsCpp</Filter>
     </ClCompile>
+    <ClCompile Include="ChestObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecInteractiveObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="TeleportObject.cpp">
+      <Filter>Source Files\GameObjectsCpp\SpecInteractiveObjectsCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="_InteractiveObject.cpp">
+      <Filter>Source Files\GameObjectsCpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HeroObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
     <ClInclude Include="__VirtualObject.h">
       <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
@@ -156,19 +159,16 @@
       <Filter>Header Files\UtilsH</Filter>
     </ClInclude>
     <ClInclude Include="BackgroundMap.h">
-      <Filter>Header Files\LevelUtilsH\MapUtilsH</Filter>
+      <Filter>Header Files\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_VirtualMap.h">
-      <Filter>Header Files\LevelUtilsH\MapUtilsH</Filter>
+      <Filter>Header Files\MapUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="HeroBasicClass.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
-    </ClInclude>
-    <ClInclude Include="ChestObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
+      <Filter>Header Files\GameObjectsH\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
       <Filter>Header Files\UtilsH</Filter>
@@ -180,25 +180,19 @@
       <Filter>Header Files\LevelUtilsH</Filter>
     </ClInclude>
     <ClInclude Include="HeroKeyboardHandler.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
+      <Filter>Header Files\GameObjectsH\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="ImageTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
-    <ClInclude Include="TeleportObject.h">
-      <Filter>Header Files\GameObjectsH</Filter>
-    </ClInclude>
     <ClInclude Include="FontTextureManager.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
-    </ClInclude>
-    <ClInclude Include="HeroObjectives.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="TextObject.h">
       <Filter>Header Files\SDL2_ManagersH</Filter>
     </ClInclude>
     <ClInclude Include="HeroChoices.h">
-      <Filter>Header Files\HeroUtlisH</Filter>
+      <Filter>Header Files\GameObjectsH\HeroUtlisH</Filter>
     </ClInclude>
     <ClInclude Include="EnemyMageObject.h">
       <Filter>Header Files\GameObjectsH\SpecEnemyObjectsH</Filter>
@@ -220,6 +214,18 @@
     </ClInclude>
     <ClInclude Include="AppleItemObject.h">
       <Filter>Header Files\GameObjectsH\SpecItemObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHeroObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="TeleportObject.h">
+      <Filter>Header Files\GameObjectsH\SpecInteractiveObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="ChestObject.h">
+      <Filter>Header Files\GameObjectsH\SpecInteractiveObjectsH</Filter>
+    </ClInclude>
+    <ClInclude Include="_InteractiveObject.h">
+      <Filter>Header Files\GameObjectsH</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

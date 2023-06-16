@@ -155,10 +155,10 @@
     <ClCompile Include="HeroBasicClass.cpp" />
     <ClCompile Include="ChestObject.cpp" />
     <ClCompile Include="CoinObject.cpp" />
-    <ClCompile Include="HeroObjectives.cpp" />
+    <ClCompile Include="_InteractiveObject.cpp" />
     <ClCompile Include="_EnemyObject.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="HeroObject.cpp" />
+    <ClCompile Include="MainHeroObject.cpp" />
     <ClCompile Include="HeroKeyboardHandler.cpp" />
     <ClCompile Include="GameLevel.cpp" />
     <ClCompile Include="GameLevelManager.cpp" />
@@ -183,10 +183,10 @@
     <ClInclude Include="HeroBasicClass.h" />
     <ClInclude Include="ChestObject.h" />
     <ClInclude Include="CoinObject.h" />
-    <ClInclude Include="HeroObjectives.h" />
+    <ClInclude Include="_InteractiveObject.h" />
     <ClInclude Include="_EnemyObject.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="HeroObject.h" />
+    <ClInclude Include="MainHeroObject.h" />
     <ClInclude Include="BackgroundMap.h" />
     <ClInclude Include="HeroKeyboardHandler.h" />
     <ClInclude Include="GameLevel.h" />

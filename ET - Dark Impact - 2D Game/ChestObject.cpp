@@ -7,7 +7,7 @@ ChestObject::ChestObject(unsigned short type)
 	switch (type)
 	{
 	case 0:
-		worth = rand() % 2 + 3;
+		challenge = rand() % 2 + 3;
 		tempTex = "Images/ChestWooden_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/Chest_Open.png";
@@ -15,7 +15,7 @@ ChestObject::ChestObject(unsigned short type)
 		break;
 
 	case 1:
-		worth = rand() % 2 + 3;
+		challenge = rand() % 2 + 3;
 		tempTex = "Images/ChestWooden_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/Chest_Open.png";
@@ -23,7 +23,7 @@ ChestObject::ChestObject(unsigned short type)
 		break;
 
 	case 2:
-		worth = rand() % 4 + 6;
+		challenge = rand() % 4 + 6;
 		tempTex = "Images/ChestIron_Closed.png";
 		usableTextures.push_back(tempTex);
 		tempTex = "Images/Chest_Open.png";
@@ -52,16 +52,4 @@ ChestObject::ChestObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu
 	isOpen = false;
-}
-
-//Aktualizacja wroga
-void ChestObject::Update()
-{
-	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-}
-
-//Renderowanie wroga
-void ChestObject::Render()
-{
-	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }

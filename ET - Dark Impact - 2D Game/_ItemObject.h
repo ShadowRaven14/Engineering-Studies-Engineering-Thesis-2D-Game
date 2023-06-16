@@ -10,5 +10,5 @@ public:
     void Render();
 
     //Zaawansowane
-    short power;
+    unsigned short power;
 };

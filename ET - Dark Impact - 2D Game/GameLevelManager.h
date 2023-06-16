@@ -4,7 +4,7 @@ Tutaj zachodzie prze³¹czanie miêdzy poszczególnymi poziomami.*/
 #pragma once
 #include "GameLevel.h"
 #include "TextObject.h"
-#include "HeroObject.h"
+#include "MainHeroObject.h"
 
 class GameLevelManager
 {
@@ -36,7 +36,7 @@ public:
 private:
 	short currentLevelID;
 	std::vector <GameLevel*> basicGameLevels;
-	HeroObject* mainHero;
+	MainHeroObject* mainHero;
 	
 	TextObject* textHealthPointsObject;
 	TextObject* textScorePointsObject;

@@ -1,4 +1,9 @@
-/*Klasa reprezentuje pojedynczy poziom gry.*/
+/*Klasa reprezentuje pojedynczy poziom gry.
+Ka¿dy poziom gry generuje w losowych miejscach i losow¹ iloœæ: Teleportów, Skrzyñ, Jab³ek, Monet, Mikstur, Przeciwników Magów, Przeciwników Stra¿ników. 
+Klasa ta dodatkowo posiada swoje unikatowe ID, notatkê, mapê. 
+Identyfikator powinien byæ unikatowy, rozró¿nia on poziomy - bêdzie wykorzystywane przez klasê GameLevelManager (Manager Poziomów).
+Notatka sk³ada siê z tekstu, koloru i czcionki - produkowana bêdzie przez klasy TextObject i FontTextureManager.
+Mapa stanowi podstawê poziomu - produkowana jest przez klasê BackgroundMap*/
 
 #pragma once
 #include "Point.h"

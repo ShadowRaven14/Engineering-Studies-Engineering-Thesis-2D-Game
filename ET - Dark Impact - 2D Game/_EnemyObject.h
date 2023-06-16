@@ -19,8 +19,9 @@ public:
 	void MoveWithEnemyV3(); //Poruszanie siê wroga wersja 3
 	void MoveWithEnemyV4(); //Poruszanie siê wroga wersja 4
 	void ChangeCurrentTexture(int n);
+
 	unsigned short type;
-	unsigned int power;
+	unsigned short power;
 	bool isMovingRight, isMovingUp; //Pomoc przy kierowaniu wrogiem
 	
 };

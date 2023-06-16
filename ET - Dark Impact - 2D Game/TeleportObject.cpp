@@ -27,6 +27,20 @@ TeleportObject::TeleportObject(unsigned short type)
 		usableTextures.push_back(tempTex);
 		break;
 
+	case 3:
+		destination = 3;
+		challenge = 30;
+		tempTex = "Images/PortalGreen.png";
+		usableTextures.push_back(tempTex);
+		break;
+
+	case 4:
+		destination = 4;
+		challenge = 45;
+		tempTex = "Images/PortalYellow.png";
+		usableTextures.push_back(tempTex);
+		break;
+
 	default:
 		std::cout << "Error: Type Construktor." << std::endl;
 		tempTex = "Images/AppleNormal.png";
@@ -60,19 +74,5 @@ TeleportObject::TeleportObject(const TeleportObject& tempObject)
 {
 	currentObjectTexture = tempObject.currentObjectTexture;
 	cordsOfObject = tempObject.cordsOfObject;
-}
-
-//Aktualizacja bohatera
-void TeleportObject::Update()
-{
-	BasicUpdate(); //Podstawowa funkcja z klasy interfejsu
-	destRect.h = destRect.h * 1.5; //Wysokoœæ w grze
-	destRect.w = destRect.w * 1.5; //Szerokoœæ w grzeu
-}
-
-//Renderowanie bohatera
-void TeleportObject::Render()
-{
-	BasicRender(); //Podstawowa funkcja z klasy interfejsu
 }
 //PODSTAWOWE

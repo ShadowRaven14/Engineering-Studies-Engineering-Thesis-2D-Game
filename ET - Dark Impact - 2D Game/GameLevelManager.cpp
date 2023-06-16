@@ -9,7 +9,7 @@ GameLevelManager::GameLevelManager()
 	std::cout << "THE GAME_MANAGER ACTIVATED." << std::endl << std::endl;
 
 	//Postaæ g³ównego bohatera, jest wspólna dla wszystkich poziomów
-	mainHero = new HeroObject(0);
+	mainHero = new MainHeroObject(0);
 
 	//Poziom Startowy, od niego zaczynamy
 	basicGameLevels.push_back(
@@ -204,7 +204,7 @@ void GameLevelManager::HeroCollide_With_Chest()
 					if (basicGameLevels[currentLevelID]->basicChests[i]->isOpen == false)
 					{
 						//Sprawdzamy czy bohater mo¿e otworzyæ skrzyniê
-						if (mainHero->HandleChestCollision(basicGameLevels[currentLevelID]->basicChests[i]->worth) == true)
+						if (mainHero->HandleChestCollision(basicGameLevels[currentLevelID]->basicChests[i]->challenge) == true)
 						{
 							std::cout << "Chest has been collected!" << std::endl;
 
