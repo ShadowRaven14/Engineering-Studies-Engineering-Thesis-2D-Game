@@ -68,23 +68,6 @@
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
-    <NestedTypes>
-      <Enum Name="HeroChoices::TEST_GAME_MODE" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>HeroChoices.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="HeroChoices::RELATIONSHIP_WITH_MAGES" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>HeroChoices.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-      <Enum Name="HeroChoices::RELATIONSHIP_WITH_SENTINELS" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>HeroChoices.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAACAADAAAAAAAACAACAAAGAIAAAA=</HashCode>
       <FileName>HeroChoices.h</FileName>
@@ -100,7 +83,7 @@
   <Class Name="GameLevelManager" Collapsed="true">
     <Position X="8.5" Y="2.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAQABQQAEAgIAICgQIKwAFAAAQEgAQAAABAgECAACAA=</HashCode>
+      <HashCode>AAQABQQAEAgIAICgQIKwAFAAAQEgAQAAABAgECAASAA=</HashCode>
       <FileName>GameLevelManager.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -114,7 +97,7 @@
   <Class Name="__VirtualObject" Collapsed="true">
     <Position X="9.5" Y="8.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>gABQAAgFAAAAAAAAAAAQAAAAAAQBBAAAAAAQAAAJQAA=</HashCode>
+      <HashCode>gABQAAgFAAgAAAAAAAAQAAAAAAQBBAAAAAAQAAAJQAA=</HashCode>
       <FileName>__VirtualObject.h</FileName>
     </TypeIdentifier>
   </Class>

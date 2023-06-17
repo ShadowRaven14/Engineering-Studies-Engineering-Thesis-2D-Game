@@ -4,7 +4,7 @@ HeroBasicClass::HeroBasicClass()
 {
 	HeroName = "Hero";
 	HeroHealthPoints = 25;
-	Strength = 1000, Intelligence = 1000, Agility = 1000;
+	Strength = 10, Intelligence = 10, Agility = 10;
 
 	ScorePoints = 0;
 	CollectedChests = 0;
@@ -38,7 +38,7 @@ bool HeroBasicClass::IsHeroAlive()
 		{
 			std::cout << "YOU HAVE DIED..." << std::endl;
 			
-			std::ofstream write("Player scores/PlayerScores.txt");
+			std::ofstream write("PlayerScores/PlayerScores.txt", std::ios_base::app);
 			write << "- - - - GAME OVER - - - -" << std::endl;
 			write << "HeroName: " << HeroName << std::endl;
 			write << "HeroHealthPoints: " << HeroHealthPoints << std::endl;

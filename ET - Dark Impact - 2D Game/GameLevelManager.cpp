@@ -105,14 +105,6 @@ void GameLevelManager::Render()
 
 void GameLevelManager::Clean()
 {
-	SDL_DestroyTexture(textHealthPointsObject->fontTexture);
-	SDL_DestroyTexture(textScorePointsObject->fontTexture);
-	SDL_DestroyTexture(textStrengthObject->fontTexture);
-	SDL_DestroyTexture(textAgilityObject->fontTexture);
-	SDL_DestroyTexture(textIntelligenceObject->fontTexture);
-	SDL_DestroyTexture(textMageRelationsObject->fontTexture);
-	SDL_DestroyTexture(textSentinelsRelationsObject->fontTexture);
-
 	textHealthPointsObject = nullptr;
 	textScorePointsObject = nullptr;
 	textStrengthObject = nullptr;
@@ -446,65 +438,62 @@ void GameLevelManager::HeroCollide_With_SentinelEnemy()
 
 void GameLevelManager::HandleTextUpdate()
 {
-	int numText; std::string strText; int h = 0;
+	if (mainHero->inputFromKeyboard == 't')
+	{
+		int numText; std::string strText; int h = 0;
 
-	h = h + 35;
-	numText = mainHero->HeroHealthPoints;
-	strText = std::to_string(numText);
-	strText = " HeroHealthPoints: " + strText;
-	char const* pcharText_HeroHealthPoints = strText.c_str();
-	textHealthPointsObject = nullptr;
-	textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
+		h = h + 35;
+		numText = mainHero->HeroHealthPoints;
+		strText = std::to_string(numText);
+		strText = " HeroHealthPoints: " + strText;
+		char const* pcharText_HeroHealthPoints = strText.c_str();
+		textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h + 25;
-	numText = mainHero->ScorePoints;
-	strText = std::to_string(numText);
-	strText = " ScorePoints: " + strText;
-	char const* pcharText_ScorePoints = strText.c_str();
-	textScorePointsObject = nullptr;
-	textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
-
-
-	h = h + 35;
-	numText = mainHero->Strength;
-	strText = std::to_string(numText);
-	strText = " Strength: " + strText;
-	char const* pcharText_Strength = strText.c_str();
-	textStrengthObject = nullptr;
-	textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
-
-	h = h + 25;
-	numText = mainHero->Agility;
-	strText = std::to_string(numText);
-	strText = " Agility: " + strText;
-	char const* pcharText_Agility = strText.c_str();
-	textAgilityObject = nullptr;
-	textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
-
-	h = h + 25;
-	numText = mainHero->Intelligence;
-	strText = std::to_string(numText);
-	strText = " Intelligence: " + strText;
-	char const* pcharText_Intelligence = strText.c_str();
-	textIntelligenceObject = nullptr;
-	textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
+		h = h + 25;
+		numText = mainHero->ScorePoints;
+		strText = std::to_string(numText);
+		strText = " ScorePoints: " + strText;
+		char const* pcharText_ScorePoints = strText.c_str();
+		textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 
-	h = h + 35;
-	numText = heroChoices.relationMages;
-	strText = std::to_string(numText);
-	strText = " MageRelations: " + strText;
-	char const* pcharText_MageRelations = strText.c_str();
-	textMageRelationsObject = nullptr;
-	textMageRelationsObject = new TextObject(pcharText_MageRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
+		h = h + 35;
+		numText = mainHero->Strength;
+		strText = std::to_string(numText);
+		strText = " Strength: " + strText;
+		char const* pcharText_Strength = strText.c_str();
+		textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
 
-	h = h + 25;
-	numText = heroChoices.relationSentinels;
-	strText = std::to_string(numText);
-	strText = " SentinelsRelations: " + strText;
-	char const* pcharText_SentinelsRelations = strText.c_str();
-	textSentinelsRelationsObject = nullptr;
-	textSentinelsRelationsObject = new TextObject(pcharText_SentinelsRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
+		h = h + 25;
+		numText = mainHero->Agility;
+		strText = std::to_string(numText);
+		strText = " Agility: " + strText;
+		char const* pcharText_Agility = strText.c_str();
+		textAgilityObject = nullptr;
+		textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+		h = h + 25;
+		numText = mainHero->Intelligence;
+		strText = std::to_string(numText);
+		strText = " Intelligence: " + strText;
+		char const* pcharText_Intelligence = strText.c_str();
+		textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+
+		h = h + 35;
+		numText = heroChoices.relationMages;
+		strText = std::to_string(numText);
+		strText = " MageRelations: " + strText;
+		char const* pcharText_MageRelations = strText.c_str();
+		textMageRelationsObject = new TextObject(pcharText_MageRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
+
+		h = h + 25;
+		numText = heroChoices.relationSentinels;
+		strText = std::to_string(numText);
+		strText = " SentinelsRelations: " + strText;
+		char const* pcharText_SentinelsRelations = strText.c_str();
+		textSentinelsRelationsObject = new TextObject(pcharText_SentinelsRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
+	}
 }
 
 
@@ -524,12 +513,12 @@ void GameLevelManager::HandleTextRender()
 
 		mainHero->inputFromKeyboard = ' ';
 
-		/*SDL_DestroyTexture(textHealthPointsObject->fontTexture);
+		SDL_DestroyTexture(textHealthPointsObject->fontTexture);
 		SDL_DestroyTexture(textScorePointsObject->fontTexture);
 		SDL_DestroyTexture(textStrengthObject->fontTexture);
 		SDL_DestroyTexture(textAgilityObject->fontTexture);
 		SDL_DestroyTexture(textIntelligenceObject->fontTexture);
 		SDL_DestroyTexture(textMageRelationsObject->fontTexture);
-		SDL_DestroyTexture(textSentinelsRelationsObject->fontTexture);*/
+		SDL_DestroyTexture(textSentinelsRelationsObject->fontTexture);
 	}
 }

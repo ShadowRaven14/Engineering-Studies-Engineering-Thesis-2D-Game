@@ -1,0 +1,64 @@
+- - - - GAME OVER - - - -
+HeroName: Hero
+HeroHealthPoints: 0
+Strength: 12
+Agility: 10
+Intelligence: 14
+- - - Objectives - - -
+ScorePoints: 60
+CollectedChests: 1
+CollectedCoins: 4
+SlayedEnemies: 0
+- - - - - - - - - - -
+- - - - GAME OVER - - - -
+
+
+
+- - - - GAME OVER - - - -
+HeroName: Hero
+HeroHealthPoints: 0
+Strength: 10
+Agility: 10
+Intelligence: 11
+- - - Objectives - - -
+ScorePoints: 260
+CollectedChests: 6
+CollectedCoins: 2
+SlayedEnemies: 0
+- - - - - - - - - - -
+- - - - GAME OVER - - - -
+
+
+
+- - - - GAME OVER - - - -
+HeroName: Hero
+HeroHealthPoints: 0
+Strength: 10
+Agility: 10
+Intelligence: 14
+- - - Objectives - - -
+ScorePoints: 60
+CollectedChests: 1
+CollectedCoins: 4
+SlayedEnemies: 0
+- - - - - - - - - - -
+- - - - GAME OVER - - - -
+
+
+
+- - - - GAME OVER - - - -
+HeroName: Hero
+HeroHealthPoints: 0
+Strength: 10
+Agility: 14
+Intelligence: 13
+- - - Objectives - - -
+ScorePoints: 20
+CollectedChests: 1
+CollectedCoins: 0
+SlayedEnemies: 0
+- - - - - - - - - - -
+- - - - GAME OVER - - - -
+
+
+
