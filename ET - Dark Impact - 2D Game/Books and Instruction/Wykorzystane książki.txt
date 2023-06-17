@@ -1,0 +1,9 @@
+"Effective C++: 55 Specific Ways to Improve Your Programs and Designs" autorstwa Scotta Meyersa - ta książka skupia się na zaawansowanym programowaniu w języku C++, prezentując skuteczne techniki i praktyki programistyczne.
+
+"Design Patterns: Elements of Reusable Object-Oriented Software" autorstwa Gang of Four (Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides) - to klasyka literatury programistycznej, która przedstawia różnorodne wzorce projektowe, które można zastosować w programowaniu obiektowym.
+
+"Beginning C++ Through Game Programming" autorstwa Michaela Dawsona - ta książka wprowadza czytelnika w świat programowania w języku C++ poprzez tworzenie prostych gier. Jest to świetny zasób dla osób zainteresowanych programowaniem gier.
+
+"SDL Game Development" autorstwa Shaun Mitchella - ta książka skupia się na tworzeniu gier za pomocą biblioteki SDL. Zawiera praktyczne porady, przykłady kodu i omawia podstawowe koncepcje związane z programowaniem gier 2D.
+
+"Beginning Game Programming: A GameDev.net Collection" autorstwa Johna H. Thompsona - ta książka zawiera zbiór artykułów i tutoriali z GameDev.net, popularnego portalu dla programistów gier. Obejmuje szeroki zakres tematów, od podstaw programowania gier po bardziej zaawansowane techniki.

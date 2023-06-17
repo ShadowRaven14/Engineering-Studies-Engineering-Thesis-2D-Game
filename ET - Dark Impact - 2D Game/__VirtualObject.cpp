@@ -28,6 +28,13 @@ void __VirtualObject::BasicRender()
 	SDL_RenderCopy(Game::mainGameRender, currentObjectTexture, &srcRect, &destRect);
 }
 
+void __VirtualObject::BasicDelete()
+{
+	usableTextures.clear();
+	SDL_DestroyTexture(currentObjectTexture);
+	delete currentObjectTexture;
+}
+
 //Generowanie losowej pozycji
 void __VirtualObject::RandomizeCoordinates(const char* texturesheet)
 {

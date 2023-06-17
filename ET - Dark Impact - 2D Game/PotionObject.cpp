@@ -34,3 +34,8 @@ PotionObject::PotionObject(unsigned short type)
 
 	RandomizeCoordinates(usableTextures[0]); //Podstawowa funkcja z klasy interfejsu
 }
+
+PotionObject::~PotionObject()
+{
+	BasicDelete();
+}

@@ -30,14 +30,14 @@ TeleportObject::TeleportObject(unsigned short type)
 
 	case 3:
 		destination = 3;
-		challenge = 30;
+		challenge = 60;
 		tempTex = "Images/PortalGreen.png";
 		usableTextures.push_back(tempTex);
 		break;
 
 	case 4:
 		destination = 4;
-		challenge = 45;
+		challenge = 75;
 		tempTex = "Images/PortalYellow.png";
 		usableTextures.push_back(tempTex);
 		break;
@@ -77,4 +77,9 @@ TeleportObject::TeleportObject(const TeleportObject& tempObject)
 	currentObjectTexture = tempObject.currentObjectTexture;
 	cordsOfObject = tempObject.cordsOfObject;
 	destination = tempObject.destination;
+}
+
+TeleportObject::~TeleportObject()
+{
+	BasicDelete();
 }

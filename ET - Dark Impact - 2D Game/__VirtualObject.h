@@ -12,6 +12,7 @@ public:
 	void BasicInit(const char* texturesheet, int x, int y); //Tworzenie obiektu
 	void BasicUpdate(); //Aktualizowanie obiektu
 	void BasicRender(); //Renderowanie obiektu
+	void BasicDelete(); //Renderowanie obiektu
 
 	void RandomizeCoordinates(const char* texturesheet); //Generowanie losowej pozycji
 	

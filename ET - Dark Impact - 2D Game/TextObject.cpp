@@ -32,6 +32,13 @@ TextObject::TextObject(const char* bnInfo, SDL_Color* bnColor, int x, int y)
 	displayTextX = x; displayTextY = y;
 }
 
+TextObject::~TextObject()
+{
+	delete info;
+	delete color;
+	delete fontTexture;
+}
+
 //Aktualizacja
 void TextObject::Update()
 {

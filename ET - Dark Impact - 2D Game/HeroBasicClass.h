@@ -18,6 +18,7 @@ public:
 	bool HandleAppleCollision(unsigned short power);
 	bool HandleCoinCollision(unsigned short power);
 	bool HandlePotionCollision(unsigned short power);
+	bool HandlePotionCollision(unsigned short power, unsigned short n);
 
 
 	std::string HeroName = "Hero";

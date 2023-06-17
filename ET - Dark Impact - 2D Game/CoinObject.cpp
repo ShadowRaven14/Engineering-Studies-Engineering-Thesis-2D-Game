@@ -33,3 +33,8 @@ CoinObject::CoinObject(const char* texturesheet)
 {
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu
 }
+
+CoinObject::~CoinObject()
+{
+	BasicDelete();
+}

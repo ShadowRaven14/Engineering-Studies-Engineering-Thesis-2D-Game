@@ -10,6 +10,23 @@ int BackgroundMap::mapY = Game::objectsSize * 29;
 Point BackgroundMap::heroInMap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
 Point BackgroundMap::middleOFmap = Point((mapX - Game::objectsSize) / 2, (mapY - Game::objectsSize) / 2);
 
+BackgroundMap::BackgroundMap()
+{
+	std::cout << "=> " << "THE MAP HAS BEEN CREATED." << std::endl;
+	InitializeTextures();
+	RandomizeMap();
+
+	srcRect.h = 1200; //Wysokoœæ w pikselach
+	srcRect.w = 1200; //Szerokoœæ w pikselach
+	srcRect.x = 0;
+	srcRect.y = 0;
+
+	destRect.h = Game::objectsSize; //Wysokoœæ w grze
+	destRect.w = Game::objectsSize; //Szerokoœæ w grze
+	destRect.x = 0;
+	destRect.y = 0;
+}
+
 BackgroundMap::BackgroundMap(std::string mapname)
 {
 	std::cout << "=> " << "THE MAP HAS BEEN CREATED." << std::endl;

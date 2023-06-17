@@ -76,6 +76,11 @@ MainHeroObject::MainHeroObject(const MainHeroObject& tempHero)
 	speedShift = tempHero.speedShift;
 }
 
+MainHeroObject::~MainHeroObject()
+{
+	BasicDelete();
+}
+
 //Konstruktor bohatera
 MainHeroObject& MainHeroObject::operator= (const MainHeroObject& tempHero)
 {

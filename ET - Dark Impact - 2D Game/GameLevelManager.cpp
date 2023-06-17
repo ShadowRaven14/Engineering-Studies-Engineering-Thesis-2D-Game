@@ -39,6 +39,22 @@ GameLevelManager::GameLevelManager()
 			new Point(640, 448))
 	);
 
+	//Poziom Trzeci
+	basicGameLevels.push_back(
+		new GameLevel(
+			3, "Hi! Welcome to 3rd level!",
+			new SDL_Color{ 100, 100, 100 },
+			new Point(640, 448))
+	);
+
+	//Poziom Czwarty
+	basicGameLevels.push_back(
+		new GameLevel(
+			4, "Hi! Welcome to 4rd level!",
+			new SDL_Color{ 100, 100, 100 },
+			new Point(640, 448))
+	);
+
 	//Ustawiamy ID tak aby wskaza³o Poziom na którym jesteœmy
 	currentLevelID = 0;
 
@@ -50,6 +66,12 @@ GameLevelManager::GameLevelManager()
 
 	int tempShiftY = BackgroundMap::middleOFmap.y - mainHero->pointInGame.y;
 	BackgroundMap::mapShiftY = BackgroundMap::mapShiftY - tempShiftY;
+}
+
+GameLevelManager::~GameLevelManager()
+{
+	basicGameLevels.clear();
+	delete mainHero;
 }
 
 //Aktualizacja
@@ -79,6 +101,25 @@ void GameLevelManager::Render()
 	mainHero->Render();
 
 	HandleTextRender();
+}
+
+void GameLevelManager::Clean()
+{
+	SDL_DestroyTexture(textHealthPointsObject->fontTexture);
+	SDL_DestroyTexture(textScorePointsObject->fontTexture);
+	SDL_DestroyTexture(textStrengthObject->fontTexture);
+	SDL_DestroyTexture(textAgilityObject->fontTexture);
+	SDL_DestroyTexture(textIntelligenceObject->fontTexture);
+	SDL_DestroyTexture(textMageRelationsObject->fontTexture);
+	SDL_DestroyTexture(textSentinelsRelationsObject->fontTexture);
+
+	textHealthPointsObject = nullptr;
+	textScorePointsObject = nullptr;
+	textStrengthObject = nullptr;
+	textAgilityObject = nullptr;
+	textIntelligenceObject = nullptr;
+	textMageRelationsObject = nullptr;
+	textSentinelsRelationsObject = nullptr;
 }
 
 void GameLevelManager::HandleHeroMovement()
@@ -304,8 +345,14 @@ void GameLevelManager::HeroCollide_With_PotionItem()
 			{
 				std::cout << "Potion has been collected!" << std::endl;
 				
+				unsigned short n = 5;
+				const char* tempTex = basicGameLevels[currentLevelID]->basicItemPotions[i]->usableTextures[0];
+				if (tempTex == "Images/PotionStrength.png") n = 0;
+				if (tempTex == "Images/PotionIntelligence.png") n = 1;
+				if (tempTex == "Images/PotionAgility.png") n = 2;
+
 				//Sprawdzamy czy bohater mo¿e zebraæ miksturê
-				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicItemPotions[i]->power) == true)
+				if (mainHero->HandlePotionCollision(basicGameLevels[currentLevelID]->basicItemPotions[i]->power, n) == true)
 				{
 					mainHero->ChangeHeroTexture_DamageOrHeal(false);
 					std::cout << " HERO HEALTH: " << mainHero->HeroHealthPoints << std::endl;
@@ -406,6 +453,7 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " HeroHealthPoints: " + strText;
 	char const* pcharText_HeroHealthPoints = strText.c_str();
+	textHealthPointsObject = nullptr;
 	textHealthPointsObject = new TextObject(pcharText_HeroHealthPoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
@@ -413,6 +461,7 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " ScorePoints: " + strText;
 	char const* pcharText_ScorePoints = strText.c_str();
+	textScorePointsObject = nullptr;
 	textScorePointsObject = new TextObject(pcharText_ScorePoints, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 
@@ -421,6 +470,7 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " Strength: " + strText;
 	char const* pcharText_Strength = strText.c_str();
+	textStrengthObject = nullptr;
 	textStrengthObject = new TextObject(pcharText_Strength, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
@@ -428,6 +478,7 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " Agility: " + strText;
 	char const* pcharText_Agility = strText.c_str();
+	textAgilityObject = nullptr;
 	textAgilityObject = new TextObject(pcharText_Agility, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
@@ -435,6 +486,7 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " Intelligence: " + strText;
 	char const* pcharText_Intelligence = strText.c_str();
+	textIntelligenceObject = nullptr;
 	textIntelligenceObject = new TextObject(pcharText_Intelligence, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 
@@ -443,13 +495,15 @@ void GameLevelManager::HandleTextUpdate()
 	strText = std::to_string(numText);
 	strText = " MageRelations: " + strText;
 	char const* pcharText_MageRelations = strText.c_str();
+	textMageRelationsObject = nullptr;
 	textMageRelationsObject = new TextObject(pcharText_MageRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
 
 	h = h + 25;
 	numText = heroChoices.relationSentinels;
 	strText = std::to_string(numText);
 	strText = " SentinelsRelations: " + strText;
-	char const* pcharText_SentinelsRelations = strText.c_str();	
+	char const* pcharText_SentinelsRelations = strText.c_str();
+	textSentinelsRelationsObject = nullptr;
 	textSentinelsRelationsObject = new TextObject(pcharText_SentinelsRelations, new SDL_Color{ 10, 10, 10 }, 0, h);
 }
 
@@ -469,11 +523,13 @@ void GameLevelManager::HandleTextRender()
 		textSentinelsRelationsObject->Render();	
 
 		mainHero->inputFromKeyboard = ' ';
-	}
 
-	/*SDL_DestroyTexture(textHealthPointsObject->fontTexture);
-	SDL_DestroyTexture(textScorePointsObject->fontTexture);
-	SDL_DestroyTexture(textStrengthObject->fontTexture);
-	SDL_DestroyTexture(textAgilityObject->fontTexture);
-	SDL_DestroyTexture(textIntelligenceObject->fontTexture);*/
+		/*SDL_DestroyTexture(textHealthPointsObject->fontTexture);
+		SDL_DestroyTexture(textScorePointsObject->fontTexture);
+		SDL_DestroyTexture(textStrengthObject->fontTexture);
+		SDL_DestroyTexture(textAgilityObject->fontTexture);
+		SDL_DestroyTexture(textIntelligenceObject->fontTexture);
+		SDL_DestroyTexture(textMageRelationsObject->fontTexture);
+		SDL_DestroyTexture(textSentinelsRelationsObject->fontTexture);*/
+	}
 }

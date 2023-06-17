@@ -21,6 +21,96 @@ GameLevel::GameLevel()
 }
 
 //Konstruktor
+GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, Point* bnStart)
+{
+	std::cout << "=> " << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
+
+	//Identyfikator danego poziomu
+	levelID = bnID;
+
+	//Wyœwietlenie tekstu powitalnego
+	info = bnInfo;
+	color = bnColor;
+	fontTexture = FontTextureManager::InitTextDisplay(25, info, *color);
+
+	//Przygotowanie mapy i bohatera
+	basicMap = new BackgroundMap();
+	startingPoint = bnStart;
+
+	//Iloœæ generowanych obiektów
+	int rand_quantity;
+	int rand_type;
+
+	//Tworzymy portal do kolejnego poziomu
+	if (levelID < 4) //Jeœli nie jesteœmy na ostatnim poziomie, tworzymy portal do kolejnego poziomu
+		basicTeleports.push_back(new TeleportObject(levelID + 1));
+	if (levelID > 0) //Jeœli nie jesteœmy na poziomie startowym, tworzymy portal do wczeœniejszego poziomu
+		basicTeleports.push_back(new TeleportObject(levelID - 1));
+
+	//Dodanie elementów do wektora basicChests
+	rand_quantity = rand() % 8 + 2;
+	std::cout << "==> " << rand_quantity << " chests spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3;
+		ChestObject* basicChest = new ChestObject(rand_type);
+		basicChests.push_back(basicChest);
+	}
+
+	//Dodanie elementów do wektora basicItemApples
+	rand_quantity = rand() % 2 + 2;
+	std::cout << "==> " << rand_quantity << " apples item spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3;
+		AppleItemObject* basicApple = new AppleItemObject(rand_type);
+		basicItemApples.push_back(basicApple);
+	}
+
+	//Dodanie elementów do wektora basicItemCoins
+	rand_quantity = rand() % 20 + 20;
+	std::cout << "==> " << rand_quantity << " coins item spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = 0;
+		CoinObject* basicCoin = new CoinObject(rand_type);
+		basicItemCoins.push_back(basicCoin);
+	}
+
+	//Dodanie elementów do wektora basicItemPotions
+	rand_quantity = rand() % 8 + 2;
+	std::cout << "==> " << rand_quantity << " potions item spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3;
+		PotionObject* basicPotion = new PotionObject(rand_type);
+		basicItemPotions.push_back(basicPotion);
+	}
+
+	//Dodanie elementów do wektora basicMageEnemies
+	rand_quantity = rand() % 2 + 2;
+	std::cout << "==> " << rand_quantity << " mage enemies spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 3;
+		EnemyMageObject* basicEnemy = new EnemyMageObject(rand_type);
+		basicMageEnemies.push_back(basicEnemy);
+	}
+
+	//Dodanie elementów do wektora basicSentinelEnemies
+	rand_quantity = rand() % 2 + 1;
+	std::cout << "==> " << rand_quantity << " sentinel enemies spawn." << std::endl;
+	for (int i = 0; i < rand_quantity; i++)
+	{
+		rand_type = rand() % 2;
+		EnemySentinelObject* basicEnemy = new EnemySentinelObject(rand_type);
+		basicSentinelEnemies.push_back(basicEnemy);
+	}
+
+	std::cout << std::endl;
+}
+
+//Konstruktor
 GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::string bnMap, Point* bnStart)
 {
 	std::cout << "=> " << "THE NEW GAME_LEVEL LOADED. IT'S ID = " << bnID << "." << std::endl;
@@ -42,7 +132,7 @@ GameLevel::GameLevel(short bnID, const char* bnInfo, SDL_Color* bnColor, std::st
 	int rand_type;
 
 	//Tworzymy portal do kolejnego poziomu
-	if (levelID < 2) //Jeœli nie jesteœmy na ostatnim poziomie, tworzymy portal do kolejnego poziomu
+	if (levelID < 4) //Jeœli nie jesteœmy na ostatnim poziomie, tworzymy portal do kolejnego poziomu
 		basicTeleports.push_back(new TeleportObject(levelID + 1));
 	if (levelID > 0) //Jeœli nie jesteœmy na poziomie startowym, tworzymy portal do wczeœniejszego poziomu
 		basicTeleports.push_back(new TeleportObject(levelID - 1));
@@ -181,6 +271,23 @@ GameLevel::GameLevel(const GameLevel& tempLevel)
 
 	basicMageEnemies = tempLevel.basicMageEnemies;
 	basicSentinelEnemies = tempLevel.basicSentinelEnemies;
+}
+
+GameLevel::~GameLevel()
+{
+	delete info;
+	delete color;
+	delete fontTexture;
+	delete startingPoint;
+	delete basicMap;
+
+	basicTeleports.clear();
+	basicChests.clear();
+	basicItemApples.clear();
+	basicItemCoins.clear();
+	basicItemPotions.clear();
+	basicMageEnemies.clear();
+	basicSentinelEnemies.clear();
 }
 
 //Przeci¹¿enie operatora

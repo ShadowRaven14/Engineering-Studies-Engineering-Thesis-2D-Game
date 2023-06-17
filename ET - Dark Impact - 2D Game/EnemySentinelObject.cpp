@@ -74,4 +74,5 @@ EnemySentinelObject::EnemySentinelObject(const char* texturesheet)
 //Destruktor
 EnemySentinelObject::~EnemySentinelObject()
 {
+	BasicDelete();
 }

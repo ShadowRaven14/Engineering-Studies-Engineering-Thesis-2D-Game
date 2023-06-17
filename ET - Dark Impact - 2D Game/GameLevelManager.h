@@ -14,6 +14,7 @@ public:
 	~GameLevelManager(); //Destruktor
 	void Update(); //Aktualizacja
 	void Render(); //Renderowanie
+	void Clean(); //Czyszczenie
 
 	//Zaawansowane
 	void HandleHeroMovement();

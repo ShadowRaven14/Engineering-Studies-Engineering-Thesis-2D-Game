@@ -4,7 +4,7 @@ HeroBasicClass::HeroBasicClass()
 {
 	HeroName = "Hero";
 	HeroHealthPoints = 25;
-	Strength = 10, Intelligence = 10, Agility = 10;
+	Strength = 1000, Intelligence = 1000, Agility = 1000;
 
 	ScorePoints = 0;
 	CollectedChests = 0;
@@ -15,14 +15,12 @@ HeroBasicClass::HeroBasicClass()
 void HeroBasicClass::CurrentStatistics()
 {
 	std::cout << std::endl;
-	std::cout << "- - - Objectives - - -" << std::endl;
+	std::cout << "HeroName: " << HeroName << std::endl;
 	std::cout << "Strength: " << Strength << std::endl;
 	std::cout << "Agility: " << Agility << std::endl;
 	std::cout << "Intelligence: " << Intelligence << std::endl;
-	std::cout << "- - - - - - - - - - -" << std::endl;
 
 	std::cout << "- - - Objectives - - -" << std::endl;
-	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
 	std::cout << "ScorePoints: " << ScorePoints << std::endl;
 	std::cout << "CollectedChests: " << CollectedChests << std::endl;
 	std::cout << "CollectedCoins: " << CollectedCoins << std::endl;
@@ -39,6 +37,26 @@ bool HeroBasicClass::IsHeroAlive()
 		if (HeroHealthPoints <= 0)
 		{
 			std::cout << "YOU HAVE DIED..." << std::endl;
+			
+			std::ofstream write("Player scores/PlayerScores.txt");
+			write << "- - - - GAME OVER - - - -" << std::endl;
+			write << "HeroName: " << HeroName << std::endl;
+			write << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
+			write << "Strength: " << Strength << std::endl;
+			write << "Agility: " << Agility << std::endl;
+			write << "Intelligence: " << Intelligence << std::endl;
+
+			write << "- - - Objectives - - -" << std::endl;
+			write << "ScorePoints: " << ScorePoints << std::endl;
+			write << "CollectedChests: " << CollectedChests << std::endl;
+			write << "CollectedCoins: " << CollectedCoins << std::endl;
+			write << "SlayedEnemies: " << SlayedEnemies << std::endl;
+			write << "- - - - - - - - - - -" << std::endl;
+			write << "- - - - GAME OVER - - - -" << std::endl;
+
+			write << std::endl << std::endl << std::endl;
+
+			write.close();
 			return false;
 		}
 	}
@@ -141,6 +159,34 @@ bool HeroBasicClass::HandlePotionCollision(unsigned short power)
 
 	int r = rand() % 3;
 	switch (r)
+	{
+	case 0:
+		Strength = Strength + 1;
+
+		break;
+
+	case 1:
+		Intelligence = Intelligence + 1;
+		break;
+
+	case 2:
+		Agility = Agility + 1;
+		break;
+
+	default:
+		break;
+	}
+
+	//CurrentStatistics();
+	return true;
+}
+
+bool HeroBasicClass::HandlePotionCollision(unsigned short power, unsigned short n)
+{
+	HeroHealthPoints = HeroHealthPoints + power;
+	std::cout << "HeroHealthPoints: " << HeroHealthPoints << std::endl;
+
+	switch (n)
 	{
 	case 0:
 		Strength = Strength + 1;

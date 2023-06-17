@@ -87,6 +87,7 @@ void Game::Render()
 //Czyszczenie
 void Game::Clean()
 {
+	gameLevelManager->Clean();
 	TTF_Quit();
 	SDL_DestroyWindow(mainGameWindow);
 	SDL_DestroyRenderer(mainGameRender);

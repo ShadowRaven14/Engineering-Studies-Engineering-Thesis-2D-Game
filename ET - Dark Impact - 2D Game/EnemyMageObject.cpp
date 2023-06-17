@@ -84,4 +84,5 @@ EnemyMageObject::EnemyMageObject(const char* texturesheet)
 //Destruktor
 EnemyMageObject::~EnemyMageObject()
 {
+	BasicDelete();
 }

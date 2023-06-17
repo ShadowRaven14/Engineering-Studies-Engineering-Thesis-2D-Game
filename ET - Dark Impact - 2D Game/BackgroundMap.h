@@ -10,6 +10,7 @@ class BackgroundMap :
 {
 public:
 	//Podstawowe
+	BackgroundMap(); //Konstruktor
 	BackgroundMap(std::string mapname); //Konstruktor
 	~BackgroundMap(); //Destruktor
 	void Update(); //Aktualizacja //przesuwaj mapê

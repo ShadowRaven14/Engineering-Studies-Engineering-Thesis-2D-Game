@@ -38,4 +38,5 @@ AppleItemObject::AppleItemObject(unsigned short type)
 //Destruktor
 AppleItemObject::~AppleItemObject()
 {
+	BasicDelete();
 }

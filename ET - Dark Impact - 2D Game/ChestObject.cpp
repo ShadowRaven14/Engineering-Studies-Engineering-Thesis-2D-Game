@@ -56,3 +56,8 @@ ChestObject::ChestObject(const char* texturesheet)
 	RandomizeCoordinates(texturesheet);  //Podstawowa funkcja z klasy interfejsu
 	isOpen = false;
 }
+
+ChestObject::~ChestObject()
+{
+	BasicDelete();
+}
